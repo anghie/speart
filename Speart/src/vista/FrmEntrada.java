@@ -86,7 +86,7 @@ public class FrmEntrada extends JFrame implements Runnable {
      */
     private void creaJPanel() {
         //Creación del JPanel con imagen
-        pnl = new ImagenJPanel("entrada.jpg");
+        pnl = new ImagenJPanel("otro.jpg");
         pnl.setLayout(new BorderLayout());
         //Creación de un JPanel para poner dentro de el un JProgressBar
         JPanel pnlSur = new JPanel();
@@ -96,7 +96,7 @@ public class FrmEntrada extends JFrame implements Runnable {
         //Para BoxLayout
         Box b = new Box(BoxLayout.Y_AXIS);
         //Creación de barra de progreso
-        progreso = new JProgressBar(0, 200);
+        progreso = new JProgressBar(0, 300);
         progreso.setIndeterminate(true);
         //Añadiendo los componentes al box para luego añadirlos al panel
         b.add(progreso);
