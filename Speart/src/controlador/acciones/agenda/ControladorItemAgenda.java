@@ -20,9 +20,17 @@ public class ControladorItemAgenda {
             itemAgenda=new ItemAgenda();
         return itemAgenda;
     }
-    public static ItemAgenda searchActividad(String nombre) {
+    public static ItemAgenda searchItemAgenda(String nombre) {
        
        LinkedList<ItemAgenda> items= new LinkedList<ItemAgenda>(OperacionesBD.buscarTodos("ItemAgenda","nombre_actividad",nombre));
+        if(items!=null)
+            return items.getLast();
+        else
+            return null;
+    }
+     public static ItemAgenda searchItemAgenda(int idActividad) {
+       
+       LinkedList<ItemAgenda> items= new LinkedList<ItemAgenda>(OperacionesBD.buscarTodos("ItemAgenda","id",""+idActividad));
         if(items!=null)
             return items.getLast();
         else

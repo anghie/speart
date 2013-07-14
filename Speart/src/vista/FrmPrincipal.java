@@ -95,6 +95,7 @@ public class FrmPrincipal extends JFrame {
     private void poneImagenLogo() {
         pnlMedio = new JPanel();
         pnlMedio.setLayout(new BorderLayout());
+     
         //Poniendo imagen y logo
         pnlImagen = new ImagenJPanel("zzz.JPG");
         pnlImagen.setLayout(new BorderLayout());
@@ -110,6 +111,7 @@ public class FrmPrincipal extends JFrame {
         //Añadiendo el panel imagen al panel central
         pnlMedio.add(pnlImagen, BorderLayout.CENTER);
         this.add(pnlMedio, BorderLayout.CENTER);
+     
     }
     /*Metodo que ubica el panel inferior con la fecha y hora*/
     
@@ -126,8 +128,11 @@ public class FrmPrincipal extends JFrame {
         barraMenu = new JMenuBar();
         /*MENU INICIO*/
         menuInicio = new JMenu("Inicio");
+        menuInicio.setFont(new Font("Broadway", Font.BOLD, 15));
         menuServicios = new JMenu("Servicios");
+        menuServicios.setFont(new Font("Broadway", Font.BOLD, 15));
         menuAyuda = new JMenu("Ayuda");
+        menuAyuda.setFont(new Font("Broadway", Font.BOLD, 15));
         //Item Sesión
         mimenuSesion = new JMenu();
         creaMenuItem(mimenuSesion, menuInicio, "Sesion", "Iniciar/Cerrar Sesion", "lockstart_session.png");
@@ -232,28 +237,28 @@ public class FrmPrincipal extends JFrame {
 //        creaBotonToolbar(btnInicio, "Extra_sign.png");
         //Para el boton Usuarios
         btnUsuarios = new JButton("Usuarios");
-        creaBotonToolbar(getBtnUsuarios(), "list-resource-add.png");
+        creaBotonToolbar(getBtnUsuarios(), "033.png");
         //Para el botón Procesos
         btnProcesos = new JButton("Procesos");
-        creaBotonToolbar(getBtnProcesos(), "ADMIN2.png");
+        creaBotonToolbar(getBtnProcesos(), "procesos.png");
         //Para el botón Servicios
         btnServicios = new JButton("Servicios");
         creaBotonToolbar(getBtnServicios(), "kwrite.png");
         //Para el botón Respaldos
         btnRespaldos = new JButton("Respaldos");
-        creaBotonToolbar(getBtnRespaldos(), "harddrive2.png");
+        creaBotonToolbar(getBtnRespaldos(), "resp.png");
         //Para el botón Operaciones
         btnOperaciones = new JButton("Operaciones");
-        creaBotonToolbar(getBtnOperaciones(), "ADM.png");
+        creaBotonToolbar(getBtnOperaciones(), "opera.png");
         //Para el botón Evaluación
         btnEvaluacion = new JButton("Evaluación");
-        creaBotonToolbar(getBtnEvaluacion(), "PatientFile.png");
+        creaBotonToolbar(getBtnEvaluacion(), "eva.png");
         
         btnAgenda = new JButton("Agenda");
-        creaBotonToolbar(btnAgenda, "PatientFile.png");
+        creaBotonToolbar(btnAgenda, "agen.png");
         
         btnAgendaUsuario = new JButton("Agenda Usuario");
-        creaBotonToolbar(btnAgendaUsuario, "PatientFile.png");
+        creaBotonToolbar(btnAgendaUsuario, "agen.png");
         
         poneEventosToolbar();
         //Añadiendo la barra al la ventana
@@ -268,10 +273,11 @@ public class FrmPrincipal extends JFrame {
         btn.setIcon(new ImageIcon(cl.getResource("vista/imagenes/" + nombreIcono)));
         btn.setFocusable(false);
         btn.setHorizontalTextPosition(SwingConstants.CENTER);
-        btn.setMaximumSize(new Dimension(75, 65));
-        btn.setMinimumSize(new Dimension(75, 65));
-        btn.setPreferredSize(new Dimension(75, 65));
+        btn.setMaximumSize(new Dimension(80, 80));
+        btn.setMinimumSize(new Dimension(80, 80));
+        btn.setPreferredSize(new Dimension(80, 80));
         btn.setVerticalTextPosition(SwingConstants.BOTTOM);
+        btn.setFont(new Font("Comic Sans MS", Font.ITALIC, 15) );
         tbOeste.add(btn);
     }
     /*Metodo que asigna los eventos a los botones de la toolbar*/
@@ -400,8 +406,8 @@ public class FrmPrincipal extends JFrame {
                 cp.ponePanel(new PnlOperaciones());
                 setTitle("SPEIESS 2013 - Panel de Operaciones");
             } else if (evt.getSource() == btnAgenda) {
-                cp.ponePanel(new PanelAgenda("inicisv_1.jpg"));
-                setTitle("SPEIESS 2013 - Panel Agenda");
+               cp.ponePanel(new PanelAgenda("inicisv_1.jpg", userLogueado));
+                setTitle("SPEIESS 2013 - Panel Agenda Usuario");
             } else if (evt.getSource() == btnAgendaUsuario) {
                 cp.ponePanel(new PanelAgenda("inicisv_1.jpg", userLogueado));
                 setTitle("SPEIESS 2013 - Panel Agenda Usuario");

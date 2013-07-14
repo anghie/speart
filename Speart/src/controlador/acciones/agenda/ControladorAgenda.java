@@ -6,6 +6,7 @@
 package controlador.acciones.agenda;
 
 import controlador.basedatos.OperacionesBD;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -112,7 +113,7 @@ public class ControladorAgenda {
         return agenda;
     }
     public static Agenda getAgendaActual() {
-        String year=""+(new Date().getYear());
+        String year=""+Calendar.getInstance().get(Calendar.YEAR);
         Object obj=OperacionesBD.buscar("Agenda", "nombre", year);
         if(obj!=null)
             agenda=(Agenda) obj;

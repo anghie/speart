@@ -172,7 +172,7 @@ public class DialogoExpertoAgenda extends javax.swing.JDialog {
         LinkedList<ItemAgenda>items=new LinkedList<ItemAgenda>();
         for (Iterator<String> it = idActividades.iterator(); it.hasNext();) {
             String nombre = it.next();
-            ItemAgenda itemAgenda= ControladorItemAgenda.searchActividad(nombre);
+            ItemAgenda itemAgenda= ControladorItemAgenda.searchItemAgenda(nombre);
             if(itemAgenda!=null){
                items.add(itemAgenda);
             }
