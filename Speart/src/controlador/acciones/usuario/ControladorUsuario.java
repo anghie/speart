@@ -67,7 +67,6 @@ public class ControladorUsuario {
         ControladorPrincipal.coloreaErroresPsw(pu.getPnlDatosAcceso());
     }
 
-
     /**
      * Método para verificar si la cedula ingresada es la correcta
      *
@@ -75,8 +74,8 @@ public class ControladorUsuario {
      * @return false Si la cedula no es correcta
      *
      */
-    private boolean verificaCedula() {
-        return OperacionesVarias.validadorDeCedula(pu.getTxtCedula().getText());
+    private boolean verificaCedula(String ced) {
+        return OperacionesVarias.validadorDeCedula(ced);
     }
 
     /**
@@ -102,7 +101,7 @@ public class ControladorUsuario {
      *
      */
     public void guardaUsuario() {
-        if (verificaCedula()) {
+        if (verificaCedula(pu.getTxtCedula().getText())) {
             String clave = String.valueOf(pu.getTxtClave().getPassword());
             String confirm = String.valueOf(pu.getTxtConfirm().getPassword());
             if (clave.equals(confirm)) {
@@ -277,22 +276,27 @@ public class ControladorUsuario {
      * Metodo para asignar los datos al usuario a modificar
      */
     public void modificarUsuario() {
-        usuario.setCedula(pu.getTxtCedulaModif().getText());
-        usuario.setNombre(pu.getTxtNomModif().getText());
-        usuario.setApellidos(pu.getTxtApelModif().getText());
-        usuario.setProfesion(pu.getTxtProfModif().getText());
-        rol.setCargo(pu.getTxtCargoModif().getText());
-        rol.sethExt(Integer.parseInt(pu.getTxtHExtModif().getText()));
-        rol.sethLab(Integer.parseInt(pu.getTxtHLabModif().getText()));
-        rol.setRem(Integer.parseInt(pu.getTxtRemModif().getText()));
-        usuario.setRol(rol);
-        if (OperacionesBD.modificar(usuario)) {
-            Mensaje.datosModificados();
-            limpiaCamposModif();
-            pu.poneHabilitados(false);
-            actualizaTabla();
-        } else {
-            Mensaje.datosNoModificados();
+        if (verificaCedula(pu.getTxtCedulaModif().getText())) {
+            usuario.setCedula(pu.getTxtCedulaModif().getText());
+            usuario.setNombre(pu.getTxtNomModif().getText());
+            usuario.setApellidos(pu.getTxtApelModif().getText());
+            usuario.setProfesion(pu.getTxtProfModif().getText());
+            rol.setCargo(pu.getTxtCargoModif().getText());
+            rol.sethExt(Integer.parseInt(pu.getTxtHExtModif().getText()));
+            rol.sethLab(Integer.parseInt(pu.getTxtHLabModif().getText()));
+            rol.setRem(Integer.parseInt(pu.getTxtRemModif().getText()));
+            usuario.setRol(rol);
+            if (OperacionesBD.modificar(usuario)) {
+                Mensaje.datosModificados();
+                limpiaCamposModif();
+                pu.poneHabilitados(false);
+                actualizaTabla();
+            } else {
+                Mensaje.datosNoModificados();
+            }
+        }else {
+            JOptionPane.showMessageDialog(null, "Cedula incorrecta", "La cédula ingresada es incorrecta", JOptionPane.ERROR_MESSAGE);
+            pu.getTxtCedulaModif().setBorder(new LineBorder(Color.red));
         }
     }
 

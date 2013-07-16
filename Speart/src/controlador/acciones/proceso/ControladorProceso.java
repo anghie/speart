@@ -90,23 +90,26 @@ public class ControladorProceso {
 
     public void guardaActividad() {
         a = new Actividad();
-        setActividad();
-        Proceso p = procesos.get(pp.getCbProcesos().getSelectedIndex());
-        a.setProcesito(p);
-        p.addActividad(a);
-        if (OperacionesBD.modificar(p)) {
-            Mensaje.datosGuardados();
-            limpiaCampos();
-        } else {
-            Mensaje.datosNoGuardados();
-        }
+        if (obtenerSeleccionado(pp.getGrupoBotones())!=null) {
+            setActividad();
+            Proceso p = procesos.get(pp.getCbProcesos().getSelectedIndex());
+            a.setProcesito(p);
+            p.addActividad(a);
+            if (OperacionesBD.modificar(p)) {
+                Mensaje.datosGuardados();
+                limpiaCampos();
+            } else {
+                Mensaje.datosNoGuardados();
+            }
 //        if (OperacionesBD.guardar(a)) {
 //            Mensaje.datosGuardados();
 //            limpiaCampos();
 //        } else {
 //            Mensaje.datosNoGuardados();
 //        }
-
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe seleccionar la frecuencia");
+        }
     }
 
     public void setActividad() {
@@ -207,8 +210,11 @@ public class ControladorProceso {
         p = procesos.get(pp.getCbProcesosLista().getSelectedIndex());
         String s = JOptionPane.showInputDialog("Ingrese el nombre para el proceso");
         if (!s.isEmpty()) {
+            p.setNombreProceso(s);
             if (OperacionesBD.modificar(p)) {
-                Mensaje.datosModificados();
+                Mensaje.datosModificados();     
+                poneComboLstProc();
+                poneComboProcesos();
             } else {
                 Mensaje.datosNoModificados();
             }

@@ -87,8 +87,9 @@ public class OperacionesBD {
         try {
             entidad.getTransaction().begin();
             clase = entidad.find(clase.getClass(), campoId);
-            if (clase != null) {
+            if (clase != null) {                
                 entidad.remove(clase);
+                System.out.println("si llega");
             } else {
                 return false;
             }
@@ -137,11 +138,12 @@ public class OperacionesBD {
         }
         return obj;
     }
-      public static Object buscar(String nombreTabla,String nomCampo1,String nomCampo2,String nomCampo3,String nomCampo4, String campo1,String campo2,int campo3,int campo4) {
+
+    public static Object buscar(String nombreTabla, String nomCampo1, String nomCampo2, String nomCampo3, String nomCampo4, String campo1, String campo2, int campo3, int campo4) {
         Object obj = null;
         entidad.getTransaction().begin();
         try {
-            obj = entidad.createQuery("Select a from " + nombreTabla + " a where " + nomCampo1 + " = '" + campo1 + "' and "+ nomCampo2 + " = '" + campo2 +"' and "+ nomCampo3 + " = " + campo3 + " "+" and "+ nomCampo3 + " = " + campo3).getSingleResult();
+            obj = entidad.createQuery("Select a from " + nombreTabla + " a where " + nomCampo1 + " = '" + campo1 + "' and " + nomCampo2 + " = '" + campo2 + "' and " + nomCampo3 + " = " + campo3 + " " + " and " + nomCampo3 + " = " + campo3).getSingleResult();
             entidad.getTransaction().commit();
         } catch (Exception e) {
             entidad.getTransaction().rollback();
@@ -194,7 +196,7 @@ public class OperacionesBD {
         }
         return lista;
     }
-    
+
     public static List listarconDobleCondicion(String nombreEntidad, String columna1, String valor1, String columna2, String valor2) {
         entidad.getTransaction().begin();
         try {
@@ -204,6 +206,20 @@ public class OperacionesBD {
             entidad.getTransaction().rollback();
         }
         return lista;
+    }
+
+    public static boolean eliminar(Object object) {
+        entidad.getTransaction().begin();
+        try {
+            entidad.remove(object);
+            entidad.getTransaction().commit();
+            System.out.println("si llega aca :P");
+            return true;
+        } catch (Exception e) {
+            System.out.println(e);
+            entidad.getTransaction().rollback();
+            return false;
+        }
     }
 
     public static void terminar() {

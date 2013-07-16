@@ -981,6 +981,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
                 ce.listarCompetenciasUniversales();
                 ce.listarTrabajoEquipo();
                 ControladorEvaluacion.txtTotalConoc = getTxtTotalConocimientos();
+                ControladorEvaluacion.totConoc=0;
             }
         }
 

@@ -432,6 +432,7 @@ public class PnlProcesos extends javax.swing.JPanel {
     }
 
     
+    
     class GestorControlProceso implements ActionListener, ChangeListener {
 
         @Override

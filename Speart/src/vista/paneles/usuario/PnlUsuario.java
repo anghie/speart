@@ -63,6 +63,7 @@ public final class PnlUsuario extends javax.swing.JPanel {
         txtHExtModif.addKeyListener(evh);
         txtHLabModif.addKeyListener(evh);
         txtRemModif.addKeyListener(evh);
+        txtCedulaModif.addKeyListener(evh);
     }
 
     public void poneHabilitados(boolean habilitado) {
@@ -632,7 +633,6 @@ public final class PnlUsuario extends javax.swing.JPanel {
         return pnlDatosPers;
     }
 
-    
     class GestorEventos extends MouseAdapter implements ActionListener, ChangeListener, KeyListener {
 
         @Override
@@ -685,14 +685,16 @@ public final class PnlUsuario extends javax.swing.JPanel {
                 cu.abreDialogCompetTecnica();
             } else if (evt.getSource() == btnCancelar) {
                 cu.limpiaCamposModif();
-                
+
             }
         }
 
         @Override
         public void keyTyped(KeyEvent evt) {
-            if (evt.getSource() == getTxtCedula()||evt.getSource()==getTxtCedulaModif()) {
+            if (evt.getSource() == getTxtCedula()) {
                 OperacionesVarias.ingresoNumCedula(evt, getTxtCedula().getText());
+            } else if (evt.getSource() == getTxtCedulaModif()) {
+                OperacionesVarias.ingresoNumCedula(evt, getTxtCedulaModif().getText());
             } else if (evt.getSource() == getTxtNombres() || evt.getSource() == getTxtApellidos()
                     || evt.getSource() == getTxtCargo() || evt.getSource() == getTxtProfesion()
                     || evt.getSource() == getTxtNomModif() || evt.getSource() == getTxtApelModif()

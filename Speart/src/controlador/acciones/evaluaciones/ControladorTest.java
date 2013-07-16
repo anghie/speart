@@ -40,7 +40,7 @@ public class ControladorTest {
     public ControladorTest(FrmTests ft) {
         this.ft = ft;
         ft.getBtnCalificar().setEnabled(false);
-        ControladorEvaluacion.totConoc = 0;
+//        ControladorEvaluacion.totConoc = 0;
     }
 
     public void llenaPaneles() {
@@ -166,7 +166,7 @@ public class ControladorTest {
             System.out.print("Resultado: " + rc.isRptaCorrecta() + "\n");
 
         }
-        total=OperacionesVarias.redondeaDosCifras(total);
+        total = OperacionesVarias.redondeaDosCifras(total);
 //        double total=;
         int idSeccion = respuestasCompletas.get(0).getPregunta().getSeccion().getIdSeccion();
         ResultadoFinalConocimiento rfc = new ResultadoFinalConocimiento();
@@ -182,8 +182,8 @@ public class ControladorTest {
 //            Mensaje.datosGuardados();
         ControladorEvaluacion.txRptaConocIndiv.setText(rfc.getTotal() + " - " + rptaTexto(total));
         ControladorEvaluacion.totConoc += rfc.getTotal();
-        ControladorEvaluacion.txtTotalConoc.setText(ControladorEvaluacion.totConoc + "%");        
-//        ControladorEvaluacion.btnEvaluarCon.setEnabled(false);
+        ControladorEvaluacion.txtTotalConoc.setText(ControladorEvaluacion.totConoc + "%");
+        ControladorEvaluacion.btnEvaluarCon.setEnabled(false);
         ft.dispose();
 //        } else {
 //            Mensaje.datosNoGuardados();
@@ -206,7 +206,7 @@ public class ControladorTest {
     public String rptaTexto(double total) {
         String s;
         BaseConocimiento bc = new BaseConocimiento();
-        double r = OperacionesVarias.redondeaDosCifras((total * 100) / ControladorEvaluacion.facConoc);        
+        double r = OperacionesVarias.redondeaDosCifras((total * 100) / ControladorEvaluacion.facConoc);
         if (bc.compilaArchivo(dirArchivo)) {
             return bc.consultaSegundoElemento("califResult(" + r + ",X)");
         }
