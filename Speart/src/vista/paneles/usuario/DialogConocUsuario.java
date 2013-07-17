@@ -60,11 +60,12 @@ public class DialogConocUsuario extends javax.swing.JDialog {
         btnAgregarConocimiento = new javax.swing.JButton();
         btnQuitarConocimiento = new javax.swing.JButton();
         btnAceptar = new javax.swing.JButton();
+        btnCerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jPanel1  = new  ImagenJPanel ("cono.jpg");
+        jPanel1  = new  ImagenJPanel ("images.jpg");
         jPanel1.setLayout(null);
 
         scrollDisponibles.setViewportView(lstConocimientosDisp);
@@ -90,7 +91,17 @@ public class DialogConocUsuario extends javax.swing.JDialog {
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/acepta.png"))); // NOI18N
         btnAceptar.setText("Aceptar");
         jPanel1.add(btnAceptar);
-        btnAceptar.setBounds(570, 260, 110, 40);
+        btnAceptar.setBounds(520, 240, 110, 40);
+
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/exit.png"))); // NOI18N
+        btnCerrar.setText("Cerrar");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCerrar);
+        btnCerrar.setBounds(630, 240, 110, 40);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 760, 300);
@@ -98,9 +109,16 @@ public class DialogConocUsuario extends javax.swing.JDialog {
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         setBounds((screenSize.width-777)/2, (screenSize.height-338)/2, 777, 338);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+
+        dispose();
+    }//GEN-LAST:event_btnCerrarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnAgregarConocimiento;
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnQuitarConocimiento;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JList lstConocimientosAsignados;

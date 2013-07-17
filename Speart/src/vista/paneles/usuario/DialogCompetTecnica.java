@@ -8,6 +8,7 @@ import controlador.acciones.usuario.ControladorDestrezaUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.proceso.Rol;
+import vista.modelo.ImagenJPanel;
 import vista.modelo.Mensaje;
 
 /**
@@ -50,46 +51,75 @@ public class DialogCompetTecnica extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         scrollDisponibles = new javax.swing.JScrollPane();
         lstDestrezasDisponibles = new javax.swing.JList();
-        btnAgregarDestreza = new javax.swing.JButton();
-        btnQuitarDestreza = new javax.swing.JButton();
         scrollAsignadas = new javax.swing.JScrollPane();
         lstDestrezasAsignadas = new javax.swing.JList();
+        btnAgregarDestreza = new javax.swing.JButton();
+        btnQuitarDestreza = new javax.swing.JButton();
         btnAceptar = new javax.swing.JButton();
+        btnCerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jPanel1  = new  ImagenJPanel ("images.jpg");
+        jPanel1.setLayout(null);
+
         scrollDisponibles.setViewportView(lstDestrezasDisponibles);
 
-        getContentPane().add(scrollDisponibles);
-        scrollDisponibles.setBounds(20, 20, 310, 180);
-
-        btnAgregarDestreza.setText("Agregar");
-        getContentPane().add(btnAgregarDestreza);
-        btnAgregarDestreza.setBounds(340, 60, 80, 30);
-
-        btnQuitarDestreza.setText("Quitar");
-        getContentPane().add(btnQuitarDestreza);
-        btnQuitarDestreza.setBounds(340, 110, 80, 30);
+        jPanel1.add(scrollDisponibles);
+        scrollDisponibles.setBounds(10, 10, 310, 180);
 
         scrollAsignadas.setViewportView(lstDestrezasAsignadas);
 
-        getContentPane().add(scrollAsignadas);
-        scrollAsignadas.setBounds(430, 20, 310, 180);
+        jPanel1.add(scrollAsignadas);
+        scrollAsignadas.setBounds(430, 10, 310, 180);
 
+        btnAgregarDestreza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/list-add.png"))); // NOI18N
+        btnAgregarDestreza.setText("Agregar");
+        jPanel1.add(btnAgregarDestreza);
+        btnAgregarDestreza.setBounds(330, 50, 97, 30);
+
+        btnQuitarDestreza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
+        btnQuitarDestreza.setText("Quitar");
+        jPanel1.add(btnQuitarDestreza);
+        btnQuitarDestreza.setBounds(330, 100, 90, 30);
+
+        btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/acepta.png"))); // NOI18N
         btnAceptar.setText("Aceptar");
-        getContentPane().add(btnAceptar);
-        btnAceptar.setBounds(320, 240, 110, 40);
+        jPanel1.add(btnAceptar);
+        btnAceptar.setBounds(520, 240, 110, 40);
 
-        setSize(new java.awt.Dimension(771, 330));
-        setLocationRelativeTo(null);
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/exit.png"))); // NOI18N
+        btnCerrar.setText("Cerrar");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCerrar);
+        btnCerrar.setBounds(630, 240, 110, 40);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 750, 280);
+
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-762)/2, (screenSize.height-320)/2, 762, 320);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+
+        dispose();
+    }//GEN-LAST:event_btnCerrarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnAgregarDestreza;
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnQuitarDestreza;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JList lstDestrezasAsignadas;
     private javax.swing.JList lstDestrezasDisponibles;
     private javax.swing.JScrollPane scrollAsignadas;

@@ -277,6 +277,10 @@ public class PanelDiaHoras extends javax.swing.JPanel {
 
         add(panelPrincipal, java.awt.BorderLayout.CENTER);
 
+        panelNorte.setBackground(new java.awt.Color(51, 51, 51));
+
+        lblDia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDia.setForeground(new java.awt.Color(255, 255, 255));
         lblDia.setText("Dia:");
         panelNorte.add(lblDia);
 

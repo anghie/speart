@@ -104,6 +104,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         pnlProcesos.setLayout(null);
 
         pnlAddActiv.setBorder(javax.swing.BorderFactory.createTitledBorder("ACTIVIDAD"));
+        pnlAddActiv.setOpaque(false);
         pnlAddActiv.setPreferredSize(new java.awt.Dimension(650, 250));
         pnlAddActiv.setLayout(null);
 
@@ -187,7 +188,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         jScrollPane2.setViewportView(txtDescripcion);
 
         pnlAddActiv.add(jScrollPane2);
-        jScrollPane2.setBounds(160, 220, 350, 96);
+        jScrollPane2.setBounds(160, 220, 350, 80);
 
         pnlProcesos.add(pnlAddActiv);
         pnlAddActiv.setBounds(10, 130, 650, 310);

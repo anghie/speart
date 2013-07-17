@@ -8,6 +8,7 @@ import controlador.acciones.proceso.ControladorEscogeActividades;
 import controlador.basedatos.OperacionesBD;
 import javax.swing.JOptionPane;
 import modelo.proceso.Actividad;
+import vista.modelo.ImagenJPanel;
 import vista.modelo.Mensaje;
 
 /**
@@ -37,66 +38,77 @@ public class DialogEscogeActividades extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        scrollAsignadas = new javax.swing.JScrollPane();
-        lstActividAsignadas = new javax.swing.JList();
+        jPanel1 = new javax.swing.JPanel();
         scrollDisponibles = new javax.swing.JScrollPane();
         lstActivDisponibles = new javax.swing.JList();
-        btnQuitar = new javax.swing.JButton();
-        btnAgregar = new javax.swing.JButton();
+        scrollAsignadas = new javax.swing.JScrollPane();
+        lstActividAsignadas = new javax.swing.JList();
         btnAceptar = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
+        btnQuitar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        scrollAsignadas.setViewportView(lstActividAsignadas);
-
-        getContentPane().add(scrollAsignadas);
-        scrollAsignadas.setBounds(430, 20, 310, 180);
+        jPanel1  = new  ImagenJPanel ("images.jpg");
+        jPanel1.setLayout(null);
 
         scrollDisponibles.setViewportView(lstActivDisponibles);
 
-        getContentPane().add(scrollDisponibles);
-        scrollDisponibles.setBounds(20, 20, 310, 180);
+        jPanel1.add(scrollDisponibles);
+        scrollDisponibles.setBounds(20, 10, 310, 180);
 
-        btnQuitar.setText("Quitar");
-        btnQuitar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQuitarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnQuitar);
-        btnQuitar.setBounds(340, 110, 80, 30);
+        scrollAsignadas.setViewportView(lstActividAsignadas);
 
-        btnAgregar.setText("Agregar");
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnAgregar);
-        btnAgregar.setBounds(340, 60, 80, 30);
+        jPanel1.add(scrollAsignadas);
+        scrollAsignadas.setBounds(440, 10, 310, 180);
 
+        btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/acepta.png"))); // NOI18N
         btnAceptar.setText("Aceptar");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAceptar);
-        btnAceptar.setBounds(320, 240, 110, 40);
+        jPanel1.add(btnAceptar);
+        btnAceptar.setBounds(520, 240, 110, 40);
 
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/exit.png"))); // NOI18N
         btnCerrar.setText("Cerrar");
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCerrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCerrar);
-        btnCerrar.setBounds(652, 242, 90, 40);
+        jPanel1.add(btnCerrar);
+        btnCerrar.setBounds(630, 240, 110, 40);
 
-        setSize(new java.awt.Dimension(771, 322));
-        setLocationRelativeTo(null);
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/list-add.png"))); // NOI18N
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAgregar);
+        btnAgregar.setBounds(340, 50, 100, 30);
+
+        btnQuitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
+        btnQuitar.setText("Quitar");
+        btnQuitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuitarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnQuitar);
+        btnQuitar.setBounds(340, 100, 90, 30);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 760, 280);
+
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-776)/2, (screenSize.height-321)/2, 776, 321);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
@@ -151,6 +163,7 @@ public class DialogEscogeActividades extends javax.swing.JDialog {
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnQuitar;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JList lstActivDisponibles;
     private javax.swing.JList lstActividAsignadas;
     private javax.swing.JScrollPane scrollAsignadas;
