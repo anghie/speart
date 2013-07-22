@@ -168,7 +168,7 @@ public class ControladorTest {
         }
         total = OperacionesVarias.redondeaDosCifras(total);
 //        double total=;
-        int idSeccion = respuestasCompletas.get(0).getPregunta().getSeccion().getIdSeccion();
+        int idSeccion = (int) respuestasCompletas.get(0).getPregunta().getSeccion().getIdSeccion();
         ResultadoFinalConocimiento rfc = new ResultadoFinalConocimiento();
         rfc.setIdSeccion(idSeccion);
         rfc.setAprobado(true);

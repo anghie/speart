@@ -30,13 +30,13 @@ public class Pregunta implements Serializable {
     @Column(length = 500)
     private String preg;
     private boolean habilit;
-    @ManyToOne(cascade = CascadeType.REFRESH)
-    private Seccion seccion;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Respuesta> rptas;
+    @ManyToOne
+    private Seccion seccion;    
+    @OneToMany(mappedBy = "pregunta",cascade = CascadeType.ALL)
+    private List<Respuesta> rptas = new ArrayList<>();
 
     public Pregunta() {
-        rptas = new ArrayList<>();
+//        rptas = new ArrayList<>();
     }
 
     /**
@@ -107,5 +107,9 @@ public class Pregunta implements Serializable {
      */
     public void setRptas(List<Respuesta> rptas) {
         this.rptas = rptas;
+    }
+    
+    public void addRpta(Respuesta r){
+        rptas.add(r);
     }
 }

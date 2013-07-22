@@ -36,7 +36,7 @@ public class PnlProcesos extends javax.swing.JPanel {
 
     private void poneAcciones() {
         btnNuevoProceso.addActionListener(gcp);
-        btnGuardarActividad.addActionListener(gcp);
+        getBtnGuardarActividad().addActionListener(gcp);
         cbProcesosLista.addActionListener(gcp);
         tabbedProcesos.addChangeListener(gcp);
         btnEditarProceso.addActionListener(gcp);
@@ -432,22 +432,30 @@ public class PnlProcesos extends javax.swing.JPanel {
         return pnlAddActiv;
     }
 
-    
-    
+    /**
+     * @return the btnGuardarActividad
+     */
+    public javax.swing.JButton getBtnGuardarActividad() {
+        return btnGuardarActividad;
+    }
+
+   
     class GestorControlProceso implements ActionListener, ChangeListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == btnNuevoProceso) {
                 cpr.guardaProceso();
-            } else if (e.getSource() == btnGuardarActividad) {
-                if (!cpr.hayVacios()) {
-                    int n = JOptionPane.showConfirmDialog(null, "¿Desea guardar los datos?", "Guardar", JOptionPane.YES_NO_OPTION);
-                    if (n == JOptionPane.YES_OPTION) {
-                        cpr.guardaActividad();
+            } else if (e.getSource() == getBtnGuardarActividad()) {
+                if (getBtnGuardarActividad().getText().equals("Guardar")) {
+                    if (!cpr.hayVacios()) {
+                        int n = JOptionPane.showConfirmDialog(null, "¿Desea guardar los datos?", "Guardar", JOptionPane.YES_NO_OPTION);
+                        if (n == JOptionPane.YES_OPTION) {
+                            cpr.guardaActividad();
+                        }
+                    } else {
+                        Mensaje.camposVacios();
                     }
-                } else {
-                    Mensaje.camposVacios();
                 }
             } else if (e.getSource() == cbProcesosLista) {
                 cpr.selecProceso();
@@ -459,6 +467,12 @@ public class PnlProcesos extends javax.swing.JPanel {
                     if (i == JOptionPane.YES_OPTION) {
                         cpr.eliminarActividad();
                     }
+                } else {
+                    Mensaje.filaNoSeleccionada();
+                }
+            } else if (e.getSource() == btnEditarActividad) {
+                if (cpr.isRowSelectedTblActiv()) {
+                    cpr.setActividadModif();
                 } else {
                     Mensaje.filaNoSeleccionada();
                 }

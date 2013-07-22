@@ -13,7 +13,7 @@ import modelo.pregunta.Seccion;
  * @author francisco
  */
 public class PnlCon extends javax.swing.JPanel {
-private int idSec;
+private long idSec;
     /**
      * Creates new form PnlCon
      */
@@ -96,7 +96,7 @@ private int idSec;
     /**
      * @return the idSec
      */
-    public int getIdSec() {
+    public long getIdSec() {
         return idSec;
     }
 

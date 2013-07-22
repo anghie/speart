@@ -56,7 +56,6 @@ public class PnlOperaciones extends javax.swing.JPanel {
         tabbedOperaciones.addChangeListener(gco);
         cbSeccionLstPreg.addActionListener(gco);
         btnEliminar.addActionListener(gco);
-        btnEditar.addActionListener(gco);
         btnNuevaCompetencia.addActionListener(gco);
         btnGuardarCompetencia.addActionListener(gco);
         btnEditarCompetencias.addActionListener(gco);
@@ -69,6 +68,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         btnGuardarTrabEquipo.addActionListener(gco);
         btnEditTrabEq.addActionListener(gco);
         btnElimTrabEq.addActionListener(gco);
+        btnEditarSeccion.addActionListener(gco);
     }
 
     /**
@@ -99,10 +99,9 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlListaPregunta = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         cbSeccionLstPreg = new javax.swing.JComboBox();
-        btnElimSecc = new javax.swing.JButton();
+        btnEditarSeccion = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPreguntas = new javax.swing.JTable();
-        btnEditar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         pnlTres = new javax.swing.JPanel();
@@ -236,9 +235,9 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlListaPregunta.add(cbSeccionLstPreg);
         cbSeccionLstPreg.setBounds(110, 70, 380, 30);
 
-        btnElimSecc.setText("Eliminar Seccion");
-        pnlListaPregunta.add(btnElimSecc);
-        btnElimSecc.setBounds(500, 70, 130, 30);
+        btnEditarSeccion.setText("Editar Sección");
+        pnlListaPregunta.add(btnEditarSeccion);
+        btnEditarSeccion.setBounds(500, 70, 130, 30);
 
         tblPreguntas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -256,13 +255,9 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlListaPregunta.add(jScrollPane2);
         jScrollPane2.setBounds(40, 110, 590, 220);
 
-        btnEditar.setText("Editar");
-        pnlListaPregunta.add(btnEditar);
-        btnEditar.setBounds(640, 110, 90, 40);
-
         btnEliminar.setText("Eliminar");
         pnlListaPregunta.add(btnEliminar);
-        btnEliminar.setBounds(640, 150, 90, 40);
+        btnEliminar.setBounds(630, 110, 90, 40);
 
         jLabel5.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -546,10 +541,9 @@ public class PnlOperaciones extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAplicar;
     private javax.swing.JButton btnEditTrabEq;
-    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEditarCompetenciaUniversal;
     private javax.swing.JButton btnEditarCompetencias;
-    private javax.swing.JButton btnElimSecc;
+    private javax.swing.JButton btnEditarSeccion;
     private javax.swing.JButton btnElimTrabEq;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnEliminarCompetenciaUniversal;
@@ -832,7 +826,6 @@ public class PnlOperaciones extends javax.swing.JPanel {
         return pnlTrabajoEquipo;
     }
 
-    
     class GestorControladorOperaciones implements ActionListener, ChangeListener {
 
         @Override
@@ -849,7 +842,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
             } else if (e.getSource() == btnGuardarPregunta) {
                 if (cbSeccion.getSelectedIndex() != -1) {
                     if (!getTxtNuevaPregunt().getText().isEmpty()) {
-                        JTextField t=new JTextField();
+                        JTextField t = new JTextField();
                         getTxtNuevaPregunt().setBorder(t.getBorder());
                         if (ControladorPreguntas.btnPresionado) {
                             if (cp.compruebatextos()) {
@@ -867,7 +860,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
                         } else {
                             JOptionPane.showMessageDialog(null, "Debe describir las opciones de respuesta para la pregunta");
                         }
-                        t=null;
+                        t = null;
                     } else {
                         getTxtNuevaPregunt().setBorder(new EtchedBorder(Color.red, Color.pink));
                         JOptionPane.showMessageDialog(null, "Debe ingresar la pregunta");
@@ -877,12 +870,8 @@ public class PnlOperaciones extends javax.swing.JPanel {
                 }
             } else if (e.getSource() == cbSeccionLstPreg) {
                 cp.selecSeccion();
-            } else if (e.getSource() == btnEditar) {
-                if (cp.isRowSelectedTblPreg()) {
-                    cp.editarPregunta();
-                } else {
-                    Mensaje.filaNoSeleccionada();
-                }
+            } else if (e.getSource() == btnEditarSeccion) {
+                cp.editaSeccion();
             } else if (e.getSource() == btnEliminar) {
                 if (cp.isRowSelectedTblPreg()) {
                     int i = JOptionPane.showConfirmDialog(null, "¿Desea eliminar la pregunta seleccionada?", "Eliminar", JOptionPane.YES_NO_OPTION);
@@ -999,7 +988,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
                 cctp.actualizaTabla();
             } else if (tabbedOperaciones.getSelectedIndex() == 3) {
                 ccu.actualizaTablaUnivers();
-            } else if(tabbedOperaciones.getSelectedIndex()==4){
+            } else if (tabbedOperaciones.getSelectedIndex() == 4) {
                 cte.actualizaTablaTrabEquipo();
             }
         }

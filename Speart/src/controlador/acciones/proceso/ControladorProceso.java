@@ -90,7 +90,7 @@ public class ControladorProceso {
 
     public void guardaActividad() {
         a = new Actividad();
-        if (obtenerSeleccionado(pp.getGrupoBotones())!=null) {
+        if (obtenerSeleccionado(pp.getGrupoBotones()) != null) {
             setActividad();
             Proceso p = procesos.get(pp.getCbProcesos().getSelectedIndex());
             a.setProcesito(p);
@@ -101,13 +101,7 @@ public class ControladorProceso {
             } else {
                 Mensaje.datosNoGuardados();
             }
-//        if (OperacionesBD.guardar(a)) {
-//            Mensaje.datosGuardados();
-//            limpiaCampos();
-//        } else {
-//            Mensaje.datosNoGuardados();
-//        }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Debe seleccionar la frecuencia");
         }
     }
@@ -212,7 +206,7 @@ public class ControladorProceso {
         if (!s.isEmpty()) {
             p.setNombreProceso(s);
             if (OperacionesBD.modificar(p)) {
-                Mensaje.datosModificados();     
+                Mensaje.datosModificados();
                 poneComboLstProc();
                 poneComboProcesos();
             } else {
@@ -229,5 +223,11 @@ public class ControladorProceso {
         } else {
             Mensaje.datosNoEliminados();
         }
+    }
+    public void setActividadModif(){
+        pp.getBtnGuardarActividad().setText("Modificar");
+    }
+    public void editarActividad(){
+        
     }
 }

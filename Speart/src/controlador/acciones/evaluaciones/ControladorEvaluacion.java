@@ -308,7 +308,7 @@ public class ControladorEvaluacion {
         pnlEval.getTxtNroConocimientos().setText(secciones.size() + "");
     }
 
-    public static void abreCuestionario(int idSeccion) {
+    public static void abreCuestionario(long idSeccion) {
         if (facConoc > 0) {
             preguntas = (ArrayList<Pregunta>) OperacionesBD.listarconCondicion("Pregunta", "seccion_idSeccion", String.valueOf(idSeccion));
             new FrmTests(preguntas).setVisible(true);

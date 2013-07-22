@@ -22,18 +22,17 @@ public class Rol implements Serializable {
     private String estadoEvaluacion;//Evaluado,NoEvaluado,Pendiente
     @OneToOne(mappedBy = "rol")
     private Usuario usuario;
-    @OneToMany(mappedBy = "rol")
+    @OneToMany(mappedBy = "rol",cascade = CascadeType.ALL)
     private List<Actividad> actividades;
     @ManyToMany(mappedBy = "roles")
-    private List<Seccion> seccions;    
+    private List<Seccion> seccions= new ArrayList<>();   
     @ManyToMany(mappedBy = "rolesCT")
     private List<CompetenciaTecnica> competenciaTecnicas;
 
     
 
     public Rol() {
-        actividades = new ArrayList();
-        seccions= new ArrayList<>();
+        actividades = new ArrayList();        
         competenciaTecnicas= new ArrayList<>();
     }
 

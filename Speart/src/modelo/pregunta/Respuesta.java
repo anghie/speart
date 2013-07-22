@@ -19,13 +19,15 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Respuesta implements Serializable{
     
+    
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int idRespuesta;
     private String rpta;
     private boolean estadoRpta;
-    @ManyToOne(cascade = CascadeType.REFRESH)   
+    @ManyToOne
     private Pregunta pregunta;
+   
 
     /**
      * @return the idRespuesta
@@ -82,4 +84,6 @@ public class Respuesta implements Serializable{
     public void setPregunta(Pregunta pregunta) {
         this.pregunta = pregunta;
     }
+
+
 }

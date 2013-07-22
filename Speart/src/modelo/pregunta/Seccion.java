@@ -24,7 +24,7 @@ import modelo.proceso.Rol;
 public class Seccion implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private int idSeccion;
+    private long idSeccion;
     private String nombreSeccion;   
     private boolean paraEvaluacion;
     @OneToMany(mappedBy = "seccion", cascade = CascadeType.ALL)
@@ -42,7 +42,7 @@ public class Seccion implements Serializable {
     /**
      * @return the idSeccion
      */
-    public int getIdSeccion() {
+    public long getIdSeccion() {
         return idSeccion;
     }
 

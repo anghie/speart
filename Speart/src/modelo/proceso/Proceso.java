@@ -13,7 +13,7 @@ public class Proceso implements Serializable {
     private int idProceso;
     private String nombreProceso;
     private String indicador;
-    @OneToMany(mappedBy = "procesito", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "procesito", cascade = CascadeType.ALL)
     private List<Actividad> actividades= new ArrayList();
   
     /**

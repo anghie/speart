@@ -65,6 +65,22 @@ public class ControladorPreguntas {
         }
     }
 
+    public void editaSeccion() {
+        String l = JOptionPane.showInputDialog("Ingrese nombre para la sección ");
+        if (!l.isEmpty()) {
+            seccion = secciones.get(po.getCbSeccionLstPreg().getSelectedIndex());
+            seccion.setNombreSeccion(l);
+            if (OperacionesBD.modificar(seccion)) {
+                Mensaje.datosModificados();
+                listarSecciones();
+                poneCbSeccionLst();
+                poneCbSeccion();
+            } else {
+                Mensaje.datosNoModificados();
+            }
+        }
+    }
+
     public void ponePosibleRptas(int n) {
         limpiaPnlRptas();
         po.getPnlRespuestas().validate();
@@ -84,17 +100,30 @@ public class ControladorPreguntas {
         po.getPnlRespuestas().updateUI();
     }
 
+//    public void guardaPregunta() {
+//        pregunta = new Pregunta();
+//        setPregunta();
+//        if (OperacionesBD.guardar(pregunta)) {
+//            respuestas = new ArrayList<>();
+//            setRpta();
+//            btnPresionado = false;
+//            if (guardaRespuesta()) {
+//                Mensaje.datosGuardados();
+//                limpiaCampos();
+//            }
+//        } else {
+//            Mensaje.datosNoGuardados();
+//        }
+//    }
     public void guardaPregunta() {
         pregunta = new Pregunta();
         setPregunta();
+        respuestas = new ArrayList<>();
+        setRpta(pregunta);
+        btnPresionado = false;
         if (OperacionesBD.guardar(pregunta)) {
-            respuestas = new ArrayList<>();
-            setRpta();
-            btnPresionado = false;
-            if (guardaRespuesta()) {
-                Mensaje.datosGuardados();
-                limpiaCampos();
-            }
+            Mensaje.datosGuardados();
+            limpiaCampos();
         } else {
             Mensaje.datosNoGuardados();
         }
@@ -106,7 +135,7 @@ public class ControladorPreguntas {
         pregunta.setSeccion(secciones.get(po.getCbSeccion().getSelectedIndex()));
     }
 
-    public void setRpta() {
+    public void setRpta(Pregunta p) {
         for (PnlPregunta pp : lstPnlPregunta) {
             Respuesta r = new Respuesta();
             r.setRpta(pp.getTxtPregunta().getText());
@@ -115,23 +144,24 @@ public class ControladorPreguntas {
             } else if (pp.getChbVerdad().isSelected()) {
                 r.setEstadoRpta(true);
             }
-            r.setPregunta(pregunta);
+            p.addRpta(r);
+            r.setPregunta(p);
             respuestas.add(r);
         }
     }
-
-    public boolean guardaRespuesta() {
-        boolean guardado = false;
-        for (Respuesta r : respuestas) {
-            if (OperacionesBD.guardar(r)) {
-                guardado = true;
-            } else {
-                guardado = false;
-                break;
-            }
-        }
-        return guardado;
-    }
+//
+//    public boolean guardaRespuesta() {
+//        boolean guardado = false;
+//        for (Respuesta r : respuestas) {
+//            if (OperacionesBD.guardar(r)) {
+//                guardado = true;
+//            } else {
+//                guardado = false;
+//                break;
+//            }
+//        }
+//        return guardado;
+//    }
 
     public boolean compruebatextos() {
         for (PnlPregunta pp : lstPnlPregunta) {
@@ -174,7 +204,7 @@ public class ControladorPreguntas {
 
     public void selecSeccion() {
         if (po.getCbSeccionLstPreg().getSelectedIndex() != -1) {
-            idSeccion = secciones.get(po.getCbSeccionLstPreg().getSelectedIndex()).getIdSeccion();
+            idSeccion = (int) secciones.get(po.getCbSeccionLstPreg().getSelectedIndex()).getIdSeccion();
             actualizaTablaPreguntas();
         }
     }
@@ -212,10 +242,6 @@ public class ControladorPreguntas {
         } else {
             return false;
         }
-    }
-
-    public void editarPregunta() {
-        //Aun por desarrollar
     }
 
     public void eliminarPregunta() {
