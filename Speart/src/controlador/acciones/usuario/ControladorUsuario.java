@@ -8,10 +8,7 @@ import vista.modelo.*;
 import modelo.usuario.*;
 import controlador.basedatos.OperacionesBD;
 import java.awt.Color;
-import java.awt.Component;
 import java.util.ArrayList;
-import javax.swing.border.Border;
-import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import modelo.proceso.Actividad;
@@ -19,6 +16,7 @@ import modelo.proceso.Rol;
 import vista.paneles.usuario.DialogCompetTecnica;
 import vista.paneles.usuario.DialogConocUsuario;
 import vista.paneles.usuario.DialogEscogeActividades;
+import vista.paneles.usuario.DialogQuejas;
 
 public class ControladorUsuario {
 
@@ -378,6 +376,13 @@ public class ControladorUsuario {
             new DialogEscogeActividades(null, true).setVisible(true);
         } else {
             Mensaje.filaNoSeleccionada();
+        }
+    }
+    
+    public void abreDialogQuejas(){
+        if (isRowSelected()) {
+            rol = usuarios.get(pu.getTblUsuarios().getSelectedRow()).getRol();
+            new DialogQuejas(null, true,rol).setVisible(true);
         }
     }
 }

@@ -38,7 +38,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         btnNuevoProceso.addActionListener(gcp);
         getBtnGuardarActividad().addActionListener(gcp);
         cbProcesosLista.addActionListener(gcp);
-        tabbedProcesos.addChangeListener(gcp);
+        getTabbedProcesos().addChangeListener(gcp);
         btnEditarProceso.addActionListener(gcp);
         btnEditarActividad.addActionListener(gcp);
         btnEliminarActividad.addActionListener(gcp);
@@ -439,7 +439,15 @@ public class PnlProcesos extends javax.swing.JPanel {
         return btnGuardarActividad;
     }
 
-   
+    /**
+     * @return the tabbedProcesos
+     */
+    public javax.swing.JTabbedPane getTabbedProcesos() {
+        return tabbedProcesos;
+    }
+
+    
+    
     class GestorControlProceso implements ActionListener, ChangeListener {
 
         @Override
@@ -456,6 +464,12 @@ public class PnlProcesos extends javax.swing.JPanel {
                     } else {
                         Mensaje.camposVacios();
                     }
+                } else if (getBtnGuardarActividad().getText().equals("Modificar")) {
+                    int n = JOptionPane.showConfirmDialog(null, "¿Desea guardar los datos modificados?", "Modificar", JOptionPane.YES_NO_OPTION);
+                        if (n == JOptionPane.YES_OPTION) {
+                            cpr.editarActividad();
+                        }
+                    
                 }
             } else if (e.getSource() == cbProcesosLista) {
                 cpr.selecProceso();
@@ -472,7 +486,7 @@ public class PnlProcesos extends javax.swing.JPanel {
                 }
             } else if (e.getSource() == btnEditarActividad) {
                 if (cpr.isRowSelectedTblActiv()) {
-                    cpr.setActividadModif();
+                    cpr.getActividadModif();
                 } else {
                     Mensaje.filaNoSeleccionada();
                 }
@@ -481,7 +495,7 @@ public class PnlProcesos extends javax.swing.JPanel {
 
         @Override
         public void stateChanged(ChangeEvent e) {
-            if (tabbedProcesos.getSelectedIndex() == 1) {
+            if (getTabbedProcesos().getSelectedIndex() == 1) {
                 cpr.poneComboLstProc();
             }
         }

@@ -95,7 +95,7 @@ public class ControladorProceso {
             Proceso p = procesos.get(pp.getCbProcesos().getSelectedIndex());
             a.setProcesito(p);
             p.addActividad(a);
-            if (OperacionesBD.modificar(p)) {
+            if (OperacionesBD.guardar(p)) {
                 Mensaje.datosGuardados();
                 limpiaCampos();
             } else {
@@ -224,10 +224,42 @@ public class ControladorProceso {
             Mensaje.datosNoEliminados();
         }
     }
-    public void setActividadModif(){
+
+    public void getActividadModif() {
         pp.getBtnGuardarActividad().setText("Modificar");
+        a = actividades.get(pp.getTblActividades().getSelectedRow());
+        pp.getTxtNombreActividad().setText(a.getNombreActividad());
+        pp.getTxtDescripcion().setText(a.getDescripcion());
+        pp.getTxtMedioVerif().setText(a.getMedioVerificacion());
+        pp.getCbTipo().setSelectedItem(a.getTipoActividad());
+        ponerSeleccionado(pp.getGrupoBotones(), a.getFrecuencia());
+        pp.getTabbedProcesos().setSelectedIndex(0);
+
     }
-    public void editarActividad(){
-        
+
+    public void editarActividad() {
+        setActividad();
+        if (OperacionesBD.modificar(a)) {
+            Mensaje.datosModificados();
+            actualizaTabla();
+            limpiaCampos();
+            pp.getTabbedProcesos().setSelectedIndex(1);
+            pp.getBtnGuardarActividad().setText("Guardar");
+        } else {
+            Mensaje.datosNoModificados();
+        }
+    }
+
+    public static void ponerSeleccionado(ButtonGroup grupoBotones, String txt) {
+        JCheckBox ch = null;
+        Enumeration e = grupoBotones.getElements();
+        while (e.hasMoreElements() == true) {
+            JCheckBox r = (JCheckBox) e.nextElement();
+            if (r.getText().equals(txt)) {
+                r.setSelected(true);
+                break;
+            }
+        }
+
     }
 }

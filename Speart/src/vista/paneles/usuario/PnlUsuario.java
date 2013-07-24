@@ -56,6 +56,7 @@ public final class PnlUsuario extends javax.swing.JPanel {
         btnActivEval.addActionListener(evh);
         btnDestrezas.addActionListener(evh);
         btnCancelar.addActionListener(evh);
+        btnQuejas.addActionListener(evh);
         txtNomModif.addKeyListener(evh);
         txtApelModif.addKeyListener(evh);
         txtCargoModif.addKeyListener(evh);
@@ -64,6 +65,7 @@ public final class PnlUsuario extends javax.swing.JPanel {
         txtHLabModif.addKeyListener(evh);
         txtRemModif.addKeyListener(evh);
         txtCedulaModif.addKeyListener(evh);
+
     }
 
     public void poneHabilitados(boolean habilitado) {
@@ -126,6 +128,7 @@ public final class PnlUsuario extends javax.swing.JPanel {
         btnConocimientos = new javax.swing.JButton();
         btnDestrezas = new javax.swing.JButton();
         btnActivEval = new javax.swing.JButton();
+        btnQuejas = new javax.swing.JButton();
         pnlAccionesModificar = new javax.swing.JPanel();
         lblProfesionModif = new javax.swing.JLabel();
         lblNomModif = new javax.swing.JLabel();
@@ -290,23 +293,27 @@ public final class PnlUsuario extends javax.swing.JPanel {
 
         btnModificar.setText("Modificar");
         pnlBotones.add(btnModificar);
-        btnModificar.setBounds(10, 10, 100, 40);
+        btnModificar.setBounds(0, 10, 100, 40);
 
         btnDeshabilitar.setText("Deshabilitar");
         pnlBotones.add(btnDeshabilitar);
-        btnDeshabilitar.setBounds(120, 10, 120, 40);
+        btnDeshabilitar.setBounds(100, 10, 110, 40);
 
         btnConocimientos.setText("Conocimientos");
         pnlBotones.add(btnConocimientos);
-        btnConocimientos.setBounds(360, 10, 120, 40);
+        btnConocimientos.setBounds(300, 10, 110, 40);
 
         btnDestrezas.setText("Destrezas");
         pnlBotones.add(btnDestrezas);
-        btnDestrezas.setBounds(490, 10, 100, 40);
+        btnDestrezas.setBounds(410, 10, 100, 40);
 
         btnActivEval.setText("Act. Eval.");
         pnlBotones.add(btnActivEval);
-        btnActivEval.setBounds(250, 10, 100, 40);
+        btnActivEval.setBounds(210, 10, 90, 40);
+
+        btnQuejas.setText("Quejas");
+        pnlBotones.add(btnQuejas);
+        btnQuejas.setBounds(510, 10, 90, 40);
 
         pnlLstDatos.add(pnlBotones);
         pnlBotones.setBounds(20, 230, 600, 60);
@@ -388,6 +395,7 @@ public final class PnlUsuario extends javax.swing.JPanel {
     private javax.swing.JButton btnGuardarModificacion;
     private javax.swing.JButton btnGuardarUsuario;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnQuejas;
     private javax.swing.JComboBox cbRol;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblApelModif;
@@ -683,9 +691,10 @@ public final class PnlUsuario extends javax.swing.JPanel {
                 cu.abreDialogEscogeActividades();
             } else if (evt.getSource() == btnDestrezas) {
                 cu.abreDialogCompetTecnica();
+            } else if (evt.getSource() == btnQuejas) {
+                
             } else if (evt.getSource() == btnCancelar) {
                 cu.limpiaCamposModif();
-
             }
         }
 

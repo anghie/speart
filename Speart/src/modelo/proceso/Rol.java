@@ -28,7 +28,7 @@ public class Rol implements Serializable {
     private List<Seccion> seccions= new ArrayList<>();   
     @ManyToMany(mappedBy = "rolesCT")
     private List<CompetenciaTecnica> competenciaTecnicas;
-
+    
     
 
     public Rol() {
