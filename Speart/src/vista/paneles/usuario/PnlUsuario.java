@@ -692,7 +692,7 @@ public final class PnlUsuario extends javax.swing.JPanel {
             } else if (evt.getSource() == btnDestrezas) {
                 cu.abreDialogCompetTecnica();
             } else if (evt.getSource() == btnQuejas) {
-                
+                cu.abreDialogQuejas();
             } else if (evt.getSource() == btnCancelar) {
                 cu.limpiaCamposModif();
             }

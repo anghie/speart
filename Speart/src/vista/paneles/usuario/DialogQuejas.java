@@ -4,7 +4,10 @@
  */
 package vista.paneles.usuario;
 
+import controlador.basedatos.OperacionesBD;
 import modelo.proceso.Rol;
+import modelo.usuario.Queja;
+import vista.modelo.Mensaje;
 
 /**
  *
@@ -38,8 +41,8 @@ private Rol rol;
         txtDescripcionQueja = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         txtNroFormulario = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        chbNo = new javax.swing.JCheckBox();
+        chbSi = new javax.swing.JCheckBox();
         jLabel5 = new javax.swing.JLabel();
         btnGuardarQueja = new javax.swing.JButton();
 
@@ -74,19 +77,34 @@ private Rol rol;
         getContentPane().add(txtNroFormulario);
         txtNroFormulario.setBounds(120, 240, 90, 27);
 
-        jCheckBox1.setText("No");
-        getContentPane().add(jCheckBox1);
-        jCheckBox1.setBounds(460, 240, 60, 22);
+        chbNo.setText("No");
+        chbNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chbNoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(chbNo);
+        chbNo.setBounds(460, 240, 60, 22);
 
-        jCheckBox2.setText("Si");
-        getContentPane().add(jCheckBox2);
-        jCheckBox2.setBounds(400, 240, 60, 22);
+        chbSi.setText("Si");
+        chbSi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chbSiActionPerformed(evt);
+            }
+        });
+        getContentPane().add(chbSi);
+        chbSi.setBounds(400, 240, 60, 22);
 
         jLabel5.setText("Descuento en evaluacion:");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(230, 240, 160, 20);
 
         btnGuardarQueja.setText("Guardar");
+        btnGuardarQueja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarQuejaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnGuardarQueja);
         btnGuardarQueja.setBounds(260, 290, 100, 40);
 
@@ -94,10 +112,39 @@ private Rol rol;
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnGuardarQuejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarQuejaActionPerformed
+        Queja q = new Queja();
+        q.setNombreDenun(txtPersonaQueja.getText());
+        q.setDetalle(txtDescripcionQueja.getText());
+        q.setNroForm(txtNroFormulario.getText());
+        q.setReducePorcent(chbSi.isSelected()?true:false);
+        q.setRol(rol);
+        if(OperacionesBD.guardar(q)){
+            Mensaje.datosGuardados();
+            this.dispose();
+        }else{
+            Mensaje.datosNoGuardados();
+        }
+    }//GEN-LAST:event_btnGuardarQuejaActionPerformed
+
+    private void chbSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbSiActionPerformed
+        if(chbNo.isSelected()){
+            chbNo.setSelected(false);
+            chbSi.setSelected(true);
+        }
+    }//GEN-LAST:event_chbSiActionPerformed
+
+    private void chbNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbNoActionPerformed
+        if(chbSi.isSelected()){
+            chbNo.setSelected(true);
+            chbSi.setSelected(false);
+        }
+    }//GEN-LAST:event_chbNoActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardarQueja;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox chbNo;
+    private javax.swing.JCheckBox chbSi;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
