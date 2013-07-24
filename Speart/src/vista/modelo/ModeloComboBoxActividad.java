@@ -58,7 +58,7 @@ public class ModeloComboBoxActividad extends AbstractListModel implements ComboB
         this.actividades = actividades;
     }
 
-    public Actividad getSelectedServidor() {
+    public Actividad getSelectedActividad() {
         return actividadSelected;
     }
     public int  getIndex(Actividad actividad) {

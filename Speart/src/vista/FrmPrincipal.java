@@ -49,7 +49,7 @@ public class FrmPrincipal extends JFrame {
     private ControladorPrincipal cp;
     public static Usuario userLogueado;
     private JButton btnAgenda;
-    private JButton btnAgendaUsuario;
+    private JButton btnReportes;
     private JMenuItem miGeneraAgenda;
    
     
@@ -72,8 +72,8 @@ public class FrmPrincipal extends JFrame {
         ponePanelInferior();
         poneBarraMenu();
         poneToolbarOeste();
-//        ControladorPermisos.permisoInvitado();
-//        ponePermisos();
+        ControladorPermisos.permisoInvitado();
+        ponePermisos();
     }
     
     public void ponePermisos() {
@@ -88,7 +88,7 @@ public class FrmPrincipal extends JFrame {
         miCierraSesion.setEnabled(ControladorPermisos.itemCierraSesion);
         miCambiaClave.setEnabled(ControladorPermisos.itemCambiaClave);
         btnAgenda.setEnabled(ControladorPermisos.agenda);
-        btnAgendaUsuario.setEnabled(ControladorPermisos.agendaUsuario);
+        btnReportes.setEnabled(ControladorPermisos.usuarios);
         miAgenda.setEnabled(ControladorPermisos.agendaExperto);
     }
     
@@ -241,24 +241,26 @@ public class FrmPrincipal extends JFrame {
         //Para el botón Procesos
         btnProcesos = new JButton("Procesos");
         creaBotonToolbar(getBtnProcesos(), "procesos.png");
+         btnAgenda = new JButton("Agenda");
+        creaBotonToolbar(btnAgenda, "agen.png");
+         //Para el botón Operaciones
+        btnOperaciones = new JButton("Operaciones");
+        creaBotonToolbar(getBtnOperaciones(), "opera.png");
+        //Para el botón Evaluación
+        btnEvaluacion = new JButton("Evaluación");
+        creaBotonToolbar(getBtnEvaluacion(), "eva.png");
         //Para el botón Servicios
         btnServicios = new JButton("Servicios");
         creaBotonToolbar(getBtnServicios(), "kwrite.png");
         //Para el botón Respaldos
         btnRespaldos = new JButton("Respaldos");
         creaBotonToolbar(getBtnRespaldos(), "resp.png");
-        //Para el botón Operaciones
-        btnOperaciones = new JButton("Operaciones");
-        creaBotonToolbar(getBtnOperaciones(), "opera.png");
-        //Para el botón Evaluación
-        btnEvaluacion = new JButton("Evaluación");
-        creaBotonToolbar(getBtnEvaluacion(), "eva.png");
+       
         
-        btnAgenda = new JButton("Agenda");
-        creaBotonToolbar(btnAgenda, "agen.png");
+       
         
-        btnAgendaUsuario = new JButton("Agenda Usuario");
-        creaBotonToolbar(btnAgendaUsuario, "agen.png");
+        btnReportes = new JButton("Reportes");
+        creaBotonToolbar(btnReportes, "kword.png");
         
         poneEventosToolbar();
         //Añadiendo la barra al la ventana
@@ -408,9 +410,10 @@ public class FrmPrincipal extends JFrame {
             } else if (evt.getSource() == btnAgenda) {
                cp.ponePanel(new PanelAgenda("inicisv_1.jpg", userLogueado));
                 setTitle("SPEIESS 2013 - Panel Agenda Usuario");
-            } else if (evt.getSource() == btnAgendaUsuario) {
-                cp.ponePanel(new PanelAgenda("inicisv_1.jpg", userLogueado));
-                setTitle("SPEIESS 2013 - Panel Agenda Usuario");
+            } else if (evt.getSource() == btnReportes) {
+                DialogoReportes reportes=new DialogoReportes(FrmPrincipal.this, true);
+                reportes.setLocationRelativeTo(null);
+                reportes.setVisible(true);
             } else if (evt.getSource() == miGeneraAgenda) {
                 cp.ponePanel(new PnlUsuario());
                 DialogoExpertoAgenda dialogoAgenda = new DialogoExpertoAgenda(new JFrame(), true);

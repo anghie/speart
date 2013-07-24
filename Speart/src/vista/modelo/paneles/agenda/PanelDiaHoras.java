@@ -114,7 +114,7 @@ public class PanelDiaHoras extends javax.swing.JPanel {
 
                 panelActividad.setBounds( 10,
                                     ControladorAgenda.calcularPinceles(item.getHoraInicio().getHours(),item.getHoraInicio().getMinutes()),
-                                    250,//punto2.x-punto.x
+                                    420,//punto2.x-punto.x
                                     ControladorAgenda.calcularPinceles(item.getTiempoDuracion().getHours(),item.getTiempoDuracion().getMinutes())
                                     );
 
@@ -149,7 +149,7 @@ public class PanelDiaHoras extends javax.swing.JPanel {
 
                     panelActividad.setBounds( 10,
                                         ControladorAgenda.calcularPinceles(item.getHoraInicio().getHours(),item.getHoraInicio().getMinutes()),
-                                        250,//punto2.x-punto.x
+                                        420,//punto2.x-punto.x
                                         ControladorAgenda.calcularPinceles(item.getTiempoDuracion().getHours(),item.getTiempoDuracion().getMinutes())
                                         );
 
@@ -277,10 +277,6 @@ public class PanelDiaHoras extends javax.swing.JPanel {
 
         add(panelPrincipal, java.awt.BorderLayout.CENTER);
 
-        panelNorte.setBackground(new java.awt.Color(51, 51, 51));
-
-        lblDia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblDia.setForeground(new java.awt.Color(255, 255, 255));
         lblDia.setText("Dia:");
         panelNorte.add(lblDia);
 

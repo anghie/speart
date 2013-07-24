@@ -47,7 +47,7 @@ public class PanelTodasLasActividades extends javax.swing.JPanel {
                 PanelActividad panelActividad=new PanelActividad(true,item,panelContenedor,usuario);
                 if(item.getActividad()!=null){
                     panelActividad.setTxtActividad(item.getActividad().getTipoActividad());
-                     if(item.getActividad().getRol().getUsuario().equals(usuario) || usuario.getRol().equals("Jefe")){
+                     if(item.getActividad().getRol().getUsuario().equals(usuario) || usuario.getRol().getTipo().equals("Jefe")){
                         panelActividad.setTxtEncargado(item.getActividad().getRol().getUsuario().getNombre()+" "+item.getActividad().getRol().getUsuario().getApellidos());
                         panelActividad.setTxtCargo(item.getActividad().getRol().getCargo());
                     }

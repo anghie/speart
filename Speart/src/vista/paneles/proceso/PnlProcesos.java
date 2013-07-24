@@ -110,11 +110,11 @@ public class PnlProcesos extends javax.swing.JPanel {
 
         lblPuestoResponsable.setText("   Puesto Responsable:");
         pnlAddActiv.add(lblPuestoResponsable);
-        lblPuestoResponsable.setBounds(10, 65, 160, 30);
+        lblPuestoResponsable.setBounds(10, 140, 160, 30);
 
         jLabel3.setText("Tipo:");
         pnlAddActiv.add(jLabel3);
-        jLabel3.setBounds(390, 65, 50, 30);
+        jLabel3.setBounds(390, 140, 50, 30);
         pnlAddActiv.add(txtNombreActividad);
         txtNombreActividad.setBounds(160, 30, 470, 30);
 
@@ -124,74 +124,74 @@ public class PnlProcesos extends javax.swing.JPanel {
 
         cbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ADMINISTRATIVA", "TECNICA", "PROFESIONAL", "DIRECCION", "DE SERVICIO" }));
         pnlAddActiv.add(cbTipo);
-        cbTipo.setBounds(440, 65, 190, 30);
+        cbTipo.setBounds(440, 140, 190, 30);
 
         lblFrecuencia.setText(" Frecuencia:");
         pnlAddActiv.add(lblFrecuencia);
-        lblFrecuencia.setBounds(60, 100, 90, 30);
+        lblFrecuencia.setBounds(60, 180, 90, 30);
 
         grupoBotones.add(chbDiaria);
         chbDiaria.setText("Diaria");
         pnlAddActiv.add(chbDiaria);
-        chbDiaria.setBounds(550, 105, 91, 23);
+        chbDiaria.setBounds(550, 180, 91, 23);
 
         grupoBotones.add(chbAnual);
         chbAnual.setText("Anual");
         pnlAddActiv.add(chbAnual);
-        chbAnual.setBounds(160, 105, 100, 23);
+        chbAnual.setBounds(160, 180, 100, 23);
 
         grupoBotones.add(chbMensual);
         chbMensual.setText("Mensual");
         pnlAddActiv.add(chbMensual);
-        chbMensual.setBounds(250, 105, 91, 23);
+        chbMensual.setBounds(250, 180, 91, 23);
 
         grupoBotones.add(chbQuincenal);
         chbQuincenal.setText("Quincenal");
         pnlAddActiv.add(chbQuincenal);
-        chbQuincenal.setBounds(350, 105, 100, 23);
+        chbQuincenal.setBounds(350, 180, 100, 23);
 
         grupoBotones.add(chbSemanal);
         chbSemanal.setText("Semanal");
         pnlAddActiv.add(chbSemanal);
-        chbSemanal.setBounds(450, 105, 91, 23);
+        chbSemanal.setBounds(450, 180, 91, 23);
 
         lblMedioVerificacion.setText("      Medio Verificacion:");
         pnlAddActiv.add(lblMedioVerificacion);
-        lblMedioVerificacion.setBounds(10, 140, 150, 30);
+        lblMedioVerificacion.setBounds(10, 220, 150, 30);
         pnlAddActiv.add(txtMedioVerif);
-        txtMedioVerif.setBounds(160, 135, 470, 30);
+        txtMedioVerif.setBounds(160, 210, 470, 30);
 
         lblTiempMin.setText("Tiempo en Minutos:");
         pnlAddActiv.add(lblTiempMin);
-        lblTiempMin.setBounds(280, 180, 150, 30);
+        lblTiempMin.setBounds(280, 260, 150, 30);
         pnlAddActiv.add(spVolumen);
-        spVolumen.setBounds(160, 180, 70, 30);
+        spVolumen.setBounds(160, 260, 70, 30);
 
         lblVolumen.setText("    Volumen:");
         pnlAddActiv.add(lblVolumen);
-        lblVolumen.setBounds(60, 180, 100, 30);
+        lblVolumen.setBounds(60, 260, 100, 30);
         pnlAddActiv.add(spTiempoMin);
-        spTiempoMin.setBounds(430, 180, 80, 30);
+        spTiempoMin.setBounds(430, 260, 80, 30);
 
         btnGuardarActividad.setText("Guardar");
         pnlAddActiv.add(btnGuardarActividad);
-        btnGuardarActividad.setBounds(530, 260, 100, 40);
+        btnGuardarActividad.setBounds(540, 270, 100, 40);
         pnlAddActiv.add(cbPuesto);
-        cbPuesto.setBounds(160, 65, 200, 30);
+        cbPuesto.setBounds(160, 140, 200, 30);
 
         jLabel1.setText("  Descripcion:   ");
         pnlAddActiv.add(jLabel1);
-        jLabel1.setBounds(50, 230, 100, 20);
+        jLabel1.setBounds(60, 80, 73, 14);
 
         txtDescripcion.setColumns(20);
         txtDescripcion.setRows(5);
         jScrollPane2.setViewportView(txtDescripcion);
 
         pnlAddActiv.add(jScrollPane2);
-        jScrollPane2.setBounds(160, 220, 350, 80);
+        jScrollPane2.setBounds(160, 70, 470, 60);
 
         pnlProcesos.add(pnlAddActiv);
-        pnlAddActiv.setBounds(10, 130, 650, 310);
+        pnlAddActiv.setBounds(10, 130, 650, 320);
 
         pnlAddProceso.setBorder(javax.swing.BorderFactory.createTitledBorder("PROCESO"));
         pnlAddProceso.setPreferredSize(new java.awt.Dimension(650, 70));

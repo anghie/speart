@@ -68,7 +68,7 @@ public class ControladorPermisos  {
         itemAbreSesion=false;
         itemCierraSesion=true;
         itemCambiaClave=true;
-        agenda=false;
+        agenda=true;
         agendaUsuario=true;
         agendaExperto=false;
        

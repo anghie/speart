@@ -257,7 +257,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
 
         btnEliminar.setText("Eliminar");
         pnlListaPregunta.add(btnEliminar);
-        btnEliminar.setBounds(630, 110, 90, 40);
+        btnEliminar.setBounds(640, 300, 90, 40);
 
         jLabel5.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

@@ -146,6 +146,8 @@ public class PanelAgenda extends ImagenJPanel {
         jLabel1 = new javax.swing.JLabel();
         btnAddActividad = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        lblProceso = new javax.swing.JLabel();
         btnFeriado = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
@@ -243,6 +245,11 @@ public class PanelAgenda extends ImagenJPanel {
         chbRecordar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         cmbServidor.setPreferredSize(new java.awt.Dimension(200, 24));
+        cmbServidor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbServidorActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Actividad:");
 
@@ -257,6 +264,10 @@ public class PanelAgenda extends ImagenJPanel {
 
         jLabel9.setText(":");
 
+        jLabel10.setText("Proceso:");
+
+        lblProceso.setText("Proceso");
+
         javax.swing.GroupLayout panelAddActividadLayout = new javax.swing.GroupLayout(panelAddActividad);
         panelAddActividad.setLayout(panelAddActividadLayout);
         panelAddActividadLayout.setHorizontalGroup(
@@ -264,47 +275,54 @@ public class PanelAgenda extends ImagenJPanel {
             .addGroup(panelAddActividadLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelAddActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelAddActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelAddActividadLayout.createSequentialGroup()
-                            .addComponent(jLabel8)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(chbRecordar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAddActividad))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelAddActividadLayout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addGap(5, 5, 5)
-                            .addComponent(cmbServidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelAddActividadLayout.createSequentialGroup()
-                        .addComponent(lblHpraTermina)
                         .addGroup(panelAddActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelAddActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelAddActividadLayout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(chbRecordar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnAddActividad))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelAddActividadLayout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addGap(5, 5, 5)
+                                    .addComponent(cmbServidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(panelAddActividadLayout.createSequentialGroup()
-                                .addGap(143, 143, 143)
-                                .addComponent(jLabel6))
+                                .addComponent(lblHpraTermina)
+                                .addGroup(panelAddActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelAddActividadLayout.createSequentialGroup()
+                                        .addGap(143, 143, 143)
+                                        .addComponent(jLabel6))
+                                    .addGroup(panelAddActividadLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(spHoraFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(spMinutosFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel7))))
                             .addGroup(panelAddActividadLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel5)
+                                .addComponent(lblHoraInicio)
+                                .addGap(27, 27, 27)
+                                .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spHoraFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(spHoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(3, 3, 3)
+                                .addComponent(jLabel2)
+                                .addGap(1, 1, 1)
+                                .addComponent(spMinutosInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spMinutosFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel7))))
+                                .addComponent(jLabel4)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panelAddActividadLayout.createSequentialGroup()
-                        .addComponent(lblHoraInicio)
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(spHoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel2)
-                        .addGap(1, 1, 1)
-                        .addComponent(spMinutosInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblProceso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         panelAddActividadLayout.setVerticalGroup(
             panelAddActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -315,7 +333,13 @@ public class PanelAgenda extends ImagenJPanel {
                         .addGap(5, 5, 5)
                         .addComponent(jLabel1))
                     .addComponent(cmbServidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelAddActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAddActividadLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel10))
+                    .addComponent(lblProceso))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelAddActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAddActividadLayout.createSequentialGroup()
                         .addGroup(panelAddActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -362,11 +386,11 @@ public class PanelAgenda extends ImagenJPanel {
                         .addComponent(lblFechaSeleccionada, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnFeriado)
-                        .addContainerGap())))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(panelIzquierdoLayout.createSequentialGroup()
                 .addGap(101, 101, 101)
                 .addComponent(btGuardarAgenda)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelIzquierdoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelAddActividad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -405,7 +429,7 @@ public class PanelAgenda extends ImagenJPanel {
                 panelMes=new PanelMes(calendario,agendaActual,usuario);
                 panelRecordatorio=new PanelRecordatorio(calendario,agendaActual,usuario);
          
-            
+            scPanelDia.getVerticalScrollBar().setValue(panelDia.getHeight()/2);
             loadPanel(scPanelDia, panelDia);
             loadPanel(scPanelSemana, panelSemana);
             loadPanel(scPanelMes, panelMes);
@@ -458,7 +482,7 @@ public class PanelAgenda extends ImagenJPanel {
         if(cmbServidor.getSelectedIndex()>-1){
             if (calendario!=null) {
                   ItemAgenda itemAgenda=new ItemAgenda();
-                  Actividad actividad= ((ModeloComboBoxActividad)cmbServidor.getModel()).getSelectedServidor();
+                  Actividad actividad= ((ModeloComboBoxActividad)cmbServidor.getModel()).getSelectedActividad();
                   itemAgenda.setActividad(actividad);
                   itemAgenda.setNombre_actividad(actividad.getNombreActividad());
 
@@ -514,6 +538,13 @@ public class PanelAgenda extends ImagenJPanel {
         dialogoAgenda.setLocationRelativeTo(null);
         dialogoAgenda.setVisible(true);
     }//GEN-LAST:event_btnFeriadoActionPerformed
+
+    private void cmbServidorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbServidorActionPerformed
+        // TODO add your handling code here:
+         Actividad actividad= ((ModeloComboBoxActividad)cmbServidor.getModel()).getSelectedActividad();
+        if(actividad!=null)
+            lblProceso.setText(actividad.getProcesito().getNombreProceso());
+    }//GEN-LAST:event_cmbServidorActionPerformed
 public void loadPanel(JScrollPane panelScroll, JPanel panel){
         panelScroll.getViewport().removeAll();
         panelScroll.setViewportView(panel);
@@ -584,6 +615,7 @@ public void loadPanel(JScrollPane panelScroll, JPanel panel){
     private javax.swing.JComboBox cmbServidor;
     private datechooser.beans.DateChooserPanel dateChooserPanel1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -596,6 +628,7 @@ public void loadPanel(JScrollPane panelScroll, JPanel panel){
     private javax.swing.JLabel lblFechaSeleccionada;
     private javax.swing.JLabel lblHoraInicio;
     private javax.swing.JLabel lblHpraTermina;
+    private javax.swing.JLabel lblProceso;
     private javax.swing.JPanel panelAddActividad;
     private javax.swing.JPanel panelCentro;
     private javax.swing.JPanel panelIzquierdo;

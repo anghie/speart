@@ -38,6 +38,7 @@ public class PanelDia extends javax.swing.JPanel {
 
     public PanelDia(Calendar calendar, Agenda agenda, Usuario usuario) {
         initComponents();
+        this.usuario=usuario;
         this.calendario=calendar;
         this.agenda=agenda;
         this.nombreDia=Fecha.getNombreDia(calendar.get(Calendar.DAY_OF_WEEK));
@@ -46,37 +47,9 @@ public class PanelDia extends javax.swing.JPanel {
         lblDia.setText(nombreDia+":"+numeroDia);
         iniciarTareas(usuario);
     }
-public void iniciarTareas(){
-        System.out.println("Tareas:"+agenda.getItemsAgenda().size());
-        panelContenedorActividades.removeAll();
-        for (Iterator<ItemAgenda> it = agenda.getItemsAgenda().iterator(); it.hasNext();) {
-             ItemAgenda item = it.next();
-             // System.out.println("Mes:"+Fecha.getNombreMes(calendario.get(Calendar.MONTH))+" Dia:"+calendario.get(Calendar.DAY_OF_MONTH));
-             if(item.getMes().equals(Fecha.getNombreMes(numeroMes))
-                    &&  Integer.parseInt(item.getDia_del_mes())==numeroDia){
-                PanelActividad panelActividad=new PanelActividad(true,item,panelContenedorActividades,usuario);
-                if(item.getActividad()!=null){
-                    panelActividad.setTxtActividad(item.getActividad().getTipoActividad());
-                    if(item.getActividad().getRol()!=null){
-                        panelActividad.setTxtEncargado(item.getActividad().getRol().getUsuario().getNombre()+" "+item.getActividad().getRol().getUsuario().getApellidos());
-                        panelActividad.setTxtCargo(item.getActividad().getRol().getCargo());
-                    }    
-                 }
-                panelActividad.setTxtFecha(item.getDia()+" "+item.getDia_del_mes()+" "+item.getMes());
-                panelActividad.setTxtHoraInicia(item.getHoraInicio());
-                panelActividad.setTxtHoraTermina(item.getHoraFin());
-                panelActividad.setTiempoDuracion(item.getTiempoDuracion());
-//                panelActividad.setBackground(Color.green);
-
-              panelContenedorActividades.add(panelActividad);
-              panelContenedorActividades.revalidate();
-            }
-
-        }
-    }
 
 public void iniciarTareas(Usuario usuario){
-        System.out.println("Tareas:"+agenda.getItemsAgenda().size());
+//        System.out.println("Tareas:"+agenda.getItemsAgenda().size());
         panelContenedorActividades.removeAll();
         for (Iterator<ItemAgenda> it = agenda.getItemsAgenda().iterator(); it.hasNext();) {
              ItemAgenda item = it.next();
@@ -85,7 +58,7 @@ public void iniciarTareas(Usuario usuario){
                     &&  Integer.parseInt(item.getDia_del_mes())==numeroDia
                     &&  item.getActividad()!=null ){
 
-                if(item.getActividad().getRol().getUsuario().equals(usuario)){
+                if(item.getActividad().getRol().getUsuario().equals(usuario) || usuario.getRol().getTipo().equals("Jefe")){
                     PanelActividad panelActividad=new PanelActividad(true,item,panelContenedorActividades,usuario);
                     panelActividad.setTxtActividad(item.getActividad().getTipoActividad());
                     if(item.getActividad().getRol()!=null){
@@ -147,15 +120,15 @@ public void iniciarTareas(Usuario usuario){
 
         setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         setOpaque(false);
-        setPreferredSize(new java.awt.Dimension(400, 430));
+        setPreferredSize(new java.awt.Dimension(420, 430));
         setLayout(new java.awt.BorderLayout());
 
         jScrollPane1.setDoubleBuffered(true);
         jScrollPane1.setOpaque(false);
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(210, 210));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(400, 400));
 
         panelContenedorActividades.setOpaque(false);
-        panelContenedorActividades.setPreferredSize(new java.awt.Dimension(400, 400));
+        panelContenedorActividades.setPreferredSize(new java.awt.Dimension(0, 0));
         panelContenedorActividades.setLayout(new javax.swing.BoxLayout(panelContenedorActividades, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane1.setViewportView(panelContenedorActividades);
 

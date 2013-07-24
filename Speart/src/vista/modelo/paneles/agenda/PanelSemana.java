@@ -43,26 +43,14 @@ public class PanelSemana extends javax.swing.JPanel {
         this.actividad=actividad;
         iniciarSemana(usuario);
     }
-    private void iniciarSemana(){
-        
-        for (int i =0; i <7; i++) {
-            PanelDiaHoras dia=new PanelDiaHoras(calendar,agenda,actividad,usuario);
-            dia.setNombreDia(Fecha.getNombreDia(calendar.get(Calendar.DAY_OF_WEEK)));
-            dia.setNumeroDia(calendar.get(Calendar.DAY_OF_MONTH));
-            dia.setPreferredSize(new Dimension(400,dia.getPreferredSize().height));
-            this.add(dia);     
-            calendar.add(Calendar.DATE, 1);           
-        }
-        calendar.add(Calendar.DATE, -7);
-
-    }
+    
     private void iniciarSemana(Usuario usuario){
 
         for (int i =0; i <7; i++) {
             PanelDiaHoras dia=new PanelDiaHoras(calendar,agenda,actividad, usuario);
             dia.setNombreDia(Fecha.getNombreDia(calendar.get(Calendar.DAY_OF_WEEK)));
             dia.setNumeroDia(calendar.get(Calendar.DAY_OF_MONTH));
-            dia.setPreferredSize(new Dimension(400,dia.getPreferredSize().height));
+            dia.setPreferredSize(new Dimension(550,dia.getPreferredSize().height));
             this.add(dia);
             calendar.add(Calendar.DATE, 1);
         }
@@ -72,10 +60,7 @@ public class PanelSemana extends javax.swing.JPanel {
     public void refreshTareas(Calendar calendar){
        this.removeAll();
        this.calendar=calendar;
-       if(usuario==null)
-         iniciarSemana();
-       else
-         iniciarSemana(usuario);
+       iniciarSemana(usuario);
     }
 
     public Vector<PanelDiaHoras> getDias(){

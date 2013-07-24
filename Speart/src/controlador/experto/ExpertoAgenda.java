@@ -36,7 +36,7 @@ public class ExpertoAgenda {
     }
 
     // Obtiene un ID de la actividad de la agenda mas apropiado
-    public String getResultado(ItemAgenda itemAgenda, String mes,String dia) throws Exception {
+    public String getResultado(ItemAgenda itemAgenda, String mes, String dia) throws Exception {
         ///Obtener Actividades de la base de datos para q el experto decida q actividad se deba realizar
         DatabaseUtils utils = new DatabaseUtils();
         String resultado = null;
@@ -46,7 +46,7 @@ public class ExpertoAgenda {
         query.setDatabaseURL(controladorDB);
         query.setUsername(usuario);
         query.setPassword(clave);//,dia_del_mes,id "SELECT mes,dia,horaInicio,horaFin,actividad_idActividad,id FROM ItemAgenda"
-        query.setQuery("SELECT mes,dia,dia_del_mes,nombre_actividad FROM ItemAgenda where mes='"+mes+"'"+ " and dia='"+dia+"'");//and completada=1
+        query.setQuery("SELECT mes,dia,nombre_actividad,CAST(id AS CHAR) FROM ItemAgenda where mes='"+mes+"' and dia='"+dia+"'");//and completada=1
         // The result of this query is the table which Weka is going to //use for classification or prediction
         Instances coleccion = query.retrieveInstances();
         query.close();
@@ -78,9 +78,14 @@ public class ExpertoAgenda {
         // Marcar la anterior como colección de referencia
         System.out.println("Item Agenda :"+itemAgenda.getMes()+" "+itemAgenda.getDia()+" "+itemAgenda.getDia_del_mes());
         datosdiag.setDataset(coleccion);
+       
         datosdiag.setValue(0, itemAgenda.getMes());
         datosdiag.setValue(1, itemAgenda.getDia());
-        datosdiag.setValue(2, itemAgenda.getDia_del_mes());
+        datosdiag.setValue(2, itemAgenda.getNombre_actividad());
+//        datosdiag.setValue(2, itemAgenda.getDia_del_mes());
+//        datosdiag.setValue(3, itemAgenda.getNombre_actividad());
+        
+        //datosdiag.setValue(0, ""+itemAgenda.getId());
         //datosdiag.setValue(2, itemAgenda.getHoraInicio().toString());
         //datosdiag.setValue(3, itemAgenda.getHoraFin().toString());
         // datosdiag.setValue(3, itemAgenda.getActividad().getIdActividad());

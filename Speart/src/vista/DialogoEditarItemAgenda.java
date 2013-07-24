@@ -50,7 +50,9 @@ public class DialogoEditarItemAgenda extends javax.swing.JDialog {
            spMinutosInicio.setValue(itemAgenda.getHoraInicio().getMinutes());
            spHoraFinal.setValue(itemAgenda.getHoraFin().getHours());
            spMinutosFinal.setValue(itemAgenda.getHoraFin().getMinutes());
+           spnPorcentaje.setValue(itemAgenda.getPorcentaje());
            chbRecordar.setSelected(itemAgenda.isRecordar());
+           txtObservacion.setText(itemAgenda.getObservacion());
         if(itemAgenda.getActividad()!=null){
            int index=((ModeloComboBoxActividad)cmbServidor.getModel()).getIndex(itemAgenda.getActividad());
            if(index>-1)
@@ -85,6 +87,13 @@ public class DialogoEditarItemAgenda extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         chbRecordar = new javax.swing.JCheckBox();
+        lblNomP = new javax.swing.JLabel();
+        lblProceso = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        spnPorcentaje = new javax.swing.JSpinner();
+        jLabel10 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtObservacion = new javax.swing.JTextArea();
         panelNorte = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         cmbServidor = new javax.swing.JComboBox();
@@ -125,6 +134,20 @@ public class DialogoEditarItemAgenda extends javax.swing.JDialog {
         chbRecordar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         chbRecordar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
+        lblNomP.setText("Proceso:");
+
+        lblProceso.setText("jLabel9");
+
+        jLabel9.setText("Total Hecho:");
+
+        spnPorcentaje.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, 100.0d, 1.0d));
+
+        jLabel10.setText("Observaciones:");
+
+        txtObservacion.setColumns(20);
+        txtObservacion.setRows(5);
+        jScrollPane1.setViewportView(txtObservacion);
+
         javax.swing.GroupLayout panelCentroLayout = new javax.swing.GroupLayout(panelCentro);
         panelCentro.setLayout(panelCentroLayout);
         panelCentroLayout.setHorizontalGroup(
@@ -132,60 +155,93 @@ public class DialogoEditarItemAgenda extends javax.swing.JDialog {
             .addGroup(panelCentroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCentroLayout.createSequentialGroup()
-                        .addComponent(lblHoraInicio)
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(spHoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel2)
-                        .addGap(1, 1, 1)
-                        .addComponent(spMinutosInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4))
-                    .addGroup(panelCentroLayout.createSequentialGroup()
-                        .addComponent(lblHpraTermina)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(spHoraFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel6)
-                        .addGap(1, 1, 1)
-                        .addComponent(spMinutosFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7))
-                    .addGroup(panelCentroLayout.createSequentialGroup()
-                        .addComponent(jLabel8)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCentroLayout.createSequentialGroup()
+                        .addComponent(lblNomP)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chbRecordar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(90, Short.MAX_VALUE))
+                        .addComponent(lblProceso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelCentroLayout.createSequentialGroup()
+                        .addGroup(panelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelCentroLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(spnPorcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelCentroLayout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chbRecordar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelCentroLayout.createSequentialGroup()
+                                .addComponent(lblHoraInicio)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(spHoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(3, 3, 3)
+                                .addComponent(jLabel2)
+                                .addGap(1, 1, 1)
+                                .addComponent(spMinutosInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel4))
+                            .addGroup(panelCentroLayout.createSequentialGroup()
+                                .addComponent(lblHpraTermina)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(spHoraFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(3, 3, 3)
+                                .addComponent(jLabel6)
+                                .addGap(1, 1, 1)
+                                .addComponent(spMinutosFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel7)))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelCentroLayout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(0, 93, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCentroLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
         );
         panelCentroLayout.setVerticalGroup(
             panelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCentroLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(6, 6, 6)
                 .addGroup(panelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblHoraInicio)
-                    .addComponent(spHoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(spMinutosInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(panelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblHpraTermina)
-                    .addComponent(spHoraFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(spMinutosFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
-                .addGap(19, 19, 19)
-                .addGroup(panelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
-                    .addComponent(chbRecordar))
-                .addContainerGap(29, Short.MAX_VALUE))
+                    .addComponent(lblProceso)
+                    .addComponent(lblNomP))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCentroLayout.createSequentialGroup()
+                        .addGroup(panelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblHoraInicio)
+                            .addComponent(spHoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(spMinutosInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel10))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblHpraTermina)
+                            .addComponent(spHoraFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(spMinutosFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addGap(19, 19, 19)
+                        .addGroup(panelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel8)
+                            .addComponent(chbRecordar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(spnPorcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 4, Short.MAX_VALUE))
+                    .addGroup(panelCentroLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jScrollPane1)))
+                .addContainerGap())
         );
 
         getContentPane().add(panelCentro, java.awt.BorderLayout.CENTER);
@@ -196,6 +252,11 @@ public class DialogoEditarItemAgenda extends javax.swing.JDialog {
         panelNorte.add(jLabel1);
 
         cmbServidor.setPreferredSize(new java.awt.Dimension(200, 24));
+        cmbServidor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbServidorActionPerformed(evt);
+            }
+        });
         panelNorte.add(cmbServidor);
 
         getContentPane().add(panelNorte, java.awt.BorderLayout.PAGE_START);
@@ -212,7 +273,7 @@ public class DialogoEditarItemAgenda extends javax.swing.JDialog {
         });
         panelSur.add(btAceptar);
 
-        btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/SALIR.png"))); // NOI18N
+        btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btCancelar.setText("Cancelar");
         btCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,10 +290,12 @@ public class DialogoEditarItemAgenda extends javax.swing.JDialog {
     private void btAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAceptarActionPerformed
         // TODO add your handling code here:
         if(cmbServidor.getSelectedIndex()>-1){
-            Actividad actividad= ((ModeloComboBoxActividad)cmbServidor.getModel()).getSelectedServidor();
+            Actividad actividad= ((ModeloComboBoxActividad)cmbServidor.getModel()).getSelectedActividad();
             itemAgenda.setActividad(actividad);
             itemAgenda.setNombre_actividad(actividad.getNombreActividad());
         }
+        itemAgenda.setPorcentaje(Double.parseDouble(spnPorcentaje.getValue().toString()));
+        itemAgenda.setObservacion(txtObservacion.getText());
         itemAgenda.getHoraInicio().setHours(Integer.parseInt(spHoraInicio.getValue().toString()));
         itemAgenda.getHoraInicio().setMinutes(Integer.parseInt(spMinutosInicio.getValue().toString()));
 
@@ -259,6 +322,15 @@ public class DialogoEditarItemAgenda extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_btCancelarActionPerformed
 
+    private void cmbServidorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbServidorActionPerformed
+        // TODO add your handling code here:
+         Actividad actividad= ((ModeloComboBoxActividad)cmbServidor.getModel()).getSelectedActividad();
+        if(actividad!=null){
+            lblProceso.setText(actividad.getProcesito().getNombreProceso());
+            lblProceso.setToolTipText(actividad.getProcesito().getNombreProceso());
+        }
+    }//GEN-LAST:event_cmbServidorActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -282,6 +354,7 @@ public class DialogoEditarItemAgenda extends javax.swing.JDialog {
     private javax.swing.JCheckBox chbRecordar;
     private javax.swing.JComboBox cmbServidor;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -289,8 +362,12 @@ public class DialogoEditarItemAgenda extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblHoraInicio;
     private javax.swing.JLabel lblHpraTermina;
+    private javax.swing.JLabel lblNomP;
+    private javax.swing.JLabel lblProceso;
     private javax.swing.JPanel panelCentro;
     private javax.swing.JPanel panelNorte;
     private javax.swing.JPanel panelSur;
@@ -298,6 +375,8 @@ public class DialogoEditarItemAgenda extends javax.swing.JDialog {
     private javax.swing.JSpinner spHoraInicio;
     private javax.swing.JSpinner spMinutosFinal;
     private javax.swing.JSpinner spMinutosInicio;
+    private javax.swing.JSpinner spnPorcentaje;
+    private javax.swing.JTextArea txtObservacion;
     // End of variables declaration//GEN-END:variables
 
 }

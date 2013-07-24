@@ -39,26 +39,9 @@ public class PanelMes extends javax.swing.JPanel {
         this.usuario=usuario;
         this.agenda=agenda;
         this.calendar=calendar;
-        iniciarMes();
+        iniciarMes(usuario);
     }
-
-   private void iniciarMes(){
-        int diaSeleccinado=calendar.get(Calendar.DAY_OF_MONTH);
-        calendar.set(Calendar.DATE,calendar.getActualMinimum(Calendar.DAY_OF_MONTH));
-        int diasDelMes=calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-        //System.out.println(agenda.getItemsAgenda());
-        this.setLayout(new GridLayout(7,(diasDelMes/7)+1));
-        for (int i = 1; i <= diasDelMes; i++) {
-            PanelDia dia=new PanelDia(calendar,agenda,usuario);
-            dia.setNombreDia(Fecha.getNombreDia(calendar.get(Calendar.DAY_OF_WEEK)));
-            dia.setNumeroDia(calendar.get(Calendar.DAY_OF_MONTH));
-            this.add(dia);
-            calendar.add(Calendar.DATE, 1);
-        }
-        calendar.add(Calendar.DATE, -diasDelMes);
-        calendar.add(Calendar.DATE, diaSeleccinado-1);
-    }
-
+    
    private void iniciarMes(Usuario usuario){
         int diaSeleccinado=calendar.get(Calendar.DAY_OF_MONTH);
         calendar.set(Calendar.DATE,calendar.getActualMinimum(Calendar.DAY_OF_MONTH));
@@ -79,10 +62,7 @@ public class PanelMes extends javax.swing.JPanel {
     public void refreshTareas(Calendar calendar){
         this.removeAll();
         this.calendar=calendar;
-        if(usuario==null)
-            iniciarMes();
-        else
-            iniciarMes(usuario);
+        iniciarMes(usuario);
     }
 
     /** This method is called from within the constructor to
@@ -94,17 +74,17 @@ public class PanelMes extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setPreferredSize(new java.awt.Dimension(500, 500));
+        setPreferredSize(new java.awt.Dimension(2800, 2800));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 379, Short.MAX_VALUE)
+            .addGap(0, 500, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 322, Short.MAX_VALUE)
+            .addGap(0, 500, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
