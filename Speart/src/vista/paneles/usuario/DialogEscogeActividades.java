@@ -47,6 +47,8 @@ public class DialogEscogeActividades extends javax.swing.JDialog {
         btnCerrar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
         btnQuitar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -57,12 +59,12 @@ public class DialogEscogeActividades extends javax.swing.JDialog {
         scrollDisponibles.setViewportView(lstActivDisponibles);
 
         jPanel1.add(scrollDisponibles);
-        scrollDisponibles.setBounds(20, 10, 310, 180);
+        scrollDisponibles.setBounds(20, 40, 310, 180);
 
         scrollAsignadas.setViewportView(lstActividAsignadas);
 
         jPanel1.add(scrollAsignadas);
-        scrollAsignadas.setBounds(440, 10, 310, 180);
+        scrollAsignadas.setBounds(440, 40, 310, 180);
 
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/acepta.png"))); // NOI18N
         btnAceptar.setText("Aceptar");
@@ -103,6 +105,16 @@ public class DialogEscogeActividades extends javax.swing.JDialog {
         });
         jPanel1.add(btnQuitar);
         btnQuitar.setBounds(340, 100, 90, 30);
+
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel1.setText("Actividades agregadas");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(440, 20, 150, 16);
+
+        jLabel2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel2.setText("Actividades a agregar:");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(20, 20, 150, 16);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 760, 280);
@@ -158,11 +170,14 @@ public class DialogEscogeActividades extends javax.swing.JDialog {
             dispose();
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnQuitar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JList lstActivDisponibles;
     private javax.swing.JList lstActividAsignadas;

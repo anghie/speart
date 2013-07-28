@@ -60,6 +60,8 @@ public class DialogCompetTecnica extends javax.swing.JDialog {
         btnQuitarDestreza = new javax.swing.JButton();
         btnAceptar = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -70,15 +72,16 @@ public class DialogCompetTecnica extends javax.swing.JDialog {
         scrollDisponibles.setViewportView(lstDestrezasDisponibles);
 
         jPanel1.add(scrollDisponibles);
-        scrollDisponibles.setBounds(10, 10, 310, 180);
+        scrollDisponibles.setBounds(10, 40, 310, 180);
 
         scrollAsignadas.setViewportView(lstDestrezasAsignadas);
 
         jPanel1.add(scrollAsignadas);
-        scrollAsignadas.setBounds(430, 10, 310, 180);
+        scrollAsignadas.setBounds(430, 40, 310, 180);
 
         btnAgregarDestreza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/list-add.png"))); // NOI18N
         btnAgregarDestreza.setText("Agregar");
+        btnAgregarDestreza.setToolTipText("Agregar Competencias Tecnicas");
         jPanel1.add(btnAgregarDestreza);
         btnAgregarDestreza.setBounds(330, 50, 97, 30);
 
@@ -102,6 +105,16 @@ public class DialogCompetTecnica extends javax.swing.JDialog {
         jPanel1.add(btnCerrar);
         btnCerrar.setBounds(630, 240, 110, 40);
 
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel1.setText("Competencias Tecnicas agregadas");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(460, 20, 230, 16);
+
+        jLabel2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel2.setText("Competencias Tecnicas a agregar:");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(20, 20, 240, 16);
+
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 750, 280);
 
@@ -119,6 +132,8 @@ public class DialogCompetTecnica extends javax.swing.JDialog {
     private javax.swing.JButton btnAgregarDestreza;
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnQuitarDestreza;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JList lstDestrezasAsignadas;
     private javax.swing.JList lstDestrezasDisponibles;

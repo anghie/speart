@@ -169,7 +169,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel29" min="-2" pref="147" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="lblNombreEvaluado" pref="293" max="32767" attributes="0"/>
+                              <Component id="lblNombreEvaluado" pref="297" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel31" min="-2" pref="105" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -539,11 +539,11 @@
                         </Component>
                         <Component class="javax.swing.JLabel" name="lblFactor">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="# Factor: "/>
+                            <Property name="text" type="java.lang.String" value="%"/>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="260" y="10" width="70" height="20"/>
+                              <AbsoluteConstraints x="400" y="10" width="20" height="20"/>
                             </Constraint>
                           </Constraints>
                         </Component>
@@ -551,6 +551,16 @@
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                               <AbsoluteConstraints x="330" y="10" width="60" height="-1"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="lblFactor1">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="# Factor: "/>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="260" y="10" width="70" height="20"/>
                             </Constraint>
                           </Constraints>
                         </Component>

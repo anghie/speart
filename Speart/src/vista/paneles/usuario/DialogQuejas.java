@@ -47,19 +47,20 @@ private Rol rol;
         btnGuardarQueja = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(64, 170, 100));
         getContentPane().setLayout(null);
 
         jLabel1.setText("QUEJAS");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(280, 10, 70, 17);
+        jLabel1.setBounds(280, 10, 70, 14);
 
         jLabel2.setText("Descripcion:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 90, 110, 17);
+        jLabel2.setBounds(20, 90, 110, 14);
 
         jLabel3.setText("Nombre de la persona que realiza la queja:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 60, 260, 17);
+        jLabel3.setBounds(20, 60, 260, 14);
         getContentPane().add(txtPersonaQueja);
         txtPersonaQueja.setBounds(260, 50, 350, 30);
 
@@ -75,7 +76,7 @@ private Rol rol;
         getContentPane().add(jLabel4);
         jLabel4.setBounds(20, 240, 90, 20);
         getContentPane().add(txtNroFormulario);
-        txtNroFormulario.setBounds(120, 240, 90, 27);
+        txtNroFormulario.setBounds(120, 240, 90, 20);
 
         chbNo.setText("No");
         chbNo.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +85,7 @@ private Rol rol;
             }
         });
         getContentPane().add(chbNo);
-        chbNo.setBounds(460, 240, 60, 22);
+        chbNo.setBounds(460, 240, 60, 23);
 
         chbSi.setText("Si");
         chbSi.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +94,7 @@ private Rol rol;
             }
         });
         getContentPane().add(chbSi);
-        chbSi.setBounds(400, 240, 60, 22);
+        chbSi.setBounds(400, 240, 60, 23);
 
         jLabel5.setText("Descuento en evaluacion:");
         getContentPane().add(jLabel5);
@@ -108,8 +109,8 @@ private Rol rol;
         getContentPane().add(btnGuardarQueja);
         btnGuardarQueja.setBounds(260, 290, 100, 40);
 
-        setSize(new java.awt.Dimension(642, 378));
-        setLocationRelativeTo(null);
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-642)/2, (screenSize.height-378)/2, 642, 378);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarQuejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarQuejaActionPerformed
