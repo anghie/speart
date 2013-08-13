@@ -100,6 +100,7 @@ private Rol rol;
         getContentPane().add(jLabel5);
         jLabel5.setBounds(230, 240, 160, 20);
 
+        btnGuardarQueja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnGuardarQueja.setText("Guardar");
         btnGuardarQueja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,7 +108,7 @@ private Rol rol;
             }
         });
         getContentPane().add(btnGuardarQueja);
-        btnGuardarQueja.setBounds(260, 290, 100, 40);
+        btnGuardarQueja.setBounds(260, 290, 110, 40);
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         setBounds((screenSize.width-642)/2, (screenSize.height-378)/2, 642, 378);

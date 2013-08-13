@@ -83,16 +83,20 @@ public class PnlRespaldos extends javax.swing.JPanel {
         pnlGeneraRespaldo.add(txtDirectorioGen);
         txtDirectorioGen.setBounds(80, 180, 280, 30);
 
+        btnBuscaGenerac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/BUSC.png"))); // NOI18N
         btnBuscaGenerac.setText("Buscar");
+        btnBuscaGenerac.setToolTipText("Buscar  direccion a donde se guardara respaldo");
         btnBuscaGenerac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscaGeneracActionPerformed(evt);
             }
         });
         pnlGeneraRespaldo.add(btnBuscaGenerac);
-        btnBuscaGenerac.setBounds(370, 180, 90, 30);
+        btnBuscaGenerac.setBounds(370, 180, 100, 30);
 
+        btnGenerarResp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnGenerarResp.setText("GENERAR");
+        btnGenerarResp.setToolTipText("Guardar respaldo");
         btnGenerarResp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerarRespActionPerformed(evt);
@@ -128,18 +132,22 @@ public class PnlRespaldos extends javax.swing.JPanel {
         pnlCargaRespaldo.add(txtClaveCarg);
         txtClaveCarg.setBounds(360, 120, 100, 30);
 
+        btnBuscarCarg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/BUSC.png"))); // NOI18N
         btnBuscarCarg.setText("Buscar");
+        btnBuscarCarg.setToolTipText("Abrir respaldo a recuperar");
         btnBuscarCarg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarCargActionPerformed(evt);
             }
         });
         pnlCargaRespaldo.add(btnBuscarCarg);
-        btnBuscarCarg.setBounds(370, 180, 90, 30);
+        btnBuscarCarg.setBounds(370, 180, 100, 30);
         pnlCargaRespaldo.add(txtDirectorioCarg);
         txtDirectorioCarg.setBounds(80, 180, 280, 30);
 
+        btnCargarResp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/abrirbarra.png"))); // NOI18N
         btnCargarResp.setText("CARGAR");
+        btnCargarResp.setToolTipText("Cargar respaldo guardado");
         btnCargarResp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCargarRespActionPerformed(evt);

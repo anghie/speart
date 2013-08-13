@@ -90,7 +90,7 @@ public class UsuarioTest {
         String login = "hola";
         Usuario instance = new Usuario();
         instance.setLogin(login);
-        assertNotNull(login);
+        assertTrue(Boolean.TRUE);
         // TODO review the geinstnerated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
     }
@@ -119,7 +119,7 @@ public class UsuarioTest {
         String clave = "clavecita";
         Usuario instance = new Usuario();
         instance.setClave(clave);
-        assertNotNull(clave);
+        assertSame(clave, clave);
         // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
     }

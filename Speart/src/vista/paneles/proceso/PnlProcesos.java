@@ -173,9 +173,11 @@ public class PnlProcesos extends javax.swing.JPanel {
         pnlAddActiv.add(spTiempoMin);
         spTiempoMin.setBounds(430, 260, 80, 30);
 
+        btnGuardarActividad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnGuardarActividad.setText("Guardar");
+        btnGuardarActividad.setToolTipText("Guardar informacion del proceso");
         pnlAddActiv.add(btnGuardarActividad);
-        btnGuardarActividad.setBounds(540, 270, 100, 40);
+        btnGuardarActividad.setBounds(530, 270, 110, 40);
         pnlAddActiv.add(cbPuesto);
         cbPuesto.setBounds(160, 140, 200, 30);
 
@@ -197,9 +199,11 @@ public class PnlProcesos extends javax.swing.JPanel {
         pnlAddProceso.setPreferredSize(new java.awt.Dimension(650, 70));
         pnlAddProceso.setLayout(null);
 
+        btnNuevoProceso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Edit.png"))); // NOI18N
         btnNuevoProceso.setText("Nuevo");
+        btnNuevoProceso.setToolTipText("Ingresar un nuevo proceso");
         pnlAddProceso.add(btnNuevoProceso);
-        btnNuevoProceso.setBounds(530, 20, 90, 40);
+        btnNuevoProceso.setBounds(520, 20, 100, 40);
         pnlAddProceso.add(cbProcesos);
         cbProcesos.setBounds(20, 25, 460, 30);
 
@@ -213,7 +217,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         pnlDos  = new  ImagenJPanel ("zzz.jpg");
 
         pnlListaProcesos.setOpaque(false);
-        pnlListaProcesos.setPreferredSize(new java.awt.Dimension(710, 500));
+        pnlListaProcesos.setPreferredSize(new java.awt.Dimension(680, 380));
         pnlListaProcesos.setLayout(null);
         pnlListaProcesos.add(txtBuscar);
         txtBuscar.setBounds(390, 260, 270, 30);
@@ -240,19 +244,25 @@ public class PnlProcesos extends javax.swing.JPanel {
         pnlListaProcesos.add(cbProcesosLista);
         cbProcesosLista.setBounds(120, 20, 340, 30);
 
+        btnEditarProceso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/AGENDA1.png"))); // NOI18N
         btnEditarProceso.setText("Editar Proceso");
+        btnEditarProceso.setToolTipText("Actualizar informcion del proceso");
         pnlListaProcesos.add(btnEditarProceso);
-        btnEditarProceso.setBounds(470, 20, 170, 30);
+        btnEditarProceso.setBounds(470, 20, 137, 30);
 
         lblProceso.setText("Proceso:");
         pnlListaProcesos.add(lblProceso);
         lblProceso.setBounds(50, 20, 110, 30);
 
+        btnEliminarActividad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnEliminarActividad.setText("Eliminar");
+        btnEliminarActividad.setToolTipText("Quitar actividades del sistema");
         pnlListaProcesos.add(btnEliminarActividad);
         btnEliminarActividad.setBounds(150, 260, 100, 40);
 
+        btnEditarActividad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/AGENDA1.png"))); // NOI18N
         btnEditarActividad.setText("Editar");
+        btnEditarActividad.setToolTipText("Actualizar informacion de actividad");
         pnlListaProcesos.add(btnEditarActividad);
         btnEditarActividad.setBounds(40, 260, 100, 40);
 

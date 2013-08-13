@@ -93,25 +93,39 @@ public class FrmTests extends javax.swing.JDialog {
         getContentPane().add(pnlPrincipal);
         pnlPrincipal.setBounds(10, 50, 1000, 440);
 
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnCerrar.setText("Cerrar");
         getContentPane().add(btnCerrar);
-        btnCerrar.setBounds(930, 520, 80, 22);
+        btnCerrar.setBounds(910, 500, 100, 40);
 
+        btnAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/agt_back.png"))); // NOI18N
         btnAnterior.setText("Anterior");
+        btnAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnteriorActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAnterior);
-        btnAnterior.setBounds(410, 510, 110, 22);
+        btnAnterior.setBounds(390, 500, 110, 41);
 
+        btnSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/agt_forward.png"))); // NOI18N
         btnSiguiente.setText("Siguiente");
         getContentPane().add(btnSiguiente);
-        btnSiguiente.setBounds(540, 510, 110, 22);
+        btnSiguiente.setBounds(530, 500, 120, 41);
 
+        btnCalificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/business.png"))); // NOI18N
         btnCalificar.setText("Calificar");
         getContentPane().add(btnCalificar);
-        btnCalificar.setBounds(660, 510, 100, 22);
+        btnCalificar.setBounds(660, 500, 110, 41);
 
-        setSize(new java.awt.Dimension(1028, 579));
-        setLocationRelativeTo(null);
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-1028)/2, (screenSize.height-579)/2, 1028, 579);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAnteriorActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnterior;
     private javax.swing.JButton btnCalificar;

@@ -92,7 +92,11 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnGuardarPregunta">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/vista/imagenes/Save.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Guardar"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Guardar informacion de test "/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -123,7 +127,11 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="btnAplicar">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/vista/imagenes/add.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Aplicar"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Ingresar las respuestas a la pregunta"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -153,11 +161,15 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnNuevaSeccion">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/vista/imagenes/Edit.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Nueva"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Ingresar nueva seccion"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="591" y="40" width="90" height="30"/>
+                      <AbsoluteConstraints x="591" y="40" width="100" height="30"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -227,11 +239,15 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnEditarSeccion">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/vista/imagenes/AGENDA1.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Editar Secci&#xf3;n"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Actualizar seccion"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="500" y="70" width="130" height="30"/>
+                      <AbsoluteConstraints x="500" y="70" width="140" height="30"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -267,11 +283,15 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="btnEliminar">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/vista/imagenes/salir_1.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Eliminar"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Quitar pregunta/as de la seccion"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="640" y="300" width="90" height="40"/>
+                      <AbsoluteConstraints x="630" y="110" width="110" height="40"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -431,11 +451,15 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="btnGuardarCompetencia">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/vista/imagenes/Save.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Guardar"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Guardar informacion del Competencias"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="360" y="440" width="100" height="40"/>
+                      <AbsoluteConstraints x="360" y="440" width="110" height="40"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -479,7 +503,11 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnEliminarCompetencias">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/vista/imagenes/salir_1.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Eliminar"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Quitar Competencias Tecnicas del Sistema"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -489,7 +517,11 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnNuevaCompetencia">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/vista/imagenes/Edit.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Nuevo"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Ingresar Competencias Tecnicas de Puesto"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -499,7 +531,11 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnEditarCompetencias">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/vista/imagenes/AGENDA1.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Editar"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Actualizar informacio de Competencias Tecnicas"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -539,7 +575,11 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="btnNuevaCompetenciaUniversal">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/vista/imagenes/Edit.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Nuevo"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Agregar nuevas competencias universales"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -549,7 +589,11 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnEditarCompetenciaUniversal">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/vista/imagenes/AGENDA1.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Editar"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Actualizar datos de Competencias Universales"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -559,6 +603,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnEliminarCompetenciaUniversal">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/vista/imagenes/salir_1.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Eliminar"/>
                   </Properties>
                   <Constraints>
@@ -669,11 +716,15 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="btnGuardarCompetenciaUniversal">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/vista/imagenes/Save.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Guardar"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Guardar informacion de  Competencias Universales"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="360" y="440" width="100" height="40"/>
+                      <AbsoluteConstraints x="360" y="440" width="110" height="40"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -790,7 +841,11 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="btnNuevoTrabajoEq">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/vista/imagenes/Edit.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Nuevo"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Agregar Destrezas de Trabajo enj equipo"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -800,7 +855,11 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnEditTrabEq">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/vista/imagenes/AGENDA1.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Editar"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Actualizar informacion de Trabajo en Equipo"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -810,7 +869,11 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnElimTrabEq">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/vista/imagenes/salir_1.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Eliminar"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Eliminar destrezas de Trabaipojo en Equ"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -930,11 +993,14 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnGuardarTrabEquipo">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/vista/imagenes/Save.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Guardar"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="360" y="440" width="100" height="40"/>
+                      <AbsoluteConstraints x="360" y="440" width="120" height="40"/>
                     </Constraint>
                   </Constraints>
                 </Component>

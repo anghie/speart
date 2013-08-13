@@ -53,7 +53,9 @@ public class DialogCambiaClave extends javax.swing.JDialog {
         getContentPane().add(lblConfirmClave);
         lblConfirmClave.setBounds(20, 110, 140, 30);
 
+        btnCambiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/kword.png"))); // NOI18N
         btnCambiar.setText("Cambiar");
+        btnCambiar.setToolTipText("Actualizar clave");
         btnCambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCambiarActionPerformed(evt);
@@ -68,8 +70,8 @@ public class DialogCambiaClave extends javax.swing.JDialog {
         getContentPane().add(txtClaveNueva);
         txtClaveNueva.setBounds(140, 70, 220, 30);
 
-        setSize(new java.awt.Dimension(396, 241));
-        setLocationRelativeTo(null);
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-396)/2, (screenSize.height-241)/2, 396, 241);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarActionPerformed

@@ -187,7 +187,9 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlNuevaPregunta.add(spNroPreg);
         spNroPreg.setBounds(230, 120, 80, 30);
 
+        btnGuardarPregunta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnGuardarPregunta.setText("Guardar");
+        btnGuardarPregunta.setToolTipText("Guardar informacion de test ");
         pnlNuevaPregunta.add(btnGuardarPregunta);
         btnGuardarPregunta.setBounds(330, 400, 110, 40);
 
@@ -199,7 +201,9 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlNuevaPregunta.add(jScrollPane1);
         jScrollPane1.setBounds(30, 160, 710, 220);
 
+        btnAplicar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/add.png"))); // NOI18N
         btnAplicar.setText("Aplicar");
+        btnAplicar.setToolTipText("Ingresar las respuestas a la pregunta");
         pnlNuevaPregunta.add(btnAplicar);
         btnAplicar.setBounds(320, 110, 100, 40);
 
@@ -209,9 +213,11 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlNuevaPregunta.add(cbSeccion);
         cbSeccion.setBounds(230, 40, 360, 30);
 
+        btnNuevaSeccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Edit.png"))); // NOI18N
         btnNuevaSeccion.setText("Nueva");
+        btnNuevaSeccion.setToolTipText("Ingresar nueva seccion");
         pnlNuevaPregunta.add(btnNuevaSeccion);
-        btnNuevaSeccion.setBounds(591, 40, 90, 30);
+        btnNuevaSeccion.setBounds(591, 40, 100, 30);
 
         jLabel6.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -235,9 +241,11 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlListaPregunta.add(cbSeccionLstPreg);
         cbSeccionLstPreg.setBounds(110, 70, 380, 30);
 
+        btnEditarSeccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/AGENDA1.png"))); // NOI18N
         btnEditarSeccion.setText("Editar Sección");
+        btnEditarSeccion.setToolTipText("Actualizar seccion");
         pnlListaPregunta.add(btnEditarSeccion);
-        btnEditarSeccion.setBounds(500, 70, 130, 30);
+        btnEditarSeccion.setBounds(500, 70, 140, 30);
 
         tblPreguntas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -255,9 +263,11 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlListaPregunta.add(jScrollPane2);
         jScrollPane2.setBounds(40, 110, 590, 220);
 
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
+        btnEliminar.setToolTipText("Quitar pregunta/as de la seccion");
         pnlListaPregunta.add(btnEliminar);
-        btnEliminar.setBounds(640, 300, 90, 40);
+        btnEliminar.setBounds(630, 110, 110, 40);
 
         jLabel5.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -317,9 +327,11 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlCompTecPuesto.add(jScrollPane5);
         jScrollPane5.setBounds(450, 360, 280, 70);
 
+        btnGuardarCompetencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnGuardarCompetencia.setText("Guardar");
+        btnGuardarCompetencia.setToolTipText("Guardar informacion del Competencias");
         pnlCompTecPuesto.add(btnGuardarCompetencia);
-        btnGuardarCompetencia.setBounds(360, 440, 100, 40);
+        btnGuardarCompetencia.setBounds(360, 440, 110, 40);
 
         tblCompetencias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -342,15 +354,21 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlCompTecPuesto.add(jLabel11);
         jLabel11.setBounds(230, 10, 340, 20);
 
+        btnEliminarCompetencias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnEliminarCompetencias.setText("Eliminar");
+        btnEliminarCompetencias.setToolTipText("Quitar Competencias Tecnicas del Sistema");
         pnlCompTecPuesto.add(btnEliminarCompetencias);
         btnEliminarCompetencias.setBounds(260, 230, 100, 40);
 
+        btnNuevaCompetencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Edit.png"))); // NOI18N
         btnNuevaCompetencia.setText("Nuevo");
+        btnNuevaCompetencia.setToolTipText("Ingresar Competencias Tecnicas de Puesto");
         pnlCompTecPuesto.add(btnNuevaCompetencia);
         btnNuevaCompetencia.setBounds(40, 230, 100, 40);
 
+        btnEditarCompetencias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/AGENDA1.png"))); // NOI18N
         btnEditarCompetencias.setText("Editar");
+        btnEditarCompetencias.setToolTipText("Actualizar informacio de Competencias Tecnicas");
         pnlCompTecPuesto.add(btnEditarCompetencias);
         btnEditarCompetencias.setBounds(150, 230, 100, 40);
 
@@ -364,14 +382,19 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlCompUniv.setPreferredSize(new java.awt.Dimension(770, 490));
         pnlCompUniv.setLayout(null);
 
+        btnNuevaCompetenciaUniversal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Edit.png"))); // NOI18N
         btnNuevaCompetenciaUniversal.setText("Nuevo");
+        btnNuevaCompetenciaUniversal.setToolTipText("Agregar nuevas competencias universales");
         pnlCompUniv.add(btnNuevaCompetenciaUniversal);
         btnNuevaCompetenciaUniversal.setBounds(40, 230, 100, 40);
 
+        btnEditarCompetenciaUniversal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/AGENDA1.png"))); // NOI18N
         btnEditarCompetenciaUniversal.setText("Editar");
+        btnEditarCompetenciaUniversal.setToolTipText("Actualizar datos de Competencias Universales");
         pnlCompUniv.add(btnEditarCompetenciaUniversal);
         btnEditarCompetenciaUniversal.setBounds(150, 230, 100, 40);
 
+        btnEliminarCompetenciaUniversal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnEliminarCompetenciaUniversal.setText("Eliminar");
         pnlCompUniv.add(btnEliminarCompetenciaUniversal);
         btnEliminarCompetenciaUniversal.setBounds(260, 230, 100, 40);
@@ -418,9 +441,11 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlCompUniv.add(jScrollPane10);
         jScrollPane10.setBounds(450, 360, 280, 70);
 
+        btnGuardarCompetenciaUniversal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnGuardarCompetenciaUniversal.setText("Guardar");
+        btnGuardarCompetenciaUniversal.setToolTipText("Guardar informacion de  Competencias Universales");
         pnlCompUniv.add(btnGuardarCompetenciaUniversal);
-        btnGuardarCompetenciaUniversal.setBounds(360, 440, 100, 40);
+        btnGuardarCompetenciaUniversal.setBounds(360, 440, 110, 40);
 
         jLabel12.setText("Destreza:");
         pnlCompUniv.add(jLabel12);
@@ -469,15 +494,21 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlTrabajoEquipo.add(jScrollPane11);
         jScrollPane11.setBounds(40, 40, 700, 180);
 
+        btnNuevoTrabajoEq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Edit.png"))); // NOI18N
         btnNuevoTrabajoEq.setText("Nuevo");
+        btnNuevoTrabajoEq.setToolTipText("Agregar Destrezas de Trabajo enj equipo");
         pnlTrabajoEquipo.add(btnNuevoTrabajoEq);
         btnNuevoTrabajoEq.setBounds(40, 230, 100, 40);
 
+        btnEditTrabEq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/AGENDA1.png"))); // NOI18N
         btnEditTrabEq.setText("Editar");
+        btnEditTrabEq.setToolTipText("Actualizar informacion de Trabajo en Equipo");
         pnlTrabajoEquipo.add(btnEditTrabEq);
         btnEditTrabEq.setBounds(150, 230, 100, 40);
 
+        btnElimTrabEq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnElimTrabEq.setText("Eliminar");
+        btnElimTrabEq.setToolTipText("Eliminar destrezas de Trabaipojo en Equ");
         pnlTrabajoEquipo.add(btnElimTrabEq);
         btnElimTrabEq.setBounds(260, 230, 100, 40);
 
@@ -523,9 +554,10 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlTrabajoEquipo.add(jLabel20);
         jLabel20.setBounds(40, 390, 110, 20);
 
+        btnGuardarTrabEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnGuardarTrabEquipo.setText("Guardar");
         pnlTrabajoEquipo.add(btnGuardarTrabEquipo);
-        btnGuardarTrabEquipo.setBounds(360, 440, 100, 40);
+        btnGuardarTrabEquipo.setBounds(360, 440, 120, 40);
 
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("TRABAJO EN EQUIPO");

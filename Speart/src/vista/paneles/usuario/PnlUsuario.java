@@ -151,6 +151,8 @@ public final class PnlUsuario extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
+        tabbedUsuario.setToolTipText("");
+
         pnlCreaUsuario  = new  ImagenJPanel ("zzz.jpg");
 
         pnlDatos.setOpaque(false);
@@ -158,6 +160,7 @@ public final class PnlUsuario extends javax.swing.JPanel {
         pnlDatos.setLayout(null);
 
         btnGuardarUsuario.setText("Guardar");
+        btnGuardarUsuario.setToolTipText("Guardar informacion de los usuarios");
         btnGuardarUsuario.setAlignmentX(Component.CENTER_ALIGNMENT);
         btnGuardarUsuario.setPreferredSize(new java.awt.Dimension(90, 35));
         pnlDatos.add(btnGuardarUsuario);
@@ -268,7 +271,7 @@ public final class PnlUsuario extends javax.swing.JPanel {
         pnlListaUsuarios  = new  ImagenJPanel ("zzz.jpg");
 
         pnlLstDatos.setOpaque(false);
-        pnlLstDatos.setPreferredSize(new java.awt.Dimension(640, 550));
+        pnlLstDatos.setPreferredSize(new java.awt.Dimension(740, 550));
         pnlLstDatos.setLayout(null);
 
         scrollTabla.setPreferredSize(new java.awt.Dimension(550, 200));
@@ -285,38 +288,47 @@ public final class PnlUsuario extends javax.swing.JPanel {
         scrollTabla.setViewportView(tblUsuarios);
 
         pnlLstDatos.add(scrollTabla);
-        scrollTabla.setBounds(20, 20, 600, 200);
+        scrollTabla.setBounds(60, 20, 600, 200);
 
         pnlBotones.setOpaque(false);
         pnlBotones.setPreferredSize(new java.awt.Dimension(550, 50));
         pnlBotones.setLayout(null);
 
+        btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/kwrite.png"))); // NOI18N
         btnModificar.setText("Modificar");
+        btnModificar.setToolTipText("Actalizar datos del usuario");
         pnlBotones.add(btnModificar);
-        btnModificar.setBounds(0, 10, 100, 40);
+        btnModificar.setBounds(0, 10, 120, 40);
 
+        btnDeshabilitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/personal.png"))); // NOI18N
         btnDeshabilitar.setText("Deshabilitar");
+        btnDeshabilitar.setToolTipText("Desactivar usuario del sistema");
         pnlBotones.add(btnDeshabilitar);
-        btnDeshabilitar.setBounds(100, 10, 110, 40);
+        btnDeshabilitar.setBounds(120, 10, 130, 40);
 
+        btnConocimientos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/add.png"))); // NOI18N
         btnConocimientos.setText("Conocimientos");
+        btnConocimientos.setToolTipText("Agregar conocimientos a los usuarios");
         pnlBotones.add(btnConocimientos);
-        btnConocimientos.setBounds(300, 10, 110, 40);
+        btnConocimientos.setBounds(340, 10, 130, 40);
 
+        btnDestrezas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/list-add-user.png"))); // NOI18N
         btnDestrezas.setText("Destrezas");
         pnlBotones.add(btnDestrezas);
-        btnDestrezas.setBounds(410, 10, 100, 40);
+        btnDestrezas.setBounds(470, 10, 120, 40);
 
         btnActivEval.setText("Act. Eval.");
         pnlBotones.add(btnActivEval);
-        btnActivEval.setBounds(210, 10, 90, 40);
+        btnActivEval.setBounds(250, 10, 90, 40);
 
+        btnQuejas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/PatientMale.png"))); // NOI18N
         btnQuejas.setText("Quejas");
+        btnQuejas.setToolTipText("Agregar quejas a los usuarios");
         pnlBotones.add(btnQuejas);
-        btnQuejas.setBounds(510, 10, 90, 40);
+        btnQuejas.setBounds(590, 10, 103, 40);
 
         pnlLstDatos.add(pnlBotones);
-        pnlBotones.setBounds(20, 230, 600, 60);
+        pnlBotones.setBounds(20, 230, 700, 60);
 
         pnlAccionesModificar.setOpaque(false);
         pnlAccionesModificar.setLayout(null);
@@ -363,13 +375,15 @@ public final class PnlUsuario extends javax.swing.JPanel {
         pnlAccionesModificar.add(lblHLabModif);
         lblHLabModif.setBounds(20, 130, 80, 30);
 
+        btnGuardarModificacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnGuardarModificacion.setText("Guardar");
         pnlAccionesModificar.add(btnGuardarModificacion);
-        btnGuardarModificacion.setBounds(390, 170, 110, 40);
+        btnGuardarModificacion.setBounds(340, 170, 110, 40);
 
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
         pnlAccionesModificar.add(btnCancelar);
-        btnCancelar.setBounds(510, 170, 100, 40);
+        btnCancelar.setBounds(450, 170, 110, 40);
 
         jLabel1.setText("Cedula:");
         pnlAccionesModificar.add(jLabel1);

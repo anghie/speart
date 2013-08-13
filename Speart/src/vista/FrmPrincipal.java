@@ -238,30 +238,36 @@ public class FrmPrincipal extends JFrame {
         //Para el boton Usuarios
         btnUsuarios = new JButton("Usuarios");
         creaBotonToolbar(getBtnUsuarios(), "033.png");
+        btnUsuarios.setToolTipText("<html> Ingresar usuarios al sistema</html> ");
         //Para el botón Procesos
         btnProcesos = new JButton("Procesos");
         creaBotonToolbar(getBtnProcesos(), "procesos.png");
-         btnAgenda = new JButton("Agenda");
+        btnProcesos.setToolTipText("<html> Ingresar procesos al sistema</html> ");
+        btnAgenda = new JButton("Agenda");
         creaBotonToolbar(btnAgenda, "agen.png");
+        btnAgenda.setToolTipText("<html> Ingresar actividades a la agenda</html> ");
          //Para el botón Operaciones
         btnOperaciones = new JButton("Operaciones");
         creaBotonToolbar(getBtnOperaciones(), "opera.png");
+        btnOperaciones.setToolTipText("<html> Ingresar Operaciones al sistema</html> ");
         //Para el botón Evaluación
         btnEvaluacion = new JButton("Evaluación");
         creaBotonToolbar(getBtnEvaluacion(), "eva.png");
+        btnEvaluacion.setToolTipText("<html> Evaluacion de servidor</html> ");
         //Para el botón Servicios
         btnServicios = new JButton("Servicios");
         creaBotonToolbar(getBtnServicios(), "kwrite.png");
         //Para el botón Respaldos
         btnRespaldos = new JButton("Respaldos");
         creaBotonToolbar(getBtnRespaldos(), "resp.png");
+        btnRespaldos.setToolTipText("<html> Respaldar la informacion del sistema</html> ");
        
         
        
         
         btnReportes = new JButton("Reportes");
         creaBotonToolbar(btnReportes, "kword.png");
-        
+       btnReportes.setToolTipText("<html> Obtener reportes impresos de la informacion del sistema</html> ");
         poneEventosToolbar();
         //Añadiendo la barra al la ventana
         this.add(tbOeste, BorderLayout.WEST);

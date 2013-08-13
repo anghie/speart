@@ -661,7 +661,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         );
         pnlQuejasLayout.setVerticalGroup(
             pnlQuejasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 454, Short.MAX_VALUE)
+            .addGap(0, 450, Short.MAX_VALUE)
         );
 
         pnlMedio.add(pnlQuejas, "card7");
@@ -670,10 +670,13 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         pnlAbajo.setOpaque(false);
 
+        btnSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/agt_forward.png"))); // NOI18N
         btnSiguiente.setText("Siguiente");
 
+        btnAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/agt_back.png"))); // NOI18N
         btnAnterior.setText("Anterior");
 
+        btnResultados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/business.png"))); // NOI18N
         btnResultados.setText("Resultados");
 
         javax.swing.GroupLayout pnlAbajoLayout = new javax.swing.GroupLayout(pnlAbajo);
@@ -694,7 +697,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             .addGroup(pnlAbajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btnAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnResultados, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
+                .addComponent(btnResultados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlEvalServ.add(pnlAbajo, java.awt.BorderLayout.PAGE_END);

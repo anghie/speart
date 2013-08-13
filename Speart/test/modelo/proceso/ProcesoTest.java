@@ -112,7 +112,7 @@ public class ProcesoTest {
     public void testGetActividades() {
         System.out.println("getActividades");
         Proceso instance = new Proceso();
-        List expResult = null;
+        List expResult = new ArrayList<>();
         instance.setActividades(expResult);
         List result = instance.getActividades();
         assertEquals(expResult, result);
