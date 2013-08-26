@@ -4,6 +4,8 @@
  */
 package controlador.acciones.evaluaciones;
 
+
+import controlador.experto.BaseConocimiento;
 import java.awt.Component;
 import modelo.operaciones.CompetenciaUniversal;
 import vista.modelo.OperacionesVarias;
@@ -19,6 +21,8 @@ public class ControladorCompUniv {
     private PnlCompUniv pcu;
     public static PnlEvaluacion pe;
     public static double totalCompUniv = 0;
+    private ClassLoader cload = ControladorCompUniv.class.getClassLoader();//para hacer referencia a archivos dentro del programa
+    private String dirArchivo = cload.getResource("controlador/experto/evaluacion.pl").getPath();
 
     public ControladorCompUniv(PnlCompUniv pcu) {
         this.pcu = pcu;
@@ -33,8 +37,10 @@ public class ControladorCompUniv {
             pcu.getTxtCompObserv().setText(cu.getBajaUniv());
         }
     }
-    public void actualizaResCompUniv(){
+
+    public void actualizaResCompUniv() {
         sumatoriaUniversales();
+        poneRespuesta();
     }
 
     public static void sumatoriaUniversales() {
@@ -46,7 +52,7 @@ public class ControladorCompUniv {
                 System.out.println(pct.getTxtCompUniv().getText() + "  " + califCompUniv(pct.getCbFrecuenciaAplic().getSelectedIndex()));
             }
         }
-        ControladorEvaluacion.totCompUniv=totalCompUniv;
+        ControladorEvaluacion.totCompUniv = totalCompUniv;
         totalCompUniv = OperacionesVarias.redondeaDosCifras(totalCompUniv);
         pe.getTxtTotalCompUniv().setText(totalCompUniv + "");
     }
@@ -65,5 +71,25 @@ public class ControladorCompUniv {
             a = 1;
         }
         return (a * ControladorEvaluacion.facCompUniv) / 5;
+    }
+
+    private void poneRespuesta() {
+        double porcen = calculaPorcentaje(totalCompUniv);
+        pe.getTxtTotalCompUniv().setText(totalCompUniv + " - " + rptaTexto(porcen));
+    }
+
+    private double calculaPorcentaje(double totalObt) {
+        double factor = ControladorEvaluacion.facCompUniv * ControladorEvaluacion.compUniversales.size();//factor asignado por el estado
+        double porcen = (totalObt * 100) / factor;
+        return OperacionesVarias.redondeaDosCifras(porcen);
+    }
+
+    private String rptaTexto(double porcen) {
+        String s;
+        BaseConocimiento bc = new BaseConocimiento();
+        if (bc.compilaArchivo(dirArchivo)) {
+            return bc.consultaSegundoElemento("esrespuestacu(" + porcen + ",X)");
+        }
+        return null;
     }
 }

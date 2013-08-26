@@ -14,14 +14,16 @@ import vista.modelo.Mensaje;
  * @author francisco
  */
 public class DialogQuejas extends javax.swing.JDialog {
-private Rol rol;
+
+    private Rol rol;
+
     /**
      * Creates new form DialogQuejas
      */
-    public DialogQuejas(java.awt.Frame parent, boolean modal,Rol rol) {
+    public DialogQuejas(java.awt.Frame parent, boolean modal, Rol rol) {
         super(parent, modal);
         initComponents();
-        this.rol=rol;
+        this.rol = rol;
     }
 
     /**
@@ -45,6 +47,7 @@ private Rol rol;
         chbSi = new javax.swing.JCheckBox();
         jLabel5 = new javax.swing.JLabel();
         btnGuardarQueja = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(64, 170, 100));
@@ -119,31 +122,35 @@ private Rol rol;
         q.setNombreDenun(txtPersonaQueja.getText());
         q.setDetalle(txtDescripcionQueja.getText());
         q.setNroForm(txtNroFormulario.getText());
-        q.setReducePorcent(chbSi.isSelected()?true:false);
+        q.setReducePorcent(chbSi.isSelected() ? true : false);
         q.setRol(rol);
-        if(OperacionesBD.guardar(q)){
+        if (OperacionesBD.guardar(q)) {
             Mensaje.datosGuardados();
             this.dispose();
-        }else{
+        } else {
             Mensaje.datosNoGuardados();
         }
     }//GEN-LAST:event_btnGuardarQuejaActionPerformed
 
     private void chbSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbSiActionPerformed
-        if(chbNo.isSelected()){
+        if (chbNo.isSelected()) {
             chbNo.setSelected(false);
             chbSi.setSelected(true);
         }
     }//GEN-LAST:event_chbSiActionPerformed
 
     private void chbNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbNoActionPerformed
-        if(chbSi.isSelected()){
+        if (chbSi.isSelected()) {
             chbNo.setSelected(true);
             chbSi.setSelected(false);
         }
     }//GEN-LAST:event_chbNoActionPerformed
 
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardarQueja;
     private javax.swing.JCheckBox chbNo;
     private javax.swing.JCheckBox chbSi;

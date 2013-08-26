@@ -13,7 +13,6 @@ import modelo.evaluacion.ResultadoConocimientos;
 import modelo.evaluacion.ResultadoFinalConocimiento;
 import modelo.pregunta.Pregunta;
 import modelo.pregunta.Respuesta;
-import vista.modelo.Mensaje;
 import vista.modelo.OperacionesVarias;
 import vista.paneles.evaluacion.FrmTests;
 import vista.paneles.evaluacion.PnlRespuesta;

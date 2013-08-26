@@ -28,9 +28,17 @@ public class ControladorPrincipal {
     private FrmPrincipal frm;
     public static String tipoUs;
     public static Rol rol;
+    private static ControladorPrincipal cp = null;
 
-    public ControladorPrincipal(FrmPrincipal frm) {
+    private ControladorPrincipal(FrmPrincipal frm) {
         this.frm = frm;
+    }
+
+    public synchronized static ControladorPrincipal getInstance(FrmPrincipal frm) {
+        if (cp == null) {
+            cp = new ControladorPrincipal(frm);
+        }
+        return cp;
     }
 
     /*Método que limpia el Panel principal de la ventana principal*/
@@ -54,7 +62,7 @@ public class ControladorPrincipal {
     public static boolean datosCorrectos(String user, String clave) {
         boolean existe = false;
         for (Usuario us : ControladorUsuario.usuarios) {
-            if (user.equals(us.getLogin())) {
+            if (user.equals(us.getLogin()) && us.isHabilitado()) {
                 String st = us.getClave();
                 String e = st.substring(st.length() - 16, st.length());
                 AlgoritmoAES a = new AlgoritmoAES(e.getBytes());
@@ -74,8 +82,10 @@ public class ControladorPrincipal {
         tipoUs = null;
         ControladorPermisos.permisoInvitado();
         frm.ponePermisos();
+        pasarGarbageCollector();
     }
-    public void escogeUsuario(){
+
+    public void escogeUsuario() {
         new DialogUsuaroisInforme(frm, true).setVisible(true);
     }
 
@@ -167,5 +177,12 @@ public class ControladorPrincipal {
                 }
             }
         }
+    }
+
+    public void pasarGarbageCollector() {
+        Runtime garbage = Runtime.getRuntime();
+        System.out.println("Memoria antes de pasar garbage: "+ garbage.freeMemory());
+        garbage.gc();
+        System.out.println("Memoria despues de pasar garbage: "+ garbage.freeMemory());
     }
 }

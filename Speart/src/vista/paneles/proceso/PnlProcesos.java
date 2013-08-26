@@ -7,6 +7,8 @@ package vista.paneles.proceso;
 import controlador.acciones.proceso.ControladorProceso;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -42,6 +44,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         btnEditarProceso.addActionListener(gcp);
         btnEditarActividad.addActionListener(gcp);
         btnEliminarActividad.addActionListener(gcp);
+        txtBuscar.addKeyListener(gcp);
     }
 
     /**
@@ -458,7 +461,7 @@ public class PnlProcesos extends javax.swing.JPanel {
 
     
     
-    class GestorControlProceso implements ActionListener, ChangeListener {
+    class GestorControlProceso extends KeyAdapter implements ActionListener, ChangeListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -503,6 +506,12 @@ public class PnlProcesos extends javax.swing.JPanel {
             }
         }
 
+        @Override
+        public void keyReleased(KeyEvent e){
+            if(e.getSource()==txtBuscar){
+                cpr.listaPredictiva(ControladorProceso.idProc, txtBuscar.getText());
+            }
+        }
         @Override
         public void stateChanged(ChangeEvent e) {
             if (getTabbedProcesos().getSelectedIndex() == 1) {

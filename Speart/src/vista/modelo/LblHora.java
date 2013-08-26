@@ -12,12 +12,20 @@ public class LblHora extends JLabel implements Runnable {
 
     private Thread t;
     private String formato;
+    private static LblHora lbh = null;
 
-    public LblHora() {
+    private LblHora() {
         setFont(new java.awt.Font("DejaVu Sans", 1, 12));
         t = new Thread(this);
         formato = "HH:mm:ss";
         t.start();
+    }
+
+    public synchronized static LblHora getInstance() {
+        if (lbh == null) {
+            lbh = new LblHora();
+        }
+        return lbh;
     }
 
     @Override

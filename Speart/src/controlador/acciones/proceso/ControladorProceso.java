@@ -23,7 +23,7 @@ public class ControladorProceso {
     private ArrayList<Proceso> procesos;
     private ArrayList<Rol> roles;
     private ArrayList<Actividad> actividades;
-    private int idProc;
+    public static int idProc;
 
     public ControladorProceso(PnlProcesos pp) {
         this.pp = pp;
@@ -260,6 +260,13 @@ public class ControladorProceso {
                 break;
             }
         }
+    }
 
+    public void listaPredictiva(int idProceso, String texto) {
+        actividades = (ArrayList<Actividad>) OperacionesBD.listarPrediccionDoble("Actividad",
+                "nombreActividad", texto, "procesito_idProceso",
+                String.valueOf(idProceso));
+        modeloTablaActividades();
+        
     }
 }

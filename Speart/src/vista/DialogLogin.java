@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 public class DialogLogin extends javax.swing.JDialog {
 
     private FrmPrincipal fp;
+    private static DialogLogin dl = null;
 
     /**
      * Creates new form DialogLogin

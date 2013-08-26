@@ -13,10 +13,12 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import modelo.proceso.Actividad;
 import modelo.proceso.Rol;
+import vista.FrmPrincipal;
 import vista.paneles.usuario.DialogCompetTecnica;
 import vista.paneles.usuario.DialogConocUsuario;
 import vista.paneles.usuario.DialogEscogeActividades;
 import vista.paneles.usuario.DialogQuejas;
+import vista.paneles.usuario.DialogUsuarios;
 
 public class ControladorUsuario {
 
@@ -212,6 +214,42 @@ public class ControladorUsuario {
         }
     }
 
+    public void celdaSeleccionada() {
+        int f = pu.getTblUsuarios().getSelectedRow();
+        boolean escogido = (boolean) pu.getTblUsuarios().getValueAt(f, 3);
+        pu.getTblUsuarios().setValueAt(!escogido, f, 3);//se resetea al estado anterior a escogido
+        int n = 0;
+        if (!escogido) {
+            n = JOptionPane.showConfirmDialog(null, "Desea deshabilitar el usuario", "Deshabilitar", JOptionPane.YES_NO_OPTION);
+        } else {
+            n = JOptionPane.showConfirmDialog(null, "Desea habilitar el usuario", "Habilitar", JOptionPane.YES_NO_OPTION);
+        }
+        if (n == JOptionPane.YES_OPTION) {
+            this.usuario = usuarios.get(pu.getTblUsuarios().getSelectedRow());
+            if (!usuario.equals(FrmPrincipal.userLogueado)) {
+                usuario.setHabilitado(escogido);
+                if (OperacionesBD.modificar(usuario)) {
+                    if (!escogido) {
+                        pu.getTblUsuarios().setValueAt(escogido, f, 3);
+                        JOptionPane.showMessageDialog(null, "Se ha deshabilitado el usuario");
+                    } else {
+                        pu.getTblUsuarios().setValueAt(escogido, f, 3);
+                        JOptionPane.showMessageDialog(null, "Se ha habilitado el usuario");
+                    }
+                } else {
+                    if (!escogido) {
+                        JOptionPane.showMessageDialog(null, "No se pudo deshabilitar el usuario");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No se pudo habilitar el usuario");
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "No puede deshabilitarse a si mismo");
+            }
+        }
+
+    }
+
     /**
      * Llena el objeto usuario
      *
@@ -292,7 +330,7 @@ public class ControladorUsuario {
             } else {
                 Mensaje.datosNoModificados();
             }
-        }else {
+        } else {
             JOptionPane.showMessageDialog(null, "Cedula incorrecta", "La cédula ingresada es incorrecta", JOptionPane.ERROR_MESSAGE);
             pu.getTxtCedulaModif().setBorder(new LineBorder(Color.red));
         }
@@ -341,6 +379,10 @@ public class ControladorUsuario {
             }
         }
     }
+    
+    public void abreDialogUsuarios(){       
+        new DialogUsuarios(null, true,usuario).setVisible(true);
+    }
 
     public void abreDialogConocUsuario() {
         if (isRowSelected()) {
@@ -378,11 +420,11 @@ public class ControladorUsuario {
             Mensaje.filaNoSeleccionada();
         }
     }
-    
-    public void abreDialogQuejas(){
+
+    public void abreDialogQuejas() {
         if (isRowSelected()) {
             rol = usuarios.get(pu.getTblUsuarios().getSelectedRow()).getRol();
-            new DialogQuejas(null, true,rol).setVisible(true);
+            new DialogQuejas(null, true, rol).setVisible(true);
         }
     }
 }

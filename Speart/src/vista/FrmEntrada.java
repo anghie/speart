@@ -17,6 +17,17 @@ public class FrmEntrada extends JFrame implements Runnable {
     private JPanel pnl;
     private JProgressBar progreso;
     private ClassLoader cl;
+    private static FrmEntrada fe = null;
+
+    private FrmEntrada() {
+    }
+
+    public synchronized static FrmEntrada getInstance() {
+        if (fe == null) {
+            fe = new FrmEntrada();
+        }
+        return fe;
+    }
 
     @Override
     public void run() {
@@ -56,7 +67,7 @@ public class FrmEntrada extends JFrame implements Runnable {
             //si hubo conexion a la bd cerrar esta ventana y mostrar la principal
             if (conectado == true) {
                 this.dispose();
-                new FrmPrincipal().setVisible(true);
+                FrmPrincipal.getInstance().setVisible(true);
             }
         } catch (InterruptedException ex) {
         }
@@ -64,12 +75,11 @@ public class FrmEntrada extends JFrame implements Runnable {
 
     /**
      * Inicializa los componentes de interfaz gráfica
-	 *
+     *
      */
     private void inicializarComponentes() {
-//        poneNimrod();
-        //poneNimbus();
-        poneLookSistema();
+        Estilos e = Estilos.getInstance();
+        e.aplicarEstilo(Estilos.ESTILO_GTK);
         setSize(400, 300);
         setLocationRelativeTo(null);
         setUndecorated(true);
@@ -82,7 +92,7 @@ public class FrmEntrada extends JFrame implements Runnable {
 
     /**
      * Crea un JPanel con imagen y lo añade a la ventana
-	 *
+     *
      */
     private void creaJPanel() {
         //Creación del JPanel con imagen
@@ -106,57 +116,5 @@ public class FrmEntrada extends JFrame implements Runnable {
         pnlSur.add(b);
         pnl.add(pnlSur, BorderLayout.SOUTH);
         this.add(pnl, BorderLayout.CENTER);
-    }
-
-    /**
-     * Método para poner Nimrod Look and Feel
-	 *
-     */
-    private void poneNimrod() {
-
-        try {
-            NimRODTheme nt = new NimRODTheme();
-            nt.setPrimary1(new Color(0x001FEB));
-            nt.setPrimary2(new Color(0x0029F5));
-            nt.setPrimary3(new Color(0x0033FF));
-            nt.setSecondary1(new Color(0xB8EBEB));
-            nt.setSecondary2(new Color(0xC2F5F5));
-            nt.setSecondary3(new Color(0xCCFFFF));
-            nt.setWhite(new Color(0xFFFFFF));
-            nt.setBlack(new Color(0x000000));
-            nt.setMenuOpacity(195);
-            nt.setOpacity(180);
-            nt.setFrameOpacity(0);
-            NimRODLookAndFeel nlf = new NimRODLookAndFeel();
-            NimRODLookAndFeel.setCurrentTheme(nt);
-            UIManager.setLookAndFeel(nlf);
-            SwingUtilities.updateComponentTreeUI(this);
-        } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(FrmEntrada.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    /**
-     * Método para poner Nimbus Look and Feel
-     *
-     */
-    private void poneNimbus() {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(FrmEntrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-    }
-
-    private void poneLookSistema() {
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception ex) {
-        }
-    }
+    }   
 }

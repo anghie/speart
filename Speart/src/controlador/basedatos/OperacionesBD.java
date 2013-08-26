@@ -79,7 +79,7 @@ public class OperacionesBD {
      *
      * @param campoId el id del objeto a ser eliminado en la base de datos
      * @param clase
-     * @return boolean .- true si es eliminado de la base de datos y false si no
+     * @return boolean - true si es eliminado de la base de datos y false si no
      * es eliminado de la base de datos
      *
      */
@@ -87,7 +87,7 @@ public class OperacionesBD {
         try {
             entidad.getTransaction().begin();
             clase = entidad.find(clase.getClass(), campoId);
-            if (clase != null) {                
+            if (clase != null) {
                 entidad.remove(clase);
                 System.out.println("si llega");
             } else {
@@ -179,6 +179,17 @@ public class OperacionesBD {
         entidad.getTransaction().begin();
         try {
             lista = entidad.createQuery("Select a from " + tabla + " a where " + colum + " like '%" + contenido + "%'").setMaxResults(50).getResultList();
+            entidad.getTransaction().commit();
+        } catch (Exception e) {
+            entidad.getTransaction().rollback();
+        }
+        return lista;
+    }
+
+    public static List listarPrediccionDoble(String tabla, String colum1, String contenido1,String colum2,String contenido2) {
+        entidad.getTransaction().begin();
+        try {
+            lista = entidad.createQuery("Select a from " + tabla + " a where " + colum2 + " = "+contenido2+" AND "+colum1+" like '%" + contenido1 + "%'").setMaxResults(50).getResultList();
             entidad.getTransaction().commit();
         } catch (Exception e) {
             entidad.getTransaction().rollback();

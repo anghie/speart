@@ -679,8 +679,8 @@ public final class PnlUsuario extends javax.swing.JPanel {
             } else if (evt.getSource() == btnDeshabilitar) {
                 if (cu.isRowSelected()) {
                     int i = JOptionPane.showConfirmDialog(null, "¿Desea agregar las actividades a otro usuario?", "Actividads", JOptionPane.YES_NO_OPTION);
-                    if (i == JOptionPane.YES_OPTION) {
-                        new DialogUsuarios(null, true).setVisible(true);
+                    if (i == JOptionPane.YES_OPTION) {                        
+                        cu.abreDialogUsuarios();
                     } else {
                         cu.desHabilitarUsuario();
                     }
@@ -753,6 +753,9 @@ public final class PnlUsuario extends javax.swing.JPanel {
                 cu.cambiaTextoBtnDeshab();
                 poneHabilitados(false);
             }
+            if(tblUsuarios.getSelectedColumn()==3){
+              cu.celdaSeleccionada();
+           }
         }
     }
 }

@@ -7,12 +7,9 @@ package controlador.acciones.evaluaciones;
 import controlador.acciones.Constantes;
 import controlador.basedatos.OperacionesBD;
 import java.awt.CardLayout;
-import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 import modelo.operaciones.CompetenciaTecnica;
 import modelo.operaciones.CompetenciaUniversal;
@@ -176,21 +173,6 @@ public class ControladorEvaluacion {
 //        }
     }
 
-//    public void quitaPanelConocimientos() {
-//        c--;
-//        if (c > 0) {
-//            pnlEval.getPnlDatosConoc().remove(panelesConocimientos.get(c));
-//            pnlEval.getPnlDatosConoc().validate();
-//            pnlEval.getPnlDatosConoc().updateUI();
-//        } else if (c == 0) {
-//            pnlEval.getPnlDatosConoc().removeAll();
-//            panelesConocimientos.clear();
-//            pnlEval.getPnlDatosConoc().validate();
-//            pnlEval.getPnlDatosConoc().updateUI();
-//        } else if (c < 0) {
-//            c = 0;
-//        }
-//    }
     //******************************************************
     //         TERCER PANEL COMPETENCIAS TECNICAS
     //******************************************************
@@ -206,21 +188,7 @@ public class ControladorEvaluacion {
 //        }
     }
 
-//    public void quitaPanelCompetenciasTecnicas() {
-//        ct--;
-//        if (ct > 0) {
-//            pnlEval.getPnlDatosComp().remove(panelesCompTecnicas.get(ct));
-//            pnlEval.getPnlDatosComp().validate();
-//            pnlEval.getPnlDatosComp().updateUI();
-//        } else if (ct == 0) {
-//            pnlEval.getPnlDatosComp().removeAll();
-//            panelesCompTecnicas.clear();
-//            pnlEval.getPnlDatosComp().validate();
-//            pnlEval.getPnlDatosComp().updateUI();
-//        } else if (ct < 0) {
-//            ct = 0;
-//        }
-//    }
+
     //******************************************************
     //         CUARTO PANEL COMPETENCIAS UNIVERSALES
     //******************************************************
@@ -236,21 +204,7 @@ public class ControladorEvaluacion {
 //        }
     }
 
-//    public void quitaPanelCompetenciasUniversales() {
-//        cu--;
-//        if (cu > 0) {
-//            pnlEval.getPnlDatosCompUnivers().remove(panelesCompUniversales.get(cu));
-//            pnlEval.getPnlDatosCompUnivers().validate();
-//            pnlEval.getPnlDatosCompUnivers().updateUI();
-//        } else if (cu == 0) {
-//            pnlEval.getPnlDatosCompUnivers().removeAll();
-//            panelesCompUniversales.clear();
-//            pnlEval.getPnlDatosCompUnivers().validate();
-//            pnlEval.getPnlDatosCompUnivers().updateUI();
-//        } else if (cu < 0) {
-//            cu = 0;
-//        }
-//    }
+
     //******************************************************
     //         QUINTO PANEL TRABAJO EN EQUIPO
     //******************************************************    
@@ -266,21 +220,7 @@ public class ControladorEvaluacion {
 //        }
     }
 
-//    public void quitaPanelTrabajoEquipo() {
-//        te--;
-//        if (te > 0) {
-//            pnlEval.getPnlDatosTrabEquipo().remove(panelesTrabEquipo.get(te));
-//            pnlEval.getPnlDatosTrabEquipo().validate();
-//            pnlEval.getPnlDatosTrabEquipo().updateUI();
-//        } else if (te == 0) {
-//            pnlEval.getPnlDatosTrabEquipo().removeAll();
-//            panelesTrabEquipo.clear();
-//            pnlEval.getPnlDatosTrabEquipo().validate();
-//            pnlEval.getPnlDatosTrabEquipo().updateUI();
-//        } else if (te < 0) {
-//            te = 0;
-//        }
-//    }
+
 //    public void abreVtnResultados() {
 //        new FrmResultadosEvaluac().setVisible(true);
 //    }
@@ -359,6 +299,6 @@ public class ControladorEvaluacion {
  
     public void resultadosFinales(){
         double resFin=totCompTec+totCompUniv+totConoc+totIndic+totTrabEquip;
-        new FrmResultadosEvaluac(totIndic, totConoc, totCompTec, totCompUniv, totTrabEquip, resFin).setVisible(true);
+        FrmResultadosEvaluac.getInstance(totIndic, totConoc, totCompTec, totCompUniv, totTrabEquip, resFin).setVisible(true);
     }
 }

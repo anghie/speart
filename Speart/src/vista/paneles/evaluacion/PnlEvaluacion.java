@@ -113,6 +113,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         txtFactorConoc = new javax.swing.JTextField();
         txtNroConocimientos = new javax.swing.JTextField();
         lblConocimientos = new javax.swing.JLabel();
+        lblFactor2 = new javax.swing.JLabel();
         pnlCompetTecnicas = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -128,6 +129,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         txtNroCompetTecnic = new javax.swing.JTextField();
         lblFactCompTec = new javax.swing.JLabel();
         txtFactorCompTec = new javax.swing.JTextField();
+        lblFactor3 = new javax.swing.JLabel();
         pnlCompetUniver = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -143,6 +145,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         txtNroCompetUniv = new javax.swing.JTextField();
         lblFactorUniv = new javax.swing.JLabel();
         txtFactorUniv = new javax.swing.JTextField();
+        lblFactor4 = new javax.swing.JLabel();
         pnlTrabEquipo = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
@@ -156,6 +159,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         pnlDatosTrabEquipo = new javax.swing.JPanel();
         lblFactorTrab = new javax.swing.JLabel();
         txtFactorTrab = new javax.swing.JTextField();
+        lblFactor5 = new javax.swing.JLabel();
         pnlQuejas = new javax.swing.JPanel();
         pnlAbajo = new javax.swing.JPanel();
         btnSiguiente = new javax.swing.JButton();
@@ -227,7 +231,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
-                .addComponent(lblNombreEvaluado, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                .addComponent(lblNombreEvaluado, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -328,7 +332,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         lblTotActivEscen.setText("Total Actividades Esenciales:");
         pnlIndicGestionPuesto.add(lblTotActivEscen);
-        lblTotActivEscen.setBounds(540, 410, 190, 14);
+        lblTotActivEscen.setBounds(540, 410, 190, 17);
         pnlIndicGestionPuesto.add(txtTotActEsc);
         txtTotActEsc.setBounds(720, 400, 200, 30);
 
@@ -361,13 +365,13 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         txtNroActividades.setEditable(false);
         pnlIndicGestionPuesto.add(txtNroActividades);
-        txtNroActividades.setBounds(130, 10, 60, 20);
+        txtNroActividades.setBounds(130, 10, 60, 27);
 
         lblFactor.setText("%");
         pnlIndicGestionPuesto.add(lblFactor);
         lblFactor.setBounds(400, 10, 20, 20);
         pnlIndicGestionPuesto.add(txtFactorIndic);
-        txtFactorIndic.setBounds(330, 10, 60, 20);
+        txtFactorIndic.setBounds(330, 10, 60, 27);
 
         lblFactor1.setText("# Factor: ");
         pnlIndicGestionPuesto.add(lblFactor1);
@@ -394,7 +398,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         jLabel13.setText("Total Conocimientos:");
         pnlConocimientos.add(jLabel13);
-        jLabel13.setBounds(560, 350, 180, 14);
+        jLabel13.setBounds(560, 350, 180, 17);
         pnlConocimientos.add(txtTotalConocimientos);
         txtTotalConocimientos.setBounds(720, 340, 200, 30);
 
@@ -424,15 +428,19 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         pnlConocimientos.add(lblFactorConoc);
         lblFactorConoc.setBounds(260, 10, 70, 20);
         pnlConocimientos.add(txtFactorConoc);
-        txtFactorConoc.setBounds(330, 10, 60, 20);
+        txtFactorConoc.setBounds(330, 10, 60, 27);
 
         txtNroConocimientos.setEditable(false);
         pnlConocimientos.add(txtNroConocimientos);
-        txtNroConocimientos.setBounds(130, 10, 60, 20);
+        txtNroConocimientos.setBounds(130, 10, 60, 27);
 
         lblConocimientos.setText("# Conocimientos: ");
         pnlConocimientos.add(lblConocimientos);
         lblConocimientos.setBounds(10, 10, 120, 20);
+
+        lblFactor2.setText("%");
+        pnlConocimientos.add(lblFactor2);
+        lblFactor2.setBounds(400, 10, 20, 20);
 
         pnlMedio.add(pnlConocimientos, "pnlConocimientos");
 
@@ -469,7 +477,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         jLabel16.setText("Total Competencias Tecnicas del Puesto:");
         pnlCompetTecnicas.add(jLabel16);
-        jLabel16.setBounds(450, 340, 270, 14);
+        jLabel16.setBounds(450, 340, 270, 17);
         pnlCompetTecnicas.add(txtTotalCompTec);
         txtTotalCompTec.setBounds(720, 330, 200, 30);
 
@@ -501,13 +509,17 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         txtNroCompetTecnic.setEditable(false);
         pnlCompetTecnicas.add(txtNroCompetTecnic);
-        txtNroCompetTecnic.setBounds(130, 10, 60, 20);
+        txtNroCompetTecnic.setBounds(130, 10, 60, 27);
 
         lblFactCompTec.setText("# Factor: ");
         pnlCompetTecnicas.add(lblFactCompTec);
         lblFactCompTec.setBounds(260, 10, 70, 20);
         pnlCompetTecnicas.add(txtFactorCompTec);
-        txtFactorCompTec.setBounds(330, 10, 60, 20);
+        txtFactorCompTec.setBounds(330, 10, 60, 27);
+
+        lblFactor3.setText("%");
+        pnlCompetTecnicas.add(lblFactor3);
+        lblFactor3.setBounds(400, 10, 20, 20);
 
         pnlMedio.add(pnlCompetTecnicas, "pnlCompetTecnicas");
 
@@ -544,7 +556,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         jLabel23.setText("Total Competencias Universales:");
         pnlCompetUniver.add(jLabel23);
-        jLabel23.setBounds(450, 340, 270, 14);
+        jLabel23.setBounds(450, 340, 270, 17);
         pnlCompetUniver.add(txtTotalCompUniv);
         txtTotalCompUniv.setBounds(720, 330, 200, 30);
 
@@ -576,13 +588,17 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         txtNroCompetUniv.setEditable(false);
         pnlCompetUniver.add(txtNroCompetUniv);
-        txtNroCompetUniv.setBounds(130, 10, 60, 20);
+        txtNroCompetUniv.setBounds(130, 10, 60, 27);
 
         lblFactorUniv.setText("# Factor: ");
         pnlCompetUniver.add(lblFactorUniv);
         lblFactorUniv.setBounds(260, 10, 70, 20);
         pnlCompetUniver.add(txtFactorUniv);
-        txtFactorUniv.setBounds(330, 10, 60, 20);
+        txtFactorUniv.setBounds(330, 10, 60, 27);
+
+        lblFactor4.setText("%");
+        pnlCompetUniver.add(lblFactor4);
+        lblFactor4.setBounds(400, 10, 20, 20);
 
         pnlMedio.add(pnlCompetUniver, "pnlCompetUniver");
 
@@ -619,7 +635,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         jLabel28.setText("Trabajo en equipo iniciativa y liderazgo:");
         pnlTrabEquipo.add(jLabel28);
-        jLabel28.setBounds(450, 340, 280, 14);
+        jLabel28.setBounds(450, 340, 280, 17);
         pnlTrabEquipo.add(txtTotalTrabEquip);
         txtTotalTrabEquip.setBounds(720, 330, 200, 30);
 
@@ -649,7 +665,11 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         pnlTrabEquipo.add(lblFactorTrab);
         lblFactorTrab.setBounds(10, 10, 70, 20);
         pnlTrabEquipo.add(txtFactorTrab);
-        txtFactorTrab.setBounds(80, 10, 60, 20);
+        txtFactorTrab.setBounds(80, 10, 60, 27);
+
+        lblFactor5.setText("  %");
+        pnlTrabEquipo.add(lblFactor5);
+        lblFactor5.setBounds(140, 10, 20, 30);
 
         pnlMedio.add(pnlTrabEquipo, "pnlTrabEquipo");
 
@@ -760,6 +780,10 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JLabel lblFactCompTec;
     private javax.swing.JLabel lblFactor;
     private javax.swing.JLabel lblFactor1;
+    private javax.swing.JLabel lblFactor2;
+    private javax.swing.JLabel lblFactor3;
+    private javax.swing.JLabel lblFactor4;
+    private javax.swing.JLabel lblFactor5;
     private javax.swing.JLabel lblFactorConoc;
     private javax.swing.JLabel lblFactorTrab;
     private javax.swing.JLabel lblFactorUniv;

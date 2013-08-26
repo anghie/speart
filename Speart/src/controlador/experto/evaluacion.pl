@@ -90,7 +90,7 @@ esrespuestac(X,'Iregular'):-X=<(19).
 
 %PORCNTAJES DE COMPETENCIAS TECNICAS
 
-%regla46(X,'ALtamente Desarrolada'):-X>=(80).
+%regla46(X,'ALtamente Desarrollada'):-X>=(80).
 %regla47(X,'Desarrollada'):-X>=60,X=<79.
 %regla48(X,'Medianamente Desarrollada'):-X>=40,X=<59.
 %regla49(X,'Poco Desarrollada'):-X>=20,X=<39.

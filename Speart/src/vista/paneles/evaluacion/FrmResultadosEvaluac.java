@@ -20,16 +20,25 @@ import java.util.logging.Logger;
  */
 public class FrmResultadosEvaluac extends javax.swing.JDialog implements Printable {
 
+    private static FrmResultadosEvaluac fre = null;
+
     /**
      * Creates new form FrmResultadosEvaluac
      */
-    public FrmResultadosEvaluac(double tIndic,double tConoc,double tCT,double tCU,double tT,double totl) {
-        initComponents();        
-        lblIndicadores.setText(tIndic+"");
-        lblConocimientos.setText(tConoc+"");
-        lblTecnicas.setText(tCT+"");
-        lblUniversales.setText(tCU+"");
-        lblTotalEvl.setText(lblTotalEvl.getText()+" "+totl);
+    private FrmResultadosEvaluac(double tIndic, double tConoc, double tCT, double tCU, double tT, double totl) {
+        initComponents();
+        lblIndicadores.setText(tIndic + "");
+        lblConocimientos.setText(tConoc + "");
+        lblTecnicas.setText(tCT + "");
+        lblUniversales.setText(tCU + "");
+        lblTotalEvl.setText(lblTotalEvl.getText() + " " + totl);
+    }
+
+    public synchronized static FrmResultadosEvaluac getInstance(double tIndic, double tConoc, double tCT, double tCU, double tT, double totl) {
+        if (fre == null) {
+            fre = new FrmResultadosEvaluac(tIndic, tConoc, tCT, tCU, tT, totl);
+        }
+        return fre;
     }
 
     /**
@@ -273,7 +282,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog implements Printab
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
         try {
             PrinterJob job = PrinterJob.getPrinterJob();
-            PageFormat pf= new PageFormat();
+            PageFormat pf = new PageFormat();
 //            documentPageFormat = job.pageDialog(pf);
             Paper p = new Paper();
             p.setImageableArea(5, 5, jPanel1.getWidth(), jPanel1.getHeight());

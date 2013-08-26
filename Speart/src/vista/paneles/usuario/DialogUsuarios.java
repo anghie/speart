@@ -5,6 +5,9 @@
 package vista.paneles.usuario;
 
 import controlador.acciones.usuario.ControladorUsuario;
+import controlador.basedatos.OperacionesBD;
+import java.util.ArrayList;
+import modelo.proceso.Actividad;
 import modelo.usuario.Usuario;
 
 /**
@@ -13,10 +16,13 @@ import modelo.usuario.Usuario;
  */
 public class DialogUsuarios extends javax.swing.JDialog {
 
-    public DialogUsuarios(java.awt.Frame parent, boolean modal) {
+    private Usuario usuarioNuevo;
+    private Usuario usuarioAnterior;
+    public DialogUsuarios(java.awt.Frame parent, boolean modal, Usuario us) {
         super(parent, modal);
         initComponents();
         ControladorUsuario.listar();
+        usuarioAnterior = us;
         llenaComboUsuarios();
     }
 
@@ -24,8 +30,10 @@ public class DialogUsuarios extends javax.swing.JDialog {
         cbUsuarios.removeAllItems();
         int i = 0;
         for (Usuario u : ControladorUsuario.usuarios) {
-            String s = u.getNombre() + " - " + ControladorUsuario.roles.get(i).getCargo();
-            cbUsuarios.addItem(s);
+            if (!u.equals(usuarioAnterior)) {
+                String s = u.getNombre() + " - " + ControladorUsuario.roles.get(i).getCargo();
+                cbUsuarios.addItem(s);
+            }
             i++;
         }
     }
@@ -77,7 +85,21 @@ public class DialogUsuarios extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        System.out.println("Si llega");
+//        int i = cbUsuarios.getSelectedIndex();//no se puede usar el mismo index xq no corresponde a los mismos index de la lista usuarios
+        String nombreRol=((String) cbUsuarios.getSelectedItem()).split("-")[1].trim();
+        System.out.println("'"+nombreRol+"'");
+        usuarioNuevo = buscaUsuario(nombreRol);
+        int rol = usuarioNuevo.getRol().getIdRol();
+        ArrayList<Actividad> act = (ArrayList<Actividad>) OperacionesBD.listarconCondicion("Actividad", "rol_idRol", String.valueOf(rol));
+        for (Actividad a : act) {
+            a.setRol(usuarioNuevo.getRol());
+            if(OperacionesBD.modificar(a)){
+                System.out.println("si se modifica");
+            }else{
+                System.out.println("no se modifica");
+            }
+        }
+        this.dispose();
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -89,4 +111,14 @@ public class DialogUsuarios extends javax.swing.JDialog {
     private javax.swing.JComboBox cbUsuarios;
     private javax.swing.JLabel lblMensaje;
     // End of variables declaration//GEN-END:variables
+    public Usuario buscaUsuario(String rol){
+        Usuario usuar=null;
+        for(Usuario us:ControladorUsuario.usuarios){
+            if(us.getRol().getCargo().equalsIgnoreCase(rol)){
+                usuar=us;
+            }
+        }
+        return usuar;
+    }
+
 }

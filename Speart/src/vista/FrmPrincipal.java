@@ -18,7 +18,7 @@ import vista.paneles.usuario.DialogCambiaClave;
 import vista.paneles.usuario.PnlUsuario;
 
 public class FrmPrincipal extends JFrame {
-    
+
     private JMenuBar barraMenu;
     private JMenu menuInicio;
     private JMenu mimenuSesion;
@@ -51,13 +51,22 @@ public class FrmPrincipal extends JFrame {
     private JButton btnAgenda;
     private JButton btnReportes;
     private JMenuItem miGeneraAgenda;
-   
-    
-    public FrmPrincipal() {
+    private JMenu menuReportes;
+    private JMenuItem miReporteEvaluaciones;
+    private static FrmPrincipal fp = null;
+
+    private FrmPrincipal() {
         cl = FrmPrincipal.class.getClassLoader();
         iniciaComponentes();
     }
-    
+
+    public synchronized static FrmPrincipal getInstance() {
+        if (fp == null) {
+            fp = new FrmPrincipal();
+        }
+        return fp;
+    }
+
     private void iniciaComponentes() {
         this.setTitle("SPEIESS 2013");
 //        this.setLocationRelativeTo(null);
@@ -67,7 +76,7 @@ public class FrmPrincipal extends JFrame {
         this.setLayout(new BorderLayout());
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         esc = new EventHandler();
-        cp = new ControladorPrincipal(this);
+        cp = ControladorPrincipal.getInstance(this);
         poneImagenLogo();
         ponePanelInferior();
         poneBarraMenu();
@@ -75,7 +84,7 @@ public class FrmPrincipal extends JFrame {
         ControladorPermisos.permisoInvitado();
         ponePermisos();
     }
-    
+
     public void ponePermisos() {
         btnEvaluacion.setEnabled(ControladorPermisos.evaluaciones);
         btnOperaciones.setEnabled(ControladorPermisos.operaciones);
@@ -91,39 +100,39 @@ public class FrmPrincipal extends JFrame {
         btnReportes.setEnabled(ControladorPermisos.usuarios);
         miAgenda.setEnabled(ControladorPermisos.agendaExperto);
     }
-    
+
     private void poneImagenLogo() {
         pnlMedio = new JPanel();
         pnlMedio.setLayout(new BorderLayout());
-     
+
         //Poniendo imagen y logo
         pnlImagen = new ImagenJPanel("zzz.JPG");
         pnlImagen.setLayout(new BorderLayout());
         JLabel lblTitulo = new JLabel("<html><br>SPEIESS</html>", SwingConstants.CENTER);
         lblTitulo.setFont(new Font("Dialog", Font.BOLD, 15));
-      //  JLabel lblLogo = new JLabel(new ImageIcon(cl.getResource("vista/imagenes/logo-iess.png")));
+        //  JLabel lblLogo = new JLabel(new ImageIcon(cl.getResource("vista/imagenes/logo-iess.png")));
         JLabel lblCopyright = new JLabel("Copyright 2013 - Todos los derechos reservados", SwingConstants.CENTER);
         lblCopyright.setFont(new Font("Dialog", Font.BOLD, 13));
         //Agregando los componentes al panel
         pnlImagen.add(lblTitulo, BorderLayout.NORTH);
-       // pnlImagen.add(lblLogo, BorderLayout.);
+        // pnlImagen.add(lblLogo, BorderLayout.);
         pnlImagen.add(lblCopyright, BorderLayout.SOUTH);
         //Añadiendo el panel imagen al panel central
         pnlMedio.add(pnlImagen, BorderLayout.CENTER);
         this.add(pnlMedio, BorderLayout.CENTER);
-     
+
     }
     /*Metodo que ubica el panel inferior con la fecha y hora*/
-    
+
     private void ponePanelInferior() {
         pnlSur = new JPanel();
         pnlSur.setLayout(new BorderLayout());
-        lblHora = new LblHora();
+        lblHora = LblHora.getInstance();
         pnlSur.add(lblHora, BorderLayout.EAST);
         this.add(pnlSur, BorderLayout.SOUTH);
     }
     /*Método para poner la barra de menus*/
-    
+
     private void poneBarraMenu() {
         barraMenu = new JMenuBar();
         /*MENU INICIO*/
@@ -133,6 +142,8 @@ public class FrmPrincipal extends JFrame {
         menuServicios.setFont(new Font("Broadway", Font.BOLD, 15));
         menuAyuda = new JMenu("Ayuda");
         menuAyuda.setFont(new Font("Broadway", Font.BOLD, 15));
+        menuReportes = new JMenu("Reportes");
+        menuReportes.setFont(new Font("Broadway", Font.BOLD, 15));
         //Item Sesión
         mimenuSesion = new JMenu();
         creaMenuItem(mimenuSesion, menuInicio, "Sesion", "Iniciar/Cerrar Sesion", "lockstart_session.png");
@@ -174,10 +185,16 @@ public class FrmPrincipal extends JFrame {
         miGeneraAgenda = new JMenuItem();
         creaMenuItem(miGeneraAgenda, menuServicios, "Genera Agenda", "Generador de agendas", "agendaTelefonica.png");
         miAgenda.addActionListener(esc);
-        
+
+        //Item Reportes
+
+        miReporteEvaluaciones = new JMenuItem();
+        creaMenuItem(miReporteEvaluaciones, menuReportes, "Genera Reporte Evaluacion", "Genera el reporte de las evaluaciones", "imprimeRep.jpg");
+        miReporteEvaluaciones.addActionListener(esc);
         //Añadiendo a la barraMenu y luego a la pantalla
         barraMenu.add(menuInicio);
         barraMenu.add(getMenuServicios());
+        barraMenu.add(menuReportes);
         barraMenu.add(menuAyuda);
         poneEventosMenuItems();
         this.add(barraMenu, BorderLayout.NORTH);
@@ -201,7 +218,7 @@ public class FrmPrincipal extends JFrame {
         menu.add(item);
     }
     /*Método que asigna los eventos a los menuitems*/
-    
+
     private void poneEventosMenuItems() {
         /**
          * itera sobre todos los componentes de la barra de menú, se les asigna
@@ -222,7 +239,7 @@ public class FrmPrincipal extends JFrame {
     }
     //-------------------------------------------------------------------
 	/*Método para poner el panel de botones izquierdo*/
-    
+
     private void poneToolbarOeste() {
         tbOeste = new JToolBar();
         tbOeste.setFloatable(false);
@@ -276,7 +293,7 @@ public class FrmPrincipal extends JFrame {
      * @param btn el botón inicializado para editar sus atributos
      * @param nombreIcono el nombre del icono que se le asignará al boton
      * */
-    
+
     private void creaBotonToolbar(JButton btn, String nombreIcono) {
         btn.setIcon(new ImageIcon(cl.getResource("vista/imagenes/" + nombreIcono)));
         btn.setFocusable(false);
@@ -285,11 +302,11 @@ public class FrmPrincipal extends JFrame {
         btn.setMinimumSize(new Dimension(80, 80));
         btn.setPreferredSize(new Dimension(80, 80));
         btn.setVerticalTextPosition(SwingConstants.BOTTOM);
-        btn.setFont(new Font("Comic Sans MS", Font.ITALIC, 15) );
+        btn.setFont(new Font("Comic Sans MS", Font.ITALIC, 15));
         tbOeste.add(btn);
     }
     /*Metodo que asigna los eventos a los botones de la toolbar*/
-    
+
     private void poneEventosToolbar() {
         /**
          * itera sobre todos los componentes de la barra de herramientas, se les
@@ -312,7 +329,7 @@ public class FrmPrincipal extends JFrame {
     public JPanel getPnlMedio() {
         return pnlMedio;
     }
-    
+
     public JPanel getPnlImagen() {
         return pnlImagen;
     }
@@ -391,7 +408,7 @@ public class FrmPrincipal extends JFrame {
     //*ACCIONES PARA COMPONENTES *
     //****************************
     class EventHandler implements ActionListener {
-        
+
         @Override
         public void actionPerformed(ActionEvent evt) {
             if (evt.getSource() == miSalir) {
@@ -414,10 +431,10 @@ public class FrmPrincipal extends JFrame {
                 cp.ponePanel(new PnlOperaciones());
                 setTitle("SPEIESS 2013 - Panel de Operaciones");
             } else if (evt.getSource() == btnAgenda) {
-               cp.ponePanel(new PanelAgenda("inicisv_1.jpg", userLogueado));
+                cp.ponePanel(new PanelAgenda("inicisv_1.jpg", userLogueado));
                 setTitle("SPEIESS 2013 - Panel Agenda Usuario");
             } else if (evt.getSource() == btnReportes) {
-                DialogoReportes reportes=new DialogoReportes(FrmPrincipal.this, true);
+                DialogoReportes reportes = new DialogoReportes(FrmPrincipal.this, true);
                 reportes.setLocationRelativeTo(null);
                 reportes.setVisible(true);
             } else if (evt.getSource() == miGeneraAgenda) {

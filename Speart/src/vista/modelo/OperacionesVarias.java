@@ -88,7 +88,7 @@ public class OperacionesVarias {
 
     public static void ponerTablaCalendario(JTable tabla, JLabel lblMes) {
         Calendario.poneCalendario(tabla, lblMes);
-        ModeloColorCeldaCalendario rc = new ModeloColorCeldaCalendario();
+        ModeloColorCeldaCalendario rc = ModeloColorCeldaCalendario.getInstance();
         ModeloColorCeldaCalendario.valor = Calendario.valorActual;
         for (int j = 0; j <= tabla.getRowCount(); j++) {
             tabla.getColumn(tabla.getColumnName(j)).setCellRenderer(rc);
