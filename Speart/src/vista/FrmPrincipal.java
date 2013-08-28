@@ -443,7 +443,8 @@ public class FrmPrincipal extends JFrame {
                 dialogoAgenda.setLocationRelativeTo(null);
                 dialogoAgenda.setVisible(true);
             } else if (evt.getSource() == getBtnEvaluacion()) {
-                cp.ponePanel(new PnlEvaluacion());
+                JOptionPane.showMessageDialog(null, "Aun no se han activado las evaluaciones");
+                //cp.ponePanel(new PnlEvaluacion());
             } else if (evt.getSource() == getMiIniciaSesion()) {
                 cp.abreLogin();
             } else if (evt.getSource() == getMiCierraSesion()) {

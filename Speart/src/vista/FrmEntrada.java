@@ -2,9 +2,6 @@ package vista;
 
 import javax.swing.*;
 import java.awt.*;
-import com.nilo.plaf.nimrod.NimRODLookAndFeel;
-import com.nilo.plaf.nimrod.NimRODTheme;
-import java.util.logging.*;
 import java.util.Properties;
 import vista.modelo.ImagenJPanel;
 import vista.modelo.ConexionWeb;
@@ -79,7 +76,7 @@ public class FrmEntrada extends JFrame implements Runnable {
      */
     private void inicializarComponentes() {
         Estilos e = Estilos.getInstance();
-        e.aplicarEstilo(Estilos.ESTILO_GTK);
+        e.aplicarEstilo(Estilos.ESTILO_SISTEMA);
         setSize(400, 300);
         setLocationRelativeTo(null);
         setUndecorated(true);

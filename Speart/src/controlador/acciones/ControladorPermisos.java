@@ -80,7 +80,7 @@ public class ControladorPermisos  {
         servicios=false;
         respaldos=false;
         operaciones=false;
-        evaluaciones=true;
+        evaluaciones=false;
         menuServicios=false;
         itemAbreSesion=false;
         itemCierraSesion=true;

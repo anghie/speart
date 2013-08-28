@@ -18,6 +18,7 @@ public class DialogUsuarios extends javax.swing.JDialog {
 
     private Usuario usuarioNuevo;
     private Usuario usuarioAnterior;
+    private ArrayList<Usuario> usuarios;
     public DialogUsuarios(java.awt.Frame parent, boolean modal, Usuario us) {
         super(parent, modal);
         initComponents();
@@ -28,11 +29,13 @@ public class DialogUsuarios extends javax.swing.JDialog {
 
     private void llenaComboUsuarios() {
         cbUsuarios.removeAllItems();
+        usuarios= new ArrayList<>();
         int i = 0;
         for (Usuario u : ControladorUsuario.usuarios) {
             if (!u.equals(usuarioAnterior)) {
                 String s = u.getNombre() + " - " + ControladorUsuario.roles.get(i).getCargo();
                 cbUsuarios.addItem(s);
+                usuarios.add(u);
             }
             i++;
         }
@@ -85,10 +88,8 @@ public class DialogUsuarios extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-//        int i = cbUsuarios.getSelectedIndex();//no se puede usar el mismo index xq no corresponde a los mismos index de la lista usuarios
-        String nombreRol=((String) cbUsuarios.getSelectedItem()).split("-")[1].trim();
-        System.out.println("'"+nombreRol+"'");
-        usuarioNuevo = buscaUsuario(nombreRol);
+        int i = cbUsuarios.getSelectedIndex();        
+        usuarioNuevo = usuarios.get(i);
         int rol = usuarioNuevo.getRol().getIdRol();
         ArrayList<Actividad> act = (ArrayList<Actividad>) OperacionesBD.listarconCondicion("Actividad", "rol_idRol", String.valueOf(rol));
         for (Actividad a : act) {
@@ -111,14 +112,5 @@ public class DialogUsuarios extends javax.swing.JDialog {
     private javax.swing.JComboBox cbUsuarios;
     private javax.swing.JLabel lblMensaje;
     // End of variables declaration//GEN-END:variables
-    public Usuario buscaUsuario(String rol){
-        Usuario usuar=null;
-        for(Usuario us:ControladorUsuario.usuarios){
-            if(us.getRol().getCargo().equalsIgnoreCase(rol)){
-                usuar=us;
-            }
-        }
-        return usuar;
-    }
 
 }
