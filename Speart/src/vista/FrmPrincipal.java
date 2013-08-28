@@ -208,6 +208,7 @@ public class FrmPrincipal extends JFrame {
         //Añadiendo a la barraMenu y luego a la pantalla
         barraMenu.add(menuInicio);
         barraMenu.add(getMenuServicios());
+        barraMenu.add(menuAgregados);
         barraMenu.add(menuReportes);
         barraMenu.add(menuAyuda);
         poneEventosMenuItems();
@@ -468,9 +469,10 @@ public class FrmPrincipal extends JFrame {
             } else if (evt.getSource() == miCambiaClave) {
                 new DialogCambiaClave(null, true).setVisible(true);
             } else if(evt.getSource() == miFechaEval){
-                new DialogoFechaEvaluacion(null, true).setVisible(true);
+                DialogoFechaEvaluacion.getInstance(null, true);
+//                df.setVisible(true);
             } else if(evt.getSource() == miActivEval){
-                new DialogActivarEvaluacion(null, true).setVisible(true);
+               DialogActivarEvaluacion.getInstance(null, true);
             }
         }
     }

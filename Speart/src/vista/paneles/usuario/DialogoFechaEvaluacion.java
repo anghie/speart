@@ -15,12 +15,22 @@ import modelo.evaluacion.PeriodoEvaluacion;
  */
 public class DialogoFechaEvaluacion extends javax.swing.JDialog {
 
+    private static DialogoFechaEvaluacion dfe = null;
+
     /**
      * Creates new form DialogoFechaEvaluacion
      */
-    public DialogoFechaEvaluacion(java.awt.Frame parent, boolean modal) {
+    private DialogoFechaEvaluacion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+
+    public synchronized static DialogoFechaEvaluacion getInstance(java.awt.Frame parent, boolean modal) {
+        if (dfe == null) {
+            dfe = new DialogoFechaEvaluacion(parent, modal);
+            dfe.setVisible(true);
+        }
+        return dfe;
     }
 
     /**
@@ -105,7 +115,6 @@ public class DialogoFechaEvaluacion extends javax.swing.JDialog {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAplicar;
     private javax.swing.JButton btnCancelar;
