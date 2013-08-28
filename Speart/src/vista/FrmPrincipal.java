@@ -14,7 +14,9 @@ import vista.paneles.operaciones.PnlOperaciones;
 import vista.paneles.proceso.PnlProcesos;
 import vista.paneles.respaldos.PnlRespaldos;
 import vista.paneles.servicios.PnlServicios;
+import vista.paneles.usuario.DialogActivarEvaluacion;
 import vista.paneles.usuario.DialogCambiaClave;
+import vista.paneles.usuario.DialogoFechaEvaluacion;
 import vista.paneles.usuario.PnlUsuario;
 
 public class FrmPrincipal extends JFrame {
@@ -29,6 +31,9 @@ public class FrmPrincipal extends JFrame {
     private JMenu menuServicios;
     private JMenuItem miAgenda;
     private JMenuItem miInforme;
+    private JMenu menuAgregados;
+    private JMenuItem miFechaEval;
+    private JMenuItem miActivEval;
     private JMenu menuAyuda;
     private JMenuItem miAcercaDe;
     private JMenuItem miAyuda;
@@ -140,6 +145,8 @@ public class FrmPrincipal extends JFrame {
         menuInicio.setFont(new Font("Broadway", Font.BOLD, 15));
         menuServicios = new JMenu("Servicios");
         menuServicios.setFont(new Font("Broadway", Font.BOLD, 15));
+        menuAgregados = new JMenu("Agregados");
+        menuAgregados.setFont(new Font("Broadway", Font.BOLD, 15));
         menuAyuda = new JMenu("Ayuda");
         menuAyuda.setFont(new Font("Broadway", Font.BOLD, 15));
         menuReportes = new JMenu("Reportes");
@@ -186,6 +193,13 @@ public class FrmPrincipal extends JFrame {
         creaMenuItem(miGeneraAgenda, menuServicios, "Genera Agenda", "Generador de agendas", "agendaTelefonica.png");
         miAgenda.addActionListener(esc);
 
+        //Item Agregados
+        miFechaEval= new JMenuItem();
+        creaMenuItem(miFechaEval, menuAgregados, "Fecha Evaluacion", "Fijar fecha de la evaluacion", "null.png");
+        miFechaEval.addActionListener(esc);
+        miActivEval = new JMenuItem();
+        creaMenuItem(miActivEval, menuAgregados, "Activar Evaluacion", "Activacion de la evaluacion", "null.png");
+        miActivEval.addActionListener(esc);
         //Item Reportes
 
         miReporteEvaluaciones = new JMenuItem();
@@ -453,6 +467,10 @@ public class FrmPrincipal extends JFrame {
                 cp.escogeUsuario();
             } else if (evt.getSource() == miCambiaClave) {
                 new DialogCambiaClave(null, true).setVisible(true);
+            } else if(evt.getSource() == miFechaEval){
+                new DialogoFechaEvaluacion(null, true).setVisible(true);
+            } else if(evt.getSource() == miActivEval){
+                new DialogActivarEvaluacion(null, true).setVisible(true);
             }
         }
     }

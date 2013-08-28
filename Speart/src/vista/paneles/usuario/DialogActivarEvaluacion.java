@@ -27,20 +27,43 @@ public class DialogActivarEvaluacion extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
+        jLabel2 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Activacion Evaluacion");
+        getContentPane().setLayout(null);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 477, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jLabel1.setText("Usuario:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(56, 30, 80, 30);
 
-        pack();
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Jefe", "Jefe RRHH" }));
+        getContentPane().add(jComboBox1);
+        jComboBox1.setBounds(140, 30, 210, 30);
+
+        jLabel2.setText("Activar evaluacion para: ");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(60, 80, 140, 17);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Servidores", "Jefe" }));
+        getContentPane().add(jComboBox2);
+        jComboBox2.setBounds(60, 110, 290, 27);
+
+        jButton1.setText("Cancelar");
+        getContentPane().add(jButton1);
+        jButton1.setBounds(210, 150, 100, 40);
+
+        jButton2.setText("Aceptar");
+        getContentPane().add(jButton2);
+        jButton2.setBounds(89, 150, 100, 40);
+
+        setSize(new java.awt.Dimension(413, 235));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -85,5 +108,11 @@ public class DialogActivarEvaluacion extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
