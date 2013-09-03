@@ -4,6 +4,12 @@
  */
 package vista.paneles.usuario;
 
+import controlador.acciones.Constantes;
+import controlador.basedatos.OperacionesBD;
+import java.util.ArrayList;
+import modelo.usuario.Usuario;
+import vista.FrmPrincipal;
+
 /**
  *
  * @author francisco
@@ -11,13 +17,15 @@ package vista.paneles.usuario;
 public class DialogActivarEvaluacion extends javax.swing.JDialog {
 
     private static DialogActivarEvaluacion dae;
-
+    private ArrayList<Usuario> servidores;
+    
     /**
      * Creates new form DialogActivarEvaluacion
      */
     private DialogActivarEvaluacion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        listarServidores();
     }
 
     public synchronized static DialogActivarEvaluacion getInstance(java.awt.Frame parent, boolean modal) {
@@ -27,6 +35,14 @@ public class DialogActivarEvaluacion extends javax.swing.JDialog {
         }
         return dae;
     }
+    private void listarServidores(){
+        ArrayList<Usuario> serv = (ArrayList<Usuario>) OperacionesBD.listar("Usuario");
+        String actual = FrmPrincipal.userLogueado.getRol().getTipo();
+        
+        for(Usuario s:serv){
+            
+        }
+    } 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,59 +53,72 @@ public class DialogActivarEvaluacion extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
-        jLabel2 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnAceptar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lstParaEvaluar = new javax.swing.JList();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        lstDisponibleParaEval = new javax.swing.JList();
+        btnQuitar = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
+        lblTitulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Activacion Evaluacion");
         getContentPane().setLayout(null);
 
-        jLabel1.setText("Usuario:");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(56, 30, 80, 30);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Jefe", "Jefe RRHH" }));
-        getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(140, 30, 210, 30);
-
-        jLabel2.setText("Activar evaluacion para: ");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(60, 80, 140, 17);
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Servidores", "Jefe" }));
-        getContentPane().add(jComboBox2);
-        jComboBox2.setBounds(60, 110, 290, 27);
-
-        jButton1.setText("Cancelar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(210, 150, 100, 40);
+        getContentPane().add(btnCancelar);
+        btnCancelar.setBounds(260, 280, 100, 40);
 
-        jButton2.setText("Aceptar");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(89, 150, 100, 40);
+        btnAceptar.setText("Aceptar");
+        getContentPane().add(btnAceptar);
+        btnAceptar.setBounds(140, 280, 100, 40);
 
-        setSize(new java.awt.Dimension(413, 235));
+        jScrollPane2.setViewportView(lstParaEvaluar);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(290, 50, 200, 200);
+
+        jScrollPane3.setViewportView(lstDisponibleParaEval);
+
+        getContentPane().add(jScrollPane3);
+        jScrollPane3.setBounds(20, 50, 200, 200);
+
+        btnQuitar.setText("<");
+        getContentPane().add(btnQuitar);
+        btnQuitar.setBounds(230, 150, 50, 27);
+
+        btnAgregar.setText(">");
+        getContentPane().add(btnAgregar);
+        btnAgregar.setBounds(230, 100, 50, 27);
+
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo.setText("ACTIVACIÓN DE EVALUACIÓN");
+        getContentPane().add(lblTitulo);
+        lblTitulo.setBounds(160, 10, 200, 30);
+
+        setSize(new java.awt.Dimension(525, 369));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnQuitar;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JList lstDisponibleParaEval;
+    private javax.swing.JList lstParaEvaluar;
     // End of variables declaration//GEN-END:variables
 }
