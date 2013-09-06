@@ -112,7 +112,18 @@ public class OperacionesBD {
             entidad.getTransaction().rollback();
             return false;
         }
-
+    }
+    
+    public static boolean fechaMayor(String nombreTabla, String nombreCampo, String fecha){
+        entidad.getTransaction().begin();
+        try{
+            entidad.createQuery("Select a from " + nombreTabla + " a where " + nombreCampo + " >= '" + fecha + "'").getSingleResult();
+            entidad.getTransaction().commit();
+            return true;
+        }catch(Exception e){
+            entidad.getTransaction().rollback();
+            return false;
+        }
     }
 
     public static List listar(String nombreEntidad) {
@@ -150,18 +161,7 @@ public class OperacionesBD {
         }
         return obj;
     }
-//    public static Object buscarEspecifico(String nombreTabla, String nombreCampo1, String campo1, String nombreCampo2, String campo2) {
-//        Object obj = null;
-//        entidad.getTransaction().begin();
-//        try {
-//            obj = entidad.createQuery("Select a from " + nombreTabla + " a where " + nombreCampo1 + " = '" + campo2 + "' AND " + nombreCampo2 + " = '" + campo2 + "'").getSingleResult();
-//            entidad.getTransaction().commit();
-//        } catch (Exception e) {
-//            entidad.getTransaction().rollback();
-//        }
-//        return obj;
-//    }
-
+    
     public static List buscarTodos(String nombreTabla, String nombreCampo, String campo) {
         List obj = null;
         entidad.getTransaction().begin();

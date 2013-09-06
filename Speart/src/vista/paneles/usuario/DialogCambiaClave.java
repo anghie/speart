@@ -12,13 +12,23 @@ import javax.swing.JOptionPane;
  * @author francisco
  */
 public class DialogCambiaClave extends javax.swing.JDialog {
+    
+    private static DialogCambiaClave dcc = null;
 
     /**
      * Creates new form DialogCambiaClave
      */
-    public DialogCambiaClave(java.awt.Frame parent, boolean modal) {
+    private DialogCambiaClave(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+    
+    public synchronized static DialogCambiaClave getInstance(java.awt.Frame parent, boolean modal) {
+        if (dcc == null) {
+            dcc = new DialogCambiaClave(parent, modal);
+            dcc.setVisible(true);
+        }
+        return dcc;
     }
 
     /**

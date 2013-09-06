@@ -85,7 +85,6 @@ public class ControladorCompUniv {
     }
 
     private String rptaTexto(double porcen) {
-        String s;
         BaseConocimiento bc = new BaseConocimiento();
         if (bc.compilaArchivo(dirArchivo)) {
             return bc.consultaSegundoElemento("esrespuestacu(" + porcen + ",X)");

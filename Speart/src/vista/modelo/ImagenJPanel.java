@@ -2,6 +2,7 @@ package vista.modelo;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -24,7 +25,7 @@ public class ImagenJPanel extends JPanel {
     @Override
     public void paint(Graphics g) {
         Dimension d = this.getSize();
-		ClassLoader cl = ImagenJPanel.class.getClassLoader();       
+        ClassLoader cl = ImagenJPanel.class.getClassLoader();
         g.drawImage(new ImageIcon(cl.getResource("vista/imagenes/" + imagen)).getImage(), 0, 0, d.width, d.height, null);
         setOpaque(false);
         super.paint(g);

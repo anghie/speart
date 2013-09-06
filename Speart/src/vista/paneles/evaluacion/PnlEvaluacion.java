@@ -161,6 +161,17 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         txtFactorTrab = new javax.swing.JTextField();
         lblFactor5 = new javax.swing.JLabel();
         pnlQuejas = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        scrollDatosQuejas = new javax.swing.JScrollPane();
+        pnlDatosQuejas = new javax.swing.JPanel();
+        txtTotalQuejas = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
         pnlAbajo = new javax.swing.JPanel();
         btnSiguiente = new javax.swing.JButton();
         btnAnterior = new javax.swing.JButton();
@@ -365,13 +376,13 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         txtNroActividades.setEditable(false);
         pnlIndicGestionPuesto.add(txtNroActividades);
-        txtNroActividades.setBounds(130, 10, 60, 27);
+        txtNroActividades.setBounds(130, 10, 60, 29);
 
         lblFactor.setText("%");
         pnlIndicGestionPuesto.add(lblFactor);
         lblFactor.setBounds(400, 10, 20, 20);
         pnlIndicGestionPuesto.add(txtFactorIndic);
-        txtFactorIndic.setBounds(330, 10, 60, 27);
+        txtFactorIndic.setBounds(330, 10, 60, 29);
 
         lblFactor1.setText("# Factor: ");
         pnlIndicGestionPuesto.add(lblFactor1);
@@ -428,11 +439,11 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         pnlConocimientos.add(lblFactorConoc);
         lblFactorConoc.setBounds(260, 10, 70, 20);
         pnlConocimientos.add(txtFactorConoc);
-        txtFactorConoc.setBounds(330, 10, 60, 27);
+        txtFactorConoc.setBounds(330, 10, 60, 29);
 
         txtNroConocimientos.setEditable(false);
         pnlConocimientos.add(txtNroConocimientos);
-        txtNroConocimientos.setBounds(130, 10, 60, 27);
+        txtNroConocimientos.setBounds(130, 10, 60, 29);
 
         lblConocimientos.setText("# Conocimientos: ");
         pnlConocimientos.add(lblConocimientos);
@@ -509,13 +520,13 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         txtNroCompetTecnic.setEditable(false);
         pnlCompetTecnicas.add(txtNroCompetTecnic);
-        txtNroCompetTecnic.setBounds(130, 10, 60, 27);
+        txtNroCompetTecnic.setBounds(130, 10, 60, 29);
 
         lblFactCompTec.setText("# Factor: ");
         pnlCompetTecnicas.add(lblFactCompTec);
         lblFactCompTec.setBounds(260, 10, 70, 20);
         pnlCompetTecnicas.add(txtFactorCompTec);
-        txtFactorCompTec.setBounds(330, 10, 60, 27);
+        txtFactorCompTec.setBounds(330, 10, 60, 29);
 
         lblFactor3.setText("%");
         pnlCompetTecnicas.add(lblFactor3);
@@ -588,13 +599,13 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         txtNroCompetUniv.setEditable(false);
         pnlCompetUniver.add(txtNroCompetUniv);
-        txtNroCompetUniv.setBounds(130, 10, 60, 27);
+        txtNroCompetUniv.setBounds(130, 10, 60, 29);
 
         lblFactorUniv.setText("# Factor: ");
         pnlCompetUniver.add(lblFactorUniv);
         lblFactorUniv.setBounds(260, 10, 70, 20);
         pnlCompetUniver.add(txtFactorUniv);
-        txtFactorUniv.setBounds(330, 10, 60, 27);
+        txtFactorUniv.setBounds(330, 10, 60, 29);
 
         lblFactor4.setText("%");
         pnlCompetUniver.add(lblFactor4);
@@ -665,7 +676,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         pnlTrabEquipo.add(lblFactorTrab);
         lblFactorTrab.setBounds(10, 10, 70, 20);
         pnlTrabEquipo.add(txtFactorTrab);
-        txtFactorTrab.setBounds(80, 10, 60, 27);
+        txtFactorTrab.setBounds(80, 10, 60, 29);
 
         lblFactor5.setText("  %");
         pnlTrabEquipo.add(lblFactor5);
@@ -673,16 +684,73 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         pnlMedio.add(pnlTrabEquipo, "pnlTrabEquipo");
 
-        javax.swing.GroupLayout pnlQuejasLayout = new javax.swing.GroupLayout(pnlQuejas);
-        pnlQuejas.setLayout(pnlQuejasLayout);
-        pnlQuejasLayout.setHorizontalGroup(
-            pnlQuejasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 930, Short.MAX_VALUE)
-        );
-        pnlQuejasLayout.setVerticalGroup(
-            pnlQuejasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
-        );
+        pnlQuejas.setOpaque(false);
+        pnlQuejas.setLayout(null);
+
+        jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel8.setOpaque(false);
+        jPanel8.setLayout(new java.awt.BorderLayout());
+
+        jLabel36.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
+        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel36.setText("QUEJAS DEL CIUDADANO");
+        jPanel8.add(jLabel36, java.awt.BorderLayout.CENTER);
+
+        pnlQuejas.add(jPanel8);
+        jPanel8.setBounds(10, 40, 910, 30);
+
+        jLabel37.setFont(new java.awt.Font("DejaVu Sans", 1, 11)); // NOI18N
+        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel37.setText("DESCRIPCIÓN");
+        jLabel37.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlQuejas.add(jLabel37);
+        jLabel37.setBounds(190, 70, 350, 50);
+
+        jLabel40.setFont(new java.awt.Font("DejaVu Sans", 1, 11)); // NOI18N
+        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel40.setText("<html>NRO. DE<br>FORMULARIO</html>");
+        jLabel40.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlQuejas.add(jLabel40);
+        jLabel40.setBounds(540, 70, 90, 50);
+
+        jLabel41.setFont(new java.awt.Font("DejaVu Sans", 1, 11)); // NOI18N
+        jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel41.setText("<html>NOMBRE DE LA PERSONA<br>QUE REALIZA LA QUEJA</html>");
+        jLabel41.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlQuejas.add(jLabel41);
+        jLabel41.setBounds(10, 70, 180, 50);
+
+        jLabel42.setFont(new java.awt.Font("DejaVu Sans", 1, 11)); // NOI18N
+        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel42.setText("<html>APLICA DESCUENTO A<br>LA EVALUACIÓN<br>DE DESEMPEÑO</html>");
+        jLabel42.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlQuejas.add(jLabel42);
+        jLabel42.setBounds(630, 70, 170, 50);
+
+        jLabel43.setFont(new java.awt.Font("DejaVu Sans", 1, 11)); // NOI18N
+        jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel43.setText("<html>% DE<br>REDUCCIÓN</html>");
+        jLabel43.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlQuejas.add(jLabel43);
+        jLabel43.setBounds(800, 70, 120, 50);
+
+        scrollDatosQuejas.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollDatosQuejas.setOpaque(false);
+
+        pnlDatosQuejas.setOpaque(false);
+        pnlDatosQuejas.setLayout(new javax.swing.BoxLayout(pnlDatosQuejas, javax.swing.BoxLayout.Y_AXIS));
+        scrollDatosQuejas.setViewportView(pnlDatosQuejas);
+
+        pnlQuejas.add(scrollDatosQuejas);
+        scrollDatosQuejas.setBounds(10, 120, 910, 210);
+
+        txtTotalQuejas.setEditable(false);
+        pnlQuejas.add(txtTotalQuejas);
+        txtTotalQuejas.setBounds(830, 337, 90, 30);
+
+        jLabel10.setText("Total:");
+        pnlQuejas.add(jLabel10);
+        jLabel10.setBounds(780, 340, 50, 20);
 
         pnlMedio.add(pnlQuejas, "card7");
 
@@ -734,6 +802,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JButton btnResultados;
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -761,7 +830,13 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -771,6 +846,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblActividades;
     private javax.swing.JLabel lblApellNomb;
@@ -803,6 +879,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JPanel pnlDatosConoc;
     private javax.swing.JPanel pnlDatosIndic;
     private javax.swing.JPanel pnlDatosInf;
+    private javax.swing.JPanel pnlDatosQuejas;
     private javax.swing.JPanel pnlDatosServidor;
     private javax.swing.JPanel pnlDatosTrabEquipo;
     private javax.swing.JPanel pnlDos;
@@ -817,6 +894,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JScrollPane scrollDatosCompUnivers;
     private javax.swing.JScrollPane scrollDatosConoc;
     private javax.swing.JScrollPane scrollDatosIndic;
+    private javax.swing.JScrollPane scrollDatosQuejas;
     private javax.swing.JScrollPane scrollDatosTrabEquipo;
     private javax.swing.JTabbedPane tabbedEvaluacion;
     private javax.swing.JTextField txtFactorCompTec;
@@ -835,6 +913,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JTextField txtTotalCompTec;
     private javax.swing.JTextField txtTotalCompUniv;
     private javax.swing.JTextField txtTotalConocimientos;
+    private javax.swing.JTextField txtTotalQuejas;
     private javax.swing.JTextField txtTotalTrabEquip;
     // End of variables declaration//GEN-END:variables
 
@@ -1004,6 +1083,21 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         return txtTotalTrabEquip;
     }
 
+    /**
+     * @return the pnlDatosQuejas
+     */
+    public javax.swing.JPanel getPnlDatosQuejas() {
+        return pnlDatosQuejas;
+    }
+
+    /**
+     * @return the txtTotalQuejas
+     */
+    public javax.swing.JTextField getTxtTotalQuejas() {
+        return txtTotalQuejas;
+    }
+
+    
     class GestorControladorEvaluacion extends KeyAdapter implements ActionListener {
 
         @Override
@@ -1024,6 +1118,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
                 ce.listarCompetenciasTecnicas();
                 ce.listarCompetenciasUniversales();
                 ce.listarTrabajoEquipo();
+                ce.listarQuejas();
                 ControladorEvaluacion.txtTotalConoc = getTxtTotalConocimientos();
                 ControladorEvaluacion.totConoc=0;
             }

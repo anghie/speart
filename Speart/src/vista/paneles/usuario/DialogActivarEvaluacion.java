@@ -7,27 +7,33 @@ package vista.paneles.usuario;
 import controlador.acciones.Constantes;
 import controlador.basedatos.OperacionesBD;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import modelo.usuario.Usuario;
 import vista.FrmPrincipal;
+import vista.modelo.Mensaje;
 
 /**
  *
  * @author francisco
  */
 public class DialogActivarEvaluacion extends javax.swing.JDialog {
-
-    private static DialogActivarEvaluacion dae;
-    private ArrayList<Usuario> servidores;
     
+    private static DialogActivarEvaluacion dae;
+    private ArrayList<Usuario> servidoresDisp;
+    private ArrayList<Usuario> servidoresPlanif;
+
     /**
      * Creates new form DialogActivarEvaluacion
      */
     private DialogActivarEvaluacion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        servidoresPlanif= new ArrayList<>();
         listarServidores();
+        llenaListaDisponibles();
     }
-
+    
     public synchronized static DialogActivarEvaluacion getInstance(java.awt.Frame parent, boolean modal) {
         if (dae == null) {
             dae = new DialogActivarEvaluacion(parent, modal);
@@ -35,14 +41,56 @@ public class DialogActivarEvaluacion extends javax.swing.JDialog {
         }
         return dae;
     }
-    private void listarServidores(){
+    
+    private void listarServidores() {
+        servidoresDisp = new ArrayList<>();
         ArrayList<Usuario> serv = (ArrayList<Usuario>) OperacionesBD.listar("Usuario");
         String actual = FrmPrincipal.userLogueado.getRol().getTipo();
-        
-        for(Usuario s:serv){
-            
+        for (Usuario s : serv) {
+            if ((!s.getRol().getTipo().equals(Constantes.RRHH))
+                    && (!s.getRol().getTipo().equals(actual))) {
+                servidoresDisp.add(s);
+            }
         }
-    } 
+    }
+    
+    private void llenaListaDisponibles() {
+        DefaultListModel dlm = new DefaultListModel();
+        lstDisponibleParaEval.removeAll();
+        if (servidoresDisp != null) {
+            dlm.removeAllElements();
+            for (Usuario u : servidoresDisp) {
+                dlm.addElement(u.getNombre() + " " + u.getApellidos());
+            }
+        }
+        lstDisponibleParaEval.setModel(dlm);
+    }
+    
+    private void llenaListaAsignados() {
+        DefaultListModel dlm = new DefaultListModel();
+        lstParaEvaluar.removeAll();
+        if (servidoresPlanif != null) {
+            dlm.removeAllElements();
+            for (Usuario u : servidoresPlanif) {
+                dlm.addElement(u.getNombre() + " " + u.getApellidos());
+            }
+        }
+        lstParaEvaluar.setModel(dlm);
+    }
+    
+    private void addToList(Usuario u) {
+        servidoresDisp.remove(u);
+        servidoresPlanif.add(u);
+        llenaListaAsignados();
+        llenaListaDisponibles();
+    }
+    
+    private void removeToList(Usuario u) {
+        servidoresPlanif.remove(u);
+        servidoresDisp.add(u);
+        llenaListaAsignados();
+        llenaListaDisponibles();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -91,10 +139,20 @@ public class DialogActivarEvaluacion extends javax.swing.JDialog {
         jScrollPane3.setBounds(20, 50, 200, 200);
 
         btnQuitar.setText("<");
+        btnQuitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuitarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnQuitar);
         btnQuitar.setBounds(230, 150, 50, 27);
 
         btnAgregar.setText(">");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAgregar);
         btnAgregar.setBounds(230, 100, 50, 27);
 
@@ -110,6 +168,32 @@ public class DialogActivarEvaluacion extends javax.swing.JDialog {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+    
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        if (lstDisponibleParaEval.getSelectedIndex() != -1) {
+            Usuario u = servidoresDisp.get(lstDisponibleParaEval.getSelectedIndex());
+            addToList(u);
+        } else {
+            if (servidoresDisp.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Lista de Servidores Disponibles vacia");
+            } else {
+                Mensaje.filaNoSeleccionada();
+            }
+        }
+    }//GEN-LAST:event_btnAgregarActionPerformed
+    
+    private void btnQuitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitarActionPerformed
+        if (lstParaEvaluar.getSelectedIndex() != -1) {
+            Usuario u = servidoresPlanif.get(lstParaEvaluar.getSelectedIndex());
+            removeToList(u);
+        } else {
+            if (servidoresPlanif.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Lista de Servidores Planificados vacia");
+            } else {
+                Mensaje.filaNoSeleccionada();
+            }
+        }
+    }//GEN-LAST:event_btnQuitarActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnAgregar;

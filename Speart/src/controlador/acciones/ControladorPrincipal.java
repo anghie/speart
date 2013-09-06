@@ -185,4 +185,8 @@ public class ControladorPrincipal {
         garbage.gc();
         System.out.println("Memoria despues de pasar garbage: "+ garbage.freeMemory());
     }
+    
+//    public boolean evalActiv(){
+//        
+//    }
 }

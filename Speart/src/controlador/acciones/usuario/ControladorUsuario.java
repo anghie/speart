@@ -183,6 +183,7 @@ public class ControladorUsuario {
             obj[1] = u.getNombre() + " " + u.getApellidos();
             obj[2] = u.getProfesion();
             obj[3] = u.isHabilitado();
+            System.out.println(u.getNombre() + " " + u.getApellidos()+" "+u.getRol().getTipo());
             dtm.addRow(obj);
         }
         pu.getTblUsuarios().setModel(dtm);

@@ -4,10 +4,8 @@
  */
 package controlador.acciones;
 
+public class ControladorPermisos {
 
-public class ControladorPermisos  {
-
-    
     public static boolean usuarios;
     public static boolean procesos;
     public static boolean servicios;
@@ -21,74 +19,78 @@ public class ControladorPermisos  {
     public static boolean agenda;
     public static boolean agendaUsuario;
     public static boolean agendaExperto;
-    
+    public static boolean menuAgregados;
+    public static boolean menuReportes;
 
-    public static void permisoInvitado(){
-        usuarios=false;
-        procesos=false;
-        servicios=false;
-        respaldos=false;
-        operaciones=false;
-        evaluaciones=false;
-        menuServicios=false;
-        itemAbreSesion=true;
-        itemCierraSesion=false;
-        itemCambiaClave=false;
-        agenda=false;
-        agendaUsuario=false;
-        agendaExperto=false;
-        
+    public static void permisoInvitado() {
+        usuarios = false;
+        procesos = false;
+        servicios = false;
+        respaldos = false;
+        operaciones = false;
+        evaluaciones = false;
+        menuServicios = false;
+        itemAbreSesion = true;
+        itemCierraSesion = false;
+        itemCambiaClave = false;
+        agenda = false;
+        agendaUsuario = false;
+        agendaExperto = false;
+        menuAgregados = false;
+        menuReportes = false;
     }
-    
-    public static void permisoAdministrador(){
-        usuarios=true;
-        procesos=true;
-        servicios=true;
-        respaldos=true;
-        operaciones=true;
-        evaluaciones=true;
-        menuServicios=true;
-        itemAbreSesion=false;
-        itemCierraSesion=true;
-        itemCambiaClave=true;
-        agenda=true;
-        agendaUsuario=true;
-        agendaExperto=true;
-        
+
+    public static void permisoAdministrador() {
+        usuarios = true;
+        procesos = true;
+        servicios = true;
+        respaldos = true;
+        operaciones = true;
+        evaluaciones = true;
+        menuServicios = true;
+        itemAbreSesion = false;
+        itemCierraSesion = true;
+        itemCambiaClave = true;
+        agenda = true;
+        agendaUsuario = true;
+        agendaExperto = true;
+        menuAgregados = true;
+        menuReportes = true;
     }
-    
-    public static void permisoServidor(){
-        usuarios=false;
-        procesos=false;
-        servicios=true;
-        respaldos=false;
-        operaciones=false;
-        evaluaciones=true;
-        menuServicios=true;
-        itemAbreSesion=false;
-        itemCierraSesion=true;
-        itemCambiaClave=true;
-        agenda=true;
-        agendaUsuario=true;
-        agendaExperto=false;
-       
+
+    public static void permisoServidor() {
+        usuarios = false;
+        procesos = false;
+        servicios = true;
+        respaldos = false;
+        operaciones = false;
+        evaluaciones = true;
+        menuServicios = true;
+        itemAbreSesion = false;
+        itemCierraSesion = true;
+        itemCambiaClave = true;
+        agenda = true;
+        agendaUsuario = true;
+        agendaExperto = false;
+        menuAgregados = false;
+        menuReportes = false;
     }
-    
-    public static void permisoRRHH(){
-        usuarios=false;
-        procesos=false;
-        servicios=false;
-        respaldos=false;
-        operaciones=false;
-        evaluaciones=false;
-        menuServicios=false;
-        itemAbreSesion=false;
-        itemCierraSesion=true;
-        itemCambiaClave=true;
-        agenda=true;
-        agendaUsuario=false;
-        agendaExperto=true;
-        
+
+    public static void permisoRRHH() {
+        usuarios = false;
+        procesos = false;
+        servicios = false;
+        respaldos = false;
+        operaciones = false;
+        evaluaciones = false;
+        menuServicios = false;
+        itemAbreSesion = false;
+        itemCierraSesion = true;
+        itemCambiaClave = true;
+        agenda = true;
+        agendaUsuario = false;
+        agendaExperto = true;
+        menuAgregados=false;
+        menuReportes=false;
     }
-    
 }

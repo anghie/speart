@@ -4,6 +4,7 @@
  */
 package vista.paneles.evaluacion;
 
+import controlador.experto.BaseConocimiento;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.print.PageFormat;
@@ -11,8 +12,10 @@ import java.awt.print.Paper;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import vista.modelo.OperacionesVarias;
 
 /**
  *
@@ -21,22 +24,29 @@ import java.util.logging.Logger;
 public class FrmResultadosEvaluac extends javax.swing.JDialog implements Printable {
 
     private static FrmResultadosEvaluac fre = null;
+    private ClassLoader cload = FrmResultadosEvaluac.class.getClassLoader();//para hacer referencia a archivos dentro del programa
+    private String dirArchivo = cload.getResource("controlador/experto/evaluacion.pl").getPath();
 
     /**
      * Creates new form FrmResultadosEvaluac
      */
-    private FrmResultadosEvaluac(double tIndic, double tConoc, double tCT, double tCU, double tT, double totl) {
+    private FrmResultadosEvaluac(double tIndic, double tConoc, double tCT, double tCU, double tT, double totQ, double totl) {
         initComponents();
         lblIndicadores.setText(tIndic + "");
         lblConocimientos.setText(tConoc + "");
         lblTecnicas.setText(tCT + "");
         lblUniversales.setText(tCU + "");
+        lblTrabajoEquipo.setText(tT + "");
+        lblEvalCiudadano.setText(totQ + "");
         lblTotalEvl.setText(lblTotalEvl.getText() + " " + totl);
+        String s=califResultados(totl);
+        lblDesempeño.setText(lblDesempeño.getText()+" "+s);
+        lblFecha.setText(OperacionesVarias.fechaString(new Date()));
     }
 
-    public synchronized static FrmResultadosEvaluac getInstance(double tIndic, double tConoc, double tCT, double tCU, double tT, double totl) {
+    public synchronized static FrmResultadosEvaluac getInstance(double tIndic, double tConoc, double tCT, double tCU, double tT, double totQ, double totl) {
         if (fre == null) {
-            fre = new FrmResultadosEvaluac(tIndic, tConoc, tCT, tCU, tT, totl);
+            fre = new FrmResultadosEvaluac(tIndic, tConoc, tCT, tCU, tT, totQ, totl);
         }
         return fre;
     }
@@ -61,12 +71,12 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog implements Printab
         lblTecnicas = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         lblUniversales = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        lblFecha = new javax.swing.JLabel();
         lblEvalCiudadano = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         lblTotalEvl = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        lblDesempeño = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -74,6 +84,8 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog implements Printab
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        lblTrabajoEquipo = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
 
@@ -163,12 +175,12 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog implements Printab
         jPanel1.add(lblUniversales);
         lblUniversales.setBounds(550, 180, 250, 30);
 
-        jLabel11.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel11.setOpaque(true);
-        jPanel1.add(jLabel11);
-        jLabel11.setBounds(410, 330, 390, 30);
+        lblFecha.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
+        lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblFecha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblFecha.setOpaque(true);
+        jPanel1.add(lblFecha);
+        lblFecha.setBounds(410, 360, 390, 30);
 
         lblEvalCiudadano.setBackground(java.awt.Color.white);
         lblEvalCiudadano.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
@@ -176,7 +188,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog implements Printab
         lblEvalCiudadano.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblEvalCiudadano.setOpaque(true);
         jPanel1.add(lblEvalCiudadano);
-        lblEvalCiudadano.setBounds(550, 210, 250, 30);
+        lblEvalCiudadano.setBounds(550, 240, 250, 30);
 
         jLabel6.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -192,7 +204,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog implements Printab
         jLabel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel8.setOpaque(true);
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(30, 300, 770, 30);
+        jLabel8.setBounds(30, 330, 770, 30);
 
         lblTotalEvl.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         lblTotalEvl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -200,15 +212,15 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog implements Printab
         lblTotalEvl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblTotalEvl.setOpaque(true);
         jPanel1.add(lblTotalEvl);
-        lblTotalEvl.setBounds(30, 240, 770, 30);
+        lblTotalEvl.setBounds(30, 270, 770, 30);
 
-        jLabel12.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("DESEMPEÑO:");
-        jLabel12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel12.setOpaque(true);
-        jPanel1.add(jLabel12);
-        jLabel12.setBounds(30, 270, 770, 30);
+        lblDesempeño.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
+        lblDesempeño.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDesempeño.setText("DESEMPEÑO:");
+        lblDesempeño.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblDesempeño.setOpaque(true);
+        jPanel1.add(lblDesempeño);
+        lblDesempeño.setBounds(30, 300, 770, 30);
 
         jLabel13.setBackground(java.awt.Color.white);
         jLabel13.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
@@ -216,7 +228,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog implements Printab
         jLabel13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel13.setOpaque(true);
         jPanel1.add(jLabel13);
-        jLabel13.setBounds(30, 210, 520, 30);
+        jLabel13.setBounds(30, 240, 520, 30);
 
         jLabel14.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -224,34 +236,50 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog implements Printab
         jLabel14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel14.setOpaque(true);
         jPanel1.add(jLabel14);
-        jLabel14.setBounds(30, 330, 380, 30);
+        jLabel14.setBounds(30, 360, 380, 30);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("CERTIFICO: Que he evaluado al (a la) servidor (a) acorde al procedimiento de la norma de Evaluación de Desempeño.");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(30, 370, 770, 14);
+        jLabel2.setBounds(30, 400, 770, 17);
 
         jLabel15.setFont(new java.awt.Font("DejaVu Sans", 1, 11)); // NOI18N
         jLabel15.setText("___________________________________________________");
         jPanel1.add(jLabel15);
-        jLabel15.setBounds(270, 480, 310, 20);
+        jLabel15.setBounds(270, 510, 310, 20);
 
         jLabel17.setText("FIRMA");
         jPanel1.add(jLabel17);
-        jLabel17.setBounds(410, 500, 47, 20);
+        jLabel17.setBounds(410, 530, 47, 20);
 
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("HERNÁNDEZ CUEVA CARLOTA MARLENE");
         jPanel1.add(jLabel18);
-        jLabel18.setBounds(280, 540, 300, 20);
+        jLabel18.setBounds(280, 570, 300, 20);
 
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("Evaluador o Jefe Inmediato");
         jPanel1.add(jLabel19);
-        jLabel19.setBounds(277, 520, 300, 20);
+        jLabel19.setBounds(280, 550, 300, 20);
+
+        jLabel10.setBackground(java.awt.Color.white);
+        jLabel10.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
+        jLabel10.setText("Trabajo en Equipo, Iniciativa y Liderazgo");
+        jLabel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jLabel10.setOpaque(true);
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(30, 210, 520, 30);
+
+        lblTrabajoEquipo.setBackground(java.awt.Color.white);
+        lblTrabajoEquipo.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
+        lblTrabajoEquipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTrabajoEquipo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblTrabajoEquipo.setOpaque(true);
+        jPanel1.add(lblTrabajoEquipo);
+        lblTrabajoEquipo.setBounds(550, 210, 250, 30);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(10, 10, 820, 580);
+        jPanel1.setBounds(0, 0, 840, 620);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         jButton1.setText("Cerrar");
@@ -262,7 +290,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog implements Printab
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(730, 600, 100, 40);
+        jButton1.setBounds(730, 640, 100, 40);
 
         btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/imprime.jpg"))); // NOI18N
         btnImprimir.setText("Imprimir");
@@ -273,10 +301,10 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog implements Printab
             }
         });
         getContentPane().add(btnImprimir);
-        btnImprimir.setBounds(360, 600, 130, 40);
+        btnImprimir.setBounds(360, 630, 130, 50);
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-848)/2, (screenSize.height-679)/2, 848, 679);
+        setSize(new java.awt.Dimension(848, 716));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
@@ -304,8 +332,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog implements Printab
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -322,10 +349,13 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog implements Printab
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblConocimientos;
+    private javax.swing.JLabel lblDesempeño;
     private javax.swing.JLabel lblEvalCiudadano;
+    private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblIndicadores;
     private javax.swing.JLabel lblTecnicas;
     private javax.swing.JLabel lblTotalEvl;
+    private javax.swing.JLabel lblTrabajoEquipo;
     private javax.swing.JLabel lblUniversales;
     // End of variables declaration//GEN-END:variables
 
@@ -341,5 +371,13 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog implements Printab
         jPanel1.printAll(graphics);
         return PAGE_EXISTS;
 
+    }
+
+    private String califResultados(double porcen) {
+        BaseConocimiento bc = new BaseConocimiento();
+        if (bc.compilaArchivo(dirArchivo)) {
+            return bc.consultaSegundoElemento("califResult(" + porcen + ",X)");
+        }
+        return null;
     }
 }

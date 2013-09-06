@@ -18,6 +18,7 @@ import javax.persistence.Temporal;
  */
 @Entity
 public class PeriodoEvaluacion implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idPeriodoEval;
@@ -28,10 +29,10 @@ public class PeriodoEvaluacion implements Serializable {
 
     public PeriodoEvaluacion() {
     }
-    
-    public PeriodoEvaluacion(Calendar fi,Calendar ff) {
-        this.fechaInicio=fi;
-        this.fechaFin=ff;
+
+    public PeriodoEvaluacion(Calendar fi, Calendar ff) {
+        this.fechaInicio = fi;
+        this.fechaFin = ff;
     }
 
     public Calendar getFechaInicio() {
@@ -49,6 +50,4 @@ public class PeriodoEvaluacion implements Serializable {
     public void setFechaFin(Calendar fechaFin) {
         this.fechaFin = fechaFin;
     }
-    
-    
 }

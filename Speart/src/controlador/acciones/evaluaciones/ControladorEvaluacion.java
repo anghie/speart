@@ -17,6 +17,7 @@ import modelo.operaciones.TrabajoEquipo;
 import modelo.pregunta.Pregunta;
 import modelo.pregunta.Seccion;
 import modelo.proceso.Actividad;
+import modelo.usuario.Queja;
 import modelo.usuario.Usuario;
 import vista.FrmPrincipal;
 import vista.paneles.evaluacion.FrmResultadosEvaluac;
@@ -26,6 +27,7 @@ import vista.paneles.evaluacion.PnlCompUniv;
 import vista.paneles.evaluacion.PnlCon;
 import vista.paneles.evaluacion.PnlEvaluacion;
 import vista.paneles.evaluacion.PnlIndic;
+import vista.paneles.evaluacion.PnlQuejas;
 import vista.paneles.evaluacion.PnlTrabEquipo;
 
 /**
@@ -41,19 +43,21 @@ public class ControladorEvaluacion {
     private ArrayList<PnlCompTecn> panelesCompTecnicas;
     private ArrayList<PnlCompUniv> panelesCompUniversales;
     private ArrayList<PnlTrabEquipo> panelesTrabEquipo;
+    private ArrayList<PnlQuejas> panelesQuejas;
     private ArrayList<Usuario> servidores;
     public static ArrayList<Actividad> actividadesUsEval;
 //    public static Usuario usuarioEval;
     public static int posActual = 0;
-    public static double totIndic=0;
+    public static double totIndic = 0;
     public static double facConoc = 0;
     public static double totConoc = 0;
     public static double facCompTec = 0;
     public static double totCompTec = 0;
-    public static double facCompUniv=0;
-    public static double totCompUniv=0;
-    public static double facTrabEquip=0;
-    public static double totTrabEquip=0;
+    public static double facCompUniv = 0;
+    public static double totCompUniv = 0;
+    public static double facTrabEquip = 0;
+    public static double totTrabEquip = 0;
+    public static double totQuejas = 0;
 //    public static double totCompTec = 0;
     //contadores para cada panel de evaluaciones
 //    int i = 0, c = 0, ct = 0, cu = 0, te = 0;
@@ -63,6 +67,7 @@ public class ControladorEvaluacion {
     public static ArrayList<CompetenciaTecnica> compTecnicas;
     public static ArrayList<CompetenciaUniversal> compUniversales;
     public static ArrayList<TrabajoEquipo> trabequip;
+    public static ArrayList<Queja> quejas;
     public static JTextField txRptaConocIndiv;
     public static JTextField txtTotalConoc;
     public static JButton btnEvaluarCon;
@@ -74,6 +79,7 @@ public class ControladorEvaluacion {
         panelesCompTecnicas = new ArrayList<>();
         panelesCompUniversales = new ArrayList<>();
         panelesTrabEquipo = new ArrayList<>();
+        panelesQuejas = new ArrayList<>();
         posActual = 0;
     }
     //******************************************************
@@ -108,7 +114,7 @@ public class ControladorEvaluacion {
     public void siguientePanel() {
         cl = (CardLayout) pnlEval.getPnlMedio().getLayout();
         cl.next(pnlEval.getPnlMedio());
-        if (posActual < 4) {
+        if (posActual < 5) {
 //            if(posActual==0){//Si esta en el primer panel
 //            
 //            }
@@ -132,7 +138,7 @@ public class ControladorEvaluacion {
             pnlEval.getBtnAnterior().setEnabled(false);
             pnlEval.getBtnSiguiente().setEnabled(true);
             pnlEval.getBtnResultados().setEnabled(false);
-        } else if (posActual == 4) {
+        } else if (posActual == 5) {
             pnlEval.getBtnAnterior().setEnabled(true);
             pnlEval.getBtnSiguiente().setEnabled(false);
             pnlEval.getBtnResultados().setEnabled(true);
@@ -188,7 +194,6 @@ public class ControladorEvaluacion {
 //        }
     }
 
-
     //******************************************************
     //         CUARTO PANEL COMPETENCIAS UNIVERSALES
     //******************************************************
@@ -203,7 +208,6 @@ public class ControladorEvaluacion {
 //            cu = 5;
 //        }
     }
-
 
     //******************************************************
     //         QUINTO PANEL TRABAJO EN EQUIPO
@@ -220,7 +224,12 @@ public class ControladorEvaluacion {
 //        }
     }
 
-
+    public void agregaPanelQuejas(Queja q) {
+        PnlQuejas pq = new PnlQuejas(q);
+        pnlEval.getPnlDatosQuejas().add(pq);
+        panelesQuejas.add(pq);
+        pnlEval.getPnlDatosQuejas().validate();
+    }
 //    public void abreVtnResultados() {
 //        new FrmResultadosEvaluac().setVisible(true);
 //    }
@@ -266,9 +275,9 @@ public class ControladorEvaluacion {
                 agregaPanelCompetenciasTecnicas(ctt);
             }
         }
-        ControladorCompTecn.pe=pnlEval;
+        ControladorCompTecn.pe = pnlEval;
         ControladorCompTecn.sumatoriaTecnicas();
-        pnlEval.getTxtNroCompetTecnic().setText(compTecnicas.size() + "");        
+        pnlEval.getTxtNroCompetTecnic().setText(compTecnicas.size() + "");
     }
 
     public void listarCompetenciasUniversales() {
@@ -276,7 +285,7 @@ public class ControladorEvaluacion {
         for (CompetenciaUniversal cun : compUniversales) {
             agregaPanelCompetenciasUniversales(cun);
         }
-        ControladorCompUniv.pe=pnlEval;
+        ControladorCompUniv.pe = pnlEval;
         ControladorCompUniv.sumatoriaUniversales();
         pnlEval.getTxtNroCompetUniv().setText(compUniversales.size() + "");
     }
@@ -292,13 +301,23 @@ public class ControladorEvaluacion {
                 }
             }
         }
-        ControladorTrabEquipo.pe=pnlEval;
-        ControladorTrabEquipo.sumatoriaTrabEquip();        
+        ControladorTrabEquipo.pe = pnlEval;
+        ControladorTrabEquipo.sumatoriaTrabEquip();
+    }
+
+    public void listarQuejas() {
+        quejas = (ArrayList<Queja>) OperacionesBD.listar("Queja");
+        for (Queja q : quejas) {
+            agregaPanelQuejas(q);
+        }
+        ControladorQuejas.pe = pnlEval;
+        ControladorQuejas.sumatoriaQuejas();
+    }
+
+    public void resultadosFinales() {
+        double resFin = (totCompTec + totCompUniv + totConoc + totIndic + totTrabEquip) - totQuejas;
+        FrmResultadosEvaluac.getInstance(totIndic, totConoc, totCompTec, totCompUniv, totTrabEquip, totQuejas, resFin).setVisible(true);
     }
     
- 
-    public void resultadosFinales(){
-        double resFin=totCompTec+totCompUniv+totConoc+totIndic+totTrabEquip;
-        FrmResultadosEvaluac.getInstance(totIndic, totConoc, totCompTec, totCompUniv, totTrabEquip, resFin).setVisible(true);
-    }
+    
 }

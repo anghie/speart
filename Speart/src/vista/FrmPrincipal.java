@@ -9,6 +9,7 @@ import vista.modelo.*;
 import controlador.acciones.ControladorPrincipal;
 import modelo.usuario.Usuario;
 import vista.modelo.paneles.agenda.PanelAgenda;
+import vista.paneles.evaluacion.DialogEfectos;
 import vista.paneles.evaluacion.PnlEvaluacion;
 import vista.paneles.operaciones.PnlOperaciones;
 import vista.paneles.proceso.PnlProcesos;
@@ -34,6 +35,7 @@ public class FrmPrincipal extends JFrame {
     private JMenu menuAgregados;
     private JMenuItem miFechaEval;
     private JMenuItem miActivEval;
+    private JMenuItem miEfectos;
     private JMenu menuAyuda;
     private JMenuItem miAcercaDe;
     private JMenuItem miAyuda;
@@ -104,6 +106,8 @@ public class FrmPrincipal extends JFrame {
         btnAgenda.setEnabled(ControladorPermisos.agenda);
         btnReportes.setEnabled(ControladorPermisos.usuarios);
         miAgenda.setEnabled(ControladorPermisos.agendaExperto);
+        menuAgregados.setEnabled(ControladorPermisos.menuAgregados);
+        menuReportes.setEnabled(ControladorPermisos.menuReportes);
     }
 
     private void poneImagenLogo() {
@@ -111,7 +115,7 @@ public class FrmPrincipal extends JFrame {
         pnlMedio.setLayout(new BorderLayout());
 
         //Poniendo imagen y logo
-        pnlImagen = new ImagenJPanel("zzz.JPG");
+        pnlImagen = new ImagenJPanel("zzz.jpg");
         pnlImagen.setLayout(new BorderLayout());
         JLabel lblTitulo = new JLabel("<html><br>SPEIESS</html>", SwingConstants.CENTER);
         lblTitulo.setFont(new Font("Dialog", Font.BOLD, 15));
@@ -200,11 +204,17 @@ public class FrmPrincipal extends JFrame {
         miActivEval = new JMenuItem();
         creaMenuItem(miActivEval, menuAgregados, "Activar Evaluacion", "Activacion de la evaluacion", "null.png");
         miActivEval.addActionListener(esc);
+        
         //Item Reportes
-
         miReporteEvaluaciones = new JMenuItem();
         creaMenuItem(miReporteEvaluaciones, menuReportes, "Genera Reporte Evaluacion", "Genera el reporte de las evaluaciones", "imprimeRep.jpg");
         miReporteEvaluaciones.addActionListener(esc);
+        
+        //Item Efectos
+        miEfectos = new JMenuItem();
+        creaMenuItem(miEfectos, menuAgregados, "Efectos Evaluación", "Los efectos que se asignaran a las evaluaciones", "null.png");
+        miEfectos.addActionListener(esc);
+        
         //Añadiendo a la barraMenu y luego a la pantalla
         barraMenu.add(menuInicio);
         barraMenu.add(getMenuServicios());
@@ -458,8 +468,8 @@ public class FrmPrincipal extends JFrame {
                 dialogoAgenda.setLocationRelativeTo(null);
                 dialogoAgenda.setVisible(true);
             } else if (evt.getSource() == getBtnEvaluacion()) {
-                JOptionPane.showMessageDialog(null, "Aun no se han activado las evaluaciones");
-                //cp.ponePanel(new PnlEvaluacion());
+//                JOptionPane.showMessageDialog(null, "Aun no se han activado las evaluaciones");
+                cp.ponePanel(new PnlEvaluacion());
             } else if (evt.getSource() == getMiIniciaSesion()) {
                 cp.abreLogin();
             } else if (evt.getSource() == getMiCierraSesion()) {
@@ -467,12 +477,14 @@ public class FrmPrincipal extends JFrame {
             } else if (evt.getSource() == miInforme) {
                 cp.escogeUsuario();
             } else if (evt.getSource() == miCambiaClave) {
-                new DialogCambiaClave(null, true).setVisible(true);
+                DialogCambiaClave.getInstance(null, true);
             } else if(evt.getSource() == miFechaEval){
                 DialogoFechaEvaluacion.getInstance(null, true);
 //                df.setVisible(true);
             } else if(evt.getSource() == miActivEval){
                DialogActivarEvaluacion.getInstance(null, true);
+            } else if(evt.getSource() == miEfectos){
+                DialogEfectos.getInstance(null, true);
             }
         }
     }

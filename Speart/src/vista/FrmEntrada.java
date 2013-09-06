@@ -28,46 +28,49 @@ public class FrmEntrada extends JFrame implements Runnable {
 
     @Override
     public void run() {
-        cl = FrmEntrada.class.getClassLoader();
-        inicializarComponentes();
         try {
-            boolean conectado = false;
-            Propiedades prop = new Propiedades();
-            Properties p = prop.getProperties("controlador/propiedades/database.properties");
-            Conexion.host_bd = p.getProperty("host");
-            Conexion.user = p.getProperty("user");
-            Conexion.clave = p.getProperty("clave");
-            System.out.println(Conexion.host_bd);
-            //Verificar que haya conexion al host
-            if (ConexionWeb.hayConexion(Conexion.host_bd, 3306)) {
-                //Si hay conexion tratar de conectarse a la bd
-                if (Conexion.conectate() == null) {
-                    //Si no hay bd crearla
-                    System.out.println("Creando la base de datos");
-                    if (Conexion.creaBaseDatos() != 0) {
-                        System.out.println("BASE DE DATOS CREADA CORRECTAMENTE");
+            cl = FrmEntrada.class.getClassLoader();
+            inicializarComponentes();
+            
+                boolean conectado = false;
+                Propiedades prop = new Propiedades();
+                Properties p = prop.getProperties("controlador/propiedades/database.properties");
+                Conexion.host_bd = p.getProperty("host");
+                Conexion.user = p.getProperty("user");
+                Conexion.clave = p.getProperty("clave");
+                System.out.println(Conexion.host_bd);
+                //Verificar que haya conexion al host
+                if (ConexionWeb.hayConexion(Conexion.host_bd, 3306)) {
+                    //Si hay conexion tratar de conectarse a la bd
+                    if (Conexion.conectate() == null) {
+                        //Si no hay bd crearla
+                        System.out.println("Creando la base de datos");
+                        if (Conexion.creaBaseDatos() != 0) {
+                            System.out.println("BASE DE DATOS CREADA CORRECTAMENTE");
+                            OperacionesBD.conectar(Conexion.user, Conexion.clave, Conexion.host_bd);
+                            conectado = true;
+                        } else {
+                            JOptionPane.showMessageDialog(null, "NO SE PUDO CREAR LA BASE DE DATOS");
+                        }
+
+                    } else {
+                        System.out.println("SI HUBO CONEXION");
                         OperacionesBD.conectar(Conexion.user, Conexion.clave, Conexion.host_bd);
                         conectado = true;
-                    } else {
-                        JOptionPane.showMessageDialog(null, "NO SE PUDO CREAR LA BASE DE DATOS");
                     }
-
                 } else {
-                    System.out.println("SI HUBO CONEXION");
-                    OperacionesBD.conectar(Conexion.user, Conexion.clave, Conexion.host_bd);
-                    conectado = true;
+                    JOptionPane.showMessageDialog(null, "No hubo conexión al host indicado");
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "No hubo conexión al host indicado");
-            }
-            Thread.sleep(100);
-            //si hubo conexion a la bd cerrar esta ventana y mostrar la principal
-            if (conectado == true) {
-                this.dispose();
-                FrmPrincipal.getInstance().setVisible(true);
-            }
+                Thread.sleep(100);
+                //si hubo conexion a la bd cerrar esta ventana y mostrar la principal
+                if (conectado == true) {
+                    this.dispose();
+                    FrmPrincipal.getInstance().setVisible(true);
+                }
         } catch (InterruptedException ex) {
+//            Logger.getLogger(FrmEntrada.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
 
     /**
