@@ -2,6 +2,7 @@ package controlador.acciones.agenda;
 
 import controlador.basedatos.OperacionesBD;
 import java.util.LinkedList;
+import java.util.List;
 import modelo.agenda.DiaFeriado;
 
 /*
@@ -17,11 +18,10 @@ public class ControladorDiasFeriados {
             diaFeriado=new DiaFeriado();
         return diaFeriado;
     }
-    
-    public static DiaFeriado searchDiaFeriado(String nombreDia,String mesNombre , int numeroDiaMes, int idAgenda) {
+    public static List<DiaFeriado> searchDiaFeriado(String nombreDia,String mesNombre , int numeroDiaMes, int idAgenda) {
        Object objeto=OperacionesBD.buscar("DiaFeriado","dia","mes","dia_mes","id",nombreDia,mesNombre,numeroDiaMes,idAgenda);
        if(objeto!=null)
-            return (DiaFeriado)(objeto);
+            return (List<DiaFeriado>)(objeto);
         else
             return null;
     }

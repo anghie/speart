@@ -372,11 +372,14 @@ public class PanelDiaHoras extends javax.swing.JPanel {
         if(numeroMes==Calendar.getInstance().get(Calendar.MONTH)  && numeroDia>= Calendar.getInstance().get(Calendar.DAY_OF_MONTH)){
             generar=true;
         }else{
-            JOptionPane.showMessageDialog(new JFrame(), "Error no se puede generar actividades para fechas pasadas");
             generar=false;
+            JOptionPane.showMessageDialog(new JFrame(), "Error no se puede generar actividades para fechas pasadas");
         }
-        DiaFeriado dia=ControladorDiasFeriados.searchDiaFeriado(nombreDia, Fecha.getNombreMes(numeroMes), numeroDia, agenda.getId());
-         if(dia==null){
+       
+        List<DiaFeriado> dias=ControladorDiasFeriados.searchDiaFeriado(nombreDia, Fecha.getNombreMes(numeroMes), numeroDia, agenda.getId());
+         if(dias==null){
+            generar=true;
+        }else if(dias.isEmpty()){
             generar=true;
         }else{
             JOptionPane.showMessageDialog(new JFrame(), "No se puede generar actividades para este día ya que ha sido ingresado como feriado");

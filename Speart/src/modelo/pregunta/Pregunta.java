@@ -30,12 +30,10 @@ public class Pregunta implements Serializable {
     @Column(length = 500)
     private String preg;
     private boolean habilit;
-    private int numRep;
     @ManyToOne
     private Seccion seccion;    
     @OneToMany(mappedBy = "pregunta",cascade = CascadeType.ALL)
     private List<Respuesta> rptas = new ArrayList<>();
-    
 
     public Pregunta() {
 //        rptas = new ArrayList<>();

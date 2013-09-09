@@ -7,7 +7,6 @@ package controlador.acciones.agenda;
 
 import controlador.basedatos.OperacionesBD;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.agenda.Agenda;

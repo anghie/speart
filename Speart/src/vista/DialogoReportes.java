@@ -11,12 +11,14 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
+import vista.modelo.Fecha;
 
 /**
  *
@@ -44,10 +46,13 @@ public class DialogoReportes extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        dateChooserCombo1 = new datechooser.beans.DateChooserCombo();
         cmbReportes = new javax.swing.JComboBox();
+        jLabel3 = new javax.swing.JLabel();
+        fechaDesde = new datechooser.beans.DateChooserCombo();
+        jLabel4 = new javax.swing.JLabel();
+        fechaHasta = new datechooser.beans.DateChooserCombo();
+        btnGenerar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -55,24 +60,20 @@ public class DialogoReportes extends javax.swing.JDialog {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 657, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
+            .addGap(0, 267, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        jLabel1.setText("Reporte:");
+        jLabel1.setText("Reporte ");
         jPanel2.add(jLabel1);
-
-        jLabel3.setText("Agenda:");
-        jPanel2.add(jLabel3);
 
         jLabel2.setText("Tareas:");
         jPanel2.add(jLabel2);
-        jPanel2.add(dateChooserCombo1);
 
         cmbReportes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Terminadas", " Pendientes" }));
         cmbReportes.addActionListener(new java.awt.event.ActionListener() {
@@ -82,6 +83,22 @@ public class DialogoReportes extends javax.swing.JDialog {
         });
         jPanel2.add(cmbReportes);
 
+        jLabel3.setText("Desde:");
+        jPanel2.add(jLabel3);
+        jPanel2.add(fechaDesde);
+
+        jLabel4.setText("Hasta:");
+        jPanel2.add(jLabel4);
+        jPanel2.add(fechaHasta);
+
+        btnGenerar.setText("Generar");
+        btnGenerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnGenerar);
+
         getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
         pack();
@@ -89,37 +106,51 @@ public class DialogoReportes extends javax.swing.JDialog {
 
     private void cmbReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbReportesActionPerformed
         // TODO add your handling code here:
-        if(cmbReportes.getSelectedIndex()==0){
-             try {
-                // TODO add your handling code here:
-                String anio=""+dateChooserCombo1.getSelectedDate().get(Calendar.YEAR);
-                String dirReporte = "./reportes/ReporteActividades.jrxml";
-                JasperReport report = JasperCompileManager.compileReport(dirReporte);
-                Map<String, Object> parametros = new HashMap<String, Object>();
-                parametros.put("prm_agenda", anio);
-                parametros.put("prm_completada", 1);
-                JasperPrint jp = JasperFillManager.fillReport(report, parametros, Conexion.conectate()); //datos
-                JasperViewer.viewReport(jp, false);
-            } catch (JRException ex) {
-                Logger.getLogger(DialogoReportes.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }else if(cmbReportes.getSelectedIndex()==1){
-            try {
-                // TODO add your handling code here:
-                String anio=""+dateChooserCombo1.getSelectedDate().get(Calendar.YEAR);
-                String dirReporte = "./reportes/ReporteActividades.jrxml";
-                JasperReport report = JasperCompileManager.compileReport(dirReporte);
-                Map<String, Object> parametros = new HashMap<String, Object>();
-                parametros.put("prm_agenda", anio);
-                parametros.put("prm_completada", 0);
-                JasperPrint jp = JasperFillManager.fillReport(report, parametros,Conexion.conectate()); //datos
-                JasperViewer.viewReport(jp, false);
-            } catch (JRException ex) {
-                Logger.getLogger(DialogoReportes.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        dispose();
+       
     }//GEN-LAST:event_cmbReportesActionPerformed
+
+    private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
+        // TODO add your handling code here:
+        if(fechaDesde.getSelectedDate().get(Calendar.YEAR)==fechaHasta.getSelectedDate().get(Calendar.YEAR)){
+                if(cmbReportes.getSelectedIndex()==0){
+                    try {
+                       // TODO add your handling code here:
+                       String anio=""+fechaDesde.getSelectedDate().get(Calendar.YEAR);
+                       String dirReporte = "./reportes/ReporteActividades.jrxml";
+                       JasperReport report = JasperCompileManager.compileReport(dirReporte);
+                       Map<String, Object> parametros = new HashMap<String, Object>();
+                       parametros.put("prm_agenda", anio);
+                       parametros.put("prm_completada", 1);
+                       parametros.put("prm_desde", Fecha.getFechaFormateada(fechaDesde.getSelectedDate().getTime(), "yyyy/MM/dd"));
+                       parametros.put("prm_hasta", Fecha.getFechaFormateada(fechaHasta.getSelectedDate().getTime(), "yyyy/MM/dd"));
+                       JasperPrint jp = JasperFillManager.fillReport(report, parametros, Conexion.conectate()); //datos
+                       JasperViewer.viewReport(jp, false);
+                   } catch (JRException ex) {
+                       Logger.getLogger(DialogoReportes.class.getName()).log(Level.SEVERE, null, ex);
+                   }
+               }else if(cmbReportes.getSelectedIndex()==1){
+                   try {
+                       // TODO add your handling code here:
+                       String anio=""+fechaDesde.getSelectedDate().get(Calendar.YEAR);
+                       String dirReporte = "./reportes/ReporteActividades.jrxml";
+                       JasperReport report = JasperCompileManager.compileReport(dirReporte);
+                       Map<String, Object> parametros = new HashMap<String, Object>();
+                       parametros.put("prm_agenda", anio);
+                       parametros.put("prm_completada", 0);
+                       parametros.put("prm_desde", Fecha.getFechaFormateada(fechaDesde.getSelectedDate().getTime(), "yyyy/MM/dd"));
+                       parametros.put("prm_hasta", Fecha.getFechaFormateada(fechaHasta.getSelectedDate().getTime(), "yyyy/MM/dd"));
+                       JasperPrint jp = JasperFillManager.fillReport(report, parametros,Conexion.conectate()); //datos
+                       JasperViewer.viewReport(jp, false);
+                   } catch (JRException ex) {
+                       Logger.getLogger(DialogoReportes.class.getName()).log(Level.SEVERE, null, ex);
+                   }
+               }
+        }else{
+            JOptionPane.showMessageDialog(this,"Error el año de la fecha desde es diferente al año de la fecha hasta ");
+        }
+         
+        dispose();
+    }//GEN-LAST:event_btnGenerarActionPerformed
 
     
     /**
@@ -164,11 +195,14 @@ public class DialogoReportes extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGenerar;
     private javax.swing.JComboBox cmbReportes;
-    private datechooser.beans.DateChooserCombo dateChooserCombo1;
+    private datechooser.beans.DateChooserCombo fechaDesde;
+    private datechooser.beans.DateChooserCombo fechaHasta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

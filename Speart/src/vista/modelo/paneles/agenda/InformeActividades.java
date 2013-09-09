@@ -33,12 +33,12 @@ public class InformeActividades extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
+        dateChooserCombo1 = new datechooser.beans.DateChooserCombo();
+        dateChooserCombo2 = new datechooser.beans.DateChooserCombo();
 
         setLayout(null);
 
@@ -56,7 +56,7 @@ public class InformeActividades extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(20, 80, 530, 90);
+        jScrollPane1.setBounds(20, 80, 540, 100);
 
         jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -65,41 +65,33 @@ public class InformeActividades extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(190, 180, 80, 30);
+        jButton1.setBounds(180, 190, 80, 30);
 
         jButton2.setText("Nuevo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         add(jButton2);
-        jButton2.setBounds(20, 180, 80, 30);
+        jButton2.setBounds(20, 190, 80, 30);
 
         jButton3.setText("Modificar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         add(jButton3);
-        jButton3.setBounds(100, 180, 80, 30);
+        jButton3.setBounds(100, 190, 80, 30);
 
-        jLabel1.setText("Fecha hasta");
+        jLabel1.setText("Fecha hasta:");
         add(jLabel1);
-        jLabel1.setBounds(90, 230, 60, 14);
+        jLabel1.setBounds(250, 230, 70, 14);
 
         jLabel2.setText("Fecha de:");
         add(jLabel2);
         jLabel2.setBounds(20, 230, 60, 14);
-
-        jTextField2.setText("Poner JCAlendar");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        add(jTextField2);
-        jTextField2.setBounds(20, 250, 59, 20);
-
-        jTextField3.setText("Poner JCAlendar");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-        add(jTextField3);
-        jTextField3.setBounds(90, 250, 86, 20);
 
         jLabel3.setText("Meta");
         add(jLabel3);
@@ -118,25 +110,31 @@ public class InformeActividades extends javax.swing.JPanel {
         jTextField4.setBounds(80, 320, 90, 20);
         add(jTextField5);
         jTextField5.setBounds(80, 280, 90, 20);
+        add(dateChooserCombo1);
+        dateChooserCombo1.setBounds(80, 230, 155, 20);
+        add(dateChooserCombo2);
+        dateChooserCombo2.setBounds(320, 230, 155, 20);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private datechooser.beans.DateChooserCombo dateChooserCombo1;
+    private datechooser.beans.DateChooserCombo dateChooserCombo2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -146,8 +144,6 @@ public class InformeActividades extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables

@@ -2,6 +2,9 @@ package modelo.proceso;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.LinkedList;
+import java.util.List;
+import modelo.agenda.Meta;
 
 @Entity
 public class Actividad implements Serializable {
@@ -22,7 +25,13 @@ public class Actividad implements Serializable {
     private Proceso procesito;
     @ManyToOne
     private Rol rol;
+    
+    @OneToMany(mappedBy="actividad",cascade=CascadeType.ALL)
+    private List <Meta> metas; 
 
+    public Actividad() {
+        this.metas=new LinkedList<Meta>();
+    }
     /**
      * @return the idActividad
      */
@@ -175,6 +184,14 @@ public class Actividad implements Serializable {
      */
     public void setParaEvaluacion(boolean paraEvaluacion) {
         this.paraEvaluacion = paraEvaluacion;
+    }
+
+    public List<Meta> getMetas() {
+        return metas;
+    }
+
+    public void setMetas(List<Meta> metas) {
+        this.metas = metas;
     }
     
 }

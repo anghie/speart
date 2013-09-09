@@ -4,15 +4,12 @@
  */
 package modelo.proceso;
 
-import com.lowagie.text.ListItem;
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 import modelo.pregunta.Seccion;
 import modelo.usuario.Usuario;
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Test;
 
 /**
  *

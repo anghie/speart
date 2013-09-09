@@ -4,12 +4,14 @@
  */
 package controlador.basedatos;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 //~ import modelo.Usuario;
 
 public class OperacionesBD {
@@ -79,7 +81,7 @@ public class OperacionesBD {
      *
      * @param campoId el id del objeto a ser eliminado en la base de datos
      * @param clase
-     * @return boolean - true si es eliminado de la base de datos y false si no
+     * @return boolean .- true si es eliminado de la base de datos y false si no
      * es eliminado de la base de datos
      *
      */
@@ -87,7 +89,7 @@ public class OperacionesBD {
         try {
             entidad.getTransaction().begin();
             clase = entidad.find(clase.getClass(), campoId);
-            if (clase != null) {
+            if (clase != null) {                
                 entidad.remove(clase);
                 System.out.println("si llega");
             } else {
@@ -101,7 +103,24 @@ public class OperacionesBD {
             return false;
         }
     }
-
+    public static boolean eliminar(Object clase, long campoId) {
+        try {
+            entidad.getTransaction().begin();
+            clase = entidad.find(clase.getClass(), campoId);
+            if (clase != null) {                
+                entidad.remove(clase);
+                System.out.println("si llega");
+            } else {
+                return false;
+            }
+            entidad.getTransaction().commit();
+            return true;
+        } catch (Exception ex) {
+            Logger.getLogger(OperacionesBD.class.getName()).log(Level.SEVERE, null, ex);
+            entidad.getTransaction().rollback();
+            return false;
+        }
+    }
     public static boolean existe(String nombreTabla, String nombreCampo, String campo) {
         entidad.getTransaction().begin();
         try {
@@ -154,9 +173,13 @@ public class OperacionesBD {
         Object obj = null;
         entidad.getTransaction().begin();
         try {
-            obj = entidad.createQuery("Select a from " + nombreTabla + " a where " + nomCampo1 + " = '" + campo1 + "' and " + nomCampo2 + " = '" + campo2 + "' and " + nomCampo3 + " = " + campo3 + " " + " and " + nomCampo3 + " = " + campo3).getSingleResult();
-            entidad.getTransaction().commit();
+            Query consulta = entidad.createQuery("Select a from " + nombreTabla + " a where " + nomCampo1 + " = '" + campo1 + "' and " + nomCampo2 + " = '" + campo2 + "' and " + nomCampo3 + " = " + campo3+ " and " + nomCampo4 + " = " + campo4 );
+            if(consulta!=null){
+                obj=consulta.getResultList();
+                entidad.getTransaction().commit();
+            }
         } catch (Exception e) {
+            System.out.println(e);
             entidad.getTransaction().rollback();
         }
         return obj;
@@ -174,7 +197,59 @@ public class OperacionesBD {
         }
         return obj;
     }
-
+    
+    public static List buscarTodos(String nombreTabla, String nombreCampo, Date fechaDesde, Date fechaHasta, String login) {
+        List obj = null;
+        entidad.getTransaction().begin();
+        try {
+            obj = entidad.createQuery(  "Select distinct a from " + nombreTabla + " a "
+                                        + "where " + nombreCampo + " >= '" + fechaDesde.toString() + "' "
+                                        + "and "+nombreCampo+"<= '"+fechaHasta+"' "
+                                        + "and a.actividad.rol.usuario.login= '"+login+"'" 
+                                    ).getResultList();//+"and a.actividad.rol.usuario.login= '"+login+"'"
+            entidad.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e);
+            entidad.getTransaction().rollback();
+        }
+        return obj;
+    }
+    
+    public static List buscarMetas(String nombreTabla, String nombreCampo, Date fechaDesde, Date fechaHasta, String login) {
+        List obj = null;
+        entidad.getTransaction().begin();
+        try {
+            obj = entidad.createQuery(  "Select distinct a from " + nombreTabla + " a "
+                                        + "where  mes>= "+fechaDesde.getMonth()+" "
+                                        + "and mes<= "+fechaHasta.getMonth()+" "
+                                        + "and a.actividad.rol.usuario.login= '"+login+"'" 
+                                    ).getResultList();//+"and a.actividad.rol.usuario.login= '"+login+"'"
+            entidad.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e);
+            entidad.getTransaction().rollback();
+        }
+        return obj;
+    }
+    
+    public static List  getItems(String nombreTabla, String nombreCampo,int idActividad ,Date fechaDesde, Date fechaHasta, String login) {
+        List obj = null;
+        entidad.getTransaction().begin();
+        try {
+            obj = entidad.createQuery(  "Select  a from " + nombreTabla + " a "
+                                        + "where " + nombreCampo + " >= '" + fechaDesde.toString() + "' "
+                                        + "and "+nombreCampo+"<= '"+fechaHasta+"' "
+                                        + "and a.actividad.id= "+idActividad+" "
+                                        + "and a.actividad.rol.usuario.login= '"+login+"'" 
+                                    ).getResultList();//+"and a.actividad.rol.usuario.login= '"+login+"'"
+            entidad.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e);
+            entidad.getTransaction().rollback();
+        }   
+       return obj;
+    }
+    
     public static List listarPrediccion(String tabla, String colum, String contenido) {
         entidad.getTransaction().begin();
         try {
@@ -185,7 +260,6 @@ public class OperacionesBD {
         }
         return lista;
     }
-
     public static List listarPrediccionDoble(String tabla, String colum1, String contenido1,String colum2,String contenido2) {
         entidad.getTransaction().begin();
         try {

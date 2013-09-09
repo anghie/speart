@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteActividades" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="prm_agenda" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="prm_completada" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="prm_desde" class="java.lang.String"/>
+	<parameter name="prm_hasta" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select 	nombre_actividad ACTIVIDADES,
+	count(nombre_actividad)TOTAL
+from itemagenda,agenda
+where agenda_id=agenda.id
+and agenda.nombre="'"+$P{prm_agenda}+"'"
+and completada=$P{prm_completada}]]>
+	</queryString>
+	<field name="ACTIVIDADES" class="java.lang.String"/>
+	<field name="TOTAL" class="java.lang.Long"/>
+	<variable name="TOTAL" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{TOTAL}]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="182" splitType="Stretch">
+			<staticText>
+				<reportElement x="172" y="11" width="264" height="20"/>
+				<textElement/>
+				<text><![CDATA[INSTITUTO ECUATORIANO DE SEGURIDAD SOCIAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="173" y="41" width="283" height="20"/>
+				<textElement/>
+				<text><![CDATA[DEPARTAMENTO DE RIESGOS DEL TRABAJO DE LOJA]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="240" y="72" width="166" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="173" y="72" width="56" height="20"/>
+				<textElement/>
+				<text><![CDATA[FECHA:]]></text>
+			</staticText>
+			<image>
+				<reportElement x="2" y="11" width="171" height="169"/>
+				<imageExpression><![CDATA["C:\\Users\\alf\\Documents\\NetBeansProjects\\SpeiessDefinitivo\\reportes\\LOGO.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="172" y="106" width="85" height="20"/>
+				<textElement/>
+				<text><![CDATA[FECHA DESDE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="172" y="141" width="85" height="20"/>
+				<textElement/>
+				<text><![CDATA[FECHA HASTA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="270" y="106" width="136" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{prm_desde}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="141" width="136" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{prm_hasta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="7" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="26" y="2" width="360" height="20"/>
+				<textElement/>
+				<text><![CDATA[ACTIVIDADES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="5" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[SUB TOTAL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="46" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="42" backcolor="#CCCCCC"/>
+			</rectangle>
+			<textField>
+				<reportElement x="26" y="12" width="360" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{ACTIVIDADES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="12" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="386" y="7" width="50" height="20"/>
+				<textElement/>
+				<text><![CDATA[TOTAL:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="7" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{TOTAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

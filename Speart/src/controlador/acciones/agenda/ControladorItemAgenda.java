@@ -7,6 +7,7 @@ package controlador.acciones.agenda;
 
 import controlador.basedatos.OperacionesBD;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import modelo.agenda.ItemAgenda;
@@ -28,6 +29,30 @@ public class ControladorItemAgenda {
         else
             return null;
     }
+    
+    public static LinkedList<ItemAgenda> searchItemAgenda(Date fechaDesde ,Date fechaHasta, String login) {
+       
+       LinkedList<ItemAgenda> items= new LinkedList<ItemAgenda>(OperacionesBD.buscarTodos("ItemAgenda","fecha",getDateSQL(fechaDesde),getDateSQL(fechaHasta),login));
+        if(items!=null)
+            return items;
+        else
+            return new LinkedList<ItemAgenda>();
+    }
+    public static int searchItemAgendaTotalCumplido(int idActividad,Date fechaDesde ,Date fechaHasta, String login) {
+       
+       LinkedList<ItemAgenda> items= new LinkedList<ItemAgenda>(OperacionesBD.getItems("ItemAgenda","fecha",idActividad,getDateSQL(fechaDesde),getDateSQL(fechaHasta),login));
+        if(items==null)
+            return 0;
+        if(items.size()==0)
+            return 0;
+        int totalRealizado=0;
+        for (Iterator<ItemAgenda> it = items.iterator(); it.hasNext();) {
+            ItemAgenda itemAgenda1 = it.next();
+            totalRealizado=totalRealizado+(int)itemAgenda1.getPorcentaje();
+        }
+        return  totalRealizado;
+    }
+    
      public static ItemAgenda searchItemAgenda(int idActividad) {
        
        LinkedList<ItemAgenda> items= new LinkedList<ItemAgenda>(OperacionesBD.buscarTodos("ItemAgenda","id",""+idActividad));
@@ -82,5 +107,10 @@ public class ControladorItemAgenda {
         }
         itemAgenda.getTiempoDuracion().setHours(horas);
         itemAgenda.getTiempoDuracion().setMinutes(minutos);
+    }
+    
+    public static java.sql.Date getDateSQL(java.util.Date fecha){
+        java.sql.Date fechaSQL=new java.sql.Date(fecha.getTime());
+        return fechaSQL;
     }
 }

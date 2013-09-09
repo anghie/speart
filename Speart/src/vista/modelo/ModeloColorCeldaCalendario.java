@@ -16,17 +16,10 @@ public class ModeloColorCeldaCalendario extends DefaultTableCellRenderer {
     public static boolean habilitado;//si es true se pinta el valor
     public static boolean recordatorio;
     public static String valorRecordatorio;
-    private static ModeloColorCeldaCalendario mcc = null;
 
-    private ModeloColorCeldaCalendario() {
+
+    public ModeloColorCeldaCalendario() {
         setOpaque(true);
-    }
-    
-    public synchronized static ModeloColorCeldaCalendario getInstance(){
-        if(mcc==null){
-            mcc= new ModeloColorCeldaCalendario();
-        }
-        return mcc;
     }
 
     @Override

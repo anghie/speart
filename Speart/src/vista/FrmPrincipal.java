@@ -32,6 +32,7 @@ public class FrmPrincipal extends JFrame {
     private JMenu menuServicios;
     private JMenuItem miAgenda;
     private JMenuItem miInforme;
+     private JMenuItem miMeta;
     private JMenu menuAgregados;
     private JMenuItem miFechaEval;
     private JMenuItem miActivEval;
@@ -183,6 +184,11 @@ public class FrmPrincipal extends JFrame {
         miInforme = new JMenuItem();
         creaMenuItem(miInforme, menuServicios, "Informe Actividades", "Llenar el informa de actividades del usuario", "copiarbarra.png");
         miInforme.addActionListener(esc);
+        //Item Informe
+        miMeta = new JMenuItem();
+        creaMenuItem(miMeta, menuServicios, "Administrar Metas", "Administrar las metas palnteadas por los usuario", "agendaTelefonica.png");
+        miMeta.addActionListener(esc);
+        
         //Item Acerca
         miAcercaDe = new JMenuItem();
         creaMenuItem(miAcercaDe, menuAyuda, "Acerca de... ", "Informacion acerca del programa", "svn_status.png");
@@ -456,9 +462,15 @@ public class FrmPrincipal extends JFrame {
                 cp.ponePanel(new PnlOperaciones());
                 setTitle("SPEIESS 2013 - Panel de Operaciones");
             } else if (evt.getSource() == btnAgenda) {
-                cp.ponePanel(new PanelAgenda("inicisv_1.jpg", userLogueado));
-                setTitle("SPEIESS 2013 - Panel Agenda Usuario");
-            } else if (evt.getSource() == btnReportes) {
+              if(userLogueado.getRol().getTipo().equals("Jefe")){
+                DialogoUsuarios dialogServidores=new DialogoUsuarios(userLogueado,cp ,FrmPrincipal.this, true);
+                dialogServidores.setLocationRelativeTo(null);
+                dialogServidores.setVisible(true);
+              }else{
+                   cp.ponePanel(new PanelAgenda("inicisv_1.jpg", userLogueado));
+              }
+              setTitle("SPEIESS 2013 - Panel Agenda Usuario");
+            }else if (evt.getSource() == btnReportes) {
                 DialogoReportes reportes = new DialogoReportes(FrmPrincipal.this, true);
                 reportes.setLocationRelativeTo(null);
                 reportes.setVisible(true);
@@ -485,6 +497,11 @@ public class FrmPrincipal extends JFrame {
                DialogActivarEvaluacion.getInstance(null, true);
             } else if(evt.getSource() == miEfectos){
                 DialogEfectos.getInstance(null, true);
+            }
+            else if (evt.getSource() == miMeta) {
+                DialogoMeta dialogo= new DialogoMeta(new JFrame(), true);
+                dialogo.setLocationRelativeTo(null);
+                dialogo.setVisible(true);
             }
         }
     }

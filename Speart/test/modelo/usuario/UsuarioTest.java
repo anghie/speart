@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author 
+ * @author francisco
  */
 public class UsuarioTest {
     
@@ -90,7 +90,7 @@ public class UsuarioTest {
         String login = "hola";
         Usuario instance = new Usuario();
         instance.setLogin(login);
-        assertTrue(Boolean.TRUE);
+        assertNotNull(login);
         // TODO review the geinstnerated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
     }
@@ -119,7 +119,7 @@ public class UsuarioTest {
         String clave = "clavecita";
         Usuario instance = new Usuario();
         instance.setClave(clave);
-        assertSame(clave, clave);
+        assertNotNull(clave);
         // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
     }

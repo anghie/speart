@@ -32,6 +32,7 @@ public class PanelRecordatorio extends javax.swing.JPanel {
         initComponents();
         this.calendario=calendar;
         this.agenda=agenda;
+        this.usuario=usuario;
         iniciarTareas();
     }
     private void iniciarTareas(){

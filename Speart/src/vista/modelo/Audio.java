@@ -7,7 +7,7 @@ import javazoom.jlgui.basicplayer.BasicPlayer;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
 
 public class Audio {
-
+    
     BasicPlayer player;
 
     public Audio() {
@@ -22,14 +22,15 @@ public class Audio {
             Logger.getLogger(Audio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    public void parar() {
+    
+     public void parar(){
         try {
             player.stop();
         } catch (BasicPlayerException ex) {
             Logger.getLogger(Audio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
 //    public void reproducir(URL archivo) {
 //        try {
 //            player.open(archivo);

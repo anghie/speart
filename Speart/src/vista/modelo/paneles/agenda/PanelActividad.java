@@ -54,7 +54,7 @@ public class PanelActividad extends javax.swing.JPanel {
         //chbTerminada.setEnabled(false);
           btEditar.setVisible(false);
           btnEliminar.setVisible(false);
-        if(usuario.getRol().getTipo().equals("Jefe") &&  !itemAgenda.isCompletada()){
+        if(!itemAgenda.isCompletada()){// && usuario.getRol().getTipo().equals("Jefe") 
             btEditar.setVisible(true);
             btnEliminar.setVisible(true);
             this.setComponentPopupMenu(popUpMenu);
@@ -68,7 +68,7 @@ public class PanelActividad extends javax.swing.JPanel {
        setBackground(Color.WHITE);
        chbTerminada.setSelected(itemAgenda.isCompletada());
        spnPorcentaje.setValue(itemAgenda.getPorcentaje());
-//       txtObservacion.setText(itemAgenda.getObservacion());
+       txtObservacion.setText(itemAgenda.getObservacion());
        int h=itemAgenda.getHoraInicio().getHours();
        int m=itemAgenda.getHoraInicio().getMinutes();
        int y=ControladorAgenda.calcularPinceles(h, m);
@@ -158,7 +158,10 @@ public class PanelActividad extends javax.swing.JPanel {
         lbActividad = new javax.swing.JLabel();
         chbTerminada = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         spnPorcentaje = new javax.swing.JSpinner();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtObservacion = new javax.swing.JTextArea();
 
         miEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/AQUA ICONS APPLICATIONS TEXT EDIT1.png"))); // NOI18N
         miEditar.setText("Editar");
@@ -211,7 +214,6 @@ public class PanelActividad extends javax.swing.JPanel {
         add(lblCargo);
         lblCargo.setBounds(11, 123, 40, 14);
 
-        btEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Edit.png"))); // NOI18N
         btEditar.setLabel("Editar");
         btEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,10 +221,9 @@ public class PanelActividad extends javax.swing.JPanel {
             }
         });
         add(btEditar);
-        btEditar.setBounds(1, 1, 100, 20);
+        btEditar.setBounds(1, 1, 61, 23);
 
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
-        btnEliminar.setText("Eliminar");
         btnEliminar.setToolTipText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,7 +231,7 @@ public class PanelActividad extends javax.swing.JPanel {
             }
         });
         add(btnEliminar);
-        btnEliminar.setBounds(100, 0, 100, 20);
+        btnEliminar.setBounds(70, 0, 57, 23);
 
         cmbServidor.setModel(modeloCmbActividades);
         cmbServidor.addActionListener(new java.awt.event.ActionListener() {
@@ -256,7 +257,11 @@ public class PanelActividad extends javax.swing.JPanel {
 
         jLabel1.setText("Total Hecho:");
         add(jLabel1);
-        jLabel1.setBounds(100, 50, 61, 14);
+        jLabel1.setBounds(258, 53, 61, 14);
+
+        jLabel2.setText("Observaciones:");
+        add(jLabel2);
+        jLabel2.setBounds(260, 90, 75, 14);
 
         spnPorcentaje.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, 100.0d, 1.0d));
         spnPorcentaje.setPreferredSize(new java.awt.Dimension(100, 20));
@@ -266,7 +271,19 @@ public class PanelActividad extends javax.swing.JPanel {
             }
         });
         add(spnPorcentaje);
-        spnPorcentaje.setBounds(170, 50, 100, 20);
+        spnPorcentaje.setBounds(323, 50, 100, 20);
+
+        txtObservacion.setColumns(20);
+        txtObservacion.setRows(5);
+        txtObservacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtObservacionKeyReleased(evt);
+            }
+        });
+        jScrollPane1.setViewportView(txtObservacion);
+
+        add(jScrollPane1);
+        jScrollPane1.setBounds(260, 110, 190, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
@@ -366,6 +383,16 @@ public class PanelActividad extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "No existen actividad");
         }
     }//GEN-LAST:event_spnPorcentajeStateChanged
+
+    private void txtObservacionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtObservacionKeyReleased
+        // TODO add your handling code here:
+        if(itemAgenda!=null){
+            itemAgenda.setObservacion(txtObservacion.getText());
+            getTxtInfo();
+        }else{
+            JOptionPane.showMessageDialog(this, "No existen actividad");
+        }
+    }//GEN-LAST:event_txtObservacionKeyReleased
     public String getTxtHora(int y){
         String tiempo=null;
         tiempo=" "+ControladorAgenda.calcularHoras(y)
@@ -379,6 +406,8 @@ public class PanelActividad extends javax.swing.JPanel {
     private javax.swing.JCheckBox chbTerminada;
     private javax.swing.JComboBox cmbServidor;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbActividad;
     private javax.swing.JLabel lblCargo;
     private javax.swing.JLabel lblEncargado;
@@ -390,6 +419,7 @@ public class PanelActividad extends javax.swing.JPanel {
     private javax.swing.JMenuItem miEliminar;
     private javax.swing.JPopupMenu popUpMenu;
     private javax.swing.JSpinner spnPorcentaje;
+    private javax.swing.JTextArea txtObservacion;
     // End of variables declaration//GEN-END:variables
 
     public String getTxtInfo(){

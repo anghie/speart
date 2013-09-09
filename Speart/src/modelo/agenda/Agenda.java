@@ -34,12 +34,16 @@ public class Agenda implements Serializable {
     @OneToMany(mappedBy="agenda",cascade=CascadeType.ALL)
     private List <DiaFeriado> diasFeriados;
     
+    @OneToMany(mappedBy="agenda",cascade=CascadeType.ALL)
+    private List <Meta> metas; 
+    
     @Column(unique=true)
     private String nombre;
 
     public Agenda() {
         this.itemsAgenda=new LinkedList<ItemAgenda>();
         this.diasFeriados=new LinkedList<DiaFeriado>();
+        this.metas=new LinkedList<Meta>();
     }
 
     public int getId() {
@@ -73,4 +77,13 @@ public class Agenda implements Serializable {
     public void setDiasFeriados(List<DiaFeriado> diasFeriados) {
         this.diasFeriados = diasFeriados;
     }
+
+    public List<Meta> getMetas() {
+        return metas;
+    }
+
+    public void setMetas(List<Meta> metas) {
+        this.metas = metas;
+    }
+    
 }

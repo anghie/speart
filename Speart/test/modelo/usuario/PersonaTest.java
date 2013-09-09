@@ -156,7 +156,7 @@ public class PersonaTest {
         String cedula = "1104771181";
         Persona instance = new Persona();
         instance.setCedula(cedula);
-        assertEquals(cedula, cedula);
+        assertNotNull(cedula);
         // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
     }

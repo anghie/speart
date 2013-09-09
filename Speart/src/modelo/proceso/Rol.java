@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import modelo.agenda.Meta;
 import modelo.operaciones.CompetenciaTecnica;
 import modelo.pregunta.Seccion;
 import modelo.usuario.*;
@@ -29,8 +30,6 @@ public class Rol implements Serializable {
     @ManyToMany(mappedBy = "rolesCT")
     private List<CompetenciaTecnica> competenciaTecnicas;
     
-    
-
     public Rol() {
         actividades = new ArrayList();        
         competenciaTecnicas= new ArrayList<>();
@@ -202,6 +201,5 @@ public class Rol implements Serializable {
     public List<CompetenciaTecnica> getCompetenciaTecnicas() {
         return competenciaTecnicas;
     }
-
-       
+ 
 }
