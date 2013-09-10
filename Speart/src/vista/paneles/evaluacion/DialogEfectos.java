@@ -149,25 +149,29 @@ public class DialogEfectos extends javax.swing.JDialog {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         if (nombreEscogido()) {
             if (!hayVacios()) {
-                if (!OperacionesBD.existe("Efecto", "nombre", nombreEf)) {
-                    efec = new Efectos();
-                    efec.setNombre(nombreEf);
-                    efec.setBueno(txtBuenaCalificacion.getText());
-                    efec.setDeficiente(txtDeficienteCalificacion.getText());
-                    efec.setIneficiente(txtIneficienteCalificacion.getText());
-                    if (OperacionesBD.guardar(efec)) {
-                        Mensaje.datosGuardados();
-                    }
-                } else {
-                    efec = efectos.get(cbNombres.getSelectedIndex());
-                    efec.setNombre(nombreEf);
-                    efec.setBueno(txtBuenaCalificacion.getText());
-                    efec.setDeficiente(txtDeficienteCalificacion.getText());
-                    efec.setIneficiente(txtIneficienteCalificacion.getText());
-                    if (OperacionesBD.modificar(efec)) {
-                        Mensaje.datosGuardados();
+                int opc = JOptionPane.showConfirmDialog(null, "¿Desea guardar el Efecto?", "Guardar", JOptionPane.YES_NO_OPTION);
+                if (opc == JOptionPane.YES_OPTION) {
+                    if (!OperacionesBD.existe("Efecto", "nombre", nombreEf)) {
+                        efec = new Efectos();
+                        efec.setNombre(nombreEf);
+                        efec.setBueno(txtBuenaCalificacion.getText());
+                        efec.setDeficiente(txtDeficienteCalificacion.getText());
+                        efec.setIneficiente(txtIneficienteCalificacion.getText());
+                        if (OperacionesBD.guardar(efec)) {
+                            Mensaje.datosGuardados();
+                        }
+                    } else {
+                        efec = efectos.get(cbNombres.getSelectedIndex());
+                        efec.setNombre(nombreEf);
+                        efec.setBueno(txtBuenaCalificacion.getText());
+                        efec.setDeficiente(txtDeficienteCalificacion.getText());
+                        efec.setIneficiente(txtIneficienteCalificacion.getText());
+                        if (OperacionesBD.modificar(efec)) {
+                            Mensaje.datosGuardados();
+                        }
                     }
                 }
+                dispose();
             } else {
                 Mensaje.camposVacios();
             }
