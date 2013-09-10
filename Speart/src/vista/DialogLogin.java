@@ -79,6 +79,12 @@ public class DialogLogin extends javax.swing.JDialog {
         btnAceptar.setBounds(80, 180, 90, 30);
         getContentPane().add(txtUsuario);
         txtUsuario.setBounds(110, 110, 180, 25);
+
+        txtClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtClaveActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtClave);
         txtClave.setBounds(110, 140, 180, 25);
 
@@ -94,8 +100,8 @@ public class DialogLogin extends javax.swing.JDialog {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(20, 100, 30, 30);
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-360)/2, (screenSize.height-252)/2, 360, 252);
+        setSize(new java.awt.Dimension(360, 252));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
@@ -124,6 +130,11 @@ public class DialogLogin extends javax.swing.JDialog {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void txtClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClaveActionPerformed
+       btnAceptarActionPerformed(evt);
+    }//GEN-LAST:event_txtClaveActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;

@@ -4,31 +4,35 @@
  */
 package vista.paneles.evaluacion;
 
+import controlador.basedatos.OperacionesBD;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.evaluacion.Efectos;
+import vista.modelo.Mensaje;
 
 /**
  *
  * @author francisco
  */
 public class DialogEfectos extends javax.swing.JDialog {
-    
+
     private static DialogEfectos de = null;
     private Efectos efec;
+    private ArrayList<Efectos> efectos;
     private String nombreEf;
 
     /**
      * Creates new form DialogEfectos
      */
-    private DialogEfectos(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
-        initComponents();
+    private DialogEfectos() {
+        this.setModal(true);
+        this.initComponents();
+        this.llenaCombo();
     }
-    
-    public synchronized static DialogEfectos getInstance(java.awt.Frame parent, boolean modal) {
+
+    public static DialogEfectos getInstance() {
         if (de == null) {
-            de = new DialogEfectos(parent, modal);
-            de.setVisible(true);
+            de = new DialogEfectos();
         }
         return de;
     }
@@ -120,6 +124,12 @@ public class DialogEfectos extends javax.swing.JDialog {
         jLabel5.setText("NOMBRE:");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(9, 37, 70, 30);
+
+        cbNombres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbNombresActionPerformed(evt);
+            }
+        });
         getContentPane().add(cbNombres);
         cbNombres.setBounds(80, 40, 220, 30);
 
@@ -137,17 +147,42 @@ public class DialogEfectos extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        efec = new Efectos();
+        if (!OperacionesBD.existe("Efecto", "nombre", nombreEf)) {
+            efec = new Efectos();
+            efec.setNombre(nombreEf);
+            efec.setBueno(txtBuenaCalificacion.getText());
+            efec.setDeficiente(txtDeficienteCalificacion.getText());
+            efec.setIneficiente(txtIneficienteCalificacion.getText());
+            if (OperacionesBD.guardar(efec)) {
+                Mensaje.datosGuardados();
+            }
+        } else {
+            efec = efectos.get(cbNombres.getSelectedIndex());
+            efec.setNombre(nombreEf);
+            efec.setBueno(txtBuenaCalificacion.getText());
+            efec.setDeficiente(txtDeficienteCalificacion.getText());
+            efec.setIneficiente(txtIneficienteCalificacion.getText());
+            if (OperacionesBD.modificar(efec)) {
+                Mensaje.datosGuardados();
+            }
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        dispose();
+        this.dispose();
+        //despues del dispose al parecer llama al constructor de nuevo
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnNuevoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoNombreActionPerformed
-        nombreEf = JOptionPane.showInputDialog("Ingrese el nombre del Efecto");        
+        nombreEf = JOptionPane.showInputDialog("Ingrese el nombre del Efecto");
+        cbNombres.addItem(nombreEf);
     }//GEN-LAST:event_btnNuevoNombreActionPerformed
 
+    private void cbNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNombresActionPerformed
+        if (cbNombres.getSelectedIndex() != -1) {
+            nombreEf = cbNombres.getSelectedItem().toString();
+        }
+    }//GEN-LAST:event_cbNombresActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardar;
@@ -165,4 +200,15 @@ public class DialogEfectos extends javax.swing.JDialog {
     private javax.swing.JTextArea txtDeficienteCalificacion;
     private javax.swing.JTextArea txtIneficienteCalificacion;
     // End of variables declaration//GEN-END:variables
+
+    private void llenaCombo() {
+        efectos = (ArrayList<Efectos>) OperacionesBD.listar("Efectos");
+        cbNombres.removeAllItems();
+        cbNombres.addItem("Sin Efecto");
+        if (!efectos.isEmpty()) {
+            for (Efectos e : efectos) {
+                cbNombres.addItem(e.getNombre());
+            }
+        }
+    }
 }

@@ -26,18 +26,17 @@ public class DialogActivarEvaluacion extends javax.swing.JDialog {
     /**
      * Creates new form DialogActivarEvaluacion
      */
-    private DialogActivarEvaluacion(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    private DialogActivarEvaluacion() {        
         initComponents();
+        setModal(true);
         servidoresPlanif= new ArrayList<>();
         listarServidores();
         llenaListaDisponibles();
     }
     
-    public synchronized static DialogActivarEvaluacion getInstance(java.awt.Frame parent, boolean modal) {
+    public synchronized static DialogActivarEvaluacion getInstance() {
         if (dae == null) {
-            dae = new DialogActivarEvaluacion(parent, modal);
-            dae.setVisible(true);
+            dae = new DialogActivarEvaluacion();
         }
         return dae;
     }

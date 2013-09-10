@@ -20,6 +20,9 @@ public class ControladorPermisos {
     public static boolean agendaUsuario;
     public static boolean agendaExperto;
     public static boolean menuAgregados;
+    public static boolean miActivaEval;
+    public static boolean miFechaEval;
+    public static boolean miEfectosEval;
     public static boolean menuReportes;
 
     public static void permisoInvitado() {
@@ -56,6 +59,9 @@ public class ControladorPermisos {
         agendaExperto = true;
         menuAgregados = true;
         menuReportes = true;
+        miActivaEval = true;
+        miEfectosEval = true;
+        miFechaEval = true;
     }
 
     public static void permisoServidor() {
@@ -87,10 +93,13 @@ public class ControladorPermisos {
         itemAbreSesion = false;
         itemCierraSesion = true;
         itemCambiaClave = true;
-        agenda = true;
+        agenda = false;
         agendaUsuario = false;
         agendaExperto = true;
-        menuAgregados=false;
-        menuReportes=false;
+        menuAgregados = true;
+        menuReportes = false;
+        miActivaEval = true;
+        miEfectosEval = false;
+        miFechaEval = false;
     }
 }

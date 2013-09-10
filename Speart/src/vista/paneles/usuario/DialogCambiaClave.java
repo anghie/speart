@@ -18,14 +18,14 @@ public class DialogCambiaClave extends javax.swing.JDialog {
     /**
      * Creates new form DialogCambiaClave
      */
-    private DialogCambiaClave(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    private DialogCambiaClave() {        
         initComponents();
+        setModal(true);
     }
     
-    public synchronized static DialogCambiaClave getInstance(java.awt.Frame parent, boolean modal) {
+    public synchronized static DialogCambiaClave getInstance() {
         if (dcc == null) {
-            dcc = new DialogCambiaClave(parent, modal);
+            dcc = new DialogCambiaClave();
             dcc.setVisible(true);
         }
         return dcc;

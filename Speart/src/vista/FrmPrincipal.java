@@ -32,7 +32,7 @@ public class FrmPrincipal extends JFrame {
     private JMenu menuServicios;
     private JMenuItem miAgenda;
     private JMenuItem miInforme;
-     private JMenuItem miMeta;
+    private JMenuItem miMeta;
     private JMenu menuAgregados;
     private JMenuItem miFechaEval;
     private JMenuItem miActivEval;
@@ -94,21 +94,24 @@ public class FrmPrincipal extends JFrame {
     }
 
     public void ponePermisos() {
-        btnEvaluacion.setEnabled(ControladorPermisos.evaluaciones);
-        btnOperaciones.setEnabled(ControladorPermisos.operaciones);
-        btnProcesos.setEnabled(ControladorPermisos.procesos);
-        btnRespaldos.setEnabled(ControladorPermisos.respaldos);
-        btnServicios.setEnabled(ControladorPermisos.servicios);
-        btnUsuarios.setEnabled(ControladorPermisos.usuarios);
-        menuServicios.setEnabled(ControladorPermisos.servicios);
-        miIniciaSesion.setEnabled(ControladorPermisos.itemAbreSesion);
-        miCierraSesion.setEnabled(ControladorPermisos.itemCierraSesion);
-        miCambiaClave.setEnabled(ControladorPermisos.itemCambiaClave);
-        btnAgenda.setEnabled(ControladorPermisos.agenda);
-        btnReportes.setEnabled(ControladorPermisos.usuarios);
-        miAgenda.setEnabled(ControladorPermisos.agendaExperto);
-        menuAgregados.setEnabled(ControladorPermisos.menuAgregados);
-        menuReportes.setEnabled(ControladorPermisos.menuReportes);
+        btnEvaluacion.setVisible(ControladorPermisos.evaluaciones);
+        btnOperaciones.setVisible(ControladorPermisos.operaciones);
+        btnProcesos.setVisible(ControladorPermisos.procesos);
+        btnRespaldos.setVisible(ControladorPermisos.respaldos);
+        btnServicios.setVisible(ControladorPermisos.servicios);
+        btnUsuarios.setVisible(ControladorPermisos.usuarios);
+        menuServicios.setVisible(ControladorPermisos.servicios);
+        miIniciaSesion.setVisible(ControladorPermisos.itemAbreSesion);
+        miCierraSesion.setVisible(ControladorPermisos.itemCierraSesion);
+        miCambiaClave.setVisible(ControladorPermisos.itemCambiaClave);
+        btnAgenda.setVisible(ControladorPermisos.agenda);
+        btnReportes.setVisible(ControladorPermisos.usuarios);
+        miAgenda.setVisible(ControladorPermisos.agendaExperto);
+        menuAgregados.setVisible(ControladorPermisos.menuAgregados);
+        menuReportes.setVisible(ControladorPermisos.menuReportes);
+        miActivEval.setVisible(ControladorPermisos.miActivaEval);
+        miFechaEval.setVisible(ControladorPermisos.miFechaEval);
+        miEfectos.setVisible(ControladorPermisos.miEfectosEval);
     }
 
     private void poneImagenLogo() {
@@ -188,7 +191,7 @@ public class FrmPrincipal extends JFrame {
         miMeta = new JMenuItem();
         creaMenuItem(miMeta, menuServicios, "Administrar Metas", "Administrar las metas palnteadas por los usuario", "agendaTelefonica.png");
         miMeta.addActionListener(esc);
-        
+
         //Item Acerca
         miAcercaDe = new JMenuItem();
         creaMenuItem(miAcercaDe, menuAyuda, "Acerca de... ", "Informacion acerca del programa", "svn_status.png");
@@ -204,23 +207,23 @@ public class FrmPrincipal extends JFrame {
         miAgenda.addActionListener(esc);
 
         //Item Agregados
-        miFechaEval= new JMenuItem();
+        miFechaEval = new JMenuItem();
         creaMenuItem(miFechaEval, menuAgregados, "Fecha Evaluacion", "Fijar fecha de la evaluacion", "null.png");
         miFechaEval.addActionListener(esc);
         miActivEval = new JMenuItem();
         creaMenuItem(miActivEval, menuAgregados, "Activar Evaluacion", "Activacion de la evaluacion", "null.png");
         miActivEval.addActionListener(esc);
-        
+
         //Item Reportes
         miReporteEvaluaciones = new JMenuItem();
         creaMenuItem(miReporteEvaluaciones, menuReportes, "Genera Reporte Evaluacion", "Genera el reporte de las evaluaciones", "imprimeRep.jpg");
         miReporteEvaluaciones.addActionListener(esc);
-        
+
         //Item Efectos
         miEfectos = new JMenuItem();
         creaMenuItem(miEfectos, menuAgregados, "Efectos Evaluación", "Los efectos que se asignaran a las evaluaciones", "null.png");
         miEfectos.addActionListener(esc);
-        
+
         //Añadiendo a la barraMenu y luego a la pantalla
         barraMenu.add(menuInicio);
         barraMenu.add(getMenuServicios());
@@ -294,7 +297,7 @@ public class FrmPrincipal extends JFrame {
         btnAgenda = new JButton("Agenda");
         creaBotonToolbar(btnAgenda, "agen.png");
         btnAgenda.setToolTipText("<html> Ingresar actividades a la agenda</html> ");
-         //Para el botón Operaciones
+        //Para el botón Operaciones
         btnOperaciones = new JButton("Operaciones");
         creaBotonToolbar(getBtnOperaciones(), "opera.png");
         btnOperaciones.setToolTipText("<html> Ingresar Operaciones al sistema</html> ");
@@ -309,13 +312,13 @@ public class FrmPrincipal extends JFrame {
         btnRespaldos = new JButton("Respaldos");
         creaBotonToolbar(getBtnRespaldos(), "resp.png");
         btnRespaldos.setToolTipText("<html> Respaldar la informacion del sistema</html> ");
-       
-        
-       
-        
+
+
+
+
         btnReportes = new JButton("Reportes");
         creaBotonToolbar(btnReportes, "kword.png");
-       btnReportes.setToolTipText("<html> Obtener reportes impresos de la informacion del sistema</html> ");
+        btnReportes.setToolTipText("<html> Obtener reportes impresos de la informacion del sistema</html> ");
         poneEventosToolbar();
         //Añadiendo la barra al la ventana
         this.add(tbOeste, BorderLayout.WEST);
@@ -462,15 +465,15 @@ public class FrmPrincipal extends JFrame {
                 cp.ponePanel(new PnlOperaciones());
                 setTitle("SPEIESS 2013 - Panel de Operaciones");
             } else if (evt.getSource() == btnAgenda) {
-              if(userLogueado.getRol().getTipo().equals("Jefe")){
-                DialogoUsuarios dialogServidores=new DialogoUsuarios(userLogueado,cp ,FrmPrincipal.this, true);
-                dialogServidores.setLocationRelativeTo(null);
-                dialogServidores.setVisible(true);
-              }else{
-                   cp.ponePanel(new PanelAgenda("inicisv_1.jpg", userLogueado));
-              }
-              setTitle("SPEIESS 2013 - Panel Agenda Usuario");
-            }else if (evt.getSource() == btnReportes) {
+                if (userLogueado.getRol().getTipo().equals("Jefe")) {
+                    DialogoUsuarios dialogServidores = new DialogoUsuarios(userLogueado, cp, FrmPrincipal.this, true);
+                    dialogServidores.setLocationRelativeTo(null);
+                    dialogServidores.setVisible(true);
+                } else {
+                    cp.ponePanel(new PanelAgenda("inicisv_1.jpg", userLogueado));
+                }
+                setTitle("SPEIESS 2013 - Panel Agenda Usuario");
+            } else if (evt.getSource() == btnReportes) {
                 DialogoReportes reportes = new DialogoReportes(FrmPrincipal.this, true);
                 reportes.setLocationRelativeTo(null);
                 reportes.setVisible(true);
@@ -489,17 +492,27 @@ public class FrmPrincipal extends JFrame {
             } else if (evt.getSource() == miInforme) {
                 cp.escogeUsuario();
             } else if (evt.getSource() == miCambiaClave) {
-                DialogCambiaClave.getInstance(null, true);
-            } else if(evt.getSource() == miFechaEval){
-                DialogoFechaEvaluacion.getInstance(null, true);
-//                df.setVisible(true);
-            } else if(evt.getSource() == miActivEval){
-               DialogActivarEvaluacion.getInstance(null, true);
-            } else if(evt.getSource() == miEfectos){
-                DialogEfectos.getInstance(null, true);
-            }
-            else if (evt.getSource() == miMeta) {
-                DialogoMeta dialogo= new DialogoMeta(new JFrame(), true);
+                DialogCambiaClave dcc = DialogCambiaClave.getInstance();
+                if (!dcc.isActive()) {
+                    dcc.setVisible(true);
+                }
+            } else if (evt.getSource() == miFechaEval) {
+                DialogoFechaEvaluacion dfe = DialogoFechaEvaluacion.getInstance();
+                if (!dfe.isActive()) {
+                    dfe.setVisible(true);
+                }
+            } else if (evt.getSource() == miActivEval) {
+                DialogActivarEvaluacion dae = DialogActivarEvaluacion.getInstance();
+                if (!dae.isActive()) {
+                    dae.setVisible(true);
+                }
+            } else if (evt.getSource() == miEfectos) {
+                DialogEfectos de = DialogEfectos.getInstance();
+                if (!de.isActive()) {
+                    de.setVisible(true);
+                }
+            } else if (evt.getSource() == miMeta) {
+                DialogoMeta dialogo = new DialogoMeta(new JFrame(), true);
                 dialogo.setLocationRelativeTo(null);
                 dialogo.setVisible(true);
             }
