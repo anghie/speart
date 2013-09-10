@@ -1,46 +1,47 @@
 package vista;
+
 import javax.swing.*;
 import java.awt.*;
 import com.nilo.plaf.nimrod.NimRODLookAndFeel;
 import com.nilo.plaf.nimrod.NimRODTheme;
 
-public class Estilos{
-	
-	public static final int ESTILO_SISTEMA=0;
-	public static final int ESTILO_GTK=1;
-	public static final int ESTILO_NIMBUS=2;
-	public static final int ESTILO_NIMROD=3;
-	private static Estilos estilo;
-	public JFrame vtn;
-	
-	private Estilos(){
-	}
-	
-	public synchronized static Estilos getInstance(){
-		if(estilo==null){
-			estilo= new Estilos();
-		}
-		return estilo;
-	}
-	
-	private void aplicaEstiloSistema(){
-		try {
+public class Estilos {
+
+    public static final int ESTILO_SISTEMA = 0;
+    public static final int ESTILO_GTK = 1;
+    public static final int ESTILO_NIMBUS = 2;
+    public static final int ESTILO_NIMROD = 3;
+    private static Estilos estilo;
+    public JFrame vtn;
+
+    private Estilos() {
+    }
+
+    public synchronized static Estilos getInstance() {
+        if (estilo == null) {
+            estilo = new Estilos();
+        }
+        return estilo;
+    }
+
+    private void aplicaEstiloSistema() {
+        try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ex) {
-			System.err.println(ex.getMessage());
+            System.err.println(ex.getMessage());
         }
-	}
-	
-	private void aplicaEstiloGtk(){
-		try {
+    }
+
+    private void aplicaEstiloGtk() {
+        try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
         } catch (Exception ex) {
-			System.err.println(ex.getMessage());
+            System.err.println(ex.getMessage());
         }
-	}
-	
-	private void aplicaEstiloNimbus(){
-		 try {
+    }
+
+    private void aplicaEstiloNimbus() {
+        try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -50,9 +51,9 @@ public class Estilos{
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
         }
-	}
-	
-	private void aplicaEstiloNimrod(){
+    }
+
+    private void aplicaEstiloNimrod() {
         try {
             NimRODTheme nt = new NimRODTheme();
             nt.setPrimary1(new Color(0x001FEB));
@@ -72,25 +73,29 @@ public class Estilos{
             SwingUtilities.updateComponentTreeUI(vtn);
         } catch (UnsupportedLookAndFeelException ex) {
             System.err.println(ex.getMessage());
-        }		
-	}
-	
-	/*Este método se usa en caso de que se use el estilo Nimrod*/
-	public void setFrame(JFrame vtn){
-		this.vtn=vtn;
-	}
-	
-	public void aplicarEstilo(int tipoEstilo){
-		switch(tipoEstilo){
-			case ESTILO_SISTEMA:aplicaEstiloSistema();				
-								break;
-			case ESTILO_GTK:aplicaEstiloGtk();				
-							break;
-			case ESTILO_NIMBUS:aplicaEstiloNimbus();				
-							   break;
-			case ESTILO_NIMROD:aplicaEstiloNimrod();				
-								break;
-			default:				
-		}		
-	}
+        }
+    }
+
+    /*Este método se usa en caso de que se use el estilo Nimrod*/
+    public void setFrame(JFrame vtn) {
+        this.vtn = vtn;
+    }
+
+    public void aplicarEstilo(int tipoEstilo) {
+        switch (tipoEstilo) {
+            case ESTILO_SISTEMA:
+                aplicaEstiloSistema();
+                break;
+            case ESTILO_GTK:
+                aplicaEstiloGtk();
+                break;
+            case ESTILO_NIMBUS:
+                aplicaEstiloNimbus();
+                break;
+            case ESTILO_NIMROD:
+                aplicaEstiloNimrod();
+                break;
+            default:
+        }
+    }
 }

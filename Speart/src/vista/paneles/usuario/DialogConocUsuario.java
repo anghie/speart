@@ -22,13 +22,14 @@ public class DialogConocUsuario extends javax.swing.JDialog {
     private ControladorConocUsuario ccu;
     private GestorControladorConocUsuario gccu;
     private Rol rol;
+
     /**
      * Creates new form DialogConocUsuario
      */
     public DialogConocUsuario(java.awt.Frame parent, boolean modal, Rol rol) {
         super(parent, modal);
         initComponents();
-        this.rol=rol;
+        this.rol = rol;
         ccu = new ControladorConocUsuario(this);
         gccu = new GestorControladorConocUsuario();
         ccu.listarSeccion();
@@ -130,7 +131,6 @@ public class DialogConocUsuario extends javax.swing.JDialog {
 
         dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnAgregarConocimiento;
@@ -166,7 +166,6 @@ public class DialogConocUsuario extends javax.swing.JDialog {
         return rol;
     }
 
-    
     class GestorControladorConocUsuario implements ActionListener {
 
         @Override
@@ -193,8 +192,11 @@ public class DialogConocUsuario extends javax.swing.JDialog {
                         Mensaje.filaNoSeleccionada();
                     }
                 }
-            }else if(e.getSource()==btnAceptar){
-                ccu.guardaConocUsuario();
+            } else if (e.getSource() == btnAceptar) {
+                int opc = JOptionPane.showConfirmDialog(null, "¿Desea Guardar los datos?", "Guardar", JOptionPane.YES_NO_OPTION);
+                if (opc == JOptionPane.YES_OPTION) {
+                    ccu.guardaConocUsuario();
+                }
                 dispose();
             }
         }

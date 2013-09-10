@@ -7,6 +7,7 @@ package vista.paneles.usuario;
 import controlador.acciones.usuario.ControladorDestrezaUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import modelo.proceso.Rol;
 import vista.modelo.ImagenJPanel;
 import vista.modelo.Mensaje;
@@ -126,7 +127,6 @@ public class DialogCompetTecnica extends javax.swing.JDialog {
 
         dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnAgregarDestreza;
@@ -180,7 +180,10 @@ public class DialogCompetTecnica extends javax.swing.JDialog {
                 }
 
             } else if (e.getSource() == btnAceptar) {
-                cdu.guardaDestrezaUsuario();
+                int opc = JOptionPane.showConfirmDialog(null, "¿Desea Guardar los datos?", "Guardar", JOptionPane.YES_NO_OPTION);
+                if (opc == JOptionPane.YES_OPTION) {
+                    cdu.guardaDestrezaUsuario();
+                }
                 dispose();
             }
         }

@@ -147,25 +147,35 @@ public class DialogEfectos extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        if (!OperacionesBD.existe("Efecto", "nombre", nombreEf)) {
-            efec = new Efectos();
-            efec.setNombre(nombreEf);
-            efec.setBueno(txtBuenaCalificacion.getText());
-            efec.setDeficiente(txtDeficienteCalificacion.getText());
-            efec.setIneficiente(txtIneficienteCalificacion.getText());
-            if (OperacionesBD.guardar(efec)) {
-                Mensaje.datosGuardados();
+        if (nombreEscogido()) {
+            if (!hayVacios()) {
+                if (!OperacionesBD.existe("Efecto", "nombre", nombreEf)) {
+                    efec = new Efectos();
+                    efec.setNombre(nombreEf);
+                    efec.setBueno(txtBuenaCalificacion.getText());
+                    efec.setDeficiente(txtDeficienteCalificacion.getText());
+                    efec.setIneficiente(txtIneficienteCalificacion.getText());
+                    if (OperacionesBD.guardar(efec)) {
+                        Mensaje.datosGuardados();
+                    }
+                } else {
+                    efec = efectos.get(cbNombres.getSelectedIndex());
+                    efec.setNombre(nombreEf);
+                    efec.setBueno(txtBuenaCalificacion.getText());
+                    efec.setDeficiente(txtDeficienteCalificacion.getText());
+                    efec.setIneficiente(txtIneficienteCalificacion.getText());
+                    if (OperacionesBD.modificar(efec)) {
+                        Mensaje.datosGuardados();
+                    }
+                }
+            } else {
+                Mensaje.camposVacios();
             }
         } else {
-            efec = efectos.get(cbNombres.getSelectedIndex());
-            efec.setNombre(nombreEf);
-            efec.setBueno(txtBuenaCalificacion.getText());
-            efec.setDeficiente(txtDeficienteCalificacion.getText());
-            efec.setIneficiente(txtIneficienteCalificacion.getText());
-            if (OperacionesBD.modificar(efec)) {
-                Mensaje.datosGuardados();
-            }
+            JOptionPane.showMessageDialog(null, "Debe escoger el nombre del Efecto");
         }
+
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -210,5 +220,21 @@ public class DialogEfectos extends javax.swing.JDialog {
                 cbNombres.addItem(e.getNombre());
             }
         }
+    }
+
+    private boolean hayVacios() {
+        if (txtBuenaCalificacion.getText().isEmpty()
+                || txtDeficienteCalificacion.getText().isEmpty()
+                || txtIneficienteCalificacion.getText().isEmpty()) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean nombreEscogido() {
+        if (cbNombres.getSelectedIndex() == 0) {
+            return false;
+        }
+        return true;
     }
 }

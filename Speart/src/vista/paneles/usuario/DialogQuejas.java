@@ -5,6 +5,7 @@
 package vista.paneles.usuario;
 
 import controlador.basedatos.OperacionesBD;
+import javax.swing.JOptionPane;
 import modelo.proceso.Rol;
 import modelo.usuario.Queja;
 import vista.modelo.Mensaje;
@@ -55,15 +56,15 @@ public class DialogQuejas extends javax.swing.JDialog {
 
         jLabel1.setText("QUEJAS");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(280, 10, 70, 14);
+        jLabel1.setBounds(280, 10, 70, 17);
 
         jLabel2.setText("Descripcion:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 90, 110, 14);
+        jLabel2.setBounds(20, 90, 110, 17);
 
         jLabel3.setText("Nombre de la persona que realiza la queja:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 60, 260, 14);
+        jLabel3.setBounds(20, 60, 260, 17);
         getContentPane().add(txtPersonaQueja);
         txtPersonaQueja.setBounds(260, 50, 350, 30);
 
@@ -79,7 +80,7 @@ public class DialogQuejas extends javax.swing.JDialog {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(20, 240, 90, 20);
         getContentPane().add(txtNroFormulario);
-        txtNroFormulario.setBounds(120, 240, 90, 20);
+        txtNroFormulario.setBounds(120, 240, 90, 27);
 
         chbNo.setText("No");
         chbNo.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +89,7 @@ public class DialogQuejas extends javax.swing.JDialog {
             }
         });
         getContentPane().add(chbNo);
-        chbNo.setBounds(460, 240, 60, 23);
+        chbNo.setBounds(460, 240, 60, 22);
 
         chbSi.setText("Si");
         chbSi.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +98,7 @@ public class DialogQuejas extends javax.swing.JDialog {
             }
         });
         getContentPane().add(chbSi);
-        chbSi.setBounds(400, 240, 60, 23);
+        chbSi.setBounds(400, 240, 60, 22);
 
         jLabel5.setText("Descuento en evaluacion:");
         getContentPane().add(jLabel5);
@@ -111,24 +112,41 @@ public class DialogQuejas extends javax.swing.JDialog {
             }
         });
         getContentPane().add(btnGuardarQueja);
-        btnGuardarQueja.setBounds(260, 290, 110, 40);
+        btnGuardarQueja.setBounds(200, 290, 110, 40);
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-642)/2, (screenSize.height-378)/2, 642, 378);
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCancelar);
+        btnCancelar.setBounds(320, 290, 100, 40);
+
+        setSize(new java.awt.Dimension(642, 378));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarQuejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarQuejaActionPerformed
-        Queja q = new Queja();
-        q.setNombreDenun(txtPersonaQueja.getText());
-        q.setDetalle(txtDescripcionQueja.getText());
-        q.setNroForm(txtNroFormulario.getText());
-        q.setReducePorcent(chbSi.isSelected() ? true : false);
-        q.setRol(rol);
-        if (OperacionesBD.guardar(q)) {
-            Mensaje.datosGuardados();
-            this.dispose();
-        } else {
-            Mensaje.datosNoGuardados();
+        if (!verificaVacios()) {
+            int opc = JOptionPane.showConfirmDialog(null, "¿Desea Guardar los datos?", "Guardar", JOptionPane.YES_NO_OPTION);
+            if (opc == JOptionPane.YES_OPTION) {
+                Queja q = new Queja();
+                q.setNombreDenun(txtPersonaQueja.getText());
+                q.setDetalle(txtDescripcionQueja.getText());
+                q.setNroForm(txtNroFormulario.getText());
+                q.setReducePorcent(chbSi.isSelected() ? true : false);
+                q.setRol(rol);
+                if (OperacionesBD.guardar(q)) {
+                    Mensaje.datosGuardados();
+                    this.dispose();
+                } else {
+                    Mensaje.datosNoGuardados();
+                }
+            }
+            dispose();
+        }else{
+            Mensaje.camposVacios();
         }
     }//GEN-LAST:event_btnGuardarQuejaActionPerformed
 
@@ -164,4 +182,13 @@ public class DialogQuejas extends javax.swing.JDialog {
     private javax.swing.JTextField txtNroFormulario;
     private javax.swing.JTextField txtPersonaQueja;
     // End of variables declaration//GEN-END:variables
+
+    public boolean verificaVacios() {
+        if (txtDescripcionQueja.getText().isEmpty()
+                || txtNroFormulario.getText().isEmpty()
+                || txtPersonaQueja.getText().isEmpty()) {
+            return true;
+        }
+        return false;
+    }
 }
