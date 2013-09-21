@@ -13,6 +13,7 @@ import modelo.agenda.Agenda;
 import modelo.usuario.Contacto;
 import vista.FrmPrincipal;
 import vista.modelo.Mensaje;
+import vista.paneles.servicios.DialogoAgendaContactos;
 import vista.paneles.servicios.PnlServicios;
 
 /**
@@ -22,12 +23,12 @@ import vista.paneles.servicios.PnlServicios;
 public class ControladorAgenda {
      public static double CONSTATE_ESPACIO_TIEMPO=100;// 100px =1h
     
-    private PnlServicios fa;
+    private DialogoAgendaContactos fa;
     private Contacto contacto;
     private ArrayList<Contacto> contactos;
     private static Agenda  agenda;
     
-    public ControladorAgenda(PnlServicios fa) {
+    public ControladorAgenda(DialogoAgendaContactos fa) {
         this.fa = fa;
     }
     

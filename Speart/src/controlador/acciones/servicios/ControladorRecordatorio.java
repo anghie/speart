@@ -13,8 +13,8 @@ import modelo.recordatorio.Recordatorio;
 import vista.FrmPrincipal;
 import vista.modelo.Calendario;
 import vista.modelo.Mensaje;
+import vista.paneles.servicios.DialogoCalendarioRecor;
 import vista.paneles.servicios.DialogoCreaRecordatorio;
-import vista.paneles.servicios.PnlServicios;
 
 /**
  *
@@ -22,13 +22,13 @@ import vista.paneles.servicios.PnlServicios;
  */
 public class ControladorRecordatorio {
 
-    private PnlServicios ps;
+    private DialogoCalendarioRecor ps;
     private DialogoCreaRecordatorio dcr;
     private Recordatorio recordatorio;
     Calendar fecha;
     public static ArrayList<Recordatorio> recordatorios;
 
-    public ControladorRecordatorio(PnlServicios ps) {
+    public ControladorRecordatorio(DialogoCalendarioRecor  ps) {
         this.ps = ps;
     }
 

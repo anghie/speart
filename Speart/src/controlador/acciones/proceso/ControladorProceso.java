@@ -206,16 +206,20 @@ public class ControladorProceso {
 
     public void editaProceso() {
         p = procesos.get(pp.getCbProcesosLista().getSelectedIndex());
-        String s = JOptionPane.showInputDialog("Ingrese el nombre para el proceso");
-        if (!s.isEmpty()) {
-            p.setNombreProceso(s);
-            if (OperacionesBD.modificar(p)) {
-                Mensaje.datosModificados();
-                poneComboLstProc();
-                poneComboProcesos();
-            } else {
-                Mensaje.datosNoModificados();
+        try {
+            String s = JOptionPane.showInputDialog("Ingrese el nombre para el proceso: ");
+            if (!s.isEmpty()) {
+                p.setNombreProceso(s);
+                if (OperacionesBD.modificar(p)) {
+                    Mensaje.datosModificados();
+                    poneComboLstProc();
+                    poneComboProcesos();
+                } else {
+                    Mensaje.datosNoModificados();
+                }
             }
+        } catch (Exception e) {
+//            System.out.println(e.getMessage());
         }
     }
 

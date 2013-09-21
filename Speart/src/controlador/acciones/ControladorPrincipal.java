@@ -28,9 +28,8 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import vista.DialogLogin;
-import vista.DialogUsuaroisInforme;
+
 import vista.modelo.OperacionesVarias;
-import vista.paneles.usuario.DialogInformeActiv;
 
 public class ControladorPrincipal {
 
@@ -99,24 +98,6 @@ public class ControladorPrincipal {
         pasarGarbageCollector();
     }
 
-    public void escogeUsuario() {
-        new DialogUsuaroisInforme(frm, true).setVisible(true);
-    }
-
-    public static void abreInformeActividades() {
-        int r = rol.getIdRol();//id del rol
-        ArrayList<Actividad> ac = (ArrayList<Actividad>) OperacionesBD.listarconCondicion("Actividad", "rol_idRol", String.valueOf(r));
-        ControladorEscogeActividades.actividadesAsignadas = new ArrayList<>();
-        ControladorEscogeActividades.actividadesDisponibles = new ArrayList<>();
-        for (Actividad act : ac) {
-            if (act.isParaEvaluacion()) {
-                ControladorEscogeActividades.actividadesAsignadas.add(act);
-            } else {
-                ControladorEscogeActividades.actividadesDisponibles.add(act);
-            }
-        }
-        new DialogInformeActiv(null, true).setVisible(true);
-    }
 
     public static boolean verificaClave(String claveAnt) {
         String st = FrmPrincipal.userLogueado.getClave();

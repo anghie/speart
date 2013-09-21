@@ -9,19 +9,18 @@ import vista.modelo.*;
 import controlador.acciones.ControladorPrincipal;
 import modelo.usuario.Usuario;
 import vista.modelo.paneles.agenda.PanelAgenda;
-import vista.paneles.evaluacion.DialogEfectos;
 import vista.paneles.evaluacion.PnlEvaluacion;
 import vista.paneles.operaciones.PnlOperaciones;
 import vista.paneles.proceso.PnlProcesos;
 import vista.paneles.respaldos.PnlRespaldos;
+import vista.paneles.servicios.DialogoAgendaContactos;
+import vista.paneles.servicios.DialogoCalendarioRecor;
 import vista.paneles.servicios.PnlServicios;
-import vista.paneles.usuario.DialogActivarEvaluacion;
 import vista.paneles.usuario.DialogCambiaClave;
-import vista.paneles.usuario.DialogoFechaEvaluacion;
 import vista.paneles.usuario.PnlUsuario;
 
 public class FrmPrincipal extends JFrame {
-
+    
     private JMenuBar barraMenu;
     private JMenu menuInicio;
     private JMenu mimenuSesion;
@@ -31,9 +30,10 @@ public class FrmPrincipal extends JFrame {
     private JMenuItem miSalir;
     private JMenu menuServicios;
     private JMenuItem miAgenda;
-    private JMenuItem miInforme;
+    private JMenuItem miRecordatorio;
+//    private JMenuItem miInforme;
     private JMenuItem miMeta;
-    private JMenu menuAgregados;
+//    private JMenu menuAgregados;
 //    private JMenuItem miFechaEval;
 //    private JMenuItem miActivEval;
 //    private JMenuItem miEfectos;
@@ -46,7 +46,7 @@ public class FrmPrincipal extends JFrame {
 //    private JButton btnInicio;
     private JButton btnUsuarios;
     private JButton btnProcesos;
-    private JButton btnServicios;
+//    private JButton btnServicios;
     private JButton btnRespaldos;
     private JButton btnOperaciones;
     private JButton btnEvaluacion;
@@ -63,19 +63,19 @@ public class FrmPrincipal extends JFrame {
     private JMenuItem miReporteEvaluaciones;
     private JMenuItem miReporteUsuarios;
     private static FrmPrincipal fp = null;
-
+    
     private FrmPrincipal() {
         cl = FrmPrincipal.class.getClassLoader();
         iniciaComponentes();
     }
-
+    
     public synchronized static FrmPrincipal getInstance() {
         if (fp == null) {
             fp = new FrmPrincipal();
         }
         return fp;
     }
-
+    
     private void iniciaComponentes() {
         this.setTitle("SPEIESS 2013");
 //        this.setLocationRelativeTo(null);
@@ -93,13 +93,13 @@ public class FrmPrincipal extends JFrame {
         ControladorPermisos.permisoInvitado();
         ponePermisos();
     }
-
+    
     public void ponePermisos() {
         btnEvaluacion.setVisible(ControladorPermisos.evaluaciones);
         btnOperaciones.setVisible(ControladorPermisos.operaciones);
         btnProcesos.setVisible(ControladorPermisos.procesos);
         btnRespaldos.setVisible(ControladorPermisos.respaldos);
-        btnServicios.setVisible(ControladorPermisos.servicios);
+//        btnServicios.setVisible(ControladorPermisos.servicios);
         btnUsuarios.setVisible(ControladorPermisos.usuarios);
         menuServicios.setVisible(ControladorPermisos.servicios);
         miIniciaSesion.setVisible(ControladorPermisos.itemAbreSesion);
@@ -108,13 +108,13 @@ public class FrmPrincipal extends JFrame {
         btnAgenda.setVisible(ControladorPermisos.agenda);
         btnReportes.setVisible(ControladorPermisos.usuarios);
         miAgenda.setVisible(ControladorPermisos.agendaExperto);
-        menuAgregados.setVisible(ControladorPermisos.menuAgregados);
+//        menuAgregados.setVisible(ControladorPermisos.menuAgregados);
         menuReportes.setVisible(ControladorPermisos.menuReportes);
 //        miActivEval.setVisible(ControladorPermisos.miActivaEval);
 //        miFechaEval.setVisible(ControladorPermisos.miFechaEval);
 //        miEfectos.setVisible(ControladorPermisos.miEfectosEval);
     }
-
+    
     private void poneImagenLogo() {
         pnlMedio = new JPanel();
         pnlMedio.setLayout(new BorderLayout());
@@ -134,10 +134,10 @@ public class FrmPrincipal extends JFrame {
         //Añadiendo el panel imagen al panel central
         pnlMedio.add(pnlImagen, BorderLayout.CENTER);
         this.add(pnlMedio, BorderLayout.CENTER);
-
+        
     }
     /*Metodo que ubica el panel inferior con la fecha y hora*/
-
+    
     private void ponePanelInferior() {
         pnlSur = new JPanel();
         pnlSur.setLayout(new BorderLayout());
@@ -146,7 +146,7 @@ public class FrmPrincipal extends JFrame {
         this.add(pnlSur, BorderLayout.SOUTH);
     }
     /*Método para poner la barra de menus*/
-
+    
     private void poneBarraMenu() {
         barraMenu = new JMenuBar();
         /*MENU INICIO*/
@@ -154,8 +154,8 @@ public class FrmPrincipal extends JFrame {
         menuInicio.setFont(new Font("Broadway", Font.BOLD, 15));
         menuServicios = new JMenu("Servicios");
         menuServicios.setFont(new Font("Broadway", Font.BOLD, 15));
-        menuAgregados = new JMenu("Agregados");
-        menuAgregados.setFont(new Font("Broadway", Font.BOLD, 15));
+//        menuAgregados = new JMenu("Agregados");
+//        menuAgregados.setFont(new Font("Broadway", Font.BOLD, 15));
         menuAyuda = new JMenu("Ayuda");
         menuAyuda.setFont(new Font("Broadway", Font.BOLD, 15));
         menuReportes = new JMenu("Reportes");
@@ -182,12 +182,17 @@ public class FrmPrincipal extends JFrame {
         miSalir.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, InputEvent.ALT_MASK));
         //Item Agenda
         miAgenda = new JMenuItem();
-        creaMenuItem(miAgenda, getMenuServicios(), "Agenda", "Gestion de Contactos", "agendaTelefonica.png");
+        creaMenuItem(miAgenda, getMenuServicios(), "Agenda de contactos", "Gestion de Contactos", "agendaTelefonica.png");
         miAgenda.addActionListener(esc);
-        //Item Informe
-        miInforme = new JMenuItem();
-        creaMenuItem(miInforme, menuServicios, "Informe Actividades", "Llenar el informa de actividades del usuario", "copiarbarra.png");
-        miInforme.addActionListener(esc);
+
+        //Item Recordatorio
+        miRecordatorio = new JMenuItem();
+        creaMenuItem(miRecordatorio, menuServicios, "Recordatorio", "Cree sus propios recordatorios", "null.png");
+        miRecordatorio.addActionListener(esc);
+//        //Item Informe
+//        miInforme = new JMenuItem();
+//        creaMenuItem(miInforme, menuServicios, "Informe Actividades", "Llenar el informa de actividades del usuario", "copiarbarra.png");
+//        miInforme.addActionListener(esc);
         //Item Informe
         miMeta = new JMenuItem();
         creaMenuItem(miMeta, menuServicios, "Administrar Metas", "Administrar las metas palnteadas por los usuario", "agendaTelefonica.png");
@@ -219,7 +224,7 @@ public class FrmPrincipal extends JFrame {
         miReporteEvaluaciones = new JMenuItem();
         creaMenuItem(miReporteEvaluaciones, menuReportes, "Genera Reporte Evaluacion", "Genera el reporte de las evaluaciones", "imprimeRep.jpg");
         miReporteEvaluaciones.addActionListener(esc);
-        
+
         //Item Reporte Usuarios
         miReporteUsuarios = new JMenuItem();
         creaMenuItem(miReporteUsuarios, menuReportes, "Genera Reporte Usuarios", "Generar el reporte de los usuarios en el sistema", "null.png");
@@ -232,7 +237,7 @@ public class FrmPrincipal extends JFrame {
         //Añadiendo a la barraMenu y luego a la pantalla
         barraMenu.add(menuInicio);
         barraMenu.add(getMenuServicios());
-        barraMenu.add(menuAgregados);
+//        barraMenu.add(menuAgregados);
         barraMenu.add(menuReportes);
         barraMenu.add(menuAyuda);
         poneEventosMenuItems();
@@ -257,7 +262,7 @@ public class FrmPrincipal extends JFrame {
         menu.add(item);
     }
     /*Método que asigna los eventos a los menuitems*/
-
+    
     private void poneEventosMenuItems() {
         /**
          * itera sobre todos los componentes de la barra de menú, se les asigna
@@ -278,7 +283,7 @@ public class FrmPrincipal extends JFrame {
     }
     //-------------------------------------------------------------------
 	/*Método para poner el panel de botones izquierdo*/
-
+    
     private void poneToolbarOeste() {
         tbOeste = new JToolBar();
         tbOeste.setFloatable(false);
@@ -311,16 +316,16 @@ public class FrmPrincipal extends JFrame {
         creaBotonToolbar(getBtnEvaluacion(), "eva.png");
         btnEvaluacion.setToolTipText("<html> Evaluacion de servidor</html> ");
         //Para el botón Servicios
-        btnServicios = new JButton("Servicios");
-        creaBotonToolbar(getBtnServicios(), "kwrite.png");
+//        btnServicios = new JButton("Servicios");
+//        creaBotonToolbar(getBtnServicios(), "kwrite.png");
         //Para el botón Respaldos
         btnRespaldos = new JButton("Respaldos");
         creaBotonToolbar(getBtnRespaldos(), "resp.png");
         btnRespaldos.setToolTipText("<html> Respaldar la informacion del sistema</html> ");
-
-
-
-
+        
+        
+        
+        
         btnReportes = new JButton("Reportes");
         creaBotonToolbar(btnReportes, "kword.png");
         btnReportes.setToolTipText("<html> Obtener reportes impresos de la informacion del sistema</html> ");
@@ -332,7 +337,7 @@ public class FrmPrincipal extends JFrame {
      * @param btn el botón inicializado para editar sus atributos
      * @param nombreIcono el nombre del icono que se le asignará al boton
      * */
-
+    
     private void creaBotonToolbar(JButton btn, String nombreIcono) {
         btn.setIcon(new ImageIcon(cl.getResource("vista/imagenes/" + nombreIcono)));
         btn.setFocusable(false);
@@ -345,7 +350,7 @@ public class FrmPrincipal extends JFrame {
         tbOeste.add(btn);
     }
     /*Metodo que asigna los eventos a los botones de la toolbar*/
-
+    
     private void poneEventosToolbar() {
         /**
          * itera sobre todos los componentes de la barra de herramientas, se les
@@ -368,7 +373,7 @@ public class FrmPrincipal extends JFrame {
     public JPanel getPnlMedio() {
         return pnlMedio;
     }
-
+    
     public JPanel getPnlImagen() {
         return pnlImagen;
     }
@@ -415,13 +420,12 @@ public class FrmPrincipal extends JFrame {
         return btnProcesos;
     }
 
-    /**
-     * @return the btnServicios
-     */
-    public JButton getBtnServicios() {
-        return btnServicios;
-    }
-
+//    /**
+//     * @return the btnServicios
+//     */
+//    public JButton getBtnServicios() {
+//        return btnServicios;
+//    }
     /**
      * @return the btnRespaldos
      */
@@ -447,7 +451,7 @@ public class FrmPrincipal extends JFrame {
     //*ACCIONES PARA COMPONENTES *
     //****************************
     class EventHandler implements ActionListener {
-
+        
         @Override
         public void actionPerformed(ActionEvent evt) {
             if (evt.getSource() == miSalir) {
@@ -460,10 +464,11 @@ public class FrmPrincipal extends JFrame {
             } else if (evt.getSource() == getBtnProcesos()) {
                 cp.ponePanel(new PnlProcesos());
                 setTitle("SPEIESS 2013 - Panel de Procesos");
-            } else if (evt.getSource() == getBtnServicios()) {
-                cp.ponePanel(new PnlServicios());
-                setTitle("SPEIESS 2013 - Panel de Servicios");
-            } else if (evt.getSource() == getBtnRespaldos()) {
+            } //            else if (evt.getSource() == getBtnServicios()) {
+            //                cp.ponePanel(new PnlServicios());
+            //                setTitle("SPEIESS 2013 - Panel de Servicios");
+            //            }
+            else if (evt.getSource() == getBtnRespaldos()) {
                 cp.ponePanel(new PnlRespaldos());
                 setTitle("SPEIESS 2013 - Panel de respaldos");
             } else if (evt.getSource() == getBtnOperaciones()) {
@@ -494,37 +499,47 @@ public class FrmPrincipal extends JFrame {
                 cp.abreLogin();
             } else if (evt.getSource() == getMiCierraSesion()) {
                 cp.cierraSesion();
-            } else if (evt.getSource() == miInforme) {
-                cp.escogeUsuario();
-            } else if (evt.getSource() == miCambiaClave) {
+            } //            else if (evt.getSource() == miInforme) {
+            //                cp.escogeUsuario();
+            //            }
+            else if (evt.getSource() == miCambiaClave) {
                 DialogCambiaClave dcc = DialogCambiaClave.getInstance();
                 if (!dcc.isActive()) {
                     dcc.setVisible(true);
                 }
-            } 
-//            else if (evt.getSource() == miFechaEval) {
-//                DialogoFechaEvaluacion dfe = DialogoFechaEvaluacion.getInstance();
-//                if (!dfe.isActive()) {
-//                    dfe.setVisible(true);
-//                }
-//            } 
-//            else if (evt.getSource() == miActivEval) {
-//                DialogActivarEvaluacion dae = DialogActivarEvaluacion.getInstance();
-//                if (!dae.isActive()) {
-//                    dae.setVisible(true);
-//                }
-//            } 
-//            else if (evt.getSource() == miEfectos) {
-//                DialogEfectos de = DialogEfectos.getInstance();
-//                if (!de.isActive()) {
-//                    de.setVisible(true);
-//                }
-//            } 
+            } //            else if (evt.getSource() == miFechaEval) {
+            //                DialogoFechaEvaluacion dfe = DialogoFechaEvaluacion.getInstance();
+            //                if (!dfe.isActive()) {
+            //                    dfe.setVisible(true);
+            //                }
+            //            } 
+            //            else if (evt.getSource() == miActivEval) {
+            //                DialogActivarEvaluacion dae = DialogActivarEvaluacion.getInstance();
+            //                if (!dae.isActive()) {
+            //                    dae.setVisible(true);
+            //                }
+            //            } 
+            //            else if (evt.getSource() == miEfectos) {
+            //                DialogEfectos de = DialogEfectos.getInstance();
+            //                if (!de.isActive()) {
+            //                    de.setVisible(true);
+            //                }
+            //            } 
             else if (evt.getSource() == miMeta) {
                 DialogoMeta dialogo = new DialogoMeta(new JFrame(), true);
                 dialogo.setLocationRelativeTo(null);
                 dialogo.setVisible(true);
-            } else if(evt.getSource() == miReporteUsuarios){
+            } else if (evt.getSource() == miAgenda) {
+                DialogoAgendaContactos dac = DialogoAgendaContactos.getInstance();
+                if (!dac.isActive()) {
+                    dac.setVisible(true);
+                }
+            } else if (evt.getSource() == miRecordatorio) {
+                DialogoCalendarioRecor dcr = DialogoCalendarioRecor.getInstance();
+                if (!dcr.isActive()) {
+                    dcr.setVisible(true);
+                }
+            } else if (evt.getSource() == miReporteUsuarios) {
                 cp.reporteUsuarios();                
             }
         }

@@ -53,7 +53,7 @@ public final class PnlUsuario extends javax.swing.JPanel {
         btnModificar.addActionListener(evh);
         btnGuardarModificacion.addActionListener(evh);
         btnConocimientos.addActionListener(evh);
-        btnActivEval.addActionListener(evh);
+//        btnActivEval.addActionListener(evh);
         btnDestrezas.addActionListener(evh);
         btnCancelar.addActionListener(evh);
         btnQuejas.addActionListener(evh);
@@ -127,7 +127,6 @@ public final class PnlUsuario extends javax.swing.JPanel {
         btnDeshabilitar = new javax.swing.JButton();
         btnConocimientos = new javax.swing.JButton();
         btnDestrezas = new javax.swing.JButton();
-        btnActivEval = new javax.swing.JButton();
         btnQuejas = new javax.swing.JButton();
         pnlAccionesModificar = new javax.swing.JPanel();
         lblProfesionModif = new javax.swing.JLabel();
@@ -298,34 +297,30 @@ public final class PnlUsuario extends javax.swing.JPanel {
         btnModificar.setText("Modificar");
         btnModificar.setToolTipText("Actalizar datos del usuario");
         pnlBotones.add(btnModificar);
-        btnModificar.setBounds(0, 10, 120, 40);
+        btnModificar.setBounds(30, 10, 120, 40);
 
         btnDeshabilitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/personal.png"))); // NOI18N
         btnDeshabilitar.setText("Deshabilitar");
         btnDeshabilitar.setToolTipText("Desactivar usuario del sistema");
         pnlBotones.add(btnDeshabilitar);
-        btnDeshabilitar.setBounds(120, 10, 130, 40);
+        btnDeshabilitar.setBounds(160, 10, 130, 40);
 
         btnConocimientos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/add.png"))); // NOI18N
         btnConocimientos.setText("Conocimientos");
         btnConocimientos.setToolTipText("Agregar conocimientos a los usuarios");
         pnlBotones.add(btnConocimientos);
-        btnConocimientos.setBounds(340, 10, 130, 40);
+        btnConocimientos.setBounds(300, 10, 130, 40);
 
         btnDestrezas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/list-add-user.png"))); // NOI18N
         btnDestrezas.setText("Destrezas");
         pnlBotones.add(btnDestrezas);
-        btnDestrezas.setBounds(470, 10, 120, 40);
-
-        btnActivEval.setText("Act. Eval.");
-        pnlBotones.add(btnActivEval);
-        btnActivEval.setBounds(250, 10, 90, 40);
+        btnDestrezas.setBounds(440, 10, 120, 40);
 
         btnQuejas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/PatientMale.png"))); // NOI18N
         btnQuejas.setText("Quejas");
         btnQuejas.setToolTipText("Agregar quejas a los usuarios");
         pnlBotones.add(btnQuejas);
-        btnQuejas.setBounds(590, 10, 103, 40);
+        btnQuejas.setBounds(570, 10, 83, 40);
 
         pnlLstDatos.add(pnlBotones);
         pnlBotones.setBounds(20, 230, 700, 60);
@@ -401,7 +396,6 @@ public final class PnlUsuario extends javax.swing.JPanel {
         add(tabbedUsuario, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnActivEval;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnConocimientos;
     private javax.swing.JButton btnDeshabilitar;
@@ -701,9 +695,11 @@ public final class PnlUsuario extends javax.swing.JPanel {
                 }
             } else if (evt.getSource() == btnConocimientos) {
                 cu.abreDialogConocUsuario();
-            } else if (evt.getSource() == btnActivEval) {
-                cu.abreDialogEscogeActividades();
-            } else if (evt.getSource() == btnDestrezas) {
+            } 
+//            else if (evt.getSource() == btnActivEval) {
+//                cu.abreDialogEscogeActividades();
+//            } 
+            else if (evt.getSource() == btnDestrezas) {
                 cu.abreDialogCompetTecnica();
             } else if (evt.getSource() == btnQuejas) {
                 cu.abreDialogQuejas();

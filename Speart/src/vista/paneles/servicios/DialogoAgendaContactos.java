@@ -5,64 +5,44 @@
 package vista.paneles.servicios;
 
 import controlador.acciones.servicios.ControladorAgenda;
-import controlador.acciones.servicios.ControladorRecordatorio;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import vista.FrmPrincipal;
-import vista.modelo.Calendario;
-import vista.modelo.ImagenJPanel;
 import vista.modelo.Mensaje;
-import vista.modelo.OperacionesVarias;
 
 /**
  *
- * @author jenny
+ * @author francisco
  */
-public class PnlServicios extends javax.swing.JPanel {
+public class DialogoAgendaContactos extends javax.swing.JDialog {
 
-    GestorEventosServ ges;
-    ControladorRecordatorio cr;
-    ControladorAgenda ca;
+    private static DialogoAgendaContactos dac;
+    private ControladorAgenda ca;
+    private GestorEventoAgenda gea;
 
     /**
-     * Creates new form PnlServicios
+     * Creates new form DialogoAgendaContactos
      */
-    public PnlServicios() {
+    private DialogoAgendaContactos() {
         initComponents();
-        poneFechaHora();
-        OperacionesVarias.ponerTablaCalendario(tblDiasMes, lblMes);
-        ges = new GestorEventosServ();
-//        cr = new ControladorRecordatorio(this);
-//        ca = new ControladorAgenda(this);
+        ca = new ControladorAgenda(this);
+        gea = new GestorEventoAgenda();
         poneAcciones();
-        ca.poneEnables(false);
-        btnGuardarContacto.setText("Guardar");
     }
 
-    private void poneFechaHora() {
-        String s = FrmPrincipal.lblHora.getText();
-        String l[] = s.split(",");
-        String fecha = l[0].trim();
-        String hora = l[1].trim();
-        lblFecha.setText(fecha);
-        lblHora.setText(hora);
+    public static DialogoAgendaContactos getInstance() {
+        if (dac == null) {
+            dac = new DialogoAgendaContactos();
+        }
+        return dac;
     }
 
     private void poneAcciones() {
-        btnAtras.addActionListener(ges);
-        btnSiguiente.addActionListener(ges);
-        btnNuevo.addActionListener(ges);
-        btnEditar.addActionListener(ges);
-        btnEliminar.addActionListener(ges);
-        btnGuardarContacto.addActionListener(ges);
-        tabbedServicios.addChangeListener(ges);
-        getTblDiasMes().addMouseListener(ges);
+        btnNuevo.addActionListener(gea);
+        btnEditar.addActionListener(gea);
+        btnEliminar.addActionListener(gea);
+        btnGuardarContacto.addActionListener(gea);
     }
 
     /**
@@ -74,19 +54,6 @@ public class PnlServicios extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tabbedServicios = new javax.swing.JTabbedPane();
-        pnlRecordatorio = new javax.swing.JPanel();
-        pnlCalendario = new javax.swing.JPanel();
-        lblTxtFecha = new javax.swing.JLabel();
-        scrollCalendario = new javax.swing.JScrollPane();
-        tblDiasMes = new javax.swing.JTable();
-        lblMes = new javax.swing.JLabel();
-        lblTxtHora = new javax.swing.JLabel();
-        btnSiguiente = new javax.swing.JButton();
-        btnAtras = new javax.swing.JButton();
-        lblHora = new javax.swing.JLabel();
-        lblFecha = new javax.swing.JLabel();
-        pnlAgenda = new javax.swing.JPanel();
         pnlAgendaContactos = new javax.swing.JPanel();
         scrollAgenda = new javax.swing.JScrollPane();
         tblContactos = new JTable() {
@@ -111,82 +78,10 @@ public class PnlServicios extends javax.swing.JPanel {
         txtDireccion = new javax.swing.JTextField();
         btnGuardarContacto = new javax.swing.JButton();
         lblTituloAgenda = new javax.swing.JLabel();
+        btnCerrar = new javax.swing.JButton();
 
-        setLayout(new java.awt.BorderLayout());
-
-        pnlRecordatorio  = new  ImagenJPanel ("inicisv.jpg");
-
-        pnlCalendario.setOpaque(false);
-        pnlCalendario.setPreferredSize(new java.awt.Dimension(700, 400));
-        pnlCalendario.setLayout(null);
-
-        lblTxtFecha.setText("Fecha Actual:");
-        pnlCalendario.add(lblTxtFecha);
-        lblTxtFecha.setBounds(110, 300, 120, 40);
-
-        tblDiasMes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tblDiasMes.setRowHeight(25);
-        tblDiasMes.setRowSelectionAllowed(false);
-        scrollCalendario.setViewportView(tblDiasMes);
-
-        pnlCalendario.add(scrollCalendario);
-        scrollCalendario.setBounds(60, 120, 590, 180);
-
-        lblMes.setBackground(new java.awt.Color(51, 51, 255));
-        lblMes.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
-        lblMes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        pnlCalendario.add(lblMes);
-        lblMes.setBounds(140, 70, 440, 40);
-
-        lblTxtHora.setText("Hora:");
-        pnlCalendario.add(lblTxtHora);
-        lblTxtHora.setBounds(440, 300, 60, 40);
-
-        btnSiguiente.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        btnSiguiente.setText(">>");
-        btnSiguiente.setToolTipText("Siguiente");
-        pnlCalendario.add(btnSiguiente);
-        btnSiguiente.setBounds(590, 70, 66, 40);
-
-        btnAtras.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        btnAtras.setText("<<");
-        btnAtras.setToolTipText("Anterior");
-        pnlCalendario.add(btnAtras);
-        btnAtras.setBounds(60, 70, 75, 40);
-
-        lblHora.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        pnlCalendario.add(lblHora);
-        lblHora.setBounds(480, 300, 170, 40);
-
-        lblFecha.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        pnlCalendario.add(lblFecha);
-        lblFecha.setBounds(220, 300, 200, 40);
-
-        pnlRecordatorio.add(pnlCalendario);
-
-        tabbedServicios.addTab("RECORDATORIO", pnlRecordatorio);
-
-        pnlAgenda  = new  ImagenJPanel ("inicisv.jpg");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.FlowLayout());
 
         pnlAgendaContactos.setOpaque(false);
         pnlAgendaContactos.setPreferredSize(new java.awt.Dimension(700, 500));
@@ -265,40 +160,41 @@ public class PnlServicios extends javax.swing.JPanel {
         pnlAgendaContactos.add(lblTituloAgenda);
         lblTituloAgenda.setBounds(250, 30, 220, 20);
 
-        pnlAgenda.add(pnlAgendaContactos);
+        btnCerrar.setText("Cerrar");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+        pnlAgendaContactos.add(btnCerrar);
+        btnCerrar.setBounds(300, 440, 100, 40);
 
-        tabbedServicios.addTab("AGENDA DE CONTACTOS", pnlAgenda);
+        getContentPane().add(pnlAgendaContactos);
 
-        add(tabbedServicios, java.awt.BorderLayout.CENTER);
+        setSize(new java.awt.Dimension(808, 585));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCerrarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAtras;
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardarContacto;
     private javax.swing.JButton btnNuevo;
-    private javax.swing.JButton btnSiguiente;
     private javax.swing.JLabel lblApellidos;
     private javax.swing.JLabel lblCelular;
     private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblEmail;
-    private javax.swing.JLabel lblFecha;
-    private javax.swing.JLabel lblHora;
-    public static javax.swing.JLabel lblMes;
     private javax.swing.JLabel lblNombres;
     private javax.swing.JLabel lblTelf;
     private javax.swing.JLabel lblTituloAgenda;
-    private javax.swing.JLabel lblTxtFecha;
-    private javax.swing.JLabel lblTxtHora;
-    private javax.swing.JPanel pnlAgenda;
     private javax.swing.JPanel pnlAgendaContactos;
-    private javax.swing.JPanel pnlCalendario;
-    private javax.swing.JPanel pnlRecordatorio;
     private javax.swing.JScrollPane scrollAgenda;
-    private javax.swing.JScrollPane scrollCalendario;
-    private javax.swing.JTabbedPane tabbedServicios;
     private javax.swing.JTable tblContactos;
-    private javax.swing.JTable tblDiasMes;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtCelular;
     private javax.swing.JTextField txtDireccion;
@@ -306,13 +202,6 @@ public class PnlServicios extends javax.swing.JPanel {
     private javax.swing.JTextField txtNombres;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
-
-    /**
-     * @return the tblDiasMes
-     */
-    public javax.swing.JTable getTblDiasMes() {
-        return tblDiasMes;
-    }
 
     /**
      * @return the txtApellidos
@@ -363,15 +252,11 @@ public class PnlServicios extends javax.swing.JPanel {
         return tblContactos;
     }
 
-    class GestorEventosServ extends MouseAdapter implements ActionListener, ChangeListener {
+    class GestorEventoAgenda implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == btnAtras) {
-                Calendario.mesAnterior(getTblDiasMes(), lblMes);
-            } else if (e.getSource() == btnSiguiente) {
-                Calendario.mesSiguiente(getTblDiasMes(), lblMes);
-            } else if (e.getSource() == btnGuardarContacto) {
+            if (e.getSource() == btnGuardarContacto) {
                 switch (btnGuardarContacto.getText()) {
                     case "Guardar": {
                         int i = JOptionPane.showConfirmDialog(null, "¿Desea guardar los datos del contacto?", "Guardar", JOptionPane.YES_NO_OPTION);
@@ -409,20 +294,6 @@ public class PnlServicios extends javax.swing.JPanel {
                 } else {
                     Mensaje.filaNoSeleccionada();
                 }
-            }
-        }
-
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            if (e.getClickCount() == 2) {
-                cr.abreDialogoRecord();
-            }
-        }
-
-        @Override
-        public void stateChanged(ChangeEvent e) {
-            if (tabbedServicios.getSelectedIndex() == 1) {
-                ca.actualizar();
             }
         }
     }
