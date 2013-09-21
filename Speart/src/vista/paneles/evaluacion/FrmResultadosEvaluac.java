@@ -4,8 +4,13 @@
  */
 package vista.paneles.evaluacion;
 
+import controlador.basedatos.OperacionesBD;
 import controlador.experto.BaseConocimiento;
+import java.util.Calendar;
 import java.util.Date;
+import modelo.evaluacion.Evaluacion;
+import vista.FrmPrincipal;
+import vista.modelo.Mensaje;
 import vista.modelo.OperacionesVarias;
 
 /**
@@ -17,6 +22,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
     private static FrmResultadosEvaluac fre = null;
     private ClassLoader cload = FrmResultadosEvaluac.class.getClassLoader();//para hacer referencia a archivos dentro del programa
     private String dirArchivo = cload.getResource("controlador/experto/evaluacion.pl").getPath();
+    private Evaluacion eval;
 
     /**
      * Creates new form FrmResultadosEvaluac
@@ -30,9 +36,20 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         lblTrabajoEquipo.setText(tT + "");
         lblEvalCiudadano.setText(totQ + "");
         lblTotalEvl.setText(lblTotalEvl.getText() + " " + totl);
-        String s=califResultados(totl);
-        lblDesempeño.setText(lblDesempeño.getText()+" "+s);
+        String s = califResultados(totl);
+        lblDesempeño.setText(lblDesempeño.getText() + " " + s);
         lblFecha.setText(OperacionesVarias.fechaString(new Date()));
+        eval = new Evaluacion();
+        eval.setIgp(tIndic);
+        eval.setConoc(tConoc);
+        eval.setCct(tCT);
+        eval.setCcu(tCU);
+        eval.setTil(tT);
+        eval.setEvalciud(totQ);
+        eval.setTotalEval(totl);
+        eval.setFechaEvaluacion(Calendar.getInstance());
+        eval.setUsuarioEval(FrmPrincipal.userLogueado);
+
     }
 
     public synchronized static FrmResultadosEvaluac getInstance(double tIndic, double tConoc, double tCT, double tCU, double tT, double totQ, double totl) {
@@ -296,6 +313,11 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         btnImprimir.setBounds(360, 630, 130, 50);
 
         btnGuardaResEvaluacion.setText("Guardar");
+        btnGuardaResEvaluacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardaResEvaluacionActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnGuardaResEvaluacion);
         btnGuardaResEvaluacion.setBounds(239, 630, 110, 50);
 
@@ -304,12 +326,19 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnCerrarActionPerformed
+
+    private void btnGuardaResEvaluacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaResEvaluacionActionPerformed
+        if (OperacionesBD.guardar(eval)) {
+            Mensaje.datosGuardados();
+        } else {
+            Mensaje.datosNoGuardados();
+        }
+    }//GEN-LAST:event_btnGuardaResEvaluacionActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnGuardaResEvaluacion;
@@ -341,7 +370,6 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
     private javax.swing.JLabel lblTrabajoEquipo;
     private javax.swing.JLabel lblUniversales;
     // End of variables declaration//GEN-END:variables
-
 
     private String califResultados(double porcen) {
         BaseConocimiento bc = new BaseConocimiento();
