@@ -14,7 +14,7 @@ import modelo.proceso.Rol;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 @Entity
 public class Queja implements Serializable{

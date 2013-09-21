@@ -17,7 +17,7 @@ import vista.modelo.Mensaje;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class PnlProcesos extends javax.swing.JPanel {
 
@@ -131,62 +131,62 @@ public class PnlProcesos extends javax.swing.JPanel {
 
         lblFrecuencia.setText(" Frecuencia:");
         pnlAddActiv.add(lblFrecuencia);
-        lblFrecuencia.setBounds(60, 180, 90, 30);
+        lblFrecuencia.setBounds(60, 240, 90, 30);
 
         grupoBotones.add(chbDiaria);
         chbDiaria.setText("Diaria");
         pnlAddActiv.add(chbDiaria);
-        chbDiaria.setBounds(550, 180, 91, 23);
+        chbDiaria.setBounds(550, 240, 91, 22);
 
         grupoBotones.add(chbAnual);
         chbAnual.setText("Anual");
         pnlAddActiv.add(chbAnual);
-        chbAnual.setBounds(160, 180, 100, 23);
+        chbAnual.setBounds(160, 240, 100, 22);
 
         grupoBotones.add(chbMensual);
         chbMensual.setText("Mensual");
         pnlAddActiv.add(chbMensual);
-        chbMensual.setBounds(250, 180, 91, 23);
+        chbMensual.setBounds(250, 240, 91, 22);
 
         grupoBotones.add(chbQuincenal);
         chbQuincenal.setText("Quincenal");
         pnlAddActiv.add(chbQuincenal);
-        chbQuincenal.setBounds(350, 180, 100, 23);
+        chbQuincenal.setBounds(350, 240, 100, 22);
 
         grupoBotones.add(chbSemanal);
         chbSemanal.setText("Semanal");
         pnlAddActiv.add(chbSemanal);
-        chbSemanal.setBounds(450, 180, 91, 23);
+        chbSemanal.setBounds(450, 240, 91, 22);
 
         lblMedioVerificacion.setText("      Medio Verificacion:");
         pnlAddActiv.add(lblMedioVerificacion);
-        lblMedioVerificacion.setBounds(10, 220, 150, 30);
+        lblMedioVerificacion.setBounds(10, 280, 150, 30);
         pnlAddActiv.add(txtMedioVerif);
-        txtMedioVerif.setBounds(160, 210, 470, 30);
+        txtMedioVerif.setBounds(160, 270, 470, 30);
 
         lblTiempMin.setText("Tiempo en Minutos:");
         pnlAddActiv.add(lblTiempMin);
-        lblTiempMin.setBounds(280, 260, 150, 30);
+        lblTiempMin.setBounds(280, 320, 150, 30);
         pnlAddActiv.add(spVolumen);
-        spVolumen.setBounds(160, 260, 70, 30);
+        spVolumen.setBounds(160, 320, 70, 30);
 
         lblVolumen.setText("    Volumen:");
         pnlAddActiv.add(lblVolumen);
-        lblVolumen.setBounds(60, 260, 100, 30);
+        lblVolumen.setBounds(60, 320, 100, 30);
         pnlAddActiv.add(spTiempoMin);
-        spTiempoMin.setBounds(430, 260, 80, 30);
+        spTiempoMin.setBounds(430, 320, 80, 30);
 
         btnGuardarActividad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnGuardarActividad.setText("Guardar");
         btnGuardarActividad.setToolTipText("Guardar informacion del proceso");
         pnlAddActiv.add(btnGuardarActividad);
-        btnGuardarActividad.setBounds(530, 270, 110, 40);
+        btnGuardarActividad.setBounds(300, 190, 110, 40);
         pnlAddActiv.add(cbPuesto);
         cbPuesto.setBounds(160, 140, 200, 30);
 
         jLabel1.setText("  Descripcion:   ");
         pnlAddActiv.add(jLabel1);
-        jLabel1.setBounds(60, 80, 73, 14);
+        jLabel1.setBounds(60, 80, 79, 17);
 
         txtDescripcion.setColumns(20);
         txtDescripcion.setRows(5);
@@ -196,7 +196,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         jScrollPane2.setBounds(160, 70, 470, 60);
 
         pnlProcesos.add(pnlAddActiv);
-        pnlAddActiv.setBounds(10, 130, 650, 320);
+        pnlAddActiv.setBounds(10, 130, 650, 240);
 
         pnlAddProceso.setBorder(javax.swing.BorderFactory.createTitledBorder("PROCESO"));
         pnlAddProceso.setPreferredSize(new java.awt.Dimension(650, 70));
@@ -251,7 +251,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         btnEditarProceso.setText("Editar Proceso");
         btnEditarProceso.setToolTipText("Actualizar informcion del proceso");
         pnlListaProcesos.add(btnEditarProceso);
-        btnEditarProceso.setBounds(470, 20, 137, 30);
+        btnEditarProceso.setBounds(470, 20, 123, 30);
 
         lblProceso.setText("Proceso:");
         pnlListaProcesos.add(lblProceso);

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="330043f6-68ac-47b1-a5fd-c730347472ab">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="login" class="java.lang.String"/>
+	<field name="clave" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="1173d5ed-c1b3-4e33-9aef-977a88c3194a" x="204" y="27" width="187" height="22"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Usuarios]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="cafe3cd3-9b87-43aa-8e1b-e458db6cb0de" x="13" y="0" width="46" height="27"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="0c2c57e2-8979-43ff-b344-3238d1489022" x="69" y="7" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="500b4e25-90e5-40bc-915b-344a10d5dcab" x="53" y="0" width="100" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Login]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2e529b8f-4aab-4f6e-a34a-531d0dc55c77" x="222" y="0" width="100" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Clave]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement uuid="4170801f-1c62-4c17-94cb-86416505265c" x="53" y="1" width="100" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{login}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0864daeb-1ea2-4556-ae22-f95df4a38e98" x="222" y="1" width="100" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{clave}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

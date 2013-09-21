@@ -13,7 +13,7 @@ import modelo.operaciones.TrabajoEquipo;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class PnlTrabEquipo extends javax.swing.JPanel {
 

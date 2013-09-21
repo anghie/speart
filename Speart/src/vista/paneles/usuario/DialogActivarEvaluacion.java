@@ -15,7 +15,7 @@ import vista.modelo.Mensaje;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class DialogActivarEvaluacion extends javax.swing.JDialog {
     

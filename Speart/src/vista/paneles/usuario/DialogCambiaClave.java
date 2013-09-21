@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class DialogCambiaClave extends javax.swing.JDialog {
     

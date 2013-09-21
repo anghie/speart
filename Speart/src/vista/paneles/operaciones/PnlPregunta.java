@@ -6,7 +6,7 @@ package vista.paneles.operaciones;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class PnlPregunta extends javax.swing.JPanel {
 

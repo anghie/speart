@@ -12,7 +12,7 @@ import modelo.usuario.Usuario;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class DialogUsuarios extends javax.swing.JDialog {
 

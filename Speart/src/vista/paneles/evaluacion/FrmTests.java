@@ -13,7 +13,7 @@ import modelo.pregunta.Pregunta;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class FrmTests extends javax.swing.JDialog {
 

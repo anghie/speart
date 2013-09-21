@@ -6,7 +6,7 @@ import modelo.usuario.Queja;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class PnlQuejas extends javax.swing.JPanel {
 

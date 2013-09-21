@@ -13,7 +13,7 @@ import modelo.operaciones.CompetenciaTecnica;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class PnlCompTecn extends javax.swing.JPanel {
 

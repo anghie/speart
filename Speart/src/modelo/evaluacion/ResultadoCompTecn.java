@@ -14,7 +14,7 @@ import modelo.operaciones.CompetenciaTecnica;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 @Entity
 public class ResultadoCompTecn implements Serializable{

@@ -183,7 +183,7 @@ public class ControladorUsuario {
             obj[1] = u.getNombre() + " " + u.getApellidos();
             obj[2] = u.getProfesion();
             obj[3] = u.isHabilitado();
-            System.out.println(u.getNombre() + " " + u.getApellidos()+" "+u.getRol().getTipo());
+            System.out.println(u.getNombre() + " " + u.getApellidos() + " " + u.getRol().getTipo());
             dtm.addRow(obj);
         }
         pu.getTblUsuarios().setModel(dtm);
@@ -380,9 +380,9 @@ public class ControladorUsuario {
             }
         }
     }
-    
-    public void abreDialogUsuarios(){       
-        new DialogUsuarios(null, true,usuario).setVisible(true);
+
+    public void abreDialogUsuarios() {
+        new DialogUsuarios(null, true, usuario).setVisible(true);
     }
 
     public void abreDialogConocUsuario() {
@@ -426,6 +426,8 @@ public class ControladorUsuario {
         if (isRowSelected()) {
             rol = usuarios.get(pu.getTblUsuarios().getSelectedRow()).getRol();
             new DialogQuejas(null, true, rol).setVisible(true);
+        } else {
+            Mensaje.filaNoSeleccionada();
         }
     }
 }

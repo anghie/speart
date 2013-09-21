@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 @Entity
 public class ResultadoConocimientos implements Serializable{

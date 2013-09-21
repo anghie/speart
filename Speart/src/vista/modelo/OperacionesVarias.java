@@ -28,7 +28,7 @@ import vista.paneles.servicios.DialogoRecordatorio;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class OperacionesVarias {
 

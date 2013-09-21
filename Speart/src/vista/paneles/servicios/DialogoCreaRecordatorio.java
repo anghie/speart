@@ -15,7 +15,7 @@ import vista.modelo.Mensaje;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class DialogoCreaRecordatorio extends javax.swing.JDialog {
 

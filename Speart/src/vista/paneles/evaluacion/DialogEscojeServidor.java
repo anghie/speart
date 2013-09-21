@@ -6,7 +6,7 @@ package vista.paneles.evaluacion;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class DialogEscojeServidor extends javax.swing.JDialog {
 

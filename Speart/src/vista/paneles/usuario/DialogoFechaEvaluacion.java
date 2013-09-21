@@ -11,7 +11,7 @@ import modelo.evaluacion.PeriodoEvaluacion;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class DialogoFechaEvaluacion extends javax.swing.JDialog {
 

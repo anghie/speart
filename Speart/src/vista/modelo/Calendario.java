@@ -10,7 +10,7 @@ import javax.swing.JTable;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class Calendario {
 

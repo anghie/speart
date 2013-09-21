@@ -12,7 +12,7 @@ import vista.modelo.Mensaje;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class DialogQuejas extends javax.swing.JDialog {
 

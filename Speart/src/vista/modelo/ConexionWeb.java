@@ -10,7 +10,7 @@ import java.net.UnknownHostException;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class ConexionWeb {
 

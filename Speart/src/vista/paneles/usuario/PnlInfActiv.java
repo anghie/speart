@@ -8,7 +8,7 @@ import modelo.proceso.Actividad;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class PnlInfActiv extends javax.swing.JPanel {
 

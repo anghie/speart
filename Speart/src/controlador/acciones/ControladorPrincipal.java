@@ -6,6 +6,8 @@ import controlador.basedatos.OperacionesBD;
 import vista.FrmPrincipal;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -18,6 +20,13 @@ import modelo.proceso.Actividad;
 import modelo.proceso.Rol;
 import modelo.usuario.AlgoritmoAES;
 import modelo.usuario.Usuario;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import vista.DialogLogin;
 import vista.DialogUsuaroisInforme;
 import vista.modelo.OperacionesVarias;
@@ -29,6 +38,7 @@ public class ControladorPrincipal {
     public static String tipoUs;
     public static Rol rol;
     private static ControladorPrincipal cp = null;
+    public static int esInhab = 0;
 
     private ControladorPrincipal(FrmPrincipal frm) {
         this.frm = frm;
@@ -50,9 +60,11 @@ public class ControladorPrincipal {
     /*Método que ubica un panel en el centro de la pantalla principal*/
 
     public void ponePanel(JPanel p) {
+
         frm.getPnlMedio().removeAll();
         frm.getPnlMedio().add(p, BorderLayout.CENTER);
         frm.getPnlMedio().updateUI();
+
     }
 
     public void abreLogin() {
@@ -72,7 +84,9 @@ public class ControladorPrincipal {
                     tipoUs = us.getRol().getTipo();
                     existe = true;
                 }
-            }
+            } else if (user.equals(us.getLogin()) && !us.isHabilitado()) {
+                esInhab = 1;
+            } 
         }
         return existe;
     }
@@ -181,12 +195,40 @@ public class ControladorPrincipal {
 
     public void pasarGarbageCollector() {
         Runtime garbage = Runtime.getRuntime();
-        System.out.println("Memoria antes de pasar garbage: "+ garbage.freeMemory());
+        System.out.println("Memoria antes de pasar garbage: " + garbage.freeMemory());
         garbage.gc();
-        System.out.println("Memoria despues de pasar garbage: "+ garbage.freeMemory());
+        System.out.println("Memoria despues de pasar garbage: " + garbage.freeMemory());
     }
-    
+
 //    public boolean evalActiv(){
 //        
 //    }
+    public void reporteUsuarios() {
+        ArrayList<Usuario> usuarios = (ArrayList<Usuario>) OperacionesBD.listar("Usuario");
+
+        //En caso de que hayan parametros, los parametros son unicos
+//        Usuario u = null;
+//        if (!usuarios.isEmpty()) {
+//            u = usuarios.get(0);
+//        } else {
+//            u = new Usuario();
+//        }
+//
+//        Map<String, Object> parametros = new HashMap<>();
+//        parametros.put("NOMBRE", u.getNombre());
+//        parametros.put("TIPO", u.getRol().getTipo());
+
+
+        try {
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(getClass().getResource("ReporteUsuarios.jasper"));
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, new JRBeanCollectionDataSource(usuarios));
+            JasperViewer vista = new JasperViewer(jasperPrint, false);
+            if (!vista.isActive()) {
+                vista.setVisible(true);
+            }
+        } catch (JRException ex) {
+            Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 }

@@ -5,23 +5,14 @@
 package vista.paneles.evaluacion;
 
 import controlador.experto.BaseConocimiento;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.print.PageFormat;
-import java.awt.print.Paper;
-import java.awt.print.Printable;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import vista.modelo.OperacionesVarias;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
-public class FrmResultadosEvaluac extends javax.swing.JDialog implements Printable {
+public class FrmResultadosEvaluac extends javax.swing.JDialog {
 
     private static FrmResultadosEvaluac fre = null;
     private ClassLoader cload = FrmResultadosEvaluac.class.getClassLoader();//para hacer referencia a archivos dentro del programa
@@ -313,21 +304,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog implements Printab
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-        try {
-            PrinterJob job = PrinterJob.getPrinterJob();
-            PageFormat pf = new PageFormat();
-//            documentPageFormat = job.pageDialog(pf);
-            Paper p = new Paper();
-            p.setImageableArea(5, 5, jPanel1.getWidth(), jPanel1.getHeight());
-            pf.setPaper(p);
-            job.validatePage(pf);
-            job.setPrintable(this);
-            job.printDialog();
-            job.print();
-        } catch (PrinterException ex) {
-            Logger.getLogger(FrmResultadosEvaluac.class.getName()).log(Level.SEVERE, null, ex);
-        }
-//        imprimir(jPanel1);
+
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
@@ -365,19 +342,6 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog implements Printab
     private javax.swing.JLabel lblUniversales;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
-
-        if (pageIndex > 0) { /* We have only one page, and 'page' is zero-based */
-            return NO_SUCH_PAGE;
-        }
-        Graphics2D g2d = (Graphics2D) graphics;
-        g2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
-        g2d.scale(0.60, 0.60);
-        jPanel1.printAll(graphics);
-        return PAGE_EXISTS;
-
-    }
 
     private String califResultados(double porcen) {
         BaseConocimiento bc = new BaseConocimiento();

@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class DialogInformeActiv extends javax.swing.JDialog {
 

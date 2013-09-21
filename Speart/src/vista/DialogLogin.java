@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class DialogLogin extends javax.swing.JDialog {
 
@@ -122,7 +122,13 @@ public class DialogLogin extends javax.swing.JDialog {
                 fp.ponePermisos();
                 ControladorRecordatorio.listarRecordatorios();
             } else {
-                JOptionPane.showMessageDialog(null, "Usuario o clave incorrecta");
+                if (ControladorPrincipal.esInhab == 0) {
+                    JOptionPane.showMessageDialog(null, "El usuario ingresado no está registrado pida al administrador su ingreso");
+                } else if (ControladorPrincipal.esInhab == 1) {
+                    JOptionPane.showMessageDialog(null, "El usuario ingresado está deshabilitado pida al administrador su habilitacion");
+                    ControladorPrincipal.esInhab=0;
+                }
+                //JOptionPane.showMessageDialog(null, "Usuario o clave incorrecta");
             }
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
@@ -132,9 +138,8 @@ public class DialogLogin extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void txtClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClaveActionPerformed
-       btnAceptarActionPerformed(evt);
+        btnAceptarActionPerformed(evt);
     }//GEN-LAST:event_txtClaveActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;

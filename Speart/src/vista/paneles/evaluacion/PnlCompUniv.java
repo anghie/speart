@@ -13,7 +13,7 @@ import modelo.operaciones.CompetenciaUniversal;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class PnlCompUniv extends javax.swing.JPanel {
 

@@ -10,7 +10,7 @@ import modelo.pregunta.Seccion;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class PnlCon extends javax.swing.JPanel {
 private long idSec;

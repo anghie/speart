@@ -12,7 +12,7 @@ import vista.modelo.Mensaje;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class DialogEfectos extends javax.swing.JDialog {
 
@@ -240,5 +240,11 @@ public class DialogEfectos extends javax.swing.JDialog {
             return false;
         }
         return true;
+    }
+    
+    private void limpiaCampos(){
+        txtBuenaCalificacion.setText("");
+        txtDeficienteCalificacion.setText("");
+        txtIneficienteCalificacion.setText("");
     }
 }

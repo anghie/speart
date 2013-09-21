@@ -11,7 +11,7 @@ import modelo.respaldos.ConstantesBD;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class FrmGeneracion extends javax.swing.JDialog implements Runnable {
 

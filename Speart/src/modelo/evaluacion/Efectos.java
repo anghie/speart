@@ -12,7 +12,7 @@ import javax.persistence.Id;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 @Entity
 public class Efectos implements Serializable {

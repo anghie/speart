@@ -17,7 +17,7 @@ import javax.persistence.OneToMany;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 @Entity
 public class ResultadoFinalConocimiento implements Serializable{

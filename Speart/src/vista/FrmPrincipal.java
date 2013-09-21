@@ -34,9 +34,9 @@ public class FrmPrincipal extends JFrame {
     private JMenuItem miInforme;
     private JMenuItem miMeta;
     private JMenu menuAgregados;
-    private JMenuItem miFechaEval;
-    private JMenuItem miActivEval;
-    private JMenuItem miEfectos;
+//    private JMenuItem miFechaEval;
+//    private JMenuItem miActivEval;
+//    private JMenuItem miEfectos;
     private JMenu menuAyuda;
     private JMenuItem miAcercaDe;
     private JMenuItem miAyuda;
@@ -61,6 +61,7 @@ public class FrmPrincipal extends JFrame {
     private JMenuItem miGeneraAgenda;
     private JMenu menuReportes;
     private JMenuItem miReporteEvaluaciones;
+    private JMenuItem miReporteUsuarios;
     private static FrmPrincipal fp = null;
 
     private FrmPrincipal() {
@@ -109,9 +110,9 @@ public class FrmPrincipal extends JFrame {
         miAgenda.setVisible(ControladorPermisos.agendaExperto);
         menuAgregados.setVisible(ControladorPermisos.menuAgregados);
         menuReportes.setVisible(ControladorPermisos.menuReportes);
-        miActivEval.setVisible(ControladorPermisos.miActivaEval);
-        miFechaEval.setVisible(ControladorPermisos.miFechaEval);
-        miEfectos.setVisible(ControladorPermisos.miEfectosEval);
+//        miActivEval.setVisible(ControladorPermisos.miActivaEval);
+//        miFechaEval.setVisible(ControladorPermisos.miFechaEval);
+//        miEfectos.setVisible(ControladorPermisos.miEfectosEval);
     }
 
     private void poneImagenLogo() {
@@ -207,22 +208,26 @@ public class FrmPrincipal extends JFrame {
         miAgenda.addActionListener(esc);
 
         //Item Agregados
-        miFechaEval = new JMenuItem();
-        creaMenuItem(miFechaEval, menuAgregados, "Fecha Evaluacion", "Fijar fecha de la evaluacion", "null.png");
-        miFechaEval.addActionListener(esc);
-        miActivEval = new JMenuItem();
-        creaMenuItem(miActivEval, menuAgregados, "Activar Evaluacion", "Activacion de la evaluacion", "null.png");
-        miActivEval.addActionListener(esc);
+//        miFechaEval = new JMenuItem();
+//        creaMenuItem(miFechaEval, menuAgregados, "Fecha Evaluacion", "Fijar fecha de la evaluacion", "null.png");
+//        miFechaEval.addActionListener(esc);
+//        miActivEval = new JMenuItem();
+//        creaMenuItem(miActivEval, menuAgregados, "Activar Evaluacion", "Activacion de la evaluacion", "null.png");
+//        miActivEval.addActionListener(esc);
 
         //Item Reportes
         miReporteEvaluaciones = new JMenuItem();
         creaMenuItem(miReporteEvaluaciones, menuReportes, "Genera Reporte Evaluacion", "Genera el reporte de las evaluaciones", "imprimeRep.jpg");
         miReporteEvaluaciones.addActionListener(esc);
-
+        
+        //Item Reporte Usuarios
+        miReporteUsuarios = new JMenuItem();
+        creaMenuItem(miReporteUsuarios, menuReportes, "Genera Reporte Usuarios", "Generar el reporte de los usuarios en el sistema", "null.png");
+        miReporteUsuarios.addActionListener(esc);
         //Item Efectos
-        miEfectos = new JMenuItem();
-        creaMenuItem(miEfectos, menuAgregados, "Efectos Evaluación", "Los efectos que se asignaran a las evaluaciones", "null.png");
-        miEfectos.addActionListener(esc);
+//        miEfectos = new JMenuItem();
+//        creaMenuItem(miEfectos, menuAgregados, "Efectos Evaluación", "Los efectos que se asignaran a las evaluaciones", "null.png");
+//        miEfectos.addActionListener(esc);
 
         //Añadiendo a la barraMenu y luego a la pantalla
         barraMenu.add(menuInicio);
@@ -496,25 +501,31 @@ public class FrmPrincipal extends JFrame {
                 if (!dcc.isActive()) {
                     dcc.setVisible(true);
                 }
-            } else if (evt.getSource() == miFechaEval) {
-                DialogoFechaEvaluacion dfe = DialogoFechaEvaluacion.getInstance();
-                if (!dfe.isActive()) {
-                    dfe.setVisible(true);
-                }
-            } else if (evt.getSource() == miActivEval) {
-                DialogActivarEvaluacion dae = DialogActivarEvaluacion.getInstance();
-                if (!dae.isActive()) {
-                    dae.setVisible(true);
-                }
-            } else if (evt.getSource() == miEfectos) {
-                DialogEfectos de = DialogEfectos.getInstance();
-                if (!de.isActive()) {
-                    de.setVisible(true);
-                }
-            } else if (evt.getSource() == miMeta) {
+            } 
+//            else if (evt.getSource() == miFechaEval) {
+//                DialogoFechaEvaluacion dfe = DialogoFechaEvaluacion.getInstance();
+//                if (!dfe.isActive()) {
+//                    dfe.setVisible(true);
+//                }
+//            } 
+//            else if (evt.getSource() == miActivEval) {
+//                DialogActivarEvaluacion dae = DialogActivarEvaluacion.getInstance();
+//                if (!dae.isActive()) {
+//                    dae.setVisible(true);
+//                }
+//            } 
+//            else if (evt.getSource() == miEfectos) {
+//                DialogEfectos de = DialogEfectos.getInstance();
+//                if (!de.isActive()) {
+//                    de.setVisible(true);
+//                }
+//            } 
+            else if (evt.getSource() == miMeta) {
                 DialogoMeta dialogo = new DialogoMeta(new JFrame(), true);
                 dialogo.setLocationRelativeTo(null);
                 dialogo.setVisible(true);
+            } else if(evt.getSource() == miReporteUsuarios){
+                cp.reporteUsuarios();                
             }
         }
     }

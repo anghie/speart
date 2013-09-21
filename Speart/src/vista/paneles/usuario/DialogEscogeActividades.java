@@ -13,7 +13,7 @@ import vista.modelo.Mensaje;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class DialogEscogeActividades extends javax.swing.JDialog {
 

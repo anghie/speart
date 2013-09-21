@@ -52,15 +52,19 @@ public class ControladorProceso {
     public void guardaProceso() {
         String ent = JOptionPane.showInputDialog(null, "Ingrese el nombre del proceso", "Nuevo Proceso", JOptionPane.INFORMATION_MESSAGE);
         try {
-            if (!ent.isEmpty() || !ent.equals("")) {
-                p = new Proceso();
-                p.setNombreProceso(ent);
-                if (OperacionesBD.guardar(p)) {
-                    Mensaje.datosGuardados();
-                    poneComboProcesos();
-                } else {
-                    Mensaje.datosNoGuardados();
+            if (!OperacionesBD.existe("Proceso", "nombreProceso", ent)) {
+                if (!ent.isEmpty() || !ent.equals("")) {
+                    p = new Proceso();
+                    p.setNombreProceso(ent);
+                    if (OperacionesBD.guardar(p)) {
+                        Mensaje.datosGuardados();
+                        poneComboProcesos();
+                    } else {
+                        Mensaje.datosNoGuardados();
+                    }
                 }
+            } else {
+                JOptionPane.showMessageDialog(null, "El nombre del proceso ingresado ya existe");
             }
         } catch (NullPointerException e) {
         }
@@ -234,6 +238,7 @@ public class ControladorProceso {
         pp.getCbTipo().setSelectedItem(a.getTipoActividad());
         ponerSeleccionado(pp.getGrupoBotones(), a.getFrecuencia());
         pp.getTabbedProcesos().setSelectedIndex(0);
+        pp.getCbProcesos().setSelectedIndex(pp.getCbProcesosLista().getSelectedIndex());
 
     }
 
@@ -267,6 +272,6 @@ public class ControladorProceso {
                 "nombreActividad", texto, "procesito_idProceso",
                 String.valueOf(idProceso));
         modeloTablaActividades();
-        
+
     }
 }

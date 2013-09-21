@@ -14,7 +14,7 @@ import javax.persistence.Temporal;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 @Entity
 public class PeriodoEvaluacion implements Serializable {

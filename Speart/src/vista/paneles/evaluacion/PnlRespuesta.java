@@ -6,7 +6,7 @@ package vista.paneles.evaluacion;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class PnlRespuesta extends javax.swing.JPanel {
 

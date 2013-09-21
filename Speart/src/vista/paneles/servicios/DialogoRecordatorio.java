@@ -9,7 +9,7 @@ import modelo.recordatorio.Recordatorio;
 
 /**
  *
- * @author francisco
+ * @author jenny
  */
 public class DialogoRecordatorio extends javax.swing.JDialog {
 
