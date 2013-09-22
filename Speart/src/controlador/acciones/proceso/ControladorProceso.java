@@ -242,6 +242,7 @@ public class ControladorProceso {
         pp.getCbTipo().setSelectedItem(a.getTipoActividad());
         ponerSeleccionado(pp.getGrupoBotones(), a.getFrecuencia());
         pp.getTabbedProcesos().setSelectedIndex(0);
+        pp.getBtnCancelar().setVisible(true);
         pp.getCbProcesos().setSelectedIndex(pp.getCbProcesosLista().getSelectedIndex());
 
     }
@@ -254,9 +255,17 @@ public class ControladorProceso {
             limpiaCampos();
             pp.getTabbedProcesos().setSelectedIndex(1);
             pp.getBtnGuardarActividad().setText("Guardar");
+            pp.getBtnCancelar().setVisible(false);
         } else {
             Mensaje.datosNoModificados();
         }
+    }
+
+    public void cancelarActividad() {
+        limpiaCampos();
+        pp.getTabbedProcesos().setSelectedIndex(1);
+        pp.getBtnGuardarActividad().setText("Guardar");
+        pp.getBtnCancelar().setVisible(false);
     }
 
     public static void ponerSeleccionado(ButtonGroup grupoBotones, String txt) {

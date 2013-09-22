@@ -128,6 +128,10 @@ public class ControladorPreguntas {
             Mensaje.datosNoGuardados();
         }
     }
+    
+    public void cancelaPregunta(){
+        limpiaCampos();
+    }
 
     public void setPregunta() {
         pregunta.setPreg(po.getTxtNuevaPregunt().getText());

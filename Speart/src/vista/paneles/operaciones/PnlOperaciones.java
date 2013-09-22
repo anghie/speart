@@ -69,6 +69,10 @@ public class PnlOperaciones extends javax.swing.JPanel {
         btnEditTrabEq.addActionListener(gco);
         btnElimTrabEq.addActionListener(gco);
         btnEditarSeccion.addActionListener(gco);
+        btnCancelarPreg.addActionListener(gco);
+        getBtnCancelarTecnicas().addActionListener(gco);
+        getBtnCancelarUniversales().addActionListener(gco);
+        getBtnCancelarTrabajo().addActionListener(gco);
     }
 
     /**
@@ -95,6 +99,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         cbSeccion = new javax.swing.JComboBox();
         btnNuevaSeccion = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        btnCancelarPreg = new javax.swing.JButton();
         pnlDos = new javax.swing.JPanel();
         pnlListaPregunta = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -124,6 +129,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         btnEliminarCompetencias = new javax.swing.JButton();
         btnNuevaCompetencia = new javax.swing.JButton();
         btnEditarCompetencias = new javax.swing.JButton();
+        btnCancelarTecnicas = new javax.swing.JButton();
         pnlCuatro = new javax.swing.JPanel();
         pnlCompUniv = new javax.swing.JPanel();
         btnNuevaCompetenciaUniversal = new javax.swing.JButton();
@@ -144,6 +150,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        btnCancelarUniversales = new javax.swing.JButton();
         pnlCinco = new javax.swing.JPanel();
         pnlTrabajoEquipo = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
@@ -164,6 +171,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         jLabel20 = new javax.swing.JLabel();
         btnGuardarTrabEquipo = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
+        btnCancelarTrabajo = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -191,7 +199,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         btnGuardarPregunta.setText("Guardar");
         btnGuardarPregunta.setToolTipText("Guardar informacion de test ");
         pnlNuevaPregunta.add(btnGuardarPregunta);
-        btnGuardarPregunta.setBounds(330, 400, 110, 40);
+        btnGuardarPregunta.setBounds(270, 400, 110, 40);
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -224,6 +232,10 @@ public class PnlOperaciones extends javax.swing.JPanel {
         jLabel6.setText("AGREGAR NUEVA PREGUNTA");
         pnlNuevaPregunta.add(jLabel6);
         jLabel6.setBounds(230, 0, 280, 30);
+
+        btnCancelarPreg.setText("Cancelar");
+        pnlNuevaPregunta.add(btnCancelarPreg);
+        btnCancelarPreg.setBounds(390, 400, 120, 40);
 
         pnlUno.add(pnlNuevaPregunta);
 
@@ -331,7 +343,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         btnGuardarCompetencia.setText("Guardar");
         btnGuardarCompetencia.setToolTipText("Guardar informacion del Competencias");
         pnlCompTecPuesto.add(btnGuardarCompetencia);
-        btnGuardarCompetencia.setBounds(360, 440, 110, 40);
+        btnGuardarCompetencia.setBounds(290, 440, 110, 40);
 
         tblCompetencias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -371,6 +383,10 @@ public class PnlOperaciones extends javax.swing.JPanel {
         btnEditarCompetencias.setToolTipText("Actualizar informacio de Competencias Tecnicas");
         pnlCompTecPuesto.add(btnEditarCompetencias);
         btnEditarCompetencias.setBounds(150, 230, 100, 40);
+
+        btnCancelarTecnicas.setText("Cancelar");
+        pnlCompTecPuesto.add(btnCancelarTecnicas);
+        btnCancelarTecnicas.setBounds(410, 440, 100, 40);
 
         pnlTres.add(pnlCompTecPuesto);
 
@@ -445,7 +461,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         btnGuardarCompetenciaUniversal.setText("Guardar");
         btnGuardarCompetenciaUniversal.setToolTipText("Guardar informacion de  Competencias Universales");
         pnlCompUniv.add(btnGuardarCompetenciaUniversal);
-        btnGuardarCompetenciaUniversal.setBounds(360, 440, 110, 40);
+        btnGuardarCompetenciaUniversal.setBounds(290, 440, 110, 40);
 
         jLabel12.setText("Destreza:");
         pnlCompUniv.add(jLabel12);
@@ -467,6 +483,10 @@ public class PnlOperaciones extends javax.swing.JPanel {
         jLabel16.setText("COMPETENCIAS UNIVERSALES");
         pnlCompUniv.add(jLabel16);
         jLabel16.setBounds(230, 10, 340, 20);
+
+        btnCancelarUniversales.setText("Cancelar");
+        pnlCompUniv.add(btnCancelarUniversales);
+        btnCancelarUniversales.setBounds(410, 440, 100, 40);
 
         pnlCuatro.add(pnlCompUniv);
 
@@ -557,12 +577,16 @@ public class PnlOperaciones extends javax.swing.JPanel {
         btnGuardarTrabEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnGuardarTrabEquipo.setText("Guardar");
         pnlTrabajoEquipo.add(btnGuardarTrabEquipo);
-        btnGuardarTrabEquipo.setBounds(360, 440, 120, 40);
+        btnGuardarTrabEquipo.setBounds(290, 440, 110, 40);
 
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("TRABAJO EN EQUIPO");
         pnlTrabajoEquipo.add(jLabel21);
         jLabel21.setBounds(230, 10, 340, 20);
+
+        btnCancelarTrabajo.setText("Cancelar");
+        pnlTrabajoEquipo.add(btnCancelarTrabajo);
+        btnCancelarTrabajo.setBounds(410, 440, 100, 40);
 
         pnlCinco.add(pnlTrabajoEquipo);
 
@@ -572,6 +596,10 @@ public class PnlOperaciones extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAplicar;
+    private javax.swing.JButton btnCancelarPreg;
+    private javax.swing.JButton btnCancelarTecnicas;
+    private javax.swing.JButton btnCancelarTrabajo;
+    private javax.swing.JButton btnCancelarUniversales;
     private javax.swing.JButton btnEditTrabEq;
     private javax.swing.JButton btnEditarCompetenciaUniversal;
     private javax.swing.JButton btnEditarCompetencias;
@@ -858,6 +886,36 @@ public class PnlOperaciones extends javax.swing.JPanel {
         return pnlTrabajoEquipo;
     }
 
+    /**
+     * @return the btnCancelarPreg
+     */
+    public javax.swing.JButton getBtnCancelarPreg() {
+        return btnCancelarPreg;
+    }
+
+    /**
+     * @return the btnCancelarTecnicas
+     */
+    public javax.swing.JButton getBtnCancelarTecnicas() {
+        return btnCancelarTecnicas;
+    }
+
+    /**
+     * @return the btnCancelarTrabajo
+     */
+    public javax.swing.JButton getBtnCancelarTrabajo() {
+        return btnCancelarTrabajo;
+    }
+
+    /**
+     * @return the btnCancelarUniversales
+     */
+    public javax.swing.JButton getBtnCancelarUniversales() {
+        return btnCancelarUniversales;
+    }
+    
+    
+
     class GestorControladorOperaciones implements ActionListener, ChangeListener {
 
         @Override
@@ -913,7 +971,10 @@ public class PnlOperaciones extends javax.swing.JPanel {
                 } else {
                     Mensaje.filaNoSeleccionada();
                 }
-            } //**********************************************
+            }else if(e.getSource()== btnCancelarPreg){
+                cp.cancelaPregunta();
+            } 
+            //**********************************************
             //*   PANEL COMPETENCIAS TECNICAS              *
             //**********************************************
             else if (e.getSource() == btnNuevaCompetencia) {
@@ -945,7 +1006,13 @@ public class PnlOperaciones extends javax.swing.JPanel {
                 if (i == JOptionPane.YES_OPTION) {
                     cctp.eliminarCompetenciaTecnica();
                 }
-            } //**********************************************
+            } else if(e.getSource()==btnCancelarTecnicas){
+                cctp.nuevaCompetenciaTecnica();
+                cctp.poneEnables(false);
+                btnGuardarCompetencia.setText("Guardar");
+            }
+            
+            //**********************************************
             //*   PANEL COMPETENCIAS UNIVERSAL             *
             //**********************************************
             else if (e.getSource() == btnNuevaCompetenciaUniversal) {
@@ -977,7 +1044,12 @@ public class PnlOperaciones extends javax.swing.JPanel {
                 if (i == JOptionPane.YES_OPTION) {
                     ccu.eliminarCompetenciaUniversal();
                 }
-            } //**********************************************
+            }else if(e.getSource()== btnCancelarUniversales){
+                ccu.nuevaCompetenciaUniversal();
+                ccu.poneEnablesUniv(false);
+                btnGuardarCompetenciaUniversal.setText("Guardar");
+            }
+            //**********************************************
             //*   PANEL TRABAJO EN EQUIPO                  *
             //**********************************************
             else if (e.getSource() == btnNuevoTrabajoEq) {
@@ -1009,6 +1081,10 @@ public class PnlOperaciones extends javax.swing.JPanel {
                 if (i == JOptionPane.YES_OPTION) {
                     cte.eliminarTrabajoEquipo();
                 }
+            }else if(e.getSource() == btnCancelarTrabajo){
+                cte.nuevoTrabajoEquipo();
+                cte.poneEnablesTrabEquip(false);
+                btnGuardarTrabEquipo.setText("Guardar");
             }
         }
 

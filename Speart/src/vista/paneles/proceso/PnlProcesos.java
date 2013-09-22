@@ -34,6 +34,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         poneAcciones();
         cpr.poneComboProcesos();
         cpr.poneComboPuestos();
+        btnCancelar.setVisible(false);
     }
 
     private void poneAcciones() {
@@ -44,6 +45,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         btnEditarProceso.addActionListener(gcp);
         btnEditarActividad.addActionListener(gcp);
         btnEliminarActividad.addActionListener(gcp);
+        btnCancelar.addActionListener(gcp);
         txtBuscar.addKeyListener(gcp);
     }
 
@@ -83,6 +85,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtDescripcion = new javax.swing.JTextArea();
+        btnCancelar = new javax.swing.JButton();
         pnlAddProceso = new javax.swing.JPanel();
         btnNuevoProceso = new javax.swing.JButton();
         cbProcesos = new javax.swing.JComboBox();
@@ -180,7 +183,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         btnGuardarActividad.setText("Guardar");
         btnGuardarActividad.setToolTipText("Guardar informacion del proceso");
         pnlAddActiv.add(btnGuardarActividad);
-        btnGuardarActividad.setBounds(300, 190, 110, 40);
+        btnGuardarActividad.setBounds(280, 190, 110, 40);
         pnlAddActiv.add(cbPuesto);
         cbPuesto.setBounds(160, 140, 200, 30);
 
@@ -194,6 +197,10 @@ public class PnlProcesos extends javax.swing.JPanel {
 
         pnlAddActiv.add(jScrollPane2);
         jScrollPane2.setBounds(160, 70, 470, 60);
+
+        btnCancelar.setText("Cancelar");
+        pnlAddActiv.add(btnCancelar);
+        btnCancelar.setBounds(400, 190, 110, 40);
 
         pnlProcesos.add(pnlAddActiv);
         pnlAddActiv.setBounds(10, 130, 650, 240);
@@ -276,6 +283,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         add(tabbedProcesos, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEditarActividad;
     private javax.swing.JButton btnEditarProceso;
     private javax.swing.JButton btnEliminarActividad;
@@ -459,6 +467,13 @@ public class PnlProcesos extends javax.swing.JPanel {
         return tabbedProcesos;
     }
 
+    /**
+     * @return the btnCancelar
+     */
+    public javax.swing.JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
     
     
     class GestorControlProceso extends KeyAdapter implements ActionListener, ChangeListener {
@@ -503,6 +518,8 @@ public class PnlProcesos extends javax.swing.JPanel {
                 } else {
                     Mensaje.filaNoSeleccionada();
                 }
+            }else if(e.getSource() == btnCancelar){
+                cpr.cancelarActividad();
             }
         }
 
