@@ -496,6 +496,9 @@ public class PanelAgenda extends ImagenJPanel {
             loadPanel(scPanelMes, panelMes);
             loadPanel(scPanelAgenda, panelTodasActividades);
             loadPanel(scPanelRecordatorio, panelRecordatorio);
+            
+            scPanelDia.getVerticalScrollBar().setValue(scPanelDia.getHeight()/3);
+            scPanelSemana.getVerticalScrollBar().setValue(scPanelSemana.getHeight()/3);
             guardar=true;
 //            if(usuario!=null){
 //                if(usuario.getRol().getTipo().equals("Jefe"))

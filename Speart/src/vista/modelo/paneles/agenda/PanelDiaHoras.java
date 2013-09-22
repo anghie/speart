@@ -74,9 +74,9 @@ public class PanelDiaHoras extends javax.swing.JPanel {
         this.agenda=agenda;
         setToolTipText(lblDia.getText());
         iniciarTareas(usuario);
-        btnGenerar.setVisible(false);
-        if(usuario.getRol().getTipo().equals("Jefe"))
-            btnGenerar.setVisible(true);
+//        btnGenerar.setVisible(false);
+//        if(usuario.getRol().getTipo().equals("Jefe"))
+//            btnGenerar.setVisible(true);
     }
 
     private void  iniciarHoras(){
