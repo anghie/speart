@@ -218,8 +218,13 @@ public class DialogoMeta extends javax.swing.JDialog {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        guardarActualizar();
-        modificado=false;
+        int n = JOptionPane.showConfirmDialog(null, "¿Desea guardar los datos?", "Guardar", JOptionPane.YES_NO_OPTION);
+                        if (n == JOptionPane.YES_OPTION) {
+                          guardarActualizar();
+//                          modificado=false; 
+                        }
+                        
+        
 
     }//GEN-LAST:event_btnGuardarActionPerformed
 

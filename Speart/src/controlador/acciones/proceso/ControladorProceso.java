@@ -60,6 +60,9 @@ public class ControladorProceso {
                         Mensaje.datosGuardados();
                         poneComboProcesos();
                     } else {
+                        
+                        
+                        
                         Mensaje.datosNoGuardados();
                     }
                 }
@@ -105,9 +108,10 @@ public class ControladorProceso {
             } else {
                 Mensaje.datosNoGuardados();
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar la frecuencia");
-        }
+        } 
+//        else {
+//            JOptionPane.showMessageDialog(null, "Debe seleccionar la frecuencia");
+//        }
     }
 
     public void setActividad() {

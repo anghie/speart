@@ -89,7 +89,7 @@ public class PanelDiaHoras extends javax.swing.JPanel {
     @SuppressWarnings("static-access")
     private void iniciarTareas(){
 //        System.out.println("Tareas:"+agenda.getItemsAgenda());
-        if(usuario.getRol().getTipo().equals("Jefe"))
+        if(usuario.getRol().getTipo().equals("Jefe && Servidor"))
             btnGenerar.setVisible(true);
         panelContenedorTareas.removeAll();
         for (Iterator<ItemAgenda> it = agenda.getItemsAgenda().iterator(); it.hasNext();) {

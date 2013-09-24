@@ -46,7 +46,6 @@ public class DialogoUsuarios extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         cmbServidor = new javax.swing.JComboBox();
         rbtIndividual = new javax.swing.JRadioButton();
-        rbtTodos = new javax.swing.JRadioButton();
         btnVerAgenda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -70,14 +69,6 @@ public class DialogoUsuarios extends javax.swing.JDialog {
             }
         });
 
-        buttonGroup1.add(rbtTodos);
-        rbtTodos.setText("Todos");
-        rbtTodos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtTodosActionPerformed(evt);
-            }
-        });
-
         btnVerAgenda.setText("Ver Agenda");
         btnVerAgenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,10 +83,7 @@ public class DialogoUsuarios extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(rbtIndividual)
-                        .addGap(40, 40, 40)
-                        .addComponent(rbtTodos))
+                    .addComponent(rbtIndividual)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
@@ -110,9 +98,7 @@ public class DialogoUsuarios extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbtIndividual)
-                    .addComponent(rbtTodos))
+                .addComponent(rbtIndividual)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -146,11 +132,6 @@ public class DialogoUsuarios extends javax.swing.JDialog {
         // TODO add your handling code here:
         cmbServidor.setEnabled(true);
     }//GEN-LAST:event_rbtIndividualActionPerformed
-
-    private void rbtTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtTodosActionPerformed
-        // TODO add your handling code here:
-        cmbServidor.setEnabled(false);
-    }//GEN-LAST:event_rbtTodosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,6 +180,5 @@ public class DialogoUsuarios extends javax.swing.JDialog {
     private javax.swing.JComboBox cmbServidor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton rbtIndividual;
-    private javax.swing.JRadioButton rbtTodos;
     // End of variables declaration//GEN-END:variables
 }

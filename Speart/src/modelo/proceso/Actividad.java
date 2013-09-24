@@ -14,12 +14,12 @@ public class Actividad implements Serializable {
     private int idActividad;
     private String nombreActividad;
     private String tipoActividad;
-    private String medioVerificacion;
-    private String frecuencia;
+//    private String medioVerificacion;
+//    private String frecuencia;
     @Column(length = 255)
     private String descripcion;
-    private int volumen;
-    private int tiempoParcial;
+//    private int volumen;
+//    private int tiempoParcial;
     private boolean paraEvaluacion;
     @ManyToOne
     private Proceso procesito;
@@ -63,9 +63,9 @@ public class Actividad implements Serializable {
     /**
      * @return the medioVerificacion
      */
-    public String getMedioVerificacion() {
-        return medioVerificacion;
-    }
+//    public String getMedioVerificacion() {
+//        return medioVerificacion;
+//    }
 
     /**
      * @return the nombreActividad
@@ -98,44 +98,44 @@ public class Actividad implements Serializable {
     /**
      * @return the frecuencia
      */
-    public String getFrecuencia() {
-        return frecuencia;
-    }
+//    public String getFrecuencia() {
+//        return frecuencia;
+//    }
 
     /**
      * @param frecuencia the frecuencia to set
      */
-    public void setFrecuencia(String frecuencia) {
-        this.frecuencia = frecuencia;
-    }
-
-    /**
-     * @return the volumen
-     */
-    public int getVolumen() {
-        return volumen;
-    }
+//    public void setFrecuencia(String frecuencia) {
+//        this.frecuencia = frecuencia;
+//    }
+//
+//    /**
+//     * @return the volumen
+//     */
+//    public int getVolumen() {
+//        return volumen;
+//    }
 
     /**
      * @param volumen the volumen to set
-     */
-    public void setVolumen(int volumen) {
-        this.volumen = volumen;
-    }
-
-    /**
-     * @return the tiempoParcial
-     */
-    public int getTiempoParcial() {
-        return tiempoParcial;
-    }
-
-    /**
-     * @param tiempoParcial the tiempoParcial to set
-     */
-    public void setTiempoParcial(int tiempoParcial) {
-        this.tiempoParcial = tiempoParcial;
-    }
+//     */
+//    public void setVolumen(int volumen) {
+//        this.volumen = volumen;
+//    }
+//
+//    /**
+//     * @return the tiempoParcial
+//     */
+//    public int getTiempoParcial() {
+//        return tiempoParcial;
+//    }
+//
+//    /**
+//     * @param tiempoParcial the tiempoParcial to set
+//     */
+//    public void setTiempoParcial(int tiempoParcial) {
+//        this.tiempoParcial = tiempoParcial;
+//    }
 
     /**
      * @return the rol
@@ -154,9 +154,9 @@ public class Actividad implements Serializable {
     /**
      * @param medioVerificacion the medioVerificacion to set
      */
-    public void setMedioVerificacion(String medioVerificacion) {
-        this.medioVerificacion = medioVerificacion;
-    }
+//    public void setMedioVerificacion(String medioVerificacion) {
+//        this.medioVerificacion = medioVerificacion;
+//    }
 
     /**
      * @return the descripcion

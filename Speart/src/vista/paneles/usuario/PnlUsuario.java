@@ -22,7 +22,7 @@ import vista.modelo.OperacionesVarias;
 
 /**
  *
- * @author jenny
+ * @author 
  */
 public final class PnlUsuario extends javax.swing.JPanel {
 
