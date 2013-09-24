@@ -72,7 +72,7 @@ public class ControladorProceso {
 
     public boolean hayVacios() {
         if (pp.getTxtNombreActividad().getText().isEmpty()
-                || pp.getTxtMedioVerif().getText().isEmpty()
+//                || pp.getTxtMedioVerif().getText().isEmpty()
                 || pp.getTxtDescripcion().getText().isEmpty()) {
             ControladorPrincipal.coloreaErroresTxt(pp.getPnlAddActiv());
             ControladorPrincipal.coloreaErroresATxt(pp.getPnlAddActiv());
@@ -84,10 +84,10 @@ public class ControladorProceso {
     }
 
     public void limpiaCampos() {
-        pp.getTxtMedioVerif().setText("");
+//        pp.getTxtMedioVerif().setText("");
         pp.getTxtNombreActividad().setText("");
-        pp.getSpTiempoMin().setValue(0);
-        pp.getSpVolumen().setValue(0);
+//        pp.getSpTiempoMin().setValue(0);
+//        pp.getSpVolumen().setValue(0);
         pp.getTxtDescripcion().setText("");
 
     }
@@ -111,14 +111,14 @@ public class ControladorProceso {
     }
 
     public void setActividad() {
-        a.setFrecuencia(obtenerSeleccionado(pp.getGrupoBotones()).getText());
+//        a.setFrecuencia(obtenerSeleccionado(pp.getGrupoBotones()).getText());
         a.setNombreActividad(pp.getTxtNombreActividad().getText());
-        a.setMedioVerificacion(pp.getTxtMedioVerif().getText());
+//        a.setMedioVerificacion(pp.getTxtMedioVerif().getText());
 //        a.setProcesito(procesos.get(pp.getCbProcesos().getSelectedIndex()));
         a.setRol(roles.get(pp.getCbPuesto().getSelectedIndex()));
         a.setTipoActividad(String.valueOf(pp.getCbTipo().getSelectedItem()));
-        a.setTiempoParcial(Integer.parseInt(String.valueOf(pp.getSpTiempoMin().getValue())));
-        a.setVolumen(Integer.parseInt(String.valueOf(pp.getSpVolumen().getValue())));
+//        a.setTiempoParcial(Integer.parseInt(String.valueOf(pp.getSpTiempoMin().getValue())));
+//        a.setVolumen(Integer.parseInt(String.valueOf(pp.getSpVolumen().getValue())));
         a.setDescripcion(pp.getTxtDescripcion().getText());
         a.setParaEvaluacion(false);
     }
@@ -186,17 +186,18 @@ public class ControladorProceso {
         DefaultTableModel dtm = new DefaultTableModel();
         dtm.addColumn("Nombre");
         dtm.addColumn("Responsable");
-        dtm.addColumn("Frecuencia");
-        dtm.addColumn("Medio Verificacion");
+//        dtm.addColumn("Frecuencia");
+//        dtm.addColumn("Medio Verificacion");
         dtm.addColumn("Tipo");
 
         for (Actividad o : actividades) {
             Object[] act = new Object[5];
             act[0] = o.getNombreActividad();
             act[1] = o.getRol().getCargo();
-            act[2] = o.getFrecuencia();
-            act[3] = o.getMedioVerificacion();
-            act[4] = o.getTipoActividad();
+            act[2] = o.getTipoActividad();
+//            act[2] = o.getFrecuencia();
+//            act[3] = o.getMedioVerificacion();
+//            act[4] = o.getTipoActividad();
             dtm.addRow(act);
         }
         pp.getTblActividades().setModel(dtm);
@@ -238,9 +239,9 @@ public class ControladorProceso {
         a = actividades.get(pp.getTblActividades().getSelectedRow());
         pp.getTxtNombreActividad().setText(a.getNombreActividad());
         pp.getTxtDescripcion().setText(a.getDescripcion());
-        pp.getTxtMedioVerif().setText(a.getMedioVerificacion());
+//        pp.getTxtMedioVerif().setText(a.getMedioVerificacion());
         pp.getCbTipo().setSelectedItem(a.getTipoActividad());
-        ponerSeleccionado(pp.getGrupoBotones(), a.getFrecuencia());
+//        ponerSeleccionado(pp.getGrupoBotones(), a.getFrecuencia());
         pp.getTabbedProcesos().setSelectedIndex(0);
         pp.getBtnCancelar().setVisible(true);
         pp.getCbProcesos().setSelectedIndex(pp.getCbProcesosLista().getSelectedIndex());

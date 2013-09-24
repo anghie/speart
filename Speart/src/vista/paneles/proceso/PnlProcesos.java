@@ -68,18 +68,6 @@ public class PnlProcesos extends javax.swing.JPanel {
         txtNombreActividad = new javax.swing.JTextField();
         lblNombre = new javax.swing.JLabel();
         cbTipo = new javax.swing.JComboBox();
-        lblFrecuencia = new javax.swing.JLabel();
-        chbDiaria = new javax.swing.JCheckBox();
-        chbAnual = new javax.swing.JCheckBox();
-        chbMensual = new javax.swing.JCheckBox();
-        chbQuincenal = new javax.swing.JCheckBox();
-        chbSemanal = new javax.swing.JCheckBox();
-        lblMedioVerificacion = new javax.swing.JLabel();
-        txtMedioVerif = new javax.swing.JTextField();
-        lblTiempMin = new javax.swing.JLabel();
-        spVolumen = new javax.swing.JSpinner();
-        lblVolumen = new javax.swing.JLabel();
-        spTiempoMin = new javax.swing.JSpinner();
         btnGuardarActividad = new javax.swing.JButton();
         cbPuesto = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
@@ -132,53 +120,6 @@ public class PnlProcesos extends javax.swing.JPanel {
         pnlAddActiv.add(cbTipo);
         cbTipo.setBounds(440, 140, 190, 30);
 
-        lblFrecuencia.setText(" Frecuencia:");
-        pnlAddActiv.add(lblFrecuencia);
-        lblFrecuencia.setBounds(60, 240, 90, 30);
-
-        grupoBotones.add(chbDiaria);
-        chbDiaria.setText("Diaria");
-        pnlAddActiv.add(chbDiaria);
-        chbDiaria.setBounds(550, 240, 91, 22);
-
-        grupoBotones.add(chbAnual);
-        chbAnual.setText("Anual");
-        pnlAddActiv.add(chbAnual);
-        chbAnual.setBounds(160, 240, 100, 22);
-
-        grupoBotones.add(chbMensual);
-        chbMensual.setText("Mensual");
-        pnlAddActiv.add(chbMensual);
-        chbMensual.setBounds(250, 240, 91, 22);
-
-        grupoBotones.add(chbQuincenal);
-        chbQuincenal.setText("Quincenal");
-        pnlAddActiv.add(chbQuincenal);
-        chbQuincenal.setBounds(350, 240, 100, 22);
-
-        grupoBotones.add(chbSemanal);
-        chbSemanal.setText("Semanal");
-        pnlAddActiv.add(chbSemanal);
-        chbSemanal.setBounds(450, 240, 91, 22);
-
-        lblMedioVerificacion.setText("      Medio Verificacion:");
-        pnlAddActiv.add(lblMedioVerificacion);
-        lblMedioVerificacion.setBounds(10, 280, 150, 30);
-        pnlAddActiv.add(txtMedioVerif);
-        txtMedioVerif.setBounds(160, 270, 470, 30);
-
-        lblTiempMin.setText("Tiempo en Minutos:");
-        pnlAddActiv.add(lblTiempMin);
-        lblTiempMin.setBounds(280, 320, 150, 30);
-        pnlAddActiv.add(spVolumen);
-        spVolumen.setBounds(160, 320, 70, 30);
-
-        lblVolumen.setText("    Volumen:");
-        pnlAddActiv.add(lblVolumen);
-        lblVolumen.setBounds(60, 320, 100, 30);
-        pnlAddActiv.add(spTiempoMin);
-        spTiempoMin.setBounds(430, 320, 80, 30);
-
         btnGuardarActividad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnGuardarActividad.setText("Guardar");
         btnGuardarActividad.setToolTipText("Guardar informacion del proceso");
@@ -189,7 +130,7 @@ public class PnlProcesos extends javax.swing.JPanel {
 
         jLabel1.setText("  Descripcion:   ");
         pnlAddActiv.add(jLabel1);
-        jLabel1.setBounds(60, 80, 79, 17);
+        jLabel1.setBounds(60, 80, 73, 14);
 
         txtDescripcion.setColumns(20);
         txtDescripcion.setRows(5);
@@ -203,7 +144,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         btnCancelar.setBounds(400, 190, 110, 40);
 
         pnlProcesos.add(pnlAddActiv);
-        pnlAddActiv.setBounds(10, 130, 650, 240);
+        pnlAddActiv.setBounds(10, 130, 650, 270);
 
         pnlAddProceso.setBorder(javax.swing.BorderFactory.createTitledBorder("PROCESO"));
         pnlAddProceso.setPreferredSize(new java.awt.Dimension(650, 70));
@@ -258,7 +199,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         btnEditarProceso.setText("Editar Proceso");
         btnEditarProceso.setToolTipText("Actualizar informcion del proceso");
         pnlListaProcesos.add(btnEditarProceso);
-        btnEditarProceso.setBounds(470, 20, 123, 30);
+        btnEditarProceso.setBounds(470, 20, 137, 30);
 
         lblProceso.setText("Proceso:");
         pnlListaProcesos.add(lblProceso);
@@ -293,37 +234,25 @@ public class PnlProcesos extends javax.swing.JPanel {
     private javax.swing.JComboBox cbProcesosLista;
     private javax.swing.JComboBox cbPuesto;
     private javax.swing.JComboBox cbTipo;
-    private javax.swing.JCheckBox chbAnual;
-    private javax.swing.JCheckBox chbDiaria;
-    private javax.swing.JCheckBox chbMensual;
-    private javax.swing.JCheckBox chbQuincenal;
-    private javax.swing.JCheckBox chbSemanal;
     private javax.swing.ButtonGroup grupoBotones;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblBuscar;
-    private javax.swing.JLabel lblFrecuencia;
-    private javax.swing.JLabel lblMedioVerificacion;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblProceso;
     private javax.swing.JLabel lblPuestoResponsable;
-    private javax.swing.JLabel lblTiempMin;
-    private javax.swing.JLabel lblVolumen;
     private javax.swing.JPanel pnlAddActiv;
     private javax.swing.JPanel pnlAddProceso;
     private javax.swing.JPanel pnlDos;
     private javax.swing.JPanel pnlListaProcesos;
     private javax.swing.JPanel pnlProcesos;
     private javax.swing.JPanel pnlUno;
-    private javax.swing.JSpinner spTiempoMin;
-    private javax.swing.JSpinner spVolumen;
     private javax.swing.JTabbedPane tabbedProcesos;
     private javax.swing.JTable tblActividades;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextArea txtDescripcion;
-    private javax.swing.JTextField txtMedioVerif;
     private javax.swing.JTextField txtNombreActividad;
     // End of variables declaration//GEN-END:variables
 
@@ -351,51 +280,51 @@ public class PnlProcesos extends javax.swing.JPanel {
     /**
      * @return the chbAnual
      */
-    public javax.swing.JCheckBox getChbAnual() {
-        return chbAnual;
-    }
+//    public javax.swing.JCheckBox getChbAnual() {
+//        return chbAnual;
+//    }
 
     /**
      * @return the chbDiaria
      */
-    public javax.swing.JCheckBox getChbDiaria() {
-        return chbDiaria;
-    }
+//    public javax.swing.JCheckBox getChbDiaria() {
+//        return chbDiaria;
+//    }
 
     /**
      * @return the chbMensual
      */
-    public javax.swing.JCheckBox getChbMensual() {
-        return chbMensual;
-    }
+//    public javax.swing.JCheckBox getChbMensual() {
+//        return chbMensual;
+//    }
 
     /**
      * @return the chbQuincenal
      */
-    public javax.swing.JCheckBox getChbQuincenal() {
-        return chbQuincenal;
-    }
+//    public javax.swing.JCheckBox getChbQuincenal() {
+//        return chbQuincenal;
+//    }
 
     /**
      * @return the chbSemanal
      */
-    public javax.swing.JCheckBox getChbSemanal() {
-        return chbSemanal;
-    }
+//    public javax.swing.JCheckBox getChbSemanal() {
+//        return chbSemanal;
+//    }
 
     /**
      * @return the spTiempoMin
      */
-    public javax.swing.JSpinner getSpTiempoMin() {
-        return spTiempoMin;
-    }
+//    public javax.swing.JSpinner getSpTiempoMin() {
+//        return spTiempoMin;
+//    }
 
     /**
      * @return the spVolumen
      */
-    public javax.swing.JSpinner getSpVolumen() {
-        return spVolumen;
-    }
+//    public javax.swing.JSpinner getSpVolumen() {
+//        return spVolumen;
+//    }
 
     /**
      * @return the txtBuscar
@@ -407,9 +336,9 @@ public class PnlProcesos extends javax.swing.JPanel {
     /**
      * @return the txtMedioVerif
      */
-    public javax.swing.JTextField getTxtMedioVerif() {
-        return txtMedioVerif;
-    }
+//    public javax.swing.JTextField getTxtMedioVerif() {
+//        return txtMedioVerif;
+//    }
 
     /**
      * @return the txtNombreActividad
