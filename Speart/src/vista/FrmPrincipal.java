@@ -15,7 +15,6 @@ import vista.paneles.proceso.PnlProcesos;
 import vista.paneles.respaldos.PnlRespaldos;
 import vista.paneles.servicios.DialogoAgendaContactos;
 import vista.paneles.servicios.DialogoCalendarioRecor;
-import vista.paneles.servicios.PnlServicios;
 import vista.paneles.usuario.DialogCambiaClave;
 import vista.paneles.usuario.PnlUsuario;
 

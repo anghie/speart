@@ -60,9 +60,7 @@ public class ControladorProceso {
                         Mensaje.datosGuardados();
                         poneComboProcesos();
                     } else {
-                        
-                        
-                        
+
                         Mensaje.datosNoGuardados();
                     }
                 }
@@ -75,7 +73,7 @@ public class ControladorProceso {
 
     public boolean hayVacios() {
         if (pp.getTxtNombreActividad().getText().isEmpty()
-//                || pp.getTxtMedioVerif().getText().isEmpty()
+                //                || pp.getTxtMedioVerif().getText().isEmpty()
                 || pp.getTxtDescripcion().getText().isEmpty()) {
             ControladorPrincipal.coloreaErroresTxt(pp.getPnlAddActiv());
             ControladorPrincipal.coloreaErroresATxt(pp.getPnlAddActiv());
@@ -97,18 +95,17 @@ public class ControladorProceso {
 
     public void guardaActividad() {
         a = new Actividad();
-        if (obtenerSeleccionado(pp.getGrupoBotones()) != null) {
-            setActividad();
-            Proceso p = procesos.get(pp.getCbProcesos().getSelectedIndex());
-            a.setProcesito(p);
-            p.addActividad(a);
-            if (OperacionesBD.guardar(p)) {
-                Mensaje.datosGuardados();
-                limpiaCampos();
-            } else {
-                Mensaje.datosNoGuardados();
-            }
-        } 
+        setActividad();
+        p = procesos.get(pp.getCbProcesos().getSelectedIndex());
+        a.setProcesito(p);
+        p.addActividad(a);
+        if (OperacionesBD.guardar(p)) {
+            Mensaje.datosGuardados();
+            limpiaCampos();
+        } else {
+            Mensaje.datosNoGuardados();
+        }
+
 //        else {
 //            JOptionPane.showMessageDialog(null, "Debe seleccionar la frecuencia");
 //        }
