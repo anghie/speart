@@ -22,12 +22,13 @@ public class CompetenciaTecnica implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String nombreDestrezaTec;
-    @Column(length = 500)
+    @Column(length = 500) 
     private String altaTec;
     @Column(length = 500)
     private String mediaTec;
-    @Column(length = 500)
+    @Column(length = 500, name ="bajaTec") 
     private String bajaTec;
+    @Column(name="paraEvaluacionCT")
     private boolean paraEvaluacionCT;
     @ManyToMany
     private List<Rol> rolesCT;

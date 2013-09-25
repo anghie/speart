@@ -7,6 +7,7 @@ package controlador.acciones.operaciones;
 import controlador.acciones.ControladorPrincipal;
 import controlador.basedatos.OperacionesBD;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.operaciones.CompetenciaTecnica;
 import vista.modelo.Mensaje;
@@ -14,7 +15,7 @@ import vista.paneles.operaciones.PnlOperaciones;
 
 /**
  *
- * @author 
+ * @author
  */
 public class ControladorCompetenciasTecnicas {
 
@@ -65,15 +66,20 @@ public class ControladorCompetenciasTecnicas {
     }
 
     public void guardaCompetenciaTecnica() {
-        ct = new CompetenciaTecnica();
-        setCompetenciaTecnica();
-        if (OperacionesBD.guardar(ct)) {
-            Mensaje.datosGuardados();
-            actualizaTabla();
-            nuevaCompetenciaTecnica();
-            poneEnables(false);
-        } else {
-            Mensaje.datosNoGuardados();
+
+        if (!OperacionesBD.existe("", "", po.getTxtDestreza().getText())) {
+            ct = new CompetenciaTecnica();
+            setCompetenciaTecnica();
+            if (OperacionesBD.guardar(ct)) {
+                Mensaje.datosGuardados();
+                actualizaTabla();
+                nuevaCompetenciaTecnica();
+                poneEnables(false);
+            } else {
+                Mensaje.datosNoGuardados();
+            }
+        }else {
+            JOptionPane.showMessageDialog(null, "La competencia ingresada ya existe");
         }
     }
 
