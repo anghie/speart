@@ -33,27 +33,31 @@ public class DialogoMeta extends javax.swing.JDialog {
     /**
      * Creates new form DialogoMeta
      */
-    private LinkedList<Actividad>listaActividades;
-    private ArrayList<Usuario>listaUsuarios;
+    private LinkedList<Actividad> listaActividades;
+    private ArrayList<Usuario> listaUsuarios;
     private Agenda agenda;
     private boolean modificado;
     private ModeloTablaMeta modeloTablaMeta;
+
     public DialogoMeta(JFrame parent, boolean modal) {
         super(parent, modal);
-        this.agenda= ControladorAgenda.getAgendaActual();
-        this.modeloTablaMeta=new ModeloTablaMeta();
+        this.agenda = ControladorAgenda.getAgendaActual();
+        this.modeloTablaMeta = new ModeloTablaMeta();
         initComponents();
         iniciarActividades();
         iniciarRoles();
     }
-    private void iniciarActividades(){
-       listaActividades=ControladorActividades.getAllActividades();
-       cmbActividad.setModel(new ModeloComboBoxActividad(listaActividades));
+
+    private void iniciarActividades() {
+        listaActividades = ControladorActividades.getAllActividades();
+        cmbActividad.setModel(new ModeloComboBoxActividad(listaActividades));
     }
-    private void iniciarRoles(){
-       listaUsuarios= ControladorUsuario.usuarios;
-       cmbUsuario.setModel(new ModeloComboBoxUsuarios(listaUsuarios));
+
+    private void iniciarRoles() {
+        listaUsuarios = ControladorUsuario.usuarios;
+        cmbUsuario.setModel(new ModeloComboBoxUsuarios(listaUsuarios));
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -95,9 +99,10 @@ public class DialogoMeta extends javax.swing.JDialog {
         getContentPane().add(panelCenter, java.awt.BorderLayout.CENTER);
 
         cmbIndic.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        cmbIndic.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Mes:");
-        cmbIndic.add(jLabel1);
+        cmbIndic.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         cmbMes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo ", "Abril", "Mayo ", "Junio", "Julio ", "Agosto", "Septiembre", "Octubre ", "Noviembre", "Diciembre" }));
         cmbMes.setMinimumSize(new java.awt.Dimension(100, 20));
@@ -107,35 +112,35 @@ public class DialogoMeta extends javax.swing.JDialog {
                 cmbMesActionPerformed(evt);
             }
         });
-        cmbIndic.add(cmbMes);
+        cmbIndic.add(cmbMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
         jLabel2.setText("Indicador:");
-        cmbIndic.add(jLabel2);
+        cmbIndic.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
         spnIndicador.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), Double.valueOf(0.0d), null, Double.valueOf(1.0d)));
         spnIndicador.setPreferredSize(new java.awt.Dimension(60, 20));
-        cmbIndic.add(spnIndicador);
+        cmbIndic.add(spnIndicador, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
         jLabel3.setText("Meta:");
-        cmbIndic.add(jLabel3);
+        cmbIndic.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
 
         spnMeta.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
         spnMeta.setPreferredSize(new java.awt.Dimension(60, 20));
-        cmbIndic.add(spnMeta);
+        cmbIndic.add(spnMeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
 
         jLabel4.setText("Actividad:");
-        cmbIndic.add(jLabel4);
+        cmbIndic.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, -1));
 
         cmbActividad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbActividad.setPreferredSize(new java.awt.Dimension(80, 20));
-        cmbIndic.add(cmbActividad);
+        cmbIndic.add(cmbActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(444, 11, 190, -1));
 
         jLabel5.setText("Usuario:");
-        cmbIndic.add(jLabel5);
+        cmbIndic.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
 
         cmbUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbUsuario.setPreferredSize(new java.awt.Dimension(80, 20));
-        cmbIndic.add(cmbUsuario);
+        cmbIndic.add(cmbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, -1, -1));
 
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/list-add.png"))); // NOI18N
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -143,7 +148,7 @@ public class DialogoMeta extends javax.swing.JDialog {
                 btnAddActionPerformed(evt);
             }
         });
-        cmbIndic.add(btnAdd);
+        cmbIndic.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 0, -1, -1));
 
         btnRemove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/list-remove.png"))); // NOI18N
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
@@ -151,7 +156,7 @@ public class DialogoMeta extends javax.swing.JDialog {
                 btnRemoveActionPerformed(evt);
             }
         });
-        cmbIndic.add(btnRemove);
+        cmbIndic.add(btnRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 0, -1, -1));
 
         getContentPane().add(cmbIndic, java.awt.BorderLayout.PAGE_START);
 
@@ -182,32 +187,32 @@ public class DialogoMeta extends javax.swing.JDialog {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        Meta nuevaMeta= new Meta();
+        Meta nuevaMeta = new Meta();
         nuevaMeta.setAgenda(agenda);
-        Actividad actividad= ((ModeloComboBoxActividad)cmbActividad.getModel()).getSelectedActividad();
+        Actividad actividad = ((ModeloComboBoxActividad) cmbActividad.getModel()).getSelectedActividad();
         nuevaMeta.setActividad(actividad);
-        
-        Usuario usuario= ((ModeloComboBoxUsuarios)cmbUsuario.getModel()).getSelectedUsuario();
+
+        Usuario usuario = ((ModeloComboBoxUsuarios) cmbUsuario.getModel()).getSelectedUsuario();
         nuevaMeta.setUsuario(usuario);
-        
+
         nuevaMeta.setFecha(Calendar.getInstance().getTime());
         nuevaMeta.setIndicador(Double.parseDouble(spnIndicador.getValue().toString()));
         nuevaMeta.setValor(Integer.parseInt(spnMeta.getValue().toString()));
         nuevaMeta.setMes(Fecha.getNumeroMes(cmbMes.getSelectedItem().toString()));
-        
-        ModeloTablaMeta modeloTabla=(ModeloTablaMeta)tablaMetas.getModel();
+
+        ModeloTablaMeta modeloTabla = (ModeloTablaMeta) tablaMetas.getModel();
         modeloTabla.addMeta(nuevaMeta);
         //ControladorMeta.createMeta();
         //nuevaMeta.setTotalHecho(WIDTH);
-        modificado=true;
-        
+        modificado = true;
+
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here:
-        ModeloTablaMeta modeloTabla=(ModeloTablaMeta)tablaMetas.getModel();
+        ModeloTablaMeta modeloTabla = (ModeloTablaMeta) tablaMetas.getModel();
         modeloTabla.removMeta(tablaMetas.getSelectedRow());
-        modificado=true;
+        modificado = true;
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -218,44 +223,45 @@ public class DialogoMeta extends javax.swing.JDialog {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        int n = JOptionPane.showConfirmDialog(null, "¿Desea guardar los datos?", "Guardar", JOptionPane.YES_NO_OPTION);
-                        if (n == JOptionPane.YES_OPTION) {
-                          guardarActualizar();
-//                          modificado=false; 
-                        }
-                        
-        
+
+        guardarActualizar();
+        modificado = false;
+        dispose();
+
+
+
 
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void cmbMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMesActionPerformed
         // TODO add your handling code here:
-        String mes=cmbMes.getSelectedItem().toString();
-        mes=""+Fecha.getNumeroMes(mes);
-        LinkedList<Meta> metas=ControladorMeta.searchMetas(mes);
-        modeloTablaMeta.setItemsMeta(metas); 
+        String mes = cmbMes.getSelectedItem().toString();
+        mes = "" + Fecha.getNumeroMes(mes);
+        LinkedList<Meta> metas = ControladorMeta.searchMetas(mes);
+        modeloTablaMeta.setItemsMeta(metas);
         guardarDatos();
     }//GEN-LAST:event_cmbMesActionPerformed
-    public void guardarDatos(){
-        if(modificado){
-           int x= JOptionPane.showConfirmDialog(panelCenter,"Se han realizado modificaciones desea gurdar");
-           if(x==JOptionPane.YES_OPTION){
-               guardarActualizar();
-               modificado=false;
-           }
+    public void guardarDatos() {
+        if (modificado) {
+            int x = JOptionPane.showConfirmDialog(panelCenter, "Se han realizado modificaciones desea gurdar");
+            if (x == JOptionPane.YES_OPTION) {
+                guardarActualizar();
+                modificado = false;
+            }
         }
     }
-    public void guardarActualizar(){
-        ModeloTablaMeta modeloTabla=(ModeloTablaMeta)tablaMetas.getModel();
-               LinkedList<Meta> metas=modeloTabla.getDatos();
-               for (Iterator<Meta> it = metas.iterator(); it.hasNext();) {
-                   Meta meta = it.next();
-                   if(meta.getId()==null || meta.getId()==-1){
-                       ControladorMeta.createMeta(meta);
-                   }else{
-                       ControladorMeta.updateMeta(meta);
-                   }
-               }
+
+    public void guardarActualizar() {
+        ModeloTablaMeta modeloTabla = (ModeloTablaMeta) tablaMetas.getModel();
+        LinkedList<Meta> metas = modeloTabla.getDatos();
+        for (Iterator<Meta> it = metas.iterator(); it.hasNext();) {
+            Meta meta = it.next();
+            if (meta.getId() == null || meta.getId() == -1) {
+                ControladorMeta.createMeta(meta);
+            } else {
+                ControladorMeta.updateMeta(meta);
+            }
+        }
     }
     /**
      * @param args the command line arguments

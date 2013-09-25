@@ -10,7 +10,7 @@ public class Proceso implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-//    @Column(name = "idProceso")
+    @Column(name = "idProceso")
     private int idProceso;
     @Column(name = "nombreProceso")
     private String nombreProceso;

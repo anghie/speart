@@ -256,7 +256,7 @@ public class PanelActividad extends javax.swing.JPanel {
 
         jLabel1.setText("Total Hecho:");
         add(jLabel1);
-        jLabel1.setBounds(258, 53, 61, 14);
+        jLabel1.setBounds(100, 50, 61, 14);
 
         spnPorcentaje.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, 100.0d, 1.0d));
         spnPorcentaje.setPreferredSize(new java.awt.Dimension(100, 20));
@@ -266,7 +266,7 @@ public class PanelActividad extends javax.swing.JPanel {
             }
         });
         add(spnPorcentaje);
-        spnPorcentaje.setBounds(323, 50, 100, 20);
+        spnPorcentaje.setBounds(170, 50, 100, 20);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
