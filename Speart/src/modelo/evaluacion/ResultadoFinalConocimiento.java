@@ -31,9 +31,9 @@ public class ResultadoFinalConocimiento implements Serializable {
     private int idSeccion;
     @OneToMany(mappedBy = "resultadoFinalConocimiento", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<ResultadoConocimientos> resultadoConocim = new ArrayList<>();
-    @Column(name = " total")
+//    @Column(name = " total")
     private double total;
-    @Column(name = " aprobado")
+//    @Column(name = " aprobado")
     private boolean aprobado;
 
     /**

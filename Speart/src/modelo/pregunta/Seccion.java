@@ -30,7 +30,7 @@ public class Seccion implements Serializable {
     private long idSeccion;
     @Column(name = "nombreSeccion")
     private String nombreSeccion;
-    @Column(name = " paraEvaluacion")
+//    @Column(name = " paraEvaluacion")
     private boolean paraEvaluacion;
     @OneToMany(mappedBy = "seccion", cascade = CascadeType.ALL)
     private List<Pregunta> preguntas;

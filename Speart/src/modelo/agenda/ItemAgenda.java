@@ -25,7 +25,7 @@ public class ItemAgenda implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+//    @Column(name = "id")
     private int id;
     @Temporal(javax.persistence.TemporalType.DATE)
     @Column(name = "fecha")
@@ -57,7 +57,7 @@ public class ItemAgenda implements Serializable {
     private Agenda agenda;
     @ManyToOne
     private Actividad actividad;
-    @Column(name = "recordar")
+//    @Column(name = "recordar")
     private boolean recordar;
 
     public ItemAgenda() {

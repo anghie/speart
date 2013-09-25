@@ -11,7 +11,7 @@ public class Actividad implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idActividad")
+//    @Column(name = "idActividad")
     private int idActividad;
     @Column( name = "nombreActividad")
     private String nombreActividad;

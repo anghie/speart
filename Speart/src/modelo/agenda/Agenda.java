@@ -25,7 +25,7 @@ public class Agenda implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = " id")
+//    @Column(name = " id")
     private int id;
     @OneToMany(mappedBy = "agenda", cascade = CascadeType.ALL)
     private List<ItemAgenda> itemsAgenda;
@@ -33,7 +33,7 @@ public class Agenda implements Serializable {
     private List<DiaFeriado> diasFeriados;
     @OneToMany(mappedBy = "agenda", cascade = CascadeType.ALL)
     private List<Meta> metas;
-    @Column(unique = true, name = " nombre")
+    @Column(unique = true)
     private String nombre;
 
     public Agenda() {
