@@ -11,27 +11,31 @@ public class Actividad implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idActividad")
     private int idActividad;
+    @Column( name = "nombreActividad")
     private String nombreActividad;
+    @Column(name = "tipoActividad")
     private String tipoActividad;
 //    private String medioVerificacion;
 //    private String frecuencia;
-    @Column(length = 255)
+    @Column(length = 255, name = "descripcion")
     private String descripcion;
 //    private int volumen;
 //    private int tiempoParcial;
+    @Column( name = "paraEvaluacion")
     private boolean paraEvaluacion;
     @ManyToOne
     private Proceso procesito;
     @ManyToOne
     private Rol rol;
-    
-    @OneToMany(mappedBy="actividad",cascade=CascadeType.ALL)
-    private List <Meta> metas; 
+    @OneToMany(mappedBy = "actividad", cascade = CascadeType.ALL)
+    private List<Meta> metas;
 
     public Actividad() {
-        this.metas=new LinkedList<Meta>();
+        this.metas = new LinkedList<Meta>();
     }
+
     /**
      * @return the idActividad
      */
@@ -66,7 +70,6 @@ public class Actividad implements Serializable {
 //    public String getMedioVerificacion() {
 //        return medioVerificacion;
 //    }
-
     /**
      * @return the nombreActividad
      */
@@ -101,7 +104,6 @@ public class Actividad implements Serializable {
 //    public String getFrecuencia() {
 //        return frecuencia;
 //    }
-
     /**
      * @param frecuencia the frecuencia to set
      */
@@ -115,10 +117,9 @@ public class Actividad implements Serializable {
 //    public int getVolumen() {
 //        return volumen;
 //    }
-
     /**
-     * @param volumen the volumen to set
-//     */
+     * @param volumen the volumen to set //
+     */
 //    public void setVolumen(int volumen) {
 //        this.volumen = volumen;
 //    }
@@ -136,7 +137,6 @@ public class Actividad implements Serializable {
 //    public void setTiempoParcial(int tiempoParcial) {
 //        this.tiempoParcial = tiempoParcial;
 //    }
-
     /**
      * @return the rol
      */
@@ -157,7 +157,6 @@ public class Actividad implements Serializable {
 //    public void setMedioVerificacion(String medioVerificacion) {
 //        this.medioVerificacion = medioVerificacion;
 //    }
-
     /**
      * @return the descripcion
      */
@@ -193,5 +192,4 @@ public class Actividad implements Serializable {
     public void setMetas(List<Meta> metas) {
         this.metas = metas;
     }
-    
 }

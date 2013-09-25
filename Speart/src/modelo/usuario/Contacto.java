@@ -5,6 +5,7 @@
 package modelo.usuario;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -14,10 +15,13 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Contacto extends Persona implements Serializable {
-
+ @Column(name="direccion")
     private String direccion;
+ @Column(name="telefono")
     private String telefono;
+ @Column(name="celular")
     private String celular;
+ @Column(name="email")
     private String email;
     @ManyToOne
     private Usuario usuario;

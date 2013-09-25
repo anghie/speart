@@ -5,6 +5,7 @@
 package modelo.usuario;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,17 +15,22 @@ import modelo.proceso.Rol;
 
 /**
  *
- * @author jenny
+ * @author 
  */
 @Entity
 public class Queja implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="idQueja")
     private long idQueja;
+    @Column(name="nombreDenun")
     private String nombreDenun;
+     @Column(name="detalle")
     private String detalle;
+    @Column(name="dnroForm")
     private String nroForm;
+     @Column(name="reducePorcent")
     private boolean reducePorcent;
     @ManyToOne
     private Rol rol;

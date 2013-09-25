@@ -9,26 +9,29 @@ import modelo.proceso.*;
 import modelo.recordatorio.Recordatorio;
 
 @Entity
-public class Usuario extends Persona implements Serializable {  
+public class Usuario extends Persona implements Serializable {
 
+    @Column(name = "login")
     private String login;
+    @Column(name = "clave")
     private String clave;
+    @Column(name = "habilitado")
     private boolean habilitado;//Si esta habilitado para acceso
     @OneToOne(cascade = CascadeType.ALL)
-    private Rol rol;    
+    private Rol rol;
     @OneToMany(mappedBy = "usuario")
     private List<Recordatorio> recordatorios;
     @OneToMany(mappedBy = "usuario")
     private List<Contacto> contactos;
-    
-    @OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Meta> metas;
-     
-    public Usuario(){
-        recordatorios= new ArrayList<>();
-        contactos= new ArrayList<>();
-        metas= new ArrayList<>();
-    }    
+
+    public Usuario() {
+        recordatorios = new ArrayList<>();
+        contactos = new ArrayList<>();
+        metas = new ArrayList<>();
+    }
+
     public Rol getRol() {
         return rol;
     }
@@ -68,5 +71,4 @@ public class Usuario extends Persona implements Serializable {
     public void setMetas(List<Meta> metas) {
         this.metas = metas;
     }
-    
 }

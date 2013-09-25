@@ -5,6 +5,7 @@
 package modelo.evaluacion;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,17 +13,22 @@ import javax.persistence.Id;
 
 /**
  *
- * @author jenny
+ * @author
  */
 @Entity
 public class Efectos implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idEfectos")
     private long idEfectos;
+    @Column(name = "nombre")
     private String nombre;
+    @Column(name = "bueno")
     private String bueno;
+    @Column(name = "deficiente")
     private String deficiente;
+    @Column(name = "ineficiente")
     private String ineficiente;
 
     /**

@@ -26,9 +26,11 @@ public class Pregunta implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idPregunta")
     private int idPregunta;
-    @Column(length = 500)
+    @Column(length = 500, name = "preg")
     private String preg;
+    @Column(name = "habilit")
     private boolean habilit;
     @ManyToOne
     private Seccion seccion;    

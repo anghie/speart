@@ -11,20 +11,26 @@ import modelo.usuario.Usuario;
 
 /**
  *
- * @author 
+ * @author
  */
 @Entity
 public class Recordatorio implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idRecordatorio")
     private int idRecordatorio;
+    @Column(name = "titulo")
     private String titulo;
+    @Column(name = "detalle")
     private String detalle;
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "fechaHora")
     private Calendar fechaHora;
+    @Column(name = "cumplido")
     private boolean cumplido;
-    private int recordar;    
+    @Column(name = "recordar")
+    private int recordar;
     @ManyToOne
     private Usuario usuario;
 

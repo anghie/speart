@@ -19,22 +19,27 @@ import modelo.usuario.Usuario;
 
 /**
  *
- * @author alf
+ * @author
  */
 @Entity
 public class Meta implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
-    
+    @Column(name = "indicador")
     private double indicador;
+    @Column(name = "valor")
     private int valor;
     @Transient
+   @Column(name = "totalHecho")
     private int totalHecho;
     @Temporal(javax.persistence.TemporalType.DATE)
+    @Column(name = "fecha")
     private Date fecha;
-    //@Column(unique = true)
+    @Column(unique = true, name = "mes")
     private int mes;
     @ManyToOne
     private Agenda agenda;
@@ -42,6 +47,7 @@ public class Meta implements Serializable {
     private Actividad actividad;
     @ManyToOne
     private Usuario usuario;
+
     public Long getId() {
         return id;
     }
@@ -78,7 +84,6 @@ public class Meta implements Serializable {
         this.valor = valor;
     }
 
-    
     public void setId(Long id) {
         this.id = id;
     }
@@ -97,12 +102,11 @@ public class Meta implements Serializable {
             return false;
         }
         Meta other = (Meta) object;
-        if ((this.id == null && other.id != null) || 
-            (this.id != null && !this.id.equals(other.id)) ||
-            (this.agenda != null && !this.agenda.equals(other.agenda)) ||    
-            (this.actividad != null && !this.actividad.equals(other.actividad)) ||
-            (this.usuario != null && !this.usuario.equals(other.usuario))    
-           ) {
+        if ((this.id == null && other.id != null)
+                || (this.id != null && !this.id.equals(other.id))
+                || (this.agenda != null && !this.agenda.equals(other.agenda))
+                || (this.actividad != null && !this.actividad.equals(other.actividad))
+                || (this.usuario != null && !this.usuario.equals(other.usuario))) {
             return false;
         }
         return true;
@@ -144,5 +148,4 @@ public class Meta implements Serializable {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-    
 }

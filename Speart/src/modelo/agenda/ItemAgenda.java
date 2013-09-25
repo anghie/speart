@@ -4,11 +4,11 @@ package modelo.agenda;
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import java.util.Date;
 import javax.persistence.ManyToOne;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,43 +18,51 @@ import modelo.proceso.Actividad;
 
 /**
  *
- * @author 
+ * @author
  */
 @Entity
 public class ItemAgenda implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private int id;
-
     @Temporal(javax.persistence.TemporalType.DATE)
+    @Column(name = "fecha")
     private Date fecha;
-
+    @Column(name = "mes")
     private String mes;
+    @Column(name = "observacion")
     private String observacion;
+    @Column(name = "porcentaje")
     private double porcentaje;
+    @Column(name = "dia")
     private String dia;
+    @Column(name = "dia_del_mes")
     private String dia_del_mes;
+    @Column(name = "nombre_actividad")
     private String nombre_actividad;
+    @Column(name = "completada")
     private boolean completada;
     @Temporal(javax.persistence.TemporalType.TIME)
+    @Column(name = "tiempoDuracion")
     private Date tiempoDuracion;
     @Temporal(javax.persistence.TemporalType.TIME)
+    @Column(name = "horaInicio")
     private Date horaInicio;
     @Temporal(javax.persistence.TemporalType.TIME)
+    @Column(name = "horaFin")
     private Date horaFin;
-
     @ManyToOne
     private Agenda agenda;
-    
     @ManyToOne
     private Actividad actividad;
-
-    private boolean  recordar;
+    @Column(name = "recordar")
+    private boolean recordar;
 
     public ItemAgenda() {
     }
-   
+
     public Actividad getActividad() {
         return actividad;
     }
@@ -131,7 +139,7 @@ public class ItemAgenda implements Serializable {
         return tiempoDuracion;
     }
 
-    public void setTiempoDuracion(Date tiempoDuracion ) {
+    public void setTiempoDuracion(Date tiempoDuracion) {
         this.tiempoDuracion = tiempoDuracion;
     }
 
@@ -158,10 +166,10 @@ public class ItemAgenda implements Serializable {
     public void setRecordar(boolean recordar) {
         this.recordar = recordar;
     }
-    
+
     @Override
     public String toString() {
-        return mes+" "+dia+" "+dia_del_mes+" "+nombre_actividad+" "+completada;
+        return mes + " " + dia + " " + dia_del_mes + " " + nombre_actividad + " " + completada;
     }
 
     public String getObservacion() {
@@ -179,6 +187,4 @@ public class ItemAgenda implements Serializable {
     public void setPorcentaje(double porcentaje) {
         this.porcentaje = porcentaje;
     }
-
-
 }

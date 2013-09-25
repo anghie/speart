@@ -9,10 +9,15 @@ public class Persona implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="idpersona")
     private int idPersona;
+    @Column(name="cedula")
     private String cedula;
+    @Column(name="nombre")
     private String nombre;
+     @Column(name="apellidos")
     private String apellidos;
+     @Column(name="profesion")
     private String profesion;
 
     public String getProfesion() {

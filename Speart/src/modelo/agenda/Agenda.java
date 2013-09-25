@@ -4,7 +4,6 @@ package modelo.agenda;
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
@@ -19,31 +18,28 @@ import javax.persistence.OneToMany;
 
 /**
  *
- * @author 
+ * @author
  */
 @Entity
 public class Agenda implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = " id")
     private int id;
- 
-    @OneToMany(mappedBy="agenda",cascade=CascadeType.ALL)
-    private List <ItemAgenda> itemsAgenda;
-    
-    @OneToMany(mappedBy="agenda",cascade=CascadeType.ALL)
-    private List <DiaFeriado> diasFeriados;
-    
-    @OneToMany(mappedBy="agenda",cascade=CascadeType.ALL)
-    private List <Meta> metas; 
-    
-    @Column(unique=true)
+    @OneToMany(mappedBy = "agenda", cascade = CascadeType.ALL)
+    private List<ItemAgenda> itemsAgenda;
+    @OneToMany(mappedBy = "agenda", cascade = CascadeType.ALL)
+    private List<DiaFeriado> diasFeriados;
+    @OneToMany(mappedBy = "agenda", cascade = CascadeType.ALL)
+    private List<Meta> metas;
+    @Column(unique = true, name = " nombre")
     private String nombre;
 
     public Agenda() {
-        this.itemsAgenda=new LinkedList<ItemAgenda>();
-        this.diasFeriados=new LinkedList<DiaFeriado>();
-        this.metas=new LinkedList<Meta>();
+        this.itemsAgenda = new LinkedList<ItemAgenda>();
+        this.diasFeriados = new LinkedList<DiaFeriado>();
+        this.metas = new LinkedList<Meta>();
     }
 
     public int getId() {
@@ -85,5 +81,4 @@ public class Agenda implements Serializable {
     public void setMetas(List<Meta> metas) {
         this.metas = metas;
     }
-    
 }

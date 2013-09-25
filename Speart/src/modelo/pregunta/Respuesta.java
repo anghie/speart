@@ -6,6 +6,7 @@ package modelo.pregunta;
 
 import java.io.Serializable;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,20 +15,21 @@ import javax.persistence.ManyToOne;
 
 /**
  *
- * @author 
+ * @author
  */
 @Entity
-public class Respuesta implements Serializable{
-    
-    
+public class Respuesta implements Serializable {
+
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idRespuesta")
     private int idRespuesta;
+    @Column(name = "rpta")
     private String rpta;
+    @Column(name = "estadoRpta")
     private boolean estadoRpta;
     @ManyToOne
     private Pregunta pregunta;
-   
 
     /**
      * @return the idRespuesta
@@ -84,6 +86,4 @@ public class Respuesta implements Serializable{
     public void setPregunta(Pregunta pregunta) {
         this.pregunta = pregunta;
     }
-
-
 }

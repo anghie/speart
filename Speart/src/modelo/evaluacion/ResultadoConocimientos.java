@@ -5,6 +5,7 @@
 package modelo.evaluacion;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,32 +14,37 @@ import javax.persistence.ManyToOne;
 
 /**
  *
- * @author jenny
+ * @author
  */
 @Entity
-public class ResultadoConocimientos implements Serializable{
+public class ResultadoConocimientos implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idRC;   
+    @Column(name = "idRC")
+    private int idRC;
+    @Column(name = "idPreg")
     private int idPreg;
+    @Column(name = "idResp")
     private int idResp;
+    @Column(name = "valor")
     private double valor;
+    @Column(name = "rptaCorrecta")
     private boolean rptaCorrecta;
-    @ManyToOne    
+    @ManyToOne
     private ResultadoFinalConocimiento resultadoFinalConocimiento;
 
-    public ResultadoConocimientos() {        
+    public ResultadoConocimientos() {
     }
 
-    public ResultadoConocimientos(int idPreg, int idResp, boolean rptaCorrecta,double val) {       
-        
+    public ResultadoConocimientos(int idPreg, int idResp, boolean rptaCorrecta, double val) {
+
         this.idPreg = idPreg;
         this.idResp = idResp;
         this.rptaCorrecta = rptaCorrecta;
-        this.valor=val;
+        this.valor = val;
     }
 
-    
     /**
      * @return the idRC
      */
@@ -95,7 +101,6 @@ public class ResultadoConocimientos implements Serializable{
         this.rptaCorrecta = rptaCorrecta;
     }
 
-
     /**
      * @return the resultadoFinalConocimiento
      */
@@ -123,5 +128,4 @@ public class ResultadoConocimientos implements Serializable{
     public void setValor(double valor) {
         this.valor = valor;
     }
-    
 }

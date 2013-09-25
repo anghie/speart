@@ -20,15 +20,17 @@ public class CompetenciaTecnica implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private int id;
+    @Column(name = "nombreDestrezaTec")
     private String nombreDestrezaTec;
-    @Column(length = 500) 
+    @Column(length = 500, name = "altaTec")
     private String altaTec;
-    @Column(length = 500)
+    @Column(length = 500, name = "mediaTec")
     private String mediaTec;
-    @Column(length = 500, name ="bajaTec") 
+    @Column(length = 500, name = "bajaTec")
     private String bajaTec;
-    @Column(name="paraEvaluacionCT")
+    @Column(name = "paraEvaluacionCT")
     private boolean paraEvaluacionCT;
     @ManyToMany
     private List<Rol> rolesCT;

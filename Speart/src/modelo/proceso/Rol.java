@@ -11,28 +11,37 @@ import modelo.usuario.*;
 
 @Entity
 public class Rol implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idRol")
     private int idRol;
+    @Column(name = "tipol")
     private String tipo;//Jefe RRHH,Jefe,Servidor
+    @Column(name = "cargo")
     private String cargo;
+    @Column(name = "hExt")
     private int hExt;
+    @Column(name = "hLab")
     private int hLab;
+    @Column(name = "rem")
     private int rem;
+    @Column(name = "evaluable")
     private boolean evaluable;//Si es evaluable o no
+    @Column(name = "estadoEvaluacion")
     private String estadoEvaluacion;//Evaluado,NoEvaluado,Pendiente
     @OneToOne(mappedBy = "rol")
     private Usuario usuario;
-    @OneToMany(mappedBy = "rol",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "rol", cascade = CascadeType.ALL)
     private List<Actividad> actividades;
     @ManyToMany(mappedBy = "roles")
-    private List<Seccion> seccions= new ArrayList<>();   
+    private List<Seccion> seccions = new ArrayList<>();
     @ManyToMany(mappedBy = "rolesCT")
     private List<CompetenciaTecnica> competenciaTecnicas;
-    
+
     public Rol() {
-        actividades = new ArrayList();        
-        competenciaTecnicas= new ArrayList<>();
+        actividades = new ArrayList();
+        competenciaTecnicas = new ArrayList<>();
     }
 
     /**
@@ -193,13 +202,10 @@ public class Rol implements Serializable {
         this.seccions = seccions;
     }
 
-
-
     /**
      * @return the competenciaTecnicas
      */
     public List<CompetenciaTecnica> getCompetenciaTecnicas() {
         return competenciaTecnicas;
     }
- 
 }

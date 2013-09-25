@@ -13,21 +13,26 @@ import javax.persistence.Id;
 
 /**
  *
- * @author 
+ * @author
  */
 @Entity
 public class TrabajoEquipo implements Serializable {
+
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idTrabEquipo")
     private int idTrabEquipo;
+    @Column(name = "descripcionTrabEquipo")
     private String descripcionTrabEquipo;
-    @Column(length = 500)
+    @Column(length = 500, name = "altaTrabEquipo")
     private String altaTrabEquipo;
-    @Column(length = 500)
+    @Column(length = 500, name = "mediaTrabEquipo")
     private String mediaTrabEquipo;
-    @Column(length = 500)
+    @Column(length = 500, name = "bajaTrabEquipo")
     private String bajaTrabEquipo;
-    private boolean paraEvaluacionTE;       
+    @Column(name = "paraEvaluacionTE")
+    private boolean paraEvaluacionTE;
+
     /**
      * @return the idTrabEquipo
      */
@@ -111,6 +116,4 @@ public class TrabajoEquipo implements Serializable {
     public void setParaEvaluacionTE(boolean paraEvaluacionTE) {
         this.paraEvaluacionTE = paraEvaluacionTE;
     }
-
-   
 }

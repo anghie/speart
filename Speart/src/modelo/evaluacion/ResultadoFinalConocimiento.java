@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,17 +18,22 @@ import javax.persistence.OneToMany;
 
 /**
  *
- * @author jenny
+ * @author
  */
 @Entity
-public class ResultadoFinalConocimiento implements Serializable{
+public class ResultadoFinalConocimiento implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idRFC")
     private int idRFC;
+    @Column(name = "idSeccion")
     private int idSeccion;
-    @OneToMany(mappedBy = "resultadoFinalConocimiento",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private List<ResultadoConocimientos> resultadoConocim= new ArrayList<>();
+    @OneToMany(mappedBy = "resultadoFinalConocimiento", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<ResultadoConocimientos> resultadoConocim = new ArrayList<>();
+    @Column(name = " total")
     private double total;
+    @Column(name = " aprobado")
     private boolean aprobado;
 
     /**
@@ -51,9 +57,10 @@ public class ResultadoFinalConocimiento implements Serializable{
         return resultadoConocim;
     }
 
-public void addResultadoConocimiento(ResultadoConocimientos rc){
-    resultadoConocim.add(rc);
-}
+    public void addResultadoConocimiento(ResultadoConocimientos rc) {
+        resultadoConocim.add(rc);
+    }
+
     /**
      * @return the total
      */

@@ -6,6 +6,7 @@ package modelo.evaluacion;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,17 +15,20 @@ import javax.persistence.Temporal;
 
 /**
  *
- * @author jenny
+ * @author
  */
 @Entity
 public class PeriodoEvaluacion implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idPeriodoEval")
     private long idPeriodoEval;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    @Column(name = "fechaInicio")
     private Calendar fechaInicio;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    @Column(name = "fechaFin")
     private Calendar fechaFin;
 
     public PeriodoEvaluacion() {

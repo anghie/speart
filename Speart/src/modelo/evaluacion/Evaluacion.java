@@ -6,6 +6,7 @@ package modelo.evaluacion;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,24 +17,33 @@ import modelo.usuario.Usuario;
 
 /**
  *
- * @author francisco
+ * @author
  */
-
 @Entity
-public class Evaluacion implements Serializable{
+public class Evaluacion implements Serializable {
+
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idEvaluacion")
     private long idEvaluacion;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    @Column(name = "fechaEvaluacion")
     private Calendar fechaEvaluacion;
     @OneToOne
     private Usuario usuarioEval;
+    @Column(name = "igp")
     private double igp;//Indicador gestion del puesto
+    @Column(name = "conoc")
     private double conoc;
+    @Column(name = "cct")
     private double cct;
+    @Column(name = "ccu")
     private double ccu;
+    @Column(name = "til")
     private double til;//trabajo iniciativa y liderazgo
+    @Column(name = "evalciud")
     private double evalciud;
+    @Column(name = "totalEval")
     private double totalEval;
 
     /**

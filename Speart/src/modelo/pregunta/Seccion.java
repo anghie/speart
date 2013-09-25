@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,26 +19,28 @@ import modelo.proceso.Rol;
 
 /**
  *
- * @author 
+ * @author
  */
 @Entity
 public class Seccion implements Serializable {
+
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idSeccion")
     private long idSeccion;
-    private String nombreSeccion;   
+    @Column(name = "nombreSeccion")
+    private String nombreSeccion;
+    @Column(name = " paraEvaluacion")
     private boolean paraEvaluacion;
     @OneToMany(mappedBy = "seccion", cascade = CascadeType.ALL)
-    private List<Pregunta> preguntas;    
+    private List<Pregunta> preguntas;
     @ManyToMany
-    private List<Rol>roles;
+    private List<Rol> roles;
 
     public Seccion() {
-       preguntas= new ArrayList<>();
-       roles = new ArrayList<>();
+        preguntas = new ArrayList<>();
+        roles = new ArrayList<>();
     }
-    
-    
 
     /**
      * @return the idSeccion
@@ -109,13 +112,11 @@ public class Seccion implements Serializable {
         this.roles = roles;
     }
 
-    public void addRol(Rol r){
+    public void addRol(Rol r) {
         getRoles().add(r);
     }
-    public void removeRol(Rol r){
+
+    public void removeRol(Rol r) {
         getRoles().remove(r);
     }
-      
 }
-
-

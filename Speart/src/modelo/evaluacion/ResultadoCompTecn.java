@@ -5,6 +5,7 @@
 package modelo.evaluacion;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,29 +15,30 @@ import modelo.operaciones.CompetenciaTecnica;
 
 /**
  *
- * @author jenny
+ * @author
  */
 @Entity
-public class ResultadoCompTecn implements Serializable{
+public class ResultadoCompTecn implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idResulCompTecn")
     private long idResulCompTecn;
     @OneToOne
     private CompetenciaTecnica ct;
+    @Column(name = "nivelDesarrollo")
     private String nivelDesarrollo;
+    @Column(name = "calCompTecn")
     private double calCompTecn;
 
     public ResultadoCompTecn() {
     }
 
-
-    public ResultadoCompTecn(CompetenciaTecnica ct, String nivelDesarrollo, double calCompTecn) {        
+    public ResultadoCompTecn(CompetenciaTecnica ct, String nivelDesarrollo, double calCompTecn) {
         this.ct = ct;
         this.nivelDesarrollo = nivelDesarrollo;
         this.calCompTecn = calCompTecn;
     }
-    
-    
 
     /**
      * @return the idResulCompTecn

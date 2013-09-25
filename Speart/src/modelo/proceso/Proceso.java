@@ -10,12 +10,15 @@ public class Proceso implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idProceso")
     private int idProceso;
+    @Column(name = "nombreProceso")
     private String nombreProceso;
+    @Column(name = "indicador")
     private String indicador;
     @OneToMany(mappedBy = "procesito", cascade = CascadeType.ALL)
-    private List<Actividad> actividades= new ArrayList();
-  
+    private List<Actividad> actividades = new ArrayList();
+
     /**
      * @return the idProceso
      */

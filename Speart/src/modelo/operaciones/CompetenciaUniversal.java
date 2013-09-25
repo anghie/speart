@@ -13,24 +13,25 @@ import javax.persistence.Id;
 
 /**
  *
- * @author 
+ * @author
  */
 @Entity
 public class CompetenciaUniversal implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private int id;
     private String nombreDestrezaUniv;
-    @Column(length = 500)
+    @Column(length = 500, name = "altaUniv")
     private String altaUniv;
-    @Column(length = 500)
+    @Column(length = 500, name = "mediaUniv")
     private String mediaUniv;
-    @Column(length = 500)
+    @Column(length = 500, name = "bajaUniv")
     private String bajaUniv;
+    @Column(name = "paraEvaluacionCU")
     private boolean paraEvaluacionCU;
 
-
-    
     /**
      * @return the id
      */
@@ -107,6 +108,4 @@ public class CompetenciaUniversal implements Serializable {
     public boolean isParaEvaluacionCU() {
         return paraEvaluacionCU;
     }
-
-
 }
