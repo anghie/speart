@@ -67,7 +67,7 @@ public class ControladorCompetenciasTecnicas {
 
     public void guardaCompetenciaTecnica() {
 
-        if (!OperacionesBD.existe("", "", po.getTxtDestreza().getText())) {
+        if (!OperacionesBD.existe("CompetenciaTecnica", "nombreDestrezaTec", po.getTxtDestreza().getText())) {
             ct = new CompetenciaTecnica();
             setCompetenciaTecnica();
             if (OperacionesBD.guardar(ct)) {
