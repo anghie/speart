@@ -211,13 +211,6 @@ public class FrmPrincipal extends JFrame {
         creaMenuItem(miGeneraAgenda, menuServicios, "Genera Agenda", "Generador de agendas", "agendaTelefonica.png");
         miAgenda.addActionListener(esc);
 
-        //Item Agregados
-//        miFechaEval = new JMenuItem();
-//        creaMenuItem(miFechaEval, menuAgregados, "Fecha Evaluacion", "Fijar fecha de la evaluacion", "null.png");
-//        miFechaEval.addActionListener(esc);
-//        miActivEval = new JMenuItem();
-//        creaMenuItem(miActivEval, menuAgregados, "Activar Evaluacion", "Activacion de la evaluacion", "null.png");
-//        miActivEval.addActionListener(esc);
 
         //Item Reportes
         miReporteEvaluaciones = new JMenuItem();
