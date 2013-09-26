@@ -17,6 +17,8 @@ public class Usuario extends Persona implements Serializable {
     private String clave;
     @Column(name = "habilitado")
     private boolean habilitado;//Si esta habilitado para acceso
+    @Column(name="evaluacionActivada")
+    private boolean evaluacionActivada;
     @OneToOne(cascade = CascadeType.ALL)
     private Rol rol;
     @OneToMany(mappedBy = "usuario")
@@ -70,5 +72,19 @@ public class Usuario extends Persona implements Serializable {
 
     public void setMetas(List<Meta> metas) {
         this.metas = metas;
+    }
+
+    /**
+     * @return the evaluacionActivada
+     */
+    public boolean isEvaluacionActivada() {
+        return evaluacionActivada;
+    }
+
+    /**
+     * @param evaluacionActivada the evaluacionActivada to set
+     */
+    public void setEvaluacionActivada(boolean evaluacionActivada) {
+        this.evaluacionActivada = evaluacionActivada;
     }
 }

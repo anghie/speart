@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.agenda.Meta;
 import modelo.operaciones.CompetenciaTecnica;
 import modelo.pregunta.Seccion;
 import modelo.usuario.*;
