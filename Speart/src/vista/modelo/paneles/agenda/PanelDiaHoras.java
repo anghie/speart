@@ -298,7 +298,14 @@ public class PanelDiaHoras extends javax.swing.JPanel {
             punto=evt.getPoint();
         contador++;
         if(contador==2){
-          //----------------------------------------------------------------------------------
+            List<DiaFeriado> dias=ControladorDiasFeriados.searchDiaFeriado(nombreDia, Fecha.getNombreMes(numeroMes), numeroDia, agenda.getId());
+                  if(dias!=null){
+                      if(dias.size()>0){
+                          JOptionPane.showMessageDialog(this,"Exepción no se puede crear actividades en dias feriados");
+                          return;
+                      }
+                  }
+            //----------------------------------------------------------------------------------
           ItemAgenda itemAgenda=new ItemAgenda();
           Date fecha=new Date();
           itemAgenda.setActividad(actividad);

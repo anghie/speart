@@ -16,7 +16,7 @@ public class Rol implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idRol")
     private int idRol;
-    @Column(name = "tipol")
+    @Column(name = "tipo")
     private String tipo;//Jefe RRHH,Jefe,Servidor
     @Column(name = "cargo")
     private String cargo;

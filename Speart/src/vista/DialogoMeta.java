@@ -104,7 +104,7 @@ public class DialogoMeta extends javax.swing.JDialog {
         jLabel1.setText("Mes:");
         cmbIndic.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        cmbMes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo ", "Abril", "Mayo ", "Junio", "Julio ", "Agosto", "Septiembre", "Octubre ", "Noviembre", "Diciembre" }));
+        cmbMes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         cmbMes.setMinimumSize(new java.awt.Dimension(100, 20));
         cmbMes.setPreferredSize(new java.awt.Dimension(100, 20));
         cmbMes.addActionListener(new java.awt.event.ActionListener() {

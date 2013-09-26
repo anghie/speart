@@ -35,7 +35,7 @@ public class Fecha {
 	                "Diciembre" };
          for (int i = 0; i < meses.length; i++) {
              String mesAux = meses[i];
-             if(mesAux.equals(mes))
+             if(mesAux.equals(mes.trim()))
                  return i;
          }
          return -1;

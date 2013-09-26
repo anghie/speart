@@ -11,6 +11,7 @@
 
 package vista.modelo.paneles.agenda;
 import controlador.acciones.agenda.ControladorActividades;
+import controlador.acciones.agenda.ControladorDiasFeriados;
 
 
 import controlador.acciones.agenda.ControladorItemAgenda;
@@ -21,12 +22,14 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import modelo.agenda.Agenda;
+import modelo.agenda.DiaFeriado;
 import modelo.agenda.ItemAgenda;
 import modelo.agenda.Meta;
 import modelo.proceso.Actividad;
@@ -542,6 +545,7 @@ public class PanelAgenda extends ImagenJPanel {
     }
     private void btnAddActividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActividadActionPerformed
         // TODO add your handling code here:
+        
          Calendar calendario=dateChooserPanel1.getSelectedDate();
         if(cmbServidor.getSelectedIndex()>-1){
             if (calendario!=null) {
@@ -553,7 +557,15 @@ public class PanelAgenda extends ImagenJPanel {
                   String nombreDia=Fecha.getNombreDia(calendario.get(Calendar.DAY_OF_WEEK));
                   int numeroDia=calendario.get(Calendar.DATE);
                   int numeroMes=calendario.get(Calendar.MONTH);
-
+                  
+                  List<DiaFeriado> dias=ControladorDiasFeriados.searchDiaFeriado(nombreDia, Fecha.getNombreMes(numeroMes), numeroDia, agendaActual.getId());
+                  if(dias!=null){
+                      if(dias.size()>0){
+                          JOptionPane.showMessageDialog(this,"Exepción no se puede crear actividades en dias feriados");
+                          return;
+                      }
+                  }
+                  
                   Date fecha=new Date();
                   itemAgenda.setActividad(actividad);
                   if(actividad!=null)
