@@ -81,6 +81,7 @@ public class ControladorPrincipal {
                 if (r.equals(st)) {
                     FrmPrincipal.userLogueado = us;
                     tipoUs = us.getRol().getTipo();
+                    System.out.println(tipoUs);
                     existe = true;
                 }
             } else if (user.equals(us.getLogin()) && !us.isHabilitado()) {

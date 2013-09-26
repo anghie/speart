@@ -140,6 +140,7 @@ public class ControladorUsuario {
 
     private void setRol() {
         String t = String.valueOf(pu.getCbRol().getSelectedItem());
+        System.out.println(t);
         rol.setTipo(t);
         rol.sethLab(Integer.parseInt(pu.getTxtHLab().getText()));
         rol.sethExt(Integer.parseInt(pu.getTxtHExt().getText()));
