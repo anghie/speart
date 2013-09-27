@@ -4,6 +4,8 @@
  */
 package controlador.acciones;
 
+import vista.FrmPrincipal;
+
 public class ControladorPermisos {
 
     public static boolean usuarios;
@@ -62,6 +64,9 @@ public class ControladorPermisos {
         miActivaEval = true;
         miEfectosEval = true;
         miFechaEval = true;
+        if(!FrmPrincipal.userLogueado.isEvaluacionActivada()){
+            evaluaciones=false;
+        }
     }
 
     public static void permisoServidor() {
@@ -80,6 +85,9 @@ public class ControladorPermisos {
         agendaExperto = false;
         menuAgregados = false;
         menuReportes = false;
+        if(!FrmPrincipal.userLogueado.isEvaluacionActivada()){
+            evaluaciones=false;
+        }
     }
 
     public static void permisoRRHH() {
@@ -88,7 +96,7 @@ public class ControladorPermisos {
         servicios = false;
         respaldos = false;
         operaciones = false;
-        evaluaciones = false;
+        evaluaciones = true;
         menuServicios = false;
         itemAbreSesion = false;
         itemCierraSesion = true;

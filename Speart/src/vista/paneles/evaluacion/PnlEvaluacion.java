@@ -48,11 +48,30 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 //        ce.llenaCbServidores();
         ce.llenaServidorEscogido();
         poneEventos();
-        servidoresPlanif = new ArrayList<>();
-        listarServidores();
-        llenaListaDisponibles();
-
         llenaCombo();
+        poneTabs();
+
+    }
+
+    private void poneTabs() {
+        if (FrmPrincipal.userLogueado.getRol().getTipo().equals(Constantes.SERVIDOR)) {
+            for (int i = 0; i <= tabbedEvaluacion.getTabCount(); i++) {
+                int ultimo = tabbedEvaluacion.getTabCount() - 1;
+                tabbedEvaluacion.removeTabAt(ultimo);
+            }
+        } else if (FrmPrincipal.userLogueado.getRol().getTipo().equals(Constantes.RRHH)) {
+            for (int i = 0; i <= tabbedEvaluacion.getTabCount(); i++) {
+                
+                if (!tabbedEvaluacion.getTitleAt(i).equalsIgnoreCase("ACTIVAR EVALUACIÓN")) {
+                    System.out.println("tab eliminado: "+i+" "+tabbedEvaluacion.getTitleAt(i));
+                    tabbedEvaluacion.removeTabAt(i);
+                }
+            }         
+        } else {
+            servidoresPlanif = new ArrayList<>();
+            listarServidores();
+            llenaListaDisponibles();
+        }
     }
 
     private void poneEventos() {

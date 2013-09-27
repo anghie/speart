@@ -19,7 +19,7 @@ import vista.paneles.usuario.DialogCambiaClave;
 import vista.paneles.usuario.PnlUsuario;
 
 public class FrmPrincipal extends JFrame {
-    
+
     private JMenuBar barraMenu;
     private JMenu menuInicio;
     private JMenu mimenuSesion;
@@ -62,19 +62,19 @@ public class FrmPrincipal extends JFrame {
     private JMenuItem miReporteEvaluaciones;
     private JMenuItem miReporteUsuarios;
     private static FrmPrincipal fp = null;
-    
+
     private FrmPrincipal() {
         cl = FrmPrincipal.class.getClassLoader();
         iniciaComponentes();
     }
-    
+
     public synchronized static FrmPrincipal getInstance() {
         if (fp == null) {
             fp = new FrmPrincipal();
         }
         return fp;
     }
-    
+
     private void iniciaComponentes() {
         this.setTitle("SPEIESS 2013");
 //        this.setLocationRelativeTo(null);
@@ -92,7 +92,7 @@ public class FrmPrincipal extends JFrame {
         ControladorPermisos.permisoInvitado();
         ponePermisos();
     }
-    
+
     public void ponePermisos() {
         btnEvaluacion.setVisible(ControladorPermisos.evaluaciones);
         btnOperaciones.setVisible(ControladorPermisos.operaciones);
@@ -112,8 +112,9 @@ public class FrmPrincipal extends JFrame {
 //        miActivEval.setVisible(ControladorPermisos.miActivaEval);
 //        miFechaEval.setVisible(ControladorPermisos.miFechaEval);
 //        miEfectos.setVisible(ControladorPermisos.miEfectosEval);
+
     }
-    
+
     private void poneImagenLogo() {
         pnlMedio = new JPanel();
         pnlMedio.setLayout(new BorderLayout());
@@ -133,10 +134,10 @@ public class FrmPrincipal extends JFrame {
         //Añadiendo el panel imagen al panel central
         pnlMedio.add(pnlImagen, BorderLayout.CENTER);
         this.add(pnlMedio, BorderLayout.CENTER);
-        
+
     }
     /*Metodo que ubica el panel inferior con la fecha y hora*/
-    
+
     private void ponePanelInferior() {
         pnlSur = new JPanel();
         pnlSur.setLayout(new BorderLayout());
@@ -145,7 +146,7 @@ public class FrmPrincipal extends JFrame {
         this.add(pnlSur, BorderLayout.SOUTH);
     }
     /*Método para poner la barra de menus*/
-    
+
     private void poneBarraMenu() {
         barraMenu = new JMenuBar();
         /*MENU INICIO*/
@@ -254,7 +255,7 @@ public class FrmPrincipal extends JFrame {
         menu.add(item);
     }
     /*Método que asigna los eventos a los menuitems*/
-    
+
     private void poneEventosMenuItems() {
         /**
          * itera sobre todos los componentes de la barra de menú, se les asigna
@@ -275,7 +276,7 @@ public class FrmPrincipal extends JFrame {
     }
     //-------------------------------------------------------------------
 	/*Método para poner el panel de botones izquierdo*/
-    
+
     private void poneToolbarOeste() {
         tbOeste = new JToolBar();
         tbOeste.setFloatable(false);
@@ -314,10 +315,10 @@ public class FrmPrincipal extends JFrame {
         btnRespaldos = new JButton("Respaldos");
         creaBotonToolbar(getBtnRespaldos(), "resp.png");
         btnRespaldos.setToolTipText("<html> Respaldar la informacion del sistema</html> ");
-        
-        
-        
-        
+
+
+
+
         btnReportes = new JButton("Reportes");
         creaBotonToolbar(btnReportes, "kword.png");
         btnReportes.setToolTipText("<html> Obtener reportes impresos de la informacion del sistema</html> ");
@@ -329,7 +330,7 @@ public class FrmPrincipal extends JFrame {
      * @param btn el botón inicializado para editar sus atributos
      * @param nombreIcono el nombre del icono que se le asignará al boton
      * */
-    
+
     private void creaBotonToolbar(JButton btn, String nombreIcono) {
         btn.setIcon(new ImageIcon(cl.getResource("vista/imagenes/" + nombreIcono)));
         btn.setFocusable(false);
@@ -342,7 +343,7 @@ public class FrmPrincipal extends JFrame {
         tbOeste.add(btn);
     }
     /*Metodo que asigna los eventos a los botones de la toolbar*/
-    
+
     private void poneEventosToolbar() {
         /**
          * itera sobre todos los componentes de la barra de herramientas, se les
@@ -365,7 +366,7 @@ public class FrmPrincipal extends JFrame {
     public JPanel getPnlMedio() {
         return pnlMedio;
     }
-    
+
     public JPanel getPnlImagen() {
         return pnlImagen;
     }
@@ -443,7 +444,7 @@ public class FrmPrincipal extends JFrame {
     //*ACCIONES PARA COMPONENTES *
     //****************************
     class EventHandler implements ActionListener {
-        
+
         @Override
         public void actionPerformed(ActionEvent evt) {
             if (evt.getSource() == miSalir) {
@@ -518,9 +519,11 @@ public class FrmPrincipal extends JFrame {
             //                }
             //            } 
             else if (evt.getSource() == miMeta) {
-                DialogoMeta dialogo = new DialogoMeta(new JFrame(), true);
-                dialogo.setLocationRelativeTo(null);
-                dialogo.setVisible(true);
+                DialogoMeta dialogo = DialogoMeta.getInstance();
+                if (!dialogo.isActive()) {
+                    dialogo.setLocationRelativeTo(null);
+                    dialogo.setVisible(true);
+                }
             } else if (evt.getSource() == miAgenda) {
                 DialogoAgendaContactos dac = DialogoAgendaContactos.getInstance();
                 if (!dac.isActive()) {
@@ -532,7 +535,7 @@ public class FrmPrincipal extends JFrame {
                     dcr.setVisible(true);
                 }
             } else if (evt.getSource() == miReporteUsuarios) {
-                cp.reporteUsuarios();                
+                cp.reporteUsuarios();
             }
         }
     }

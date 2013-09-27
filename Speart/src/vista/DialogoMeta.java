@@ -38,14 +38,22 @@ public class DialogoMeta extends javax.swing.JDialog {
     private Agenda agenda;
     private boolean modificado;
     private ModeloTablaMeta modeloTablaMeta;
+    private static DialogoMeta dm;
 
-    public DialogoMeta(JFrame parent, boolean modal) {
-        super(parent, modal);
+    private DialogoMeta() {
+        setModal(true);
         this.agenda = ControladorAgenda.getAgendaActual();
         this.modeloTablaMeta = new ModeloTablaMeta();
         initComponents();
         iniciarActividades();
         iniciarRoles();
+    }
+
+    public static synchronized DialogoMeta getInstance() {
+        if (dm == null) {
+            dm = new DialogoMeta();
+        }
+        return dm;
     }
 
     private void iniciarActividades() {

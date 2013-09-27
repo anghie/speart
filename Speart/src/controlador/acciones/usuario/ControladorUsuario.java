@@ -132,6 +132,7 @@ public class ControladorUsuario {
         usuario.setApellidos(pu.getTxtApellidos().getText());
         usuario.setProfesion(pu.getTxtProfesion().getText());
         usuario.setHabilitado(true);
+        usuario.setEvaluacionActivada(false);
         usuario.setLogin(pu.getTxtUsuario().getText());
         String str = OperacionesVarias.generaAleatoria(16);
         aes = new AlgoritmoAES(str.getBytes());
