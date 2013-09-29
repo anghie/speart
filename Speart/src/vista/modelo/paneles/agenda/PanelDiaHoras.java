@@ -305,7 +305,12 @@ public class PanelDiaHoras extends javax.swing.JPanel {
                           return;
                       }
                   }
-            //----------------------------------------------------------------------------------
+          Calendar calendarioActual=Calendar.getInstance();
+        if(calendario.getInstance().getTime().getTime()<calendarioActual.getTime().getTime()){
+            JOptionPane.showMessageDialog(this,"Error no se pueden crear actividades en fechas pasadas");
+            return;
+           } 
+          //----------------------------------------------------------------------------------
           ItemAgenda itemAgenda=new ItemAgenda();
           Date fecha=new Date();
           itemAgenda.setActividad(actividad);

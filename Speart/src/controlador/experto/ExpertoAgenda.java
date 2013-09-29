@@ -3,6 +3,7 @@ package controlador.experto;
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+import controlador.basedatos.Conexion;
 import java.util.Date;
 
 /**
@@ -30,9 +31,9 @@ public class ExpertoAgenda {
     }
 
     public ExpertoAgenda() {
-        this.controladorDB = "jdbc:mysql://localhost:3306/speiess";
-        this.usuario = "root";
-        this.clave = "root";
+        this.controladorDB = "jdbc:mysql://" + Conexion.host_bd + ":3306/speiess";//"jdbc:mysql://localhost:3306/speiess";
+        this.usuario = Conexion.user;//"root";
+        this.clave = Conexion.clave;//"root";
     }
 
     // Obtiene un ID de la actividad de la agenda mas apropiado

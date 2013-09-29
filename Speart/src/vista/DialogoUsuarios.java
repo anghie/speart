@@ -7,6 +7,7 @@ package vista;
 import controlador.acciones.ControladorPrincipal;
 import controlador.acciones.usuario.ControladorUsuario;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import modelo.usuario.Usuario;
 import vista.modelo.ModeloComboBoxUsuarios;
 import vista.modelo.paneles.agenda.PanelAgenda;
@@ -118,7 +119,10 @@ public class DialogoUsuarios extends javax.swing.JDialog {
 
     private void btnVerAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAgendaActionPerformed
         // TODO add your handling code here:
-        
+        if(cmbServidor.getSelectedIndex()==-1){
+            JOptionPane.showMessageDialog(this, "Tiene que seleccionar un usuario");
+            return;
+        }
        if(rbtIndividual.isSelected()){
            Usuario usuario= ((ModeloComboBoxUsuarios)cmbServidor.getModel()).getSelectedUsuario();
            contenedorPrincipal.ponePanel(new PanelAgenda("inicisv_1.jpg", usuario));

@@ -517,6 +517,8 @@ public class PanelAgenda extends ImagenJPanel {
         // TODO add your handling code here:
         if(guardar){
             ControladorAgenda.updateAgenda();
+        }else{
+            JOptionPane.showMessageDialog(panelSemana,"No se han agrgado nuevas actividades ni se han hecho modificaciones");
         } 
     }//GEN-LAST:event_btGuardarAgendaActionPerformed
 
@@ -545,8 +547,16 @@ public class PanelAgenda extends ImagenJPanel {
     }
     private void btnAddActividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActividadActionPerformed
         // TODO add your handling code here:
-        
+        if(panelDia==null){
+            JOptionPane.showMessageDialog(panelSemana,"Error primero tiene que seleccionar un dia del calendario");
+            return;
+        }    
          Calendar calendario=dateChooserPanel1.getSelectedDate();
+         Calendar calendarioActual=Calendar.getInstance();
+        if(calendario.getInstance().getTime().getTime()<calendarioActual.getTime().getTime()){
+            JOptionPane.showMessageDialog(panelSemana,"Error no se pueden crear actividades en fechas pasadas");
+            return;
+        } 
         if(cmbServidor.getSelectedIndex()>-1){
             if (calendario!=null) {
                   ItemAgenda itemAgenda=new ItemAgenda();
@@ -598,8 +608,14 @@ public class PanelAgenda extends ImagenJPanel {
                     ControladorItemAgenda.setTiempoDuracion(itemAgenda,
                                                             (int)h,
                                                             (int)m);
+                    if(agendaActual.getItemsAgenda().contains(itemAgenda)){
+                        JOptionPane.showMessageDialog(panelSemana,"Error no se pudo agregar la actividad ya existe");
+                        return;
+                    }
                       agendaActual.getItemsAgenda().add(itemAgenda);
                       refrescarGUIAgenda(calendario);
+                      spHoraInicio.setValue(8);
+                      spHoraFinal.setValue(9);
             }else{
                 JOptionPane.showMessageDialog(panelSemana,"Error primero tiene que seleccionar fecha del calendario");
             }
@@ -768,6 +784,14 @@ public void loadPanel(JScrollPane panelScroll, JPanel panel){
 
     public void setAgendaActual(Agenda agendaActual) {
         this.agendaActual = agendaActual;
+    }
+
+    public boolean isGuardar() {
+        return guardar;
+    }
+
+    public void setGuardar(boolean guardar) {
+        this.guardar = guardar;
     }
 
 

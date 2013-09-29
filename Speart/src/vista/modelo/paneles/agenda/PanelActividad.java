@@ -16,6 +16,7 @@ import controlador.acciones.agenda.ControladorActividades;
 import controlador.acciones.servicios.ControladorAgenda;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
 import javax.swing.JFrame;
@@ -50,15 +51,31 @@ public class PanelActividad extends javax.swing.JPanel {
         iniciarServidores();
         initComponents();
         
-        System.out.println(usuario);
+        
         //chbTerminada.setEnabled(false);
           btEditar.setVisible(false);
           btnEliminar.setVisible(false);
-        if(!itemAgenda.isCompletada()){// && usuario.getRol().getTipo().equals("Jefe") 
-            btEditar.setVisible(true);
+          chbTerminada.setEnabled(false);
+          spnPorcentaje.setEnabled(false);
+          cmbServidor.setEnabled(false);
+          
+          Calendar calItem=(Calendar)Calendar.getInstance().clone();
+         calItem.set(Integer.parseInt(itemAgenda.getAgenda().getNombre()),
+                     Fecha.getNumeroMes(itemAgenda.getMes()),
+                     Integer.parseInt(itemAgenda.getDia_del_mes()));
+ 
+        if( calItem.getTime().getTime() >= Calendar.getInstance().getTime().getTime()
+             ){// && usuario.getRol().getTipo().equals("Jefe") 
+            if(calItem.getTime().getTime()== Calendar.getInstance().getTime().getTime()){
+                chbTerminada.setEnabled(true);
+                spnPorcentaje.setEnabled(true);
+                cmbServidor.setEnabled(true);
+                btEditar.setVisible(true);
+            }
             btnEliminar.setVisible(true);
             this.setComponentPopupMenu(popUpMenu);
         }
+        
         if (compacto || getSize().getHeight()<40) {
             setPreferredSize(new Dimension(420, 40));
         }

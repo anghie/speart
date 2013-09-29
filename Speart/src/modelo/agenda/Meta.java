@@ -39,7 +39,7 @@ public class Meta implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     @Column(name = "fecha")
     private Date fecha;
-    @Column(unique = true, name = "mes")
+    @Column(name = "mes")
     private int mes;
     @ManyToOne
     private Agenda agenda;

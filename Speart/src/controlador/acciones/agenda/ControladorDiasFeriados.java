@@ -19,7 +19,7 @@ public class ControladorDiasFeriados {
         return diaFeriado;
     }
     public static List<DiaFeriado> searchDiaFeriado(String nombreDia,String mesNombre , int numeroDiaMes, int idAgenda) {
-       Object objeto=OperacionesBD.buscar("DiaFeriado","dia","mes","dia_mes","id",nombreDia,mesNombre,numeroDiaMes,idAgenda);
+       Object objeto=OperacionesBD.buscar("DiaFeriado","dia","mes","dia_mes","agenda_id",nombreDia,mesNombre,numeroDiaMes,idAgenda);
        if(objeto!=null)
             return (List<DiaFeriado>)(objeto);
         else

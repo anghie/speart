@@ -187,4 +187,24 @@ public class ItemAgenda implements Serializable {
     public void setPorcentaje(double porcentaje) {
         this.porcentaje = porcentaje;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj==null)
+            return false;
+        if(!obj.getClass().equals(this.getClass()))
+            return false;
+        ItemAgenda item=(ItemAgenda) obj;
+        if(this.agenda.equals(item.getAgenda()) &&
+           this.actividad.equals(item.getActividad()) &&
+           this.mes.equals(item.getMes())&&
+           this.dia.equals(item.getDia())&&
+           this.dia_del_mes.equals(item.getDia_del_mes()) &&
+           this.horaInicio.equals(item.getHoraInicio()) &&
+           this.horaFin.equals(item.getHoraFin())       
+           )
+             return true;
+        return false;
+    }
+    
 }
