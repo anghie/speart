@@ -9,7 +9,7 @@ import jpl.Query;
 
 /**
  *
- * @author jenny
+ * @author 
  */
 public class BaseConocimiento {
 

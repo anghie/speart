@@ -158,6 +158,7 @@ public final class PnlUsuario extends javax.swing.JPanel {
         pnlDatos.setPreferredSize(new java.awt.Dimension(540, 600));
         pnlDatos.setLayout(null);
 
+        btnGuardarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/document-save.png"))); // NOI18N
         btnGuardarUsuario.setText("Guardar");
         btnGuardarUsuario.setToolTipText("Guardar informacion de los usuarios");
         btnGuardarUsuario.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -320,7 +321,7 @@ public final class PnlUsuario extends javax.swing.JPanel {
         btnQuejas.setText("Quejas");
         btnQuejas.setToolTipText("Agregar quejas a los usuarios");
         pnlBotones.add(btnQuejas);
-        btnQuejas.setBounds(570, 10, 83, 40);
+        btnQuejas.setBounds(570, 10, 103, 40);
 
         pnlLstDatos.add(pnlBotones);
         pnlBotones.setBounds(20, 230, 700, 60);
