@@ -83,7 +83,7 @@ public class ModeloTablaMeta implements TableModel {
                 aux.setFecha((Date) dato);
                 break;
            case 2:
-                aux.setIndicador((double)dato );
+                aux.setIndicador((String)dato );
                 break;
         }
         TableModelEvent evento = new TableModelEvent(this, fila, fila, columna);

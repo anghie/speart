@@ -20,9 +20,13 @@ import controlador.acciones.servicios.ControladorAgenda;
 import datechooser.beans.DateChooserPanel;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -34,6 +38,13 @@ import modelo.agenda.ItemAgenda;
 import modelo.agenda.Meta;
 import modelo.proceso.Actividad;
 import modelo.usuario.Usuario;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRTableModelDataSource;
+import net.sf.jasperreports.view.JasperViewer;
 import vista.DialogDiasFeriados;
 import vista.modelo.Fecha;
 import vista.modelo.ImagenJPanel;
@@ -60,7 +71,7 @@ public class PanelAgenda extends ImagenJPanel {
     private PanelRecordatorio panelRecordatorio;
     private Thread hiloReloj;
     private Agenda agendaActual;
-    private boolean guardar;
+    public  static boolean guardar;
     private Usuario usuario;
     private LinkedList<Actividad>listaActividades;
     private ModeloTablaItemInforme modeloTablaInforme;
@@ -91,7 +102,7 @@ public class PanelAgenda extends ImagenJPanel {
         initComponents();
 //        panelAddActividad.setVisible(false);
         lblFechaSeleccionada.setText(infoFecha+Fecha.getFechaFormateada(fechaActual,"yyyy/MM/dd"));
-
+        lblUsuario.setText("Usuario:"+usuario.getNombre()+" "+usuario.getApellidos());
         iniciarAgenda();
         iniciarServidores();
         hiloReloj=new Thread(new Reloj(this));
@@ -141,7 +152,10 @@ public class PanelAgenda extends ImagenJPanel {
         fechaHasta = new datechooser.beans.DateChooserCombo();
         btnBuscar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        bntImprimir = new javax.swing.JButton();
         btnGuardarInforme = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        lblUsuario = new javax.swing.JLabel();
         panelNorte = new javax.swing.JPanel();
         lblFechaActual = new javax.swing.JLabel();
         panelSur = new javax.swing.JPanel();
@@ -229,6 +243,16 @@ public class PanelAgenda extends ImagenJPanel {
 
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
+        bntImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/printer1.png"))); // NOI18N
+        bntImprimir.setText("Imprimir");
+        bntImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntImprimirActionPerformed(evt);
+            }
+        });
+        jPanel2.add(bntImprimir);
+
+        btnGuardarInforme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/filesave.png"))); // NOI18N
         btnGuardarInforme.setText("Guardar");
         btnGuardarInforme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -242,6 +266,13 @@ public class PanelAgenda extends ImagenJPanel {
         tabPane.addTab("Informe", panelInforme);
 
         panelCentro.add(tabPane, java.awt.BorderLayout.CENTER);
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        lblUsuario.setText("Usuario:");
+        jPanel3.add(lblUsuario);
+
+        panelCentro.add(jPanel3, java.awt.BorderLayout.PAGE_START);
 
         add(panelCentro, java.awt.BorderLayout.CENTER);
 
@@ -502,7 +533,7 @@ public class PanelAgenda extends ImagenJPanel {
             
             scPanelDia.getVerticalScrollBar().setValue(scPanelDia.getHeight()/3);
             scPanelSemana.getVerticalScrollBar().setValue(scPanelSemana.getHeight()/3);
-            guardar=true;
+            
 //            if(usuario!=null){
 //                if(usuario.getRol().getTipo().equals("Jefe"))
 //                panelAddActividad.setVisible(true);
@@ -614,8 +645,10 @@ public class PanelAgenda extends ImagenJPanel {
                     }
                       agendaActual.getItemsAgenda().add(itemAgenda);
                       refrescarGUIAgenda(calendario);
+                      scPanelDia.revalidate();
                       spHoraInicio.setValue(8);
                       spHoraFinal.setValue(9);
+                      PanelAgenda.guardar=true;
             }else{
                 JOptionPane.showMessageDialog(panelSemana,"Error primero tiene que seleccionar fecha del calendario");
             }
@@ -666,6 +699,22 @@ public class PanelAgenda extends ImagenJPanel {
                }
     
     }//GEN-LAST:event_btnGuardarInformeActionPerformed
+
+    private void bntImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntImprimirActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            JRTableModelDataSource datos = new JRTableModelDataSource(tablaInforme.getModel());
+            String dirReporte = "./reportes/reporteInforme.jrxml";
+            JasperReport report = JasperCompileManager.compileReport(dirReporte);
+            Map<String, Object> parametros = new HashMap<String, Object>();
+            parametros.put("Titulo 1", "Titulo 1");
+            JasperPrint jp = JasperFillManager.fillReport(report, parametros, datos); //datos
+            JasperViewer.viewReport(jp, false);
+        } catch (JRException ex) {
+            Logger.getLogger(PanelAgenda.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bntImprimirActionPerformed
 public void loadPanel(JScrollPane panelScroll, JPanel panel){
         panelScroll.getViewport().removeAll();
         panelScroll.setViewportView(panel);
@@ -729,6 +778,7 @@ public void loadPanel(JScrollPane panelScroll, JPanel panel){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bntImprimir;
     private javax.swing.JButton btGuardarAgenda;
     private javax.swing.JButton btnAddActividad;
     private javax.swing.JButton btnBuscar;
@@ -753,12 +803,14 @@ public void loadPanel(JScrollPane panelScroll, JPanel panel){
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFechaActual;
     private javax.swing.JLabel lblFechaSeleccionada;
     private javax.swing.JLabel lblHoraInicio;
     private javax.swing.JLabel lblHpraTermina;
     private javax.swing.JLabel lblProceso;
+    private javax.swing.JLabel lblUsuario;
     private javax.swing.JPanel panelAddActividad;
     private javax.swing.JPanel panelCentro;
     private javax.swing.JPanel panelInforme;
@@ -786,13 +838,6 @@ public void loadPanel(JScrollPane panelScroll, JPanel panel){
         this.agendaActual = agendaActual;
     }
 
-    public boolean isGuardar() {
-        return guardar;
-    }
-
-    public void setGuardar(boolean guardar) {
-        this.guardar = guardar;
-    }
 
 
 }

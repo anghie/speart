@@ -308,7 +308,7 @@ public class PanelActividad extends javax.swing.JPanel {
                                          ControladorAgenda.calcularMinutos((int)(this.getY()+ getHeight()))));
 
         this.setToolTipText(getTxtInfo());
-
+        PanelAgenda.guardar=true;
     }//GEN-LAST:event_formMouseDragged
 
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
@@ -327,8 +327,7 @@ public class PanelActividad extends javax.swing.JPanel {
             agenda.getItemsAgenda().remove(itemAgenda);
             panelContenedor.remove(this);
             panelContenedor.repaint();
-            
-                        
+            PanelAgenda.guardar=true;
                     }
                  
         }
@@ -348,6 +347,7 @@ public class PanelActividad extends javax.swing.JPanel {
             agenda.getItemsAgenda().remove(itemAgenda);
             panelContenedor.remove(this);
             panelContenedor.repaint();
+            PanelAgenda.guardar=true;
         }
     }//GEN-LAST:event_miEliminarActionPerformed
 
@@ -362,6 +362,7 @@ public class PanelActividad extends javax.swing.JPanel {
             if(itemAgenda.getActividad().getRol()!=null){
                 lblCargo.setText("Cargo:"+itemAgenda.getActividad().getRol().getCargo());
                 lblEncargado.setText("Encargado:"+itemAgenda.getActividad().getRol().getUsuario().getNombre()+" "+itemAgenda.getActividad().getRol().getUsuario().getApellidos());
+                PanelAgenda.guardar=true;
             }
         }else{
             JOptionPane.showMessageDialog(this, "No existen actividades creadas");
@@ -375,6 +376,7 @@ public class PanelActividad extends javax.swing.JPanel {
         if(itemAgenda!=null){
             itemAgenda.setCompletada(chbTerminada.isSelected());
             getTxtInfo();
+            PanelAgenda.guardar=true;
         }else{
             JOptionPane.showMessageDialog(this, "No existen actividad");
         }
@@ -385,6 +387,7 @@ public class PanelActividad extends javax.swing.JPanel {
         if(itemAgenda!=null){
             itemAgenda.setPorcentaje(Double.parseDouble(spnPorcentaje.getValue().toString()));
             getTxtInfo();
+            PanelAgenda.guardar=true;
         }else{
             JOptionPane.showMessageDialog(this, "No existen actividad");
         }

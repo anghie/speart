@@ -30,7 +30,7 @@ public class Meta implements Serializable {
 //  @Column(name = "id")
     private Long id;
     @Column(name = "indicador")
-    private double indicador;
+    private String indicador;
     @Column(name = "valor")
     private int valor;
     @Transient
@@ -68,11 +68,11 @@ public class Meta implements Serializable {
         this.agenda = agenda;
     }
 
-    public double getIndicador() {
+    public String getIndicador() {
         return indicador;
     }
 
-    public void setIndicador(double indicador) {
+    public void setIndicador(String indicador) {
         this.indicador = indicador;
     }
 

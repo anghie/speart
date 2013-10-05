@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteInforme" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="47"/>
+	<parameter name="prm_fecha_desde" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="prm_fecha_hasta" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select fecha, mes, indicador,valor,nombreActividad,nombre,apellidos
+from meta,persona,actividad
+where meta.actividad_idActividad=idActividad
+and meta.usuario_idPersona=persona.idPersona]]>
+	</queryString>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="mes" class="java.lang.Integer"/>
+	<field name="indicador" class="java.lang.Double"/>
+	<field name="valor" class="java.lang.Integer"/>
+	<field name="nombreActividad" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="apellidos" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="186" splitType="Stretch">
+			<staticText>
+				<reportElement x="180" y="140" width="85" height="20"/>
+				<textElement/>
+				<text><![CDATA[FECHA HASTA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="105" width="85" height="20"/>
+				<textElement/>
+				<text><![CDATA[FECHA DESDE:]]></text>
+			</staticText>
+			<image>
+				<reportElement x="10" y="10" width="171" height="169"/>
+				<imageExpression><![CDATA["..\\reportes\\LOGO.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="180" y="10" width="264" height="20"/>
+				<textElement/>
+				<text><![CDATA[INSTITUTO ECUATORIANO DE SEGURIDAD SOCIAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="181" y="40" width="283" height="20"/>
+				<textElement/>
+				<text><![CDATA[DEPARTAMENTO DE RIESGOS DEL TRABAJO DE LOJA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="181" y="71" width="56" height="20"/>
+				<textElement/>
+				<text><![CDATA[FECHA:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="248" y="71" width="166" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="286" y="105" width="124" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{prm_fecha_desde}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="286" y="140" width="124" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{prm_fecha_hasta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="23" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="68" height="20"/>
+				<textElement/>
+				<text><![CDATA[fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="2" width="56" height="20"/>
+				<textElement/>
+				<text><![CDATA[mes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="2" width="72" height="20"/>
+				<textElement/>
+				<text><![CDATA[indicador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="2" width="56" height="20"/>
+				<textElement/>
+				<text><![CDATA[valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[nombreActividad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="2" width="68" height="20"/>
+				<textElement/>
+				<text><![CDATA[nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="489" y="2" width="66" height="20"/>
+				<textElement/>
+				<text><![CDATA[apellidos]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="7" width="68" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="7" width="56" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{mes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="147" y="7" width="72" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{indicador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="7" width="56" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="296" y="7" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombreActividad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="7" width="68" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="489" y="7" width="66" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{apellidos}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="8" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement x="265" y="26" width="50" height="20"/>
+				<textElement/>
+				<text><![CDATA[FIRMA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="237" y="25" width="100" height="1"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

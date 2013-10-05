@@ -349,6 +349,7 @@ public class PanelDiaHoras extends javax.swing.JPanel {
           panelActividad.setBackground(Color.white);
           panelContenedorTareas.add(panelActividad);
           panelContenedorTareas.repaint();
+          PanelAgenda.guardar=true;
           
           punto=null;
           contador=0;
@@ -420,6 +421,7 @@ public class PanelDiaHoras extends javax.swing.JPanel {
                 }
             }
             cargarResultados(actividades);
+            PanelAgenda.guardar=true;
         }
     }//GEN-LAST:event_btnGenerarActionPerformed
     public String calcularTiempoTarea(){

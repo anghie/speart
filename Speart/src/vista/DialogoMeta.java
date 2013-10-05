@@ -82,7 +82,6 @@ public class DialogoMeta extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         cmbMes = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
-        spnIndicador = new javax.swing.JSpinner();
         jLabel3 = new javax.swing.JLabel();
         spnMeta = new javax.swing.JSpinner();
         jLabel4 = new javax.swing.JLabel();
@@ -91,6 +90,7 @@ public class DialogoMeta extends javax.swing.JDialog {
         cmbUsuario = new javax.swing.JComboBox();
         btnAdd = new javax.swing.JButton();
         btnRemove = new javax.swing.JButton();
+        txtIndicador = new javax.swing.JTextField();
         panelSur = new javax.swing.JPanel();
         btnCancelar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
@@ -124,10 +124,6 @@ public class DialogoMeta extends javax.swing.JDialog {
 
         jLabel2.setText("Indicador:");
         cmbIndic.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
-
-        spnIndicador.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), Double.valueOf(0.0d), null, Double.valueOf(1.0d)));
-        spnIndicador.setPreferredSize(new java.awt.Dimension(60, 20));
-        cmbIndic.add(spnIndicador, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
         jLabel3.setText("Meta:");
         cmbIndic.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
@@ -165,6 +161,7 @@ public class DialogoMeta extends javax.swing.JDialog {
             }
         });
         cmbIndic.add(btnRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 0, -1, -1));
+        cmbIndic.add(txtIndicador, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 70, -1));
 
         getContentPane().add(cmbIndic, java.awt.BorderLayout.PAGE_START);
 
@@ -204,7 +201,7 @@ public class DialogoMeta extends javax.swing.JDialog {
         nuevaMeta.setUsuario(usuario);
 
         nuevaMeta.setFecha(Calendar.getInstance().getTime());
-        nuevaMeta.setIndicador(Double.parseDouble(spnIndicador.getValue().toString()));
+        nuevaMeta.setIndicador(txtIndicador.getText());
         nuevaMeta.setValor(Integer.parseInt(spnMeta.getValue().toString()));
         nuevaMeta.setMes(Fecha.getNumeroMes(cmbMes.getSelectedItem().toString()));
 
@@ -329,8 +326,8 @@ public class DialogoMeta extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelCenter;
     private javax.swing.JPanel panelSur;
-    private javax.swing.JSpinner spnIndicador;
     private javax.swing.JSpinner spnMeta;
     private javax.swing.JTable tablaMetas;
+    private javax.swing.JTextField txtIndicador;
     // End of variables declaration//GEN-END:variables
 }

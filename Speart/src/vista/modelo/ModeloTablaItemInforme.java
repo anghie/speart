@@ -95,7 +95,7 @@ public class ModeloTablaItemInforme implements TableModel {
          Meta aux = datos.get(fila);
         switch (columna) {
            case 4:
-                aux.setIndicador((Double)dato);
+                aux.setIndicador((String)dato);
                 break;
            case 5:
                 aux.setValor((Integer)dato);
