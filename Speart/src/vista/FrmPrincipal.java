@@ -207,10 +207,10 @@ public class FrmPrincipal extends JFrame {
         creaMenuItem(miAyuda, menuAyuda, "Ayuda", "Ayuda acerca el funcionamiento del programa", "help_2.png");
         miAyuda.addActionListener(esc);
 
-        //Item Genera Experto Agenda
-        miGeneraAgenda = new JMenuItem();
-        creaMenuItem(miGeneraAgenda, menuServicios, "Genera Agenda", "Generador de agendas", "agendaTelefonica.png");
-        miAgenda.addActionListener(esc);
+//        //Item Genera Experto Agenda
+//        miGeneraAgenda = new JMenuItem();
+//        creaMenuItem(miGeneraAgenda, menuServicios, "Genera Agenda", "Generador de agendas", "agendaTelefonica.png");
+//        miAgenda.addActionListener(esc);
 
 
         //Item Reportes

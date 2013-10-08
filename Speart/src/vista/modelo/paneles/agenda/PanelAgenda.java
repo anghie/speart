@@ -17,6 +17,7 @@ import controlador.acciones.agenda.ControladorDiasFeriados;
 import controlador.acciones.agenda.ControladorItemAgenda;
 import controlador.acciones.agenda.ControladorMeta;
 import controlador.acciones.servicios.ControladorAgenda;
+import controlador.basedatos.Conexion;
 import datechooser.beans.DateChooserPanel;
 import java.util.Calendar;
 import java.util.Date;
@@ -709,7 +710,10 @@ public class PanelAgenda extends ImagenJPanel {
             JasperReport report = JasperCompileManager.compileReport(dirReporte);
             Map<String, Object> parametros = new HashMap<String, Object>();
             parametros.put("Titulo 1", "Titulo 1");
-            JasperPrint jp = JasperFillManager.fillReport(report, parametros, datos); //datos
+            parametros.put("prm_fecha_desde", Fecha.getFechaFormateada(fechaDesde.getSelectedDate().getTime(), "yyyy/MM/dd"));
+            parametros.put("prm_fecha_hasta", Fecha.getFechaFormateada(fechaHasta.getSelectedDate().getTime(), "yyyy/MM/dd"));
+            JasperPrint jp = JasperFillManager.fillReport(report, parametros, Conexion.conectate());
+            //JasperPrint jp = JasperFillManager.fillReport(report, parametros, datos); //datos
             JasperViewer.viewReport(jp, false);
         } catch (JRException ex) {
             Logger.getLogger(PanelAgenda.class.getName()).log(Level.SEVERE, null, ex);

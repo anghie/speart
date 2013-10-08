@@ -58,7 +58,7 @@ public void iniciarTareas(Usuario usuario){
                     &&  Integer.parseInt(item.getDia_del_mes())==numeroDia
                     &&  item.getActividad()!=null ){
 
-                if(item.getActividad().getRol().getUsuario().equals(usuario) || usuario.getRol().getTipo().equals("Jefe")){
+                if(item.getActividad().getRol().getUsuario().equals(usuario) ){//|| usuario.getRol().getTipo().equals("Jefe")
                     PanelActividad panelActividad=new PanelActividad(true,item,panelContenedorActividades,usuario);
                     panelActividad.setTxtActividad(item.getActividad().getTipoActividad());
                     if(item.getActividad().getRol()!=null){

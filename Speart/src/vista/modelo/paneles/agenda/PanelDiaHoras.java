@@ -134,7 +134,7 @@ public class PanelDiaHoras extends javax.swing.JPanel {
              if(item.getMes().equals(Fecha.getNombreMes(numeroMes))
                 &&  Integer.parseInt(item.getDia_del_mes())==numeroDia
                 && item.getActividad()!=null){
-                if(item.getActividad().getRol().getUsuario().equals(usuario) || usuario.getRol().getTipo().equals("Jefe")){
+                if(item.getActividad().getRol().getUsuario().equals(usuario)){ // || usuario.getRol().getTipo().equals("Jefe")
                  PanelActividad panelActividad=new PanelActividad(false,item,panelContenedorTareas,usuario);
                     panelActividad.setTxtActividad(item.getActividad().getTipoActividad());
                     if(item.getActividad().getRol()!=null){

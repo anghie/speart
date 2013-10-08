@@ -86,7 +86,7 @@ public class ControladorPermisos {
         menuAgregados = false;
         menuReportes = false;
         if(!FrmPrincipal.userLogueado.isEvaluacionActivada()){
-            evaluaciones=true;
+            evaluaciones=false;
         }
     }
 
