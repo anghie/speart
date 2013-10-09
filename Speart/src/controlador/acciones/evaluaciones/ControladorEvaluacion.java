@@ -319,5 +319,4 @@ public class ControladorEvaluacion {
         FrmResultadosEvaluac.getInstance(totIndic, totConoc, totCompTec, totCompUniv, totTrabEquip, totQuejas, resFin).setVisible(true);
     }
     
-    
 }

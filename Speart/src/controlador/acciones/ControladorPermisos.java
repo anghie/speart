@@ -26,6 +26,8 @@ public class ControladorPermisos {
     public static boolean miFechaEval;
     public static boolean miEfectosEval;
     public static boolean menuReportes;
+    public static boolean miAdminMeta;
+    public static boolean miAgendaCont;
 
     public static void permisoInvitado() {
         usuarios = false;
@@ -64,9 +66,8 @@ public class ControladorPermisos {
         miActivaEval = true;
         miEfectosEval = true;
         miFechaEval = true;
-        if(!FrmPrincipal.userLogueado.isEvaluacionActivada()){
-            evaluaciones=false;
-        }
+        miAdminMeta = true;
+        miAgendaCont=true;
     }
 
     public static void permisoServidor() {
@@ -85,6 +86,8 @@ public class ControladorPermisos {
         agendaExperto = false;
         menuAgregados = false;
         menuReportes = false;
+        miAdminMeta = false;
+        miAgendaCont =true;
         if(!FrmPrincipal.userLogueado.isEvaluacionActivada()){
             evaluaciones=false;
         }

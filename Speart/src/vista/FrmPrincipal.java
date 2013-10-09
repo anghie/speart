@@ -55,6 +55,7 @@ public class FrmPrincipal extends JFrame {
     private EventHandler esc;
     private ControladorPrincipal cp;
     public static Usuario userLogueado;
+    public static boolean estaEvalActiva=false;
     private JButton btnAgenda;
     private JButton btnReportes;
     private JMenuItem miGeneraAgenda;
@@ -70,7 +71,7 @@ public class FrmPrincipal extends JFrame {
 
     public synchronized static FrmPrincipal getInstance() {
         if (fp == null) {
-            fp = new FrmPrincipal();
+            fp = new FrmPrincipal();      
         }
         return fp;
     }
@@ -109,6 +110,8 @@ public class FrmPrincipal extends JFrame {
         miAgenda.setVisible(ControladorPermisos.agendaExperto);
 //        menuAgregados.setVisible(ControladorPermisos.menuAgregados);
         menuReportes.setVisible(ControladorPermisos.menuReportes);
+        miMeta.setVisible(ControladorPermisos.miAdminMeta);
+        miAgenda.setVisible(ControladorPermisos.miAgendaCont);
 //        miActivEval.setVisible(ControladorPermisos.miActivaEval);
 //        miFechaEval.setVisible(ControladorPermisos.miFechaEval);
 //        miEfectos.setVisible(ControladorPermisos.miEfectosEval);

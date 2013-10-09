@@ -211,6 +211,9 @@ public class ControladorPrincipal {
         } catch (JRException ex) {
             Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+    }
+    
+    public boolean verificaPeriodoEvaluacion(){
+        return false;
     }
 }

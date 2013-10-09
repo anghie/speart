@@ -13,6 +13,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import modelo.evaluacion.Efectos;
@@ -34,7 +35,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private ArrayList<Usuario> servidoresPlanif;
     private Efectos efec;
     private ArrayList<Efectos> efectos;
-    private String nombreEf;
+    private String nombreEf;//nombre efecto
 
     /**
      * Creates new form PnlEvaluacion
@@ -55,23 +56,37 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
     private void poneTabs() {
         if (FrmPrincipal.userLogueado.getRol().getTipo().equals(Constantes.SERVIDOR)) {
+            //remover todos los tabs menos el primero y el segundo
             for (int i = 0; i <= tabbedEvaluacion.getTabCount(); i++) {
                 int ultimo = tabbedEvaluacion.getTabCount() - 1;
                 tabbedEvaluacion.removeTabAt(ultimo);
             }
         } else if (FrmPrincipal.userLogueado.getRol().getTipo().equals(Constantes.RRHH)) {
+            //remover los primeros 3 tabs
             for (int i = 0; i <= tabbedEvaluacion.getTabCount(); i++) {
-                
-                if (!tabbedEvaluacion.getTitleAt(i).equalsIgnoreCase("ACTIVAR EVALUACIÓN")) {
-                    System.out.println("tab eliminado: "+i+" "+tabbedEvaluacion.getTitleAt(i));
-                    tabbedEvaluacion.removeTabAt(i);
+                if (i < tabbedEvaluacion.getTabCount()) {
+                    tabbedEvaluacion.removeTabAt(0);
                 }
-            }         
-        } else {
-            servidoresPlanif = new ArrayList<>();
-            listarServidores();
-            llenaListaDisponibles();
+            }
+            if (FrmPrincipal.estaEvalActiva) {
+                tabbedEvaluacion.removeTabAt(0);
+            }
+        } else if (FrmPrincipal.userLogueado.getRol().getTipo().equals(Constantes.JEFE)) {
+            //remover todos los tabs menos el primero y el segundo
+            if (FrmPrincipal.userLogueado.isEvaluacionActivada()) {
+                for (int i = 0; i <= tabbedEvaluacion.getTabCount(); i++) {
+                    int ultimo = tabbedEvaluacion.getTabCount() - 1;
+                    tabbedEvaluacion.removeTabAt(ultimo);
+                }
+            } else {
+                for (int i = 0; i < 2; i++) {//remover los primeros dos tabs
+                    tabbedEvaluacion.removeTabAt(0);
+                }
+            }
         }
+        listarServidores();
+        llenaListaDisponibles();
+        llenaListaAsignados();
     }
 
     private void poneEventos() {
@@ -214,24 +229,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         btnSiguiente = new javax.swing.JButton();
         btnAnterior = new javax.swing.JButton();
         btnResultados = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        btnAplicar = new javax.swing.JButton();
-        lblHasta = new javax.swing.JLabel();
-        dateHasta = new org.jdesktop.swingx.JXDatePicker();
-        dateDesde = new org.jdesktop.swingx.JXDatePicker();
-        lblDesde = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
-        lblTitulo = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        lstDisponibleParaEval = new javax.swing.JList();
-        btnAgregar = new javax.swing.JButton();
-        btnQuitar = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        lstParaEvaluar = new javax.swing.JList();
-        btnAceptar = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        pnlCinco = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
@@ -247,6 +245,29 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jLabel46 = new javax.swing.JLabel();
         cbNombres = new javax.swing.JComboBox();
         btnNuevoNombre = new javax.swing.JButton();
+        pnlTres = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        btnAplicar = new javax.swing.JButton();
+        lblHasta = new javax.swing.JLabel();
+        dateHasta = new org.jdesktop.swingx.JXDatePicker();
+        dateDesde = new org.jdesktop.swingx.JXDatePicker();
+        lblDesde = new javax.swing.JLabel();
+        txtMinDesde = new javax.swing.JTextField();
+        txtHoraDesde = new javax.swing.JTextField();
+        txtMinHasta = new javax.swing.JTextField();
+        txtHoraHasta = new javax.swing.JTextField();
+        lblSepHasta = new javax.swing.JLabel();
+        lblSepDesde = new javax.swing.JLabel();
+        pnlCuatro = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        lblTitulo = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        lstDisponibleParaEval = new javax.swing.JList();
+        btnAgregar = new javax.swing.JButton();
+        btnQuitar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lstParaEvaluar = new javax.swing.JList();
+        btnAceptar = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -865,79 +886,6 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         tabbedEvaluacion.addTab("EVALUACION AL SERVIDOR", pnlDos);
 
-        jPanel9.setOpaque(false);
-        jPanel9.setPreferredSize(new java.awt.Dimension(400, 400));
-        jPanel9.setLayout(null);
-
-        btnAplicar.setText("Aplicar");
-        btnAplicar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAplicarActionPerformed(evt);
-            }
-        });
-        jPanel9.add(btnAplicar);
-        btnAplicar.setBounds(150, 230, 110, 40);
-
-        lblHasta.setText("Hasta:");
-        jPanel9.add(lblHasta);
-        lblHasta.setBounds(70, 160, 70, 30);
-        jPanel9.add(dateHasta);
-        dateHasta.setBounds(140, 160, 180, 30);
-        jPanel9.add(dateDesde);
-        dateDesde.setBounds(140, 110, 180, 30);
-
-        lblDesde.setText("Desde:");
-        jPanel9.add(lblDesde);
-        lblDesde.setBounds(70, 110, 60, 30);
-
-        jPanel1.add(jPanel9);
-
-        tabbedEvaluacion.addTab("FECHA EVALUACIÓN", jPanel1);
-
-        jPanel10.setPreferredSize(new java.awt.Dimension(550, 350));
-        jPanel10.setLayout(null);
-
-        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("ACTIVACIÓN DE EVALUACIÓN");
-        jPanel10.add(lblTitulo);
-        lblTitulo.setBounds(180, 20, 200, 30);
-
-        jScrollPane3.setViewportView(lstDisponibleParaEval);
-
-        jPanel10.add(jScrollPane3);
-        jScrollPane3.setBounds(40, 60, 200, 200);
-
-        btnAgregar.setText(">");
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
-            }
-        });
-        jPanel10.add(btnAgregar);
-        btnAgregar.setBounds(250, 110, 50, 27);
-
-        btnQuitar.setText("<");
-        btnQuitar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQuitarActionPerformed(evt);
-            }
-        });
-        jPanel10.add(btnQuitar);
-        btnQuitar.setBounds(250, 160, 50, 27);
-
-        jScrollPane2.setViewportView(lstParaEvaluar);
-
-        jPanel10.add(jScrollPane2);
-        jScrollPane2.setBounds(310, 60, 200, 200);
-
-        btnAceptar.setText("Aceptar");
-        jPanel10.add(btnAceptar);
-        btnAceptar.setBounds(220, 290, 100, 40);
-
-        jPanel2.add(jPanel10);
-
-        tabbedEvaluacion.addTab("ACTIVAR EVALUACIÓN", jPanel2);
-
         jPanel11.setPreferredSize(new java.awt.Dimension(400, 480));
         jPanel11.setLayout(null);
 
@@ -1009,19 +957,124 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jPanel11.add(btnNuevoNombre);
         btnNuevoNombre.setBounds(310, 40, 80, 30);
 
-        jPanel3.add(jPanel11);
+        pnlCinco.add(jPanel11);
 
-        tabbedEvaluacion.addTab("EFECTOS EVALUACIÓN", jPanel3);
+        tabbedEvaluacion.addTab("EFECTOS EVALUACIÓN", pnlCinco);
 
-        add(tabbedEvaluacion, java.awt.BorderLayout.CENTER);
+        jPanel9.setOpaque(false);
+        jPanel9.setPreferredSize(new java.awt.Dimension(400, 400));
+        jPanel9.setLayout(null);
+
+        btnAplicar.setText("Aplicar");
+        btnAplicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAplicarActionPerformed(evt);
+            }
+        });
+        jPanel9.add(btnAplicar);
+        btnAplicar.setBounds(150, 230, 110, 40);
+
+        lblHasta.setText("Hasta:");
+        jPanel9.add(lblHasta);
+        lblHasta.setBounds(10, 140, 70, 30);
+        jPanel9.add(dateHasta);
+        dateHasta.setBounds(80, 140, 180, 30);
+        jPanel9.add(dateDesde);
+        dateDesde.setBounds(80, 100, 180, 30);
+
+        lblDesde.setText("Desde:");
+        jPanel9.add(lblDesde);
+        lblDesde.setBounds(10, 100, 60, 30);
+        jPanel9.add(txtMinDesde);
+        txtMinDesde.setBounds(330, 100, 50, 27);
+        jPanel9.add(txtHoraDesde);
+        txtHoraDesde.setBounds(270, 100, 50, 27);
+        jPanel9.add(txtMinHasta);
+        txtMinHasta.setBounds(330, 140, 50, 27);
+        jPanel9.add(txtHoraHasta);
+        txtHoraHasta.setBounds(270, 140, 50, 27);
+
+        lblSepHasta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSepHasta.setText(":");
+        jPanel9.add(lblSepHasta);
+        lblSepHasta.setBounds(320, 140, 10, 30);
+
+        lblSepDesde.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSepDesde.setText(":");
+        jPanel9.add(lblSepDesde);
+        lblSepDesde.setBounds(320, 100, 10, 30);
+
+        pnlTres.add(jPanel9);
+
+        tabbedEvaluacion.addTab("FECHA EVALUACIÓN", pnlTres);
+
+        jPanel10.setPreferredSize(new java.awt.Dimension(550, 350));
+        jPanel10.setLayout(null);
+
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo.setText("ACTIVACIÓN DE EVALUACIÓN");
+        jPanel10.add(lblTitulo);
+        lblTitulo.setBounds(180, 20, 200, 30);
+
+        jScrollPane3.setViewportView(lstDisponibleParaEval);
+
+        jPanel10.add(jScrollPane3);
+        jScrollPane3.setBounds(40, 60, 200, 200);
+
+        btnAgregar.setText(">");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+        jPanel10.add(btnAgregar);
+        btnAgregar.setBounds(250, 110, 50, 29);
+
+        btnQuitar.setText("<");
+        btnQuitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuitarActionPerformed(evt);
+            }
+        });
+        jPanel10.add(btnQuitar);
+        btnQuitar.setBounds(250, 160, 50, 29);
+
+        jScrollPane2.setViewportView(lstParaEvaluar);
+
+        jPanel10.add(jScrollPane2);
+        jScrollPane2.setBounds(310, 60, 200, 200);
+
+        btnAceptar.setText("Aceptar");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
+        jPanel10.add(btnAceptar);
+        btnAceptar.setBounds(220, 290, 100, 40);
+
+        pnlCuatro.add(jPanel10);
+
+        tabbedEvaluacion.addTab("ACTIVAR EVALUACIÓN", pnlCuatro);
+
+        add(tabbedEvaluacion, java.awt.BorderLayout.PAGE_START);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarActionPerformed
         Calendar actual = Calendar.getInstance();
         Calendar inicio = Calendar.getInstance();
         Calendar fin = Calendar.getInstance();
+
         inicio.setTime(dateDesde.getDate());
+        inicio.set(Calendar.HOUR_OF_DAY, Integer.parseInt(txtHoraDesde.getText()));
+        inicio.set(Calendar.MINUTE, Integer.parseInt(txtMinDesde.getText()));
+//        System.out.println(inicio.getTime().toString());
+
         fin.setTime(dateHasta.getDate());
+        fin.set(Calendar.HOUR_OF_DAY, Integer.parseInt(txtHoraHasta.getText()));
+        fin.set(Calendar.MINUTE, Integer.parseInt(txtMinHasta.getText()));
+//        System.out.println(fin.getTime().toString());
+
         if (fin.after(inicio)) {
             if ((inicio.after(actual) || inicio.equals(actual))
                     && (fin.after(actual))) {
@@ -1041,14 +1094,24 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
     private void listarServidores() {
         servidoresDisp = new ArrayList<>();
+        servidoresPlanif = new ArrayList<>();
         ArrayList<Usuario> serv = (ArrayList<Usuario>) OperacionesBD.listar("Usuario");
-        String actual = FrmPrincipal.userLogueado.getRol().getTipo();
+        String actual = FrmPrincipal.userLogueado.getRol().getTipo();//tipo Servidor, jefe o rrhh
         for (Usuario s : serv) {
-            if ((!s.getRol().getTipo().equals(Constantes.RRHH))
-                    && (!s.getRol().getTipo().equals(actual))) {
-                servidoresDisp.add(s);
+            if ((!s.getRol().getTipo().equals(actual)) && !s.isEvaluacionActivada()) {// si es de recursos humanos no se listaran los de rrhh por ejemplo
+                if (actual.equals(Constantes.JEFE)
+                        && !s.getRol().getTipo().equals(Constantes.RRHH)) {
+                    servidoresDisp.add(s);
+                } else if (actual.equals(Constantes.RRHH)
+                        && !s.getRol().getTipo().equals(Constantes.SERVIDOR)) {
+                    servidoresDisp.add(s);
+                }
+            } else if ((!s.getRol().getTipo().equals(actual)) && s.isEvaluacionActivada()) {
+                servidoresPlanif.add(s);
             }
         }
+
+
     }
 
     private void llenaListaDisponibles() {
@@ -1192,6 +1255,17 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         nombreEf = JOptionPane.showInputDialog("Ingrese el nombre del Efecto");
         cbNombres.addItem(nombreEf);
     }//GEN-LAST:event_btnNuevoNombreActionPerformed
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        if (!servidoresPlanif.isEmpty()) {
+            for (Usuario u : servidoresPlanif) {
+                u.setEvaluacionActivada(true);
+                OperacionesBD.modificar(u);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Lista de Servidores Planificados vacia");
+        }
+    }//GEN-LAST:event_btnAceptarActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnAgregar;
@@ -1252,11 +1326,8 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -1289,6 +1360,8 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JLabel lblNombreEvaluado;
     private javax.swing.JLabel lblPuesto;
     private javax.swing.JLabel lblPuestoDesemp;
+    private javax.swing.JLabel lblSepDesde;
+    private javax.swing.JLabel lblSepHasta;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTituloProf;
     private javax.swing.JLabel lblTotActivEscen;
@@ -1297,9 +1370,11 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JPanel pnlAbajo;
     private javax.swing.JPanel pnlArriba;
     private javax.swing.JPanel pnlCabeceras;
+    private javax.swing.JPanel pnlCinco;
     private javax.swing.JPanel pnlCompetTecnicas;
     private javax.swing.JPanel pnlCompetUniver;
     private javax.swing.JPanel pnlConocimientos;
+    private javax.swing.JPanel pnlCuatro;
     private javax.swing.JPanel pnlDatosComp;
     private javax.swing.JPanel pnlDatosCompUnivers;
     private javax.swing.JPanel pnlDatosConoc;
@@ -1315,6 +1390,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JPanel pnlMedio;
     private javax.swing.JPanel pnlQuejas;
     private javax.swing.JPanel pnlTrabEquipo;
+    private javax.swing.JPanel pnlTres;
     private javax.swing.JPanel pnlUno;
     private javax.swing.JScrollPane scrollDatosComp;
     private javax.swing.JScrollPane scrollDatosCompUnivers;
@@ -1330,7 +1406,11 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JTextField txtFactorIndic;
     private javax.swing.JTextField txtFactorTrab;
     private javax.swing.JTextField txtFactorUniv;
+    private javax.swing.JTextField txtHoraDesde;
+    private javax.swing.JTextField txtHoraHasta;
     private javax.swing.JTextArea txtIneficienteCalificacion;
+    private javax.swing.JTextField txtMinDesde;
+    private javax.swing.JTextField txtMinHasta;
     private javax.swing.JTextField txtNombreApellidos;
     private javax.swing.JTextField txtNroActividades;
     private javax.swing.JTextField txtNroCompetTecnic;
