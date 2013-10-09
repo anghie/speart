@@ -75,7 +75,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         } else if (FrmPrincipal.userLogueado.getRol().getTipo().equals(Constantes.JEFE)) {
             //remover todos los tabs menos el primero y el segundo
-            if (FrmPrincipal.userLogueado.isEvaluacionActivada()) {
+            if (FrmPrincipal.userLogueado.isEvaluacionActivada() && FrmPrincipal.estaEvalActiva) {
                 for (int i = 0; i <= tabbedEvaluacion.getTabCount(); i++) {
                     int ultimo = tabbedEvaluacion.getTabCount() - 1;
                     tabbedEvaluacion.removeTabAt(ultimo);
@@ -1110,7 +1110,10 @@ public class PnlEvaluacion extends javax.swing.JPanel {
                     servidoresDisp.add(s);
                 }
             } else if ((!s.getRol().getTipo().equals(actual)) && s.isEvaluacionActivada()) {
-                servidoresPlanif.add(s);
+                if ((actual.equals(Constantes.JEFE) && !s.getRol().getTipo().equals(Constantes.RRHH)) || (actual.equals(Constantes.RRHH)
+                        && !s.getRol().getTipo().equals(Constantes.SERVIDOR))) {
+                    servidoresPlanif.add(s);
+                }
             }
         }
 
@@ -1260,13 +1263,25 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     }//GEN-LAST:event_btnNuevoNombreActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        boolean oper = false;
         if (!servidoresPlanif.isEmpty()) {
             for (Usuario u : servidoresPlanif) {
                 u.setEvaluacionActivada(true);
                 OperacionesBD.modificar(u);
             }
+            oper = true;
+        }
+        if (!servidoresDisp.isEmpty()) {
+            for (Usuario u : servidoresDisp) {
+                u.setEvaluacionActivada(false);
+                OperacionesBD.modificar(u);
+            }
+            oper = true;
+        }
+        if (oper) {
+            JOptionPane.showMessageDialog(null, "Operacion realizada correctamente ");
         } else {
-            JOptionPane.showMessageDialog(null, "Lista de Servidores Planificados vacia");
+            JOptionPane.showMessageDialog(null, "Error al realizar la operación");
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1672,7 +1687,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         @Override
         public void stateChanged(ChangeEvent e) {
-            if(tabbedEvaluacion.getSelectedIndex()==1){
+            if (tabbedEvaluacion.getSelectedIndex() == 1) {
                 generacionEval();
             }
         }

@@ -88,7 +88,7 @@ public class ControladorPermisos {
         menuReportes = false;
         miAdminMeta = false;
         miAgendaCont =true;
-        if(!FrmPrincipal.userLogueado.isEvaluacionActivada()){
+        if(!FrmPrincipal.userLogueado.isEvaluacionActivada()&&FrmPrincipal.estaEvalActiva){
             evaluaciones=false;
         }
     }
