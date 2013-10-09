@@ -121,6 +121,7 @@ public class DialogLogin extends javax.swing.JDialog {
                 }
                 fp.ponePermisos();
                 ControladorRecordatorio.listarRecordatorios();
+                ControladorPrincipal.listarFechasEval();
             } else {
                 if (ControladorPrincipal.esInhab == 0) {
                     JOptionPane.showMessageDialog(null, "El usuario ingresado no está registrado pida al administrador su ingreso");

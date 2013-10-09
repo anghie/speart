@@ -16,6 +16,8 @@ import java.util.Calendar;
 import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import modelo.evaluacion.Efectos;
 import modelo.evaluacion.PeriodoEvaluacion;
 import modelo.usuario.Usuario;
@@ -100,6 +102,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         txtFactorCompTec.addKeyListener(gce);
         txtFactorUniv.addKeyListener(gce);
         txtFactorTrab.addKeyListener(gce);
+        tabbedEvaluacion.addChangeListener(gce);
     }
 
     /**
@@ -1606,7 +1609,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         return txtTotalQuejas;
     }
 
-    class GestorControladorEvaluacion extends KeyAdapter implements ActionListener {
+    class GestorControladorEvaluacion extends KeyAdapter implements ActionListener, ChangeListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -1620,16 +1623,20 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             //                ce.llenaServidorEscogido();
             //            } 
             else if (e.getSource() == btnGenerar) {
-                tabbedEvaluacion.setSelectedIndex(1);
-                ce.listarActividades();
-                ce.listarSeccion();
-                ce.listarCompetenciasTecnicas();
-                ce.listarCompetenciasUniversales();
-                ce.listarTrabajoEquipo();
-                ce.listarQuejas();
-                ControladorEvaluacion.txtTotalConoc = getTxtTotalConocimientos();
-                ControladorEvaluacion.totConoc = 0;
+                generacionEval();
             }
+        }
+
+        public void generacionEval() {
+            tabbedEvaluacion.setSelectedIndex(1);
+            ce.listarActividades();
+            ce.listarSeccion();
+            ce.listarCompetenciasTecnicas();
+            ce.listarCompetenciasUniversales();
+            ce.listarTrabajoEquipo();
+            ce.listarQuejas();
+            ControladorEvaluacion.txtTotalConoc = getTxtTotalConocimientos();
+            ControladorEvaluacion.totConoc = 0;
         }
 
         @Override
@@ -1660,6 +1667,13 @@ public class PnlEvaluacion extends javax.swing.JPanel {
                     }
                 } catch (NumberFormatException nfe) {
                 }
+            }
+        }
+
+        @Override
+        public void stateChanged(ChangeEvent e) {
+            if(tabbedEvaluacion.getSelectedIndex()==1){
+                generacionEval();
             }
         }
     }

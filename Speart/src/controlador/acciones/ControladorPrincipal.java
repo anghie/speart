@@ -1,11 +1,11 @@
 package controlador.acciones;
 
-import controlador.acciones.proceso.ControladorEscogeActividades;
 import controlador.acciones.usuario.ControladorUsuario;
 import controlador.basedatos.OperacionesBD;
 import vista.FrmPrincipal;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -16,7 +16,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
-import modelo.proceso.Actividad;
+import modelo.evaluacion.PeriodoEvaluacion;
 import modelo.proceso.Rol;
 import modelo.usuario.AlgoritmoAES;
 import modelo.usuario.Usuario;
@@ -38,6 +38,7 @@ public class ControladorPrincipal {
     public static Rol rol;
     private static ControladorPrincipal cp = null;
     public static int esInhab = 0;
+    public static ArrayList<PeriodoEvaluacion> fechaeval;
 
     private ControladorPrincipal(FrmPrincipal frm) {
         this.frm = frm;
@@ -86,7 +87,7 @@ public class ControladorPrincipal {
                 }
             } else if (user.equals(us.getLogin()) && !us.isHabilitado()) {
                 esInhab = 1;
-            } 
+            }
         }
         return existe;
     }
@@ -98,7 +99,6 @@ public class ControladorPrincipal {
         frm.ponePermisos();
         pasarGarbageCollector();
     }
-
 
     public static boolean verificaClave(String claveAnt) {
         String st = FrmPrincipal.userLogueado.getClave();
@@ -212,8 +212,23 @@ public class ControladorPrincipal {
             Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public boolean verificaPeriodoEvaluacion(){
-        return false;
+
+    public static void listarFechasEval() {
+        fechaeval = (ArrayList<PeriodoEvaluacion>) OperacionesBD.listar("PeriodoEvaluacion");
+
+    }
+
+    public static boolean verificaPeriodoEvaluacion() {
+        boolean entre = false;
+        Calendar hoy = Calendar.getInstance();
+        for (PeriodoEvaluacion pe : fechaeval) {
+            Calendar inicio = pe.getFechaInicio();
+            Calendar fin = pe.getFechaFin();
+            if ((hoy.after(inicio) && hoy.before(fin))//si hoy está entre inicio y fin
+                    || (hoy.equals(inicio))) {//si hoy es igual a inicio
+                entre = true;                
+            }
+        }
+        return entre;
     }
 }

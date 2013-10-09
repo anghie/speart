@@ -1,5 +1,6 @@
 package vista.modelo;
 
+import controlador.acciones.ControladorPrincipal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -7,6 +8,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
+import vista.FrmPrincipal;
 
 public class LblHora extends JLabel implements Runnable {
 
@@ -39,6 +41,7 @@ public class LblHora extends JLabel implements Runnable {
             try {
                 if (c.get(Calendar.SECOND) % 60 == 0) {
                     OperacionesVarias.recordatorio();
+                    FrmPrincipal.estaEvalActiva= ControladorPrincipal.verificaPeriodoEvaluacion();
                 }
                 Thread.sleep(1000);
 
