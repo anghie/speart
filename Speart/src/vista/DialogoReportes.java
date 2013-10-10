@@ -4,21 +4,25 @@
  */
 package vista;
 
+import controlador.acciones.agenda.ControladorItemAgenda;
 import controlador.basedatos.Conexion;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import modelo.agenda.Agenda;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRTableModelDataSource;
 import net.sf.jasperreports.view.JasperViewer;
-import vista.modelo.Fecha;
+import vista.modelo.ModeloTablaItemAgenda;
 
 /**
  *
@@ -29,9 +33,18 @@ public class DialogoReportes extends javax.swing.JDialog {
     /**
      * Creates new form DialogoReportes
      */
-    public DialogoReportes(JFrame parent, boolean modal) {
+    private ModeloTablaItemAgenda modeloTablaItemAgenda;
+    private Agenda agenda;
+    private String anio;
+    private String mesInicio;
+    private String mesFin;
+    public DialogoReportes(JFrame parent, boolean modal,Agenda agenda) {
         super(parent, modal);
+        modeloTablaItemAgenda=new ModeloTablaItemAgenda();
+        this.agenda=agenda;
         initComponents();
+        tablaReporte.setModel(modeloTablaItemAgenda);
+        
     }
 
     /**
@@ -43,37 +56,48 @@ public class DialogoReportes extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        panelCentro = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaReporte = new javax.swing.JTable();
+        panelNorte = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         cmbReportes = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
-        fechaDesde = new datechooser.beans.DateChooserCombo();
-        jLabel4 = new javax.swing.JLabel();
-        fechaHasta = new datechooser.beans.DateChooserCombo();
+        cmbMesDesde = new javax.swing.JComboBox();
         btnGenerar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        bntImprimir = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 657, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 267, Short.MAX_VALUE)
-        );
+        panelCentro.setLayout(new java.awt.BorderLayout());
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+        tablaReporte.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaReporte);
+
+        panelCentro.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(panelCentro, java.awt.BorderLayout.CENTER);
+
+        panelNorte.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setText("Reporte ");
-        jPanel2.add(jLabel1);
+        panelNorte.add(jLabel1);
 
         jLabel2.setText("Tareas:");
-        jPanel2.add(jLabel2);
+        panelNorte.add(jLabel2);
 
         cmbReportes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Terminadas", " Pendientes" }));
         cmbReportes.addActionListener(new java.awt.event.ActionListener() {
@@ -81,25 +105,48 @@ public class DialogoReportes extends javax.swing.JDialog {
                 cmbReportesActionPerformed(evt);
             }
         });
-        jPanel2.add(cmbReportes);
+        panelNorte.add(cmbReportes);
 
-        jLabel3.setText("Desde:");
-        jPanel2.add(jLabel3);
-        jPanel2.add(fechaDesde);
+        jLabel3.setText("Mes:");
+        panelNorte.add(jLabel3);
 
-        jLabel4.setText("Hasta:");
-        jPanel2.add(jLabel4);
-        jPanel2.add(fechaHasta);
+        cmbMesDesde.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        cmbMesDesde.setMinimumSize(new java.awt.Dimension(100, 20));
+        cmbMesDesde.setPreferredSize(new java.awt.Dimension(100, 20));
+        panelNorte.add(cmbMesDesde);
 
+        btnGenerar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/document-export-table.png"))); // NOI18N
         btnGenerar.setText("Generar");
         btnGenerar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnGenerar);
+        panelNorte.add(btnGenerar);
 
-        getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_START);
+        getContentPane().add(panelNorte, java.awt.BorderLayout.PAGE_START);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        bntImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/printer1.png"))); // NOI18N
+        bntImprimir.setText("Imprimir");
+        bntImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntImprimirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(bntImprimir);
+
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/icono_eliminar.gif"))); // NOI18N
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSalir);
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -111,99 +158,103 @@ public class DialogoReportes extends javax.swing.JDialog {
 
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
         // TODO add your handling code here:
-        if(fechaDesde.getSelectedDate().get(Calendar.YEAR)==fechaHasta.getSelectedDate().get(Calendar.YEAR)){
+                anio=agenda.getNombre();
+                mesInicio=cmbMesDesde.getSelectedItem().toString();
                 if(cmbReportes.getSelectedIndex()==0){
                     try {
-                       // TODO add your handling code here:
-                       String anio=""+fechaDesde.getSelectedDate().get(Calendar.YEAR);
-                       String dirReporte = "./reportes/ReporteActividades.jrxml";
-                       JasperReport report = JasperCompileManager.compileReport(dirReporte);
-                       Map<String, Object> parametros = new HashMap<String, Object>();
-                       parametros.put("prm_agenda", anio);
-                       parametros.put("prm_completada", 1);
-                       parametros.put("prm_desde", Fecha.getFechaFormateada(fechaDesde.getSelectedDate().getTime(), "yyyy/MM/dd"));
-                       parametros.put("prm_hasta", Fecha.getFechaFormateada(fechaHasta.getSelectedDate().getTime(), "yyyy/MM/dd"));
-                       JasperPrint jp = JasperFillManager.fillReport(report, parametros, Conexion.conectate()); //datos
-                       JasperViewer.viewReport(jp, false);
-                   } catch (JRException ex) {
+                       modeloTablaItemAgenda.setItemsAgenda(ControladorItemAgenda.searchItemsAgenda(mesInicio,1));
+                   } catch (Exception ex) {
                        Logger.getLogger(DialogoReportes.class.getName()).log(Level.SEVERE, null, ex);
                    }
                }else if(cmbReportes.getSelectedIndex()==1){
                    try {
                        // TODO add your handling code here:
-                       String anio=""+fechaDesde.getSelectedDate().get(Calendar.YEAR);
-                       String dirReporte = "./reportes/ReporteActividades.jrxml";
-                       JasperReport report = JasperCompileManager.compileReport(dirReporte);
-                       Map<String, Object> parametros = new HashMap<String, Object>();
-                       parametros.put("prm_agenda", anio);
-                       parametros.put("prm_completada", 0);
-                       parametros.put("prm_desde", Fecha.getFechaFormateada(fechaDesde.getSelectedDate().getTime(), "yyyy/MM/dd"));
-                       parametros.put("prm_hasta", Fecha.getFechaFormateada(fechaHasta.getSelectedDate().getTime(), "yyyy/MM/dd"));
-                       JasperPrint jp = JasperFillManager.fillReport(report, parametros,Conexion.conectate()); //datos
-                       JasperViewer.viewReport(jp, false);
-                   } catch (JRException ex) {
+                      modeloTablaItemAgenda.setItemsAgenda(ControladorItemAgenda.searchItemsAgenda(mesInicio,0));
+                       
+                   } catch (Exception ex) {
                        Logger.getLogger(DialogoReportes.class.getName()).log(Level.SEVERE, null, ex);
                    }
                }
-        }else{
-            JOptionPane.showMessageDialog(this,"Error el año de la fecha desde es diferente al año de la fecha hasta ");
-        }
-         
-        dispose();
     }//GEN-LAST:event_btnGenerarActionPerformed
+
+    private void bntImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntImprimirActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            JRTableModelDataSource datos = new JRTableModelDataSource(tablaReporte.getModel());
+            String dirReporte = "./reportes/ReporteActividades.jrxml";
+            JasperReport report = JasperCompileManager.compileReport(dirReporte);
+            Map<String, Object> parametros = new HashMap<String, Object>();
+            parametros.put("prm_agenda", anio);
+            parametros.put("prm_desde", mesInicio);
+            JasperPrint jp = JasperFillManager.fillReport(report, parametros, datos); //datos
+            JasperViewer.viewReport(jp, false);
+            dispose();
+        } catch (JRException ex) {
+            Logger.getLogger(DialogoReportes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bntImprimirActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DialogoReportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DialogoReportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DialogoReportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DialogoReportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                DialogoReportes dialog = new DialogoReportes(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(DialogoReportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(DialogoReportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(DialogoReportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(DialogoReportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the dialog */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                DialogoReportes dialog = new DialogoReportes(new javax.swing.JFrame(), true);
+//                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+//                    @Override
+//                    public void windowClosing(java.awt.event.WindowEvent e) {
+//                        System.exit(0);
+//                    }
+//                });
+//                dialog.setVisible(true);
+//            }
+//        });
+//    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bntImprimir;
     private javax.swing.JButton btnGenerar;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JComboBox cmbMesDesde;
     private javax.swing.JComboBox cmbReportes;
-    private datechooser.beans.DateChooserCombo fechaDesde;
-    private datechooser.beans.DateChooserCombo fechaHasta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel panelCentro;
+    private javax.swing.JPanel panelNorte;
+    private javax.swing.JTable tablaReporte;
     // End of variables declaration//GEN-END:variables
 }

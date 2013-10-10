@@ -11,7 +11,7 @@ import vista.paneles.evaluacion.PnlQuejas;
 
 /**
  *
- * @author jenny
+ * @author 
  */
 public class ControladorQuejas {
 

@@ -11,7 +11,7 @@ import modelo.agenda.ItemAgenda;
 
 public class ModeloTablaItemAgenda implements TableModel {
 
-    private LinkedList<ItemAgenda> datos = new LinkedList<ItemAgenda>();
+    private List<ItemAgenda> datos = new LinkedList<ItemAgenda>();
     @SuppressWarnings({"rawtypes"})
     private LinkedList suscriptores = new LinkedList();
     String[] column = {"DIA", "NUMERO DIA", "MES","HORA INICIO","HORA FIN","TIEMPO","ACTIVIDAD"};
@@ -103,7 +103,7 @@ public class ModeloTablaItemAgenda implements TableModel {
 
     }
 
-    public void setItemsAgenda(LinkedList<ItemAgenda> lista) {
+    public void setItemsAgenda(List<ItemAgenda> lista) {
         datos = lista;
         // Avisa a los suscriptores creando un TableModelEvent...
         TableModelEvent evento;

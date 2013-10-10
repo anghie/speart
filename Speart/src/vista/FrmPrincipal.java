@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.*;
 import vista.modelo.*;
 import controlador.acciones.ControladorPrincipal;
+import controlador.acciones.agenda.ControladorAgenda;
 import modelo.usuario.Usuario;
 import vista.modelo.paneles.agenda.PanelAgenda;
 import vista.paneles.evaluacion.PnlEvaluacion;
@@ -71,7 +72,7 @@ public class FrmPrincipal extends JFrame {
 
     public synchronized static FrmPrincipal getInstance() {
         if (fp == null) {
-            fp = new FrmPrincipal();      
+            fp = new FrmPrincipal();
         }
         return fp;
     }
@@ -110,8 +111,6 @@ public class FrmPrincipal extends JFrame {
         miAgenda.setVisible(ControladorPermisos.agendaExperto);
 //        menuAgregados.setVisible(ControladorPermisos.menuAgregados);
         menuReportes.setVisible(ControladorPermisos.menuReportes);
-        miMeta.setVisible(ControladorPermisos.miAdminMeta);
-        miAgenda.setVisible(ControladorPermisos.miAgendaCont);
 //        miActivEval.setVisible(ControladorPermisos.miActivaEval);
 //        miFechaEval.setVisible(ControladorPermisos.miFechaEval);
 //        miEfectos.setVisible(ControladorPermisos.miEfectosEval);
@@ -210,10 +209,10 @@ public class FrmPrincipal extends JFrame {
         creaMenuItem(miAyuda, menuAyuda, "Ayuda", "Ayuda acerca el funcionamiento del programa", "help_2.png");
         miAyuda.addActionListener(esc);
 
-//        //Item Genera Experto Agenda
-//        miGeneraAgenda = new JMenuItem();
-//        creaMenuItem(miGeneraAgenda, menuServicios, "Genera Agenda", "Generador de agendas", "agendaTelefonica.png");
-//        miAgenda.addActionListener(esc);
+        //Item Genera Experto Agenda
+        miGeneraAgenda = new JMenuItem();
+        creaMenuItem(miGeneraAgenda, menuServicios, "Genera Agenda", "Generador de agendas", "agendaTelefonica.png");
+        miAgenda.addActionListener(esc);
 
 
         //Item Reportes
@@ -480,7 +479,7 @@ public class FrmPrincipal extends JFrame {
                 }
                 setTitle("SPEIESS 2013 - Panel Agenda Usuario");
             } else if (evt.getSource() == btnReportes) {
-                DialogoReportes reportes = new DialogoReportes(FrmPrincipal.this, true);
+                DialogoReportes reportes = new DialogoReportes(FrmPrincipal.this, true, ControladorAgenda.getAgendaActual());
                 reportes.setLocationRelativeTo(null);
                 reportes.setVisible(true);
             } else if (evt.getSource() == miGeneraAgenda) {

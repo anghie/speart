@@ -156,7 +156,19 @@ public class OperacionesBD {
         }
         return lista;
     }
+    
+    public static List listar(String nombreEntidad, String campo,int id) {
+        entidad.getTransaction().begin();
+        try {
+            lista = entidad.createQuery("Select a from " + nombreEntidad + " a where "+campo+" = "+id).getResultList();
+            entidad.getTransaction().commit();
 
+        } catch (Exception e) {
+            entidad.getTransaction().rollback();
+        }
+        return lista;
+    }
+    
     public static Object buscar(String nombreTabla, String nombreCampo, String campo) {
         Object obj = null;
         entidad.getTransaction().begin();
@@ -281,7 +293,7 @@ public class OperacionesBD {
         }
         return lista;
     }
-
+    
     public static List listarconDobleCondicion(String nombreEntidad, String columna1, String valor1, String columna2, String valor2) {
         entidad.getTransaction().begin();
         try {

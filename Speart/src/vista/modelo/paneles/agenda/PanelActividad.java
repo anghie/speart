@@ -114,7 +114,7 @@ public class PanelActividad extends javax.swing.JPanel {
     }
     
     private void iniciarServidores(){
-       listaActividades=ControladorActividades.getAllActividades();
+       listaActividades=ControladorActividades.getAllActividades(usuario.getRol().getIdRol());
 //       System.out.println(listaActividades);
        modeloCmbActividades=new ModeloComboBoxActividad(listaActividades);
     }
@@ -313,7 +313,7 @@ public class PanelActividad extends javax.swing.JPanel {
 
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
         // TODO add your handling code here:
-        DialogoEditarItemAgenda dialogo=new DialogoEditarItemAgenda(new JFrame(), true,itemAgenda);
+        DialogoEditarItemAgenda dialogo=new DialogoEditarItemAgenda(new JFrame(), true,itemAgenda,usuario);
         dialogo.setVisible(true);
         loadItemAgenda();
     }//GEN-LAST:event_btEditarActionPerformed
@@ -335,7 +335,7 @@ public class PanelActividad extends javax.swing.JPanel {
 
     private void miEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miEditarActionPerformed
         // TODO add your handling code here:
-        DialogoEditarItemAgenda dialogo=new DialogoEditarItemAgenda(new JFrame(), true,itemAgenda);
+        DialogoEditarItemAgenda dialogo=new DialogoEditarItemAgenda(new JFrame(), true,itemAgenda,usuario);
         dialogo.setVisible(true);
         loadItemAgenda();
     }//GEN-LAST:event_miEditarActionPerformed

@@ -18,6 +18,7 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import modelo.agenda.ItemAgenda;
 import modelo.proceso.Actividad;
+import modelo.usuario.Usuario;
 import vista.modelo.ModeloComboBoxActividad;
 
 
@@ -30,9 +31,11 @@ public class DialogoEditarItemAgenda extends javax.swing.JDialog {
     /** Creates new form DialogoEditarItemAgenda */
     private ItemAgenda itemAgenda;
     private LinkedList<Actividad>listaActividades;
-    public DialogoEditarItemAgenda(java.awt.Frame parent, boolean modal,ItemAgenda itemAgenda) {
+    private Usuario usuario;
+    public DialogoEditarItemAgenda(java.awt.Frame parent, boolean modal,ItemAgenda itemAgenda,Usuario usuario) {
         super(parent, modal);
         this.itemAgenda=itemAgenda;
+        this.usuario=usuario;
         initComponents();
         iniciarServidores();
         iniciarItem();
@@ -61,7 +64,7 @@ public class DialogoEditarItemAgenda extends javax.swing.JDialog {
         }
     }
     private void iniciarServidores(){
-       listaActividades=ControladorActividades.getAllActividades();
+       listaActividades=ControladorActividades.getAllActividades(usuario.getRol().getIdRol());
        cmbServidor.setModel(new ModeloComboBoxActividad(listaActividades));
     }
     /** This method is called from within the constructor to

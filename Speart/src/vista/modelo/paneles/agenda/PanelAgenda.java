@@ -113,7 +113,7 @@ public class PanelAgenda extends ImagenJPanel {
         
     }
     private void iniciarServidores(){
-       listaActividades=ControladorActividades.getAllActividades();
+       listaActividades=ControladorActividades.getAllActividades(usuario.getRol().getIdRol());
        cmbServidor.setModel(new ModeloComboBoxActividad(listaActividades));
     }
     private void iniciarAgenda(){
@@ -712,8 +712,8 @@ public class PanelAgenda extends ImagenJPanel {
             parametros.put("Titulo 1", "Titulo 1");
             parametros.put("prm_fecha_desde", Fecha.getFechaFormateada(fechaDesde.getSelectedDate().getTime(), "yyyy/MM/dd"));
             parametros.put("prm_fecha_hasta", Fecha.getFechaFormateada(fechaHasta.getSelectedDate().getTime(), "yyyy/MM/dd"));
-            JasperPrint jp = JasperFillManager.fillReport(report, parametros, Conexion.conectate());
-            //JasperPrint jp = JasperFillManager.fillReport(report, parametros, datos); //datos
+            //JasperPrint jp = JasperFillManager.fillReport(report, parametros, Conexion.conectate());
+            JasperPrint jp = JasperFillManager.fillReport(report, parametros, datos); //datos
             JasperViewer.viewReport(jp, false);
         } catch (JRException ex) {
             Logger.getLogger(PanelAgenda.class.getName()).log(Level.SEVERE, null, ex);

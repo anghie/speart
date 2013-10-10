@@ -66,6 +66,11 @@ public class ControladorItemAgenda {
         itemsAgenda= OperacionesBD.listarconCondicion("ItemAgenda", "mes","'"+mes+"'");
         return itemsAgenda;
     }
+    public static List<ItemAgenda> searchItemsAgenda(String mes,int estado) {
+        List<ItemAgenda> itemsAgenda=new LinkedList<ItemAgenda>();
+        itemsAgenda= OperacionesBD.listarconDobleCondicion("ItemAgenda", "mes","'"+mes+"'","completada",""+estado);
+        return itemsAgenda;
+    }
     public static List<ItemAgenda> searchItemsAgenda(String mes, String dia) {
         List<ItemAgenda> itemsAgenda=new LinkedList<ItemAgenda>();
         itemsAgenda= OperacionesBD.listarconDobleCondicion("ItemAgenda", "mes","'"+mes+"'","dia","'"+dia+"'");

@@ -43,7 +43,7 @@ public class LblHora extends JLabel implements Runnable {
                     OperacionesVarias.recordatorio();
                     FrmPrincipal.estaEvalActiva= ControladorPrincipal.verificaPeriodoEvaluacion();
                 }
-                Thread.sleep(1000);
+                Thread.sleep(100);
 
             } catch (InterruptedException ex) {
                 Logger.getLogger(LblHora.class.getName()).log(Level.SEVERE, null, ex);

@@ -29,8 +29,8 @@ public class ControladorActividades {
 //            actividad=(Actividad) obj;
 //        return actividad;
 //    }
-    public static LinkedList<Actividad> getAllActividades() {
-       List list =OperacionesBD.listar("Actividad");
+    public static LinkedList<Actividad> getAllActividades(int idRol) {
+       List list =OperacionesBD.listar("Actividad","rol",idRol);
 //       System.out.println(list);
        if(list!=null){
              LinkedList<Actividad> lista=new LinkedList<Actividad>(list) ;

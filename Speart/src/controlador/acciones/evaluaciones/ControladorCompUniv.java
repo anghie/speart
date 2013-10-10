@@ -14,7 +14,7 @@ import vista.paneles.evaluacion.PnlEvaluacion;
 
 /**
  *
- * @author jenny
+ * @author 
  */
 public class ControladorCompUniv {
 

@@ -39,7 +39,7 @@ public class DialogoMeta extends javax.swing.JDialog {
     private boolean modificado;
     private ModeloTablaMeta modeloTablaMeta;
     private static DialogoMeta dm;
-
+    private static Usuario usuario; 
     private DialogoMeta() {
         setModal(true);
         this.agenda = ControladorAgenda.getAgendaActual();
@@ -57,7 +57,7 @@ public class DialogoMeta extends javax.swing.JDialog {
     }
 
     private void iniciarActividades() {
-        listaActividades = ControladorActividades.getAllActividades();
+        listaActividades = ControladorActividades.getAllActividades(usuario.getRol().getIdRol());
         cmbActividad.setModel(new ModeloComboBoxActividad(listaActividades));
     }
 

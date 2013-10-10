@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteInforme" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="47"/>
+	<property name="ireport.y" value="33"/>
 	<parameter name="prm_fecha_desde" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -15,13 +15,13 @@ from meta,persona,actividad
 where meta.actividad_idActividad=idActividad
 and meta.usuario_idPersona=persona.idPersona]]>
 	</queryString>
-	<field name="fecha" class="java.sql.Date"/>
-	<field name="mes" class="java.lang.Integer"/>
-	<field name="indicador" class="java.lang.Double"/>
-	<field name="valor" class="java.lang.Integer"/>
-	<field name="nombreActividad" class="java.lang.String"/>
-	<field name="nombre" class="java.lang.String"/>
-	<field name="apellidos" class="java.lang.String"/>
+	<field name="Fecha" class="java.sql.Date"/>
+	<field name="Proceso" class="java.lang.String"/>
+	<field name="Indicador" class="java.lang.String"/>
+	<field name="Descripcion" class="java.lang.String"/>
+	<field name="Meta" class="java.lang.String"/>
+	<field name="Total" class="java.lang.String"/>
+	<field name="Actividad" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -79,79 +79,85 @@ and meta.usuario_idPersona=persona.idPersona]]>
 	<columnHeader>
 		<band height="27" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="2" width="68" height="20"/>
+				<reportElement x="10" y="0" width="71" height="20"/>
 				<textElement/>
-				<text><![CDATA[fecha]]></text>
+				<text><![CDATA[Fecha]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="80" y="2" width="56" height="20"/>
+				<reportElement x="91" y="0" width="89" height="20"/>
 				<textElement/>
-				<text><![CDATA[mes]]></text>
+				<text><![CDATA[Proceso]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="147" y="2" width="72" height="20"/>
+				<reportElement x="186" y="0" width="79" height="20"/>
 				<textElement/>
-				<text><![CDATA[indicador]]></text>
+				<text><![CDATA[Actividad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="230" y="2" width="56" height="20"/>
+				<reportElement x="275" y="0" width="79" height="20"/>
 				<textElement/>
-				<text><![CDATA[valor]]></text>
+				<text><![CDATA[Descripcion]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="296" y="2" width="100" height="20"/>
+				<reportElement x="364" y="0" width="50" height="20"/>
 				<textElement/>
-				<text><![CDATA[nombreActividad]]></text>
+				<text><![CDATA[Indicador]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="410" y="2" width="68" height="20"/>
+				<reportElement x="425" y="0" width="52" height="20"/>
 				<textElement/>
-				<text><![CDATA[nombre]]></text>
+				<text><![CDATA[Meta]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="489" y="2" width="66" height="20"/>
+				<reportElement x="489" y="0" width="66" height="20"/>
 				<textElement/>
-				<text><![CDATA[apellidos]]></text>
+				<text><![CDATA[Total]]></text>
 			</staticText>
+			<rectangle radius="10">
+				<reportElement mode="Transparent" x="5" y="0" width="550" height="27"/>
+			</rectangle>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="34" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="7" width="68" height="20"/>
+				<reportElement x="10" y="14" width="71" height="20"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="80" y="7" width="56" height="20"/>
+				<reportElement x="91" y="14" width="89" height="20"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[$F{mes}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Proceso}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="147" y="7" width="72" height="20"/>
+				<reportElement x="186" y="14" width="79" height="20"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[$F{indicador}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Actividad}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="230" y="7" width="56" height="20"/>
+				<reportElement x="275" y="14" width="79" height="20"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Descripcion}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="296" y="7" width="100" height="20"/>
+				<reportElement x="364" y="14" width="50" height="20"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[$F{nombreActividad}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Indicador}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="410" y="7" width="68" height="20"/>
+				<reportElement x="425" y="14" width="52" height="20"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Meta}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="489" y="7" width="66" height="20"/>
+				<reportElement x="489" y="14" width="66" height="20"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[$F{apellidos}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Total}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="3" y="32" width="552" height="1"/>
+			</line>
 		</band>
 	</detail>
 	<columnFooter>

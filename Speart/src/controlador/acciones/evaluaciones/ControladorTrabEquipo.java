@@ -12,7 +12,7 @@ import vista.paneles.evaluacion.PnlTrabEquipo;
 
 /**
  *
- * @author jenny
+ * @author 
  */
 public class ControladorTrabEquipo {
 
