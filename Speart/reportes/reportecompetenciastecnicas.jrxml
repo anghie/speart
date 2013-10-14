@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportecompetenciastecnicas" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c907cc1d-914e-46f0-92ea-33c888b6a684">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="NROCOMPTEC" class="java.lang.String"/>
+	<parameter name="FACTORCOMTEC" class="java.lang.String"/>
+	<parameter name="TOTALCOMPTEC" class="java.lang.String"/>
+	<field name="nombreDestrezaTec" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="2f99ec92-7cad-40b5-80f0-4b3e894cea3e" mode="Opaque" x="97" y="17" width="317" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EVALUACIÓN DE LAS COMPETENCIAS TECNICAS]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="64" splitType="Stretch">
+			<textField>
+				<reportElement uuid="e57da107-70d3-425a-8580-2b1075e9cb32" mode="Opaque" x="350" y="10" width="46" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font fontName="Maiandra GD" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Factor:]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8df26a12-7a35-4e16-896c-7e1972b66d12" mode="Opaque" x="186" y="8" width="90" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font fontName="Maiandra GD" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Competencias]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="cc755795-a063-47cb-9a1f-cfab6379b83b" mode="Opaque" x="1" y="43" width="185" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Destrezas]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="2ecae15d-d936-48d3-a570-e0bd9823d4ca" x="276" y="10" width="74" height="20"/>
+				<textElement/>
+			</textField>
+			<textField>
+				<reportElement uuid="b1501f42-8b45-4fae-9916-a83b92954f37" x="396" y="10" width="73" height="20"/>
+				<textElement/>
+			</textField>
+			<textField>
+				<reportElement uuid="80a1f5df-eb2b-4e00-8e7d-8d304fa98629" x="276" y="10" width="74" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{NROCOMPTEC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="188af056-c3a0-49af-b072-8566d1f0f583" x="396" y="10" width="73" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{FACTORCOMTEC}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="791d5462-99fc-41c8-91e4-835c6bb0e14b" mode="Opaque" x="186" y="43" width="100" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relevancia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c81f263b-e18a-4377-b794-06446ce5ef74" mode="Opaque" x="286" y="43" width="100" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Comportamiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4e30eeae-00ba-4013-b657-d64903aa2109" mode="Opaque" x="414" y="43" width="127" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nivel de Desarrollo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="87" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="1a2d92fa-3be6-4f14-9a5f-963426f86acc" mode="Opaque" x="262" y="65" width="134" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Comp. Tecnicas]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="01496f71-d7ce-4f16-b1aa-cf8e361ad89a" x="414" y="67" width="127" height="20"/>
+				<textElement/>
+			</textField>
+			<textField>
+				<reportElement uuid="a4de856b-a3f5-4b17-96ac-4028b951a50d" x="414" y="67" width="127" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{TOTALCOMPTEC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="72ee8758-e7d7-4a1a-85dd-c37afa63d03c" x="1" y="0" width="185" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombreDestrezaTec}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="1" splitType="Stretch"/>
+	</summary>
+</jasperReport>

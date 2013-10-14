@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteconocimientos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c53a9029-b5b6-4f3f-9d1c-effff77eca31">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="NROCONO" class="java.lang.String"/>
+	<parameter name="FACTORCONO" class="java.lang.String"/>
+	<parameter name="TOTALCONO" class="java.lang.String"/>
+	<field name="nombreSeccion" class="java.lang.String"/>
+	<field name="rpta" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="9099fdba-71df-4db2-928a-4d67cc35b302" mode="Opaque" x="90" y="10" width="317" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EVALUACIÓN DE LOS CONOCIMIENTOS POR PUESTO]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="46" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="2a343a6d-386d-416f-a759-e2d2df9aef5b" mode="Opaque" x="16" y="22" width="368" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONOCIMIENTOS ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="b7713724-88b6-4906-a353-b3528001d345" mode="Opaque" x="186" y="0" width="90" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font fontName="Maiandra GD" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Conocimientos]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="938312a6-9c3c-47cc-9941-1de37cef8714" mode="Opaque" x="350" y="2" width="46" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font fontName="Maiandra GD" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Factor:]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f7aadd9b-aa13-47fe-a74b-37b8e075ed62" x="276" y="2" width="74" height="20"/>
+				<textElement/>
+			</textField>
+			<textField>
+				<reportElement uuid="3a0857fc-6c96-47e8-aa55-e11c302c47ce" x="276" y="2" width="74" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{NROCONO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="586e1bca-8fc9-409f-b608-bf8d9d461355" x="396" y="2" width="100" height="20"/>
+				<textElement/>
+			</textField>
+			<textField>
+				<reportElement uuid="6afc5a72-b642-467a-8cd1-a71d30bf6cff" x="396" y="2" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{FACTORCONO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="a7d3a93c-794b-4038-b610-111417670ed0" mode="Opaque" x="384" y="22" width="171" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NIVEL CONOCIMIENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1cbcd706-10a4-43b8-ae74-81419be18acc" x="392" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[rpta]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="69" splitType="Stretch">
+			<textField>
+				<reportElement uuid="3758efc5-509e-46c8-8cb6-806ec38d768a" x="0" y="0" width="350" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombreSeccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="26433c94-1aec-42a8-9fbb-9f1729e0f608" x="384" y="0" width="146" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{rpta}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="753e5b81-3f45-4f5c-93d8-f9e13332db46" mode="Opaque" x="260" y="51" width="124" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total conocimientos]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="401f90bd-bde3-4af1-93b5-e5a8488348bc" x="384" y="49" width="146" height="20"/>
+				<textElement/>
+			</textField>
+			<textField>
+				<reportElement uuid="3136c32a-d3c3-4b3a-b417-0faebbb1d5be" x="392" y="49" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{TOTALCONO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -169,7 +169,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel29" min="-2" pref="147" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="lblNombreEvaluado" pref="293" max="32767" attributes="0"/>
+                              <Component id="lblNombreEvaluado" pref="297" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel31" min="-2" pref="105" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1615,6 +1615,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Resultados"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnResultadosActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

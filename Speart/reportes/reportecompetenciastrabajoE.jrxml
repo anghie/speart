@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportecompetenciastrabajoE" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ffc488e-e527-4a7d-b419-ecfcf97d48b7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="NROTRABAJO" class="java.lang.String"/>
+	<parameter name="FACTORTRAB" class="java.lang.String"/>
+	<parameter name="TOTALTRAB" class="java.lang.String"/>
+	<field name="descripcionTrabEquipo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="672af649-1c4e-4c45-bb3f-1bd2deb461cf" mode="Opaque" x="117" y="12" width="317" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EVALUACIÓN DE TRABAJO EN EQUIPO]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="5625de50-4f4e-4822-bf07-84adba348f7a" mode="Opaque" x="434" y="43" width="127" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nivel de Desarrollo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cf364637-5b1a-4159-a357-805d3daaf6e8" mode="Opaque" x="306" y="43" width="100" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Comportamiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f082aa4f-7edd-4929-93a1-173bb5982955" mode="Opaque" x="15" y="43" width="185" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Destrezas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="85518992-7e87-4ebb-8170-fc8dd6ab0e69" mode="Opaque" x="200" y="43" width="100" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relevancia]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="c35affc9-b9b7-427f-b447-ecdea1824a52" mode="Opaque" x="200" y="0" width="90" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font fontName="Maiandra GD" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Competencias]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8488d2f7-5ce7-4dd2-b680-230e1c237f49" mode="Opaque" x="406" y="0" width="46" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font fontName="Maiandra GD" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Factor:]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="96e20a25-6b3c-4459-b414-5f932c3c6df9" x="290" y="0" width="100" height="20"/>
+				<textElement/>
+			</textField>
+			<textField>
+				<reportElement uuid="e60c66a8-4900-47d0-92fb-5ad90b9774b1" x="452" y="0" width="100" height="20"/>
+				<textElement/>
+			</textField>
+			<textField>
+				<reportElement uuid="85f8d7a3-098a-4a38-b6d8-acf7737905b3" x="290" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{NROTRABAJO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="bd038abe-2cb6-4aa0-9b7b-c6597220b237" x="452" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{FACTORTRAB}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="b95ecc50-8d3e-4320-b1b2-b56398eba943" mode="Opaque" x="300" y="107" width="134" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Trabajo Equipo]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="dc635092-a4c8-4797-9888-be940c1fd8a3" x="0" y="0" width="200" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{descripcionTrabEquipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2ee72fb1-f8a6-4d4c-9c0d-a8232103a471" x="434" y="105" width="100" height="20"/>
+				<textElement/>
+			</textField>
+			<textField>
+				<reportElement uuid="df71cca3-49f4-4d92-9f68-24ec846d80cb" x="434" y="105" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{TOTALTRAB}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="2" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

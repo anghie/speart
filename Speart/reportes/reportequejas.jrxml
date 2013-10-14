@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportequejas" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d16cf6fc-8045-405f-98d0-13b8cee44076">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="TOTALQUEJ" class="java.lang.String"/>
+	<field name="nombreDenun" class="java.lang.String"/>
+	<field name="detalle" class="java.lang.String"/>
+	<field name="dnroForm" class="java.lang.String"/>
+	<field name="reducePorcent" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="57" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="5816305b-c074-4c29-a078-64dd5cc82528" mode="Opaque" x="0" y="0" width="317" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[QUEJAS DEL CIUDADANO]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="bf70f46c-020e-4643-b73a-4142c34cc95c" mode="Opaque" x="0" y="36" width="168" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del que realiza queja]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5111a791-63b2-439b-9481-2be0f3acb5c4" mode="Opaque" x="488" y="36" width="77" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[%Reduccion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1f82c19c-4820-4660-acb8-6770bc2c390b" mode="Opaque" x="168" y="36" width="135" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3459dced-b5d6-48b6-8805-dfff817162d1" mode="Opaque" x="303" y="36" width="100" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nro. Formulario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="25b7159f-f766-47e9-ba02-06ab43a132e9" mode="Opaque" x="404" y="36" width="74" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Aplica Dscto]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement uuid="eeb71849-757b-4852-a5d7-6f94abe15b32" x="0" y="0" width="168" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombreDenun}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="81d74bfa-6ab5-477e-9e2e-03d3032bc777" x="168" y="0" width="135" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{detalle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9dc95570-b739-4d48-9eba-fe13b2e2b638" x="303" y="0" width="90" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{dnroForm}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5d7076f4-3ce4-4843-be9e-e217123c8040" x="393" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{reducePorcent}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="63326a2d-69f5-4c47-b472-c72941a433f7" mode="Opaque" x="354" y="107" width="112" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Queja]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="5a1c26d2-8756-4b65-b0c3-ca8425821e8e" x="455" y="105" width="100" height="20"/>
+				<textElement/>
+			</textField>
+			<textField>
+				<reportElement uuid="26552742-a4ec-47de-a88e-e55b6a79c180" x="455" y="105" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{TOTALQUEJ}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="3" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="3" splitType="Stretch"/>
+	</summary>
+</jasperReport>

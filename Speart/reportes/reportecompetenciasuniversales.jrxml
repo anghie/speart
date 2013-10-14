@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportecompetenciasuniversales" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="70beb6a9-05fa-4734-a916-4ab25670e1f8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="NROCOMPUNIV" class="java.lang.String"/>
+	<parameter name="FACTORUNIVE" class="java.lang.String"/>
+	<parameter name="TOTALCOMPUNIV" class="java.lang.String"/>
+	<field name="nombreDestrezaUniv" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="1b4e570e-c493-4bef-834b-407cfe812a68" mode="Opaque" x="107" y="2" width="317" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EVALUACIÓN DE LAS COMPETENCIAS UNIVERSALES]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="57" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="62eec6a5-ecf0-439e-a149-2ab1235a6fbc" mode="Opaque" x="11" y="39" width="185" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Destrezas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ca8c58a1-bfc7-43af-96ad-067814032731" mode="Opaque" x="196" y="39" width="100" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relevancia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d0592947-7a8d-4d36-83f7-50f53599c79f" mode="Opaque" x="296" y="39" width="100" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Comportamiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0e3a4bf9-c59a-4d22-a3a6-9cc6c569e639" mode="Opaque" x="424" y="39" width="127" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nivel de Desarrollo]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="fd56d2b0-bcc7-49b5-8c2c-008176758ac2" mode="Opaque" x="206" y="0" width="90" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font fontName="Maiandra GD" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Competencias]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4b862c41-dcb7-4285-accf-17246c30f5a1" mode="Opaque" x="396" y="0" width="46" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font fontName="Maiandra GD" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Factor:]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="aba3aa30-8a27-4eaf-8387-12907832f786" x="296" y="0" width="68" height="20"/>
+				<textElement/>
+			</textField>
+			<textField>
+				<reportElement uuid="9a4deeb1-30c5-40cc-a427-ae905d25fe8b" x="442" y="0" width="82" height="20"/>
+				<textElement/>
+			</textField>
+			<textField>
+				<reportElement uuid="4c60f72e-2982-445e-ad89-4f224e5c6689" x="296" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{NROCOMPUNIV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="622361c2-1b8f-4f01-89ac-7d205bcee40e" x="442" y="0" width="82" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{FACTORUNIVE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="73e6cd84-772d-4d05-8b37-661cc21c5265" mode="Opaque" x="262" y="107" width="148" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Comp. Universales]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="f95f90a5-5893-47db-9434-0b624564edfd" x="11" y="17" width="185" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombreDestrezaUniv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="27cfc5b0-de36-4571-bc6a-d10fe09238a4" x="424" y="105" width="117" height="20"/>
+				<textElement/>
+			</textField>
+			<textField>
+				<reportElement uuid="a2292454-29fb-4cd5-affa-c5759996877e" x="424" y="105" width="117" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{TOTALCOMPUNIV}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="1" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

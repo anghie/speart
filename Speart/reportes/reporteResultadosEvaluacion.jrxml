@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteResultadosEvaluacion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1f0859d4-f9ed-4009-9f3f-1df121466b68">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="totIndic" class="java.lang.String"/>
+	<field name="totConoc" class="java.lang.String"/>
+	<field name="totCompTec" class="java.lang.String"/>
+	<field name="totCompUniv" class="java.lang.String"/>
+	<field name="totTrabEquip" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="e3ab1d82-16a4-4bdf-ac30-c8d10f2ecdaa" mode="Opaque" x="0" y="17" width="233" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RESULTADOS DE LA  EVALUACIÓN ]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="516716cd-3817-4dfd-83f9-0e0e3078a7f6" mode="Opaque" x="0" y="13" width="360" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Factores Evaluación ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5e6b333a-f013-416c-8b09-21a22ac2c3fc" mode="Opaque" x="370" y="13" width="185" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Calificación Alcanzada]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="159" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="922226cf-eae8-4a5c-b52d-eab04274c99c" mode="Opaque" x="0" y="0" width="266" height="18" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Indicadores de Gestión de Puesto ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="30d025e6-e388-447d-84dd-e2ebd1775c1d" mode="Opaque" x="0" y="18" width="266" height="18" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Conocimientos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5b95be30-b8aa-46a9-b4fe-606b383fffb4" mode="Opaque" x="0" y="36" width="266" height="18" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Competencias Tenicas de Puesto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="04c1a850-ebe7-44b4-823e-01f6b041e1cc" mode="Opaque" x="0" y="54" width="266" height="18" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Competencias Universales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6065d6d-3a44-41b0-8c87-b02a82d91a5f" mode="Opaque" x="0" y="72" width="266" height="18" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Trabajo en equipo, iniciativa y liderazgo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4474af99-18ae-4d66-81c2-4cfeca931883" mode="Opaque" x="0" y="90" width="266" height="18" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Evaluación del ciudadano]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="33177b5c-07bc-45ce-9d04-cd87a8bebaf0" x="370" y="0" width="139" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{totIndic}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="81f7d63d-7c28-4b7c-aaf7-32d1d3b80d0a" x="370" y="20" width="139" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{totConoc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="76c45809-49dc-46f0-bf5c-ab6f43ebd546" x="370" y="40" width="139" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{totCompTec}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d2c76eb6-4d2d-486d-baf3-647d91149ba8" x="370" y="60" width="139" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{totCompUniv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="98246a1e-9f70-41cc-9c01-8efdd519d163" x="370" y="80" width="139" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{totTrabEquip}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="e7610f13-3e4e-4cb8-b171-ed8e075e0552" x="192" y="133" width="252" height="20"/>
+				<textElement/>
+				<text><![CDATA[falta total y efeccto]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="76" splitType="Stretch">
+			<line>
+				<reportElement uuid="72d1d953-74e1-400f-afba-35a6b53ea3af" x="168" y="10" width="276" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="b6e4ee71-65a8-452e-a880-337c2c5706dd" x="276" y="10" width="65" height="20"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRMA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c56d95ea-8764-40a8-88d2-d95e7be8acbb" mode="Opaque" x="233" y="30" width="163" height="18" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Evaluador o Jefe Inmediato]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

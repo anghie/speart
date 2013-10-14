@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportevluacion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fb0bb41d-2082-4f41-8430-51022ec2915a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="170"/>
+	<parameter name="NOMBRESEREVALUADO" class="java.lang.String"/>
+	<parameter name="PUESTOSERVIDOR" class="java.lang.String"/>
+	<parameter name="TITULOPROFESION" class="java.lang.String"/>
+	<parameter name="NOMBRESJEFE" class="java.lang.String"/>
+	<parameter name="DESDE" class="java.lang.String"/>
+	<parameter name="HASTA" class="java.lang.String"/>
+	<parameter name="NROACTIVIDADES" class="java.lang.String"/>
+	<parameter name="FACTOR" class="java.lang.String"/>
+	<parameter name="TOTALACTIV" class="java.lang.String"/>
+	<field name="Descripcion" class="java.lang.String"/>
+	<field name="Indicador" class="java.lang.String"/>
+	<field name="Meta" class="java.lang.String"/>
+	<field name="Total" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="46321309-a591-4bd9-9fd1-99418c9e9fae" x="174" y="13" width="306" height="29" forecolor="#006600"/>
+				<textElement>
+					<font fontName="Maiandra GD" size="24" isBold="true" isItalic="true" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[FORMULARIO  MRL]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="9c956820-bf06-4d95-ae08-8be2a766561a" x="0" y="0" width="174" height="61"/>
+				<imageExpression><![CDATA["D:\\Speart\\reportes\\mrl.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="200" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="9adf7fb7-0e7e-43d4-918e-95eef3570af7" x="16" y="0" width="519" height="35"/>
+				<textElement>
+					<font fontName="Maiandra GD" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FORMULARIO PARA LA EVALUACION DE DESEMPEÑO  POR  COPETENCIAS  PARA USO DE JEFE INMEDIATO ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="12418729-2168-4671-8f80-34d48e3e37c7" mode="Opaque" x="0" y="45" width="153" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATOS DEL SERVIDOR :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9ef65999-453b-4881-85f8-bb2e43edbc5b" mode="Opaque" x="0" y="63" width="235" height="26" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellidos y Nombre del Servidor Evaluado]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="20578c38-7e8c-42fd-bc92-a74a90b41d63" x="235" y="63" width="320" height="26"/>
+				<textElement/>
+			</textField>
+			<staticText>
+				<reportElement uuid="c8edb083-7ce5-49ad-8b71-ba4f288ee636" mode="Opaque" x="0" y="89" width="235" height="26" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Deniminacion del Puesto que Desempeña]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3bff25e5-873e-4b00-8817-e2fa630b19f6" mode="Opaque" x="0" y="115" width="235" height="26" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Titulo o Profesion:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="2ec73342-1f2f-4f28-a25c-8759c1a76241" x="235" y="89" width="320" height="26"/>
+				<textElement/>
+			</textField>
+			<textField>
+				<reportElement uuid="6d9f1a1b-a371-4db0-b7d7-59f77172830c" x="235" y="115" width="320" height="26"/>
+				<textElement/>
+			</textField>
+			<staticText>
+				<reportElement uuid="5125f63d-b6f1-40af-a65a-47c1510d2af9" mode="Opaque" x="0" y="141" width="235" height="26" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellidos y Nombre del  Jefe Inmediato:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="307df38e-f45c-406b-8509-d52e1741087c" x="235" y="141" width="320" height="26"/>
+				<textElement/>
+			</textField>
+			<staticText>
+				<reportElement uuid="f3c6ea53-7c89-4cb3-b64c-86eadf63036e" mode="Opaque" x="0" y="167" width="129" height="26" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Periodo de Evaluación:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d313ce00-03e2-4e8b-8dfa-a598a59d082a" mode="Opaque" x="153" y="167" width="82" height="26" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Desde:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8b232f2f-6237-4c36-b54a-f5e01b2fe36e" mode="Opaque" x="357" y="167" width="82" height="26" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hasta:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="482a0e1f-36aa-4251-bc18-b7c64a28fac6" x="235" y="69" width="211" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{NOMBRESEREVALUADO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="68dac746-c4f0-4309-bafc-c13aa1cd2e37" x="235" y="89" width="211" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{PUESTOSERVIDOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5f7e4164-7dd6-43ad-9fbd-38ab386cc4ee" x="235" y="115" width="211" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{TITULOPROFESION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="237fac0c-a891-478a-8768-705ba36a59de" x="235" y="141" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{NOMBRESJEFE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d530676e-430f-45f5-a60a-f8f23451c324" x="235" y="167" width="122" height="26"/>
+				<textElement/>
+			</textField>
+			<textField>
+				<reportElement uuid="badb45cb-ca83-44c5-9071-02f9c08a6ded" x="235" y="167" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{DESDE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dcaf13c4-2cb6-43cb-ac05-f84555ce7977" x="439" y="167" width="116" height="26"/>
+				<textElement/>
+			</textField>
+			<textField>
+				<reportElement uuid="dc0d5e83-8aa8-4e6d-994a-f9ab60d0ea11" x="439" y="167" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{HASTA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="173" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="9b305c3a-a73d-4459-8bca-68ea56e5ade5" mode="Opaque" x="80" y="0" width="305" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EVALUACIÓN DE LAS ACTIVIDADES DEL  PUESTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4a054e5e-07bf-4f8d-944c-092c24845058" mode="Opaque" x="0" y="18" width="250" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INDICADORES DDE GESTION DE PUESTO]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="bb9fff41-e55f-4533-a253-e2fd78bdcdac" mode="Opaque" x="235" y="18" width="80" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font fontName="Maiandra GD" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Actividades:]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="15c00e3a-2df9-470c-a594-653294472958" mode="Opaque" x="400" y="18" width="46" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font fontName="Maiandra GD" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Factor:]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="89fd5736-2390-4b3c-be12-f0c2fde23348" x="315" y="18" width="85" height="20"/>
+				<textElement/>
+			</textField>
+			<textField>
+				<reportElement uuid="ab236b87-1ec9-49b0-b1fe-4056d4a6df7d" x="446" y="18" width="70" height="20"/>
+				<textElement/>
+			</textField>
+			<textField>
+				<reportElement uuid="ca7532d6-2612-45fe-b39b-a63ac8bfe2ff" x="315" y="18" width="85" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{NROACTIVIDADES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b04ebd66-495b-488d-af63-6cd6ef86e1e4" x="446" y="18" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{FACTOR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="25f0a49a-3586-480f-8140-5e2a4fc14b23" mode="Opaque" x="-6" y="68" width="174" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Desripción de Actividades]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1e5f5fcf-bb58-44f2-a271-bc4b0ddfbff8" mode="Opaque" x="168" y="68" width="67" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Indicador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="524a6248-7c3b-4bde-8c39-f1682ba11635" mode="Opaque" x="260" y="68" width="55" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Meta ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1fe9503d-7437-4ac9-b4ca-f1566fc6171d" mode="Opaque" x="318" y="68" width="67" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cumplidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bbcf45e9-1989-4bcc-a144-65879976f8ca" mode="Opaque" x="385" y="68" width="96" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[%Cupliminiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b40b6df3-3e1a-4277-866a-aa7e73d6bbc7" mode="Opaque" x="498" y="49" width="57" height="19"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nivel de
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a1c1132e-4d2b-40dd-8a8d-a69a4b140a90" mode="Opaque" x="480" y="68" width="87" height="19"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cumplimiento]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement uuid="f48e7d8f-8376-47b1-b075-6b601eae3b59" mode="Transparent" x="-6" y="49" width="571" height="43"/>
+			</rectangle>
+			<textField>
+				<reportElement uuid="ff82eaed-9ece-4827-8f28-1548acd83c5d" x="0" y="102" width="160" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d14014e8-1d16-4ce5-a7f2-1209dbc3fae6" x="160" y="102" width="75" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Indicador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f5165761-be5e-4efc-837a-4680c0417f0a" x="235" y="102" width="65" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Meta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="28bd84a1-f544-43aa-b272-2dbafeb48f8e" x="300" y="102" width="85" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="d7f67c3d-2281-4b8b-bc4d-00dd73d1a0ee" mode="Opaque" x="338" y="153" width="101" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total actividades ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="66ba00a6-25be-475d-86c8-f5a2328ffad0" x="446" y="153" width="109" height="20"/>
+				<textElement/>
+			</textField>
+			<textField>
+				<reportElement uuid="d4c7c182-0af1-4679-8c3d-6e0369752c98" x="446" y="153" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{TOTALACTIV}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
