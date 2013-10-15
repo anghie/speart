@@ -304,7 +304,18 @@ public class OperacionesBD {
         }
         return lista;
     }
-
+    
+    public static List listarconDobleCondicion(String nombreEntidad, String columna1, String valor1, String columna2, String valor2,String columna3, String valor3) {
+        entidad.getTransaction().begin();
+        try {
+            lista = entidad.createQuery("Select a from " + nombreEntidad + " a where " + columna1 + " = " + valor1 + " and " + columna2 + " = " + valor2 + " and "+columna3+" = "+valor3).getResultList();
+            entidad.getTransaction().commit();
+        } catch (Exception e) {
+            entidad.getTransaction().rollback();
+        }
+        return lista;
+    }
+    
     public static boolean eliminar(Object object) {
         entidad.getTransaction().begin();
         try {

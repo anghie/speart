@@ -32,7 +32,7 @@ public class DiaFeriado implements Serializable {
     private String dia;
     @ManyToOne
     private Agenda agenda;
-
+    private String detalle;
     public Long getId() {
         return id;
     }
@@ -111,4 +111,13 @@ public class DiaFeriado implements Serializable {
         }
         return true;
     }
+
+    public String getDetalle() {
+        return detalle;
+    }
+
+    public void setDetalle(String detalle) {
+        this.detalle = detalle;
+    }
+    
 }

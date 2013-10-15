@@ -14,7 +14,7 @@ public class ModeloTablaDiasFeriados implements TableModel {
     private LinkedList<DiaFeriado> datos = new LinkedList<DiaFeriado>();
     @SuppressWarnings({"rawtypes"})
     private LinkedList suscriptores = new LinkedList();
-    String[] column = {"AÑO", "MES", "DIA","DIA MES"};
+    String[] column = {"AÑO", "MES", "DIA","DIA MES","DETALLE"};
 
     @SuppressWarnings("unchecked")
     @Override
@@ -58,6 +58,12 @@ public class ModeloTablaDiasFeriados implements TableModel {
                 return aux.getDia();
            case 3:
                 return aux.getDia_mes();
+           case 4:{
+                    if(aux.getDetalle()!=null)
+                        return aux.getDetalle();  
+                    else
+                        return "";
+                }
 
         }
         return null;
@@ -75,6 +81,9 @@ public class ModeloTablaDiasFeriados implements TableModel {
            case 3:
                 aux.setDia_mes(Integer.parseInt(dato.toString()));
                 break;
+           case 4:
+                aux.setDetalle(dato.toString());
+                break;     
         }
         TableModelEvent evento = new TableModelEvent(this, fila, fila, columna);
         int i;

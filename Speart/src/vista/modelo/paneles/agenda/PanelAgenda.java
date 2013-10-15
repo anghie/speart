@@ -549,6 +549,7 @@ public class PanelAgenda extends ImagenJPanel {
         // TODO add your handling code here:
         if(guardar){
             ControladorAgenda.updateAgenda();
+            guardar=false;
         }else{
             JOptionPane.showMessageDialog(panelSemana,"No se han agrgado nuevas actividades ni se han hecho modificaciones");
         } 
@@ -646,10 +647,10 @@ public class PanelAgenda extends ImagenJPanel {
                     }
                       agendaActual.getItemsAgenda().add(itemAgenda);
                       refrescarGUIAgenda(calendario);
-                      scPanelDia.revalidate();
                       spHoraInicio.setValue(8);
                       spHoraFinal.setValue(9);
                       PanelAgenda.guardar=true;
+                      scPanelDia.repaint();
             }else{
                 JOptionPane.showMessageDialog(panelSemana,"Error primero tiene que seleccionar fecha del calendario");
             }

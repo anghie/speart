@@ -34,6 +34,7 @@ public class DialogoMeta extends javax.swing.JDialog {
      * Creates new form DialogoMeta
      */
     private LinkedList<Actividad> listaActividades;
+//    private LinkedList<Actividad> listaActividades1;
     private ArrayList<Usuario> listaUsuarios;
     private Agenda agenda;
     private boolean modificado;
@@ -55,11 +56,16 @@ public class DialogoMeta extends javax.swing.JDialog {
         }
         return dm;
     }
-
-    private void iniciarActividades() {
+      private void iniciarActividades() {
         listaActividades = ControladorActividades.getAllActividades(usuario.getRol().getIdRol());
         cmbActividad.setModel(new ModeloComboBoxActividad(listaActividades));
     }
+
+    private void iniciarActividades1() {
+        listaActividades = ControladorActividades.getAllActividades1();
+        cmbActividad.setModel(new ModeloComboBoxActividad(listaActividades));
+    }
+    
 
     private void iniciarRoles() {
         listaUsuarios = ControladorUsuario.usuarios;

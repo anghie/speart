@@ -50,6 +50,7 @@ public class DialogDiasFeriados extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         panelFecha = new javax.swing.JPanel();
         fechaFeriado = new datechooser.beans.DateChooserCombo();
+        txtDetalle = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         btnEliminar = new javax.swing.JButton();
@@ -68,9 +69,12 @@ public class DialogDiasFeriados extends javax.swing.JDialog {
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         panelFecha.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        panelFecha.add(fechaFeriado, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 5, 270, 20));
+        panelFecha.add(fechaFeriado, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 5, 160, 20));
 
         jPanel2.add(panelFecha);
+
+        txtDetalle.setPreferredSize(new java.awt.Dimension(150, 20));
+        jPanel2.add(txtDetalle);
 
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +130,7 @@ public class DialogDiasFeriados extends javax.swing.JDialog {
             diaFeriado.setMes(mes);
             diaFeriado.setDia(dia);
             diaFeriado.setDia_mes(calendario.get(Calendar.DATE));
-            
+            diaFeriado.setDetalle(txtDetalle.getText());
             if(!agenda.getDiasFeriados().contains(diaFeriado)){
                 agenda.getDiasFeriados().add(diaFeriado);
                 modeloTabla.add(diaFeriado);
@@ -221,5 +225,6 @@ public class DialogDiasFeriados extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelFecha;
     private javax.swing.JTable tablaDiasferiados;
+    private javax.swing.JTextField txtDetalle;
     // End of variables declaration//GEN-END:variables
 }

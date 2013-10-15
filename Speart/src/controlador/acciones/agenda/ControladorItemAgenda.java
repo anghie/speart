@@ -76,6 +76,11 @@ public class ControladorItemAgenda {
         itemsAgenda= OperacionesBD.listarconDobleCondicion("ItemAgenda", "mes","'"+mes+"'","dia","'"+dia+"'");
         return itemsAgenda;
     }
+     public static List<ItemAgenda> searchItemsAgenda(String mes, String dia,int idRol) {
+        List<ItemAgenda> itemsAgenda=new LinkedList<ItemAgenda>();
+        itemsAgenda= OperacionesBD.listarconDobleCondicion("ItemAgenda", "mes","'"+mes+"'","dia","'"+dia+"'","a.actividad.rol.idRol",""+idRol);
+        return itemsAgenda;
+    }
     public static void setTiempoDuracion(ItemAgenda itemAgenda,Date fecha,int mes , int dia_mes,int horas, int minutos){
         Date fechaAux;
 //        System.out.println("h"+horas+"m"+minutos);

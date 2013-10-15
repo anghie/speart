@@ -402,7 +402,7 @@ public class PanelDiaHoras extends javax.swing.JPanel {
         if(generar){
             String mes=Fecha.getNombreMes(numeroMes);
             Vector<Integer> actividades=new Vector<Integer>();
-            List<ItemAgenda> itemsAgenda=ControladorItemAgenda.searchItemsAgenda(mes,nombreDia);
+            List<ItemAgenda> itemsAgenda=ControladorItemAgenda.searchItemsAgenda(mes,nombreDia,usuario.getRol().getIdRol());
             System.out.print(itemsAgenda);
             for (Iterator<ItemAgenda> it = itemsAgenda.iterator(); it.hasNext();) {
                 ItemAgenda itemAgenda = it.next();
