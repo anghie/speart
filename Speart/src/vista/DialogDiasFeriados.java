@@ -4,7 +4,7 @@
  */
 package vista;
 
-import controlador.acciones.servicios.ControladorAgenda;
+import controlador.acciones.agenda.ControladorAgenda;
 import java.util.Calendar;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;

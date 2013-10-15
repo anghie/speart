@@ -56,7 +56,7 @@ public class FrmPrincipal extends JFrame {
     private EventHandler esc;
     private ControladorPrincipal cp;
     public static Usuario userLogueado;
-    public static boolean estaEvalActiva;
+     public static boolean estaEvalActiva;
     private JButton btnAgenda;
     private JButton btnReportes;
     private JMenuItem miGeneraAgenda;
@@ -521,7 +521,7 @@ public class FrmPrincipal extends JFrame {
             //                }
             //            } 
             else if (evt.getSource() == miMeta) {
-                DialogoMeta dialogo = DialogoMeta.getInstance();
+                DialogoMeta dialogo = DialogoMeta.getInstance(userLogueado);
                 if (!dialogo.isActive()) {
                     dialogo.setLocationRelativeTo(null);
                     dialogo.setVisible(true);

@@ -16,7 +16,7 @@ import controlador.acciones.agenda.ControladorDiasFeriados;
 
 import controlador.acciones.agenda.ControladorItemAgenda;
 import controlador.acciones.agenda.ControladorMeta;
-import controlador.acciones.servicios.ControladorAgenda;
+import controlador.acciones.agenda.ControladorAgenda;
 import controlador.basedatos.Conexion;
 import datechooser.beans.DateChooserPanel;
 import java.util.Calendar;

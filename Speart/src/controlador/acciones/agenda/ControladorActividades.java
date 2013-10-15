@@ -38,7 +38,8 @@ public class ControladorActividades {
         }   
         return new LinkedList<Actividad>();
     }
-public static LinkedList<Actividad> getAllActividades1() {
+    
+    public static LinkedList<Actividad> getAllActividades() {
        List list =OperacionesBD.listar("Actividad");
 //       System.out.println(list);
        if(list!=null){
@@ -47,4 +48,5 @@ public static LinkedList<Actividad> getAllActividades1() {
         }   
         return new LinkedList<Actividad>();
     }
+
 }

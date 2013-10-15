@@ -13,7 +13,7 @@ package vista.modelo.paneles.agenda;
 
 
 import controlador.acciones.agenda.ControladorActividades;
-import controlador.acciones.servicios.ControladorAgenda;
+import controlador.acciones.agenda.ControladorAgenda;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.Calendar;

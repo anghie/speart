@@ -6,7 +6,8 @@ package vista;
 
 import controlador.acciones.agenda.ControladorActividades;
 import controlador.acciones.agenda.ControladorMeta;
-import controlador.acciones.servicios.ControladorAgenda;
+import vista.modelo.ModeloTablaMeta;
+import controlador.acciones.agenda.ControladorAgenda;
 import controlador.acciones.usuario.ControladorUsuario;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -34,38 +35,33 @@ public class DialogoMeta extends javax.swing.JDialog {
      * Creates new form DialogoMeta
      */
     private LinkedList<Actividad> listaActividades;
-//    private LinkedList<Actividad> listaActividades1;
     private ArrayList<Usuario> listaUsuarios;
     private Agenda agenda;
     private boolean modificado;
     private ModeloTablaMeta modeloTablaMeta;
     private static DialogoMeta dm;
-    private static Usuario usuario; 
-    private DialogoMeta() {
+    public  Usuario usuario; 
+    private DialogoMeta(Usuario usuario) {
         setModal(true);
         this.agenda = ControladorAgenda.getAgendaActual();
         this.modeloTablaMeta = new ModeloTablaMeta();
+        this.usuario=usuario;
         initComponents();
-        iniciarActividades();
+//        iniciarActividades();
         iniciarRoles();
     }
 
-    public static synchronized DialogoMeta getInstance() {
+    public static synchronized DialogoMeta getInstance(Usuario usuario) {
         if (dm == null) {
-            dm = new DialogoMeta();
+            dm = new DialogoMeta(usuario);
         }
         return dm;
     }
-      private void iniciarActividades() {
+
+    private void iniciarActividades(Usuario usuario) {
         listaActividades = ControladorActividades.getAllActividades(usuario.getRol().getIdRol());
         cmbActividad.setModel(new ModeloComboBoxActividad(listaActividades));
     }
-
-    private void iniciarActividades1() {
-        listaActividades = ControladorActividades.getAllActividades1();
-        cmbActividad.setModel(new ModeloComboBoxActividad(listaActividades));
-    }
-    
 
     private void iniciarRoles() {
         listaUsuarios = ControladorUsuario.usuarios;
@@ -132,25 +128,30 @@ public class DialogoMeta extends javax.swing.JDialog {
         cmbIndic.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
         jLabel3.setText("Meta:");
-        cmbIndic.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
+        cmbIndic.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
 
         spnMeta.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
         spnMeta.setPreferredSize(new java.awt.Dimension(60, 20));
         cmbIndic.add(spnMeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
 
         jLabel4.setText("Actividad:");
-        cmbIndic.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, -1));
+        cmbIndic.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
 
         cmbActividad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbActividad.setPreferredSize(new java.awt.Dimension(80, 20));
-        cmbIndic.add(cmbActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(444, 11, 190, -1));
+        cmbIndic.add(cmbActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 190, -1));
 
         jLabel5.setText("Usuario:");
-        cmbIndic.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
+        cmbIndic.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
         cmbUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbUsuario.setPreferredSize(new java.awt.Dimension(80, 20));
-        cmbIndic.add(cmbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, -1, -1));
+        cmbUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbUsuarioActionPerformed(evt);
+            }
+        });
+        cmbIndic.add(cmbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
 
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/list-add.png"))); // NOI18N
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -252,6 +253,12 @@ public class DialogoMeta extends javax.swing.JDialog {
         modeloTablaMeta.setItemsMeta(metas);
         guardarDatos();
     }//GEN-LAST:event_cmbMesActionPerformed
+
+    private void cmbUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUsuarioActionPerformed
+        // TODO add your handling code here:
+        Usuario usuario = ((ModeloComboBoxUsuarios) cmbUsuario.getModel()).getSelectedUsuario();
+        iniciarActividades(usuario);
+    }//GEN-LAST:event_cmbUsuarioActionPerformed
     public void guardarDatos() {
         if (modificado) {
             int x = JOptionPane.showConfirmDialog(panelCenter, "Se han realizado modificaciones desea gurdar");

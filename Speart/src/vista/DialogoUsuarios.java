@@ -126,8 +126,10 @@ public class DialogoUsuarios extends javax.swing.JDialog {
        if(rbtIndividual.isSelected()){
            Usuario usuario= ((ModeloComboBoxUsuarios)cmbServidor.getModel()).getSelectedUsuario();
            contenedorPrincipal.ponePanel(new PanelAgenda("inicisv_1.jpg", usuario));
+           
        }else{
            contenedorPrincipal.ponePanel(new PanelAgenda("inicisv_1.jpg", usuarioLogueado));
+           
        }
         dispose();
     }//GEN-LAST:event_btnVerAgendaActionPerformed
