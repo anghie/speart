@@ -11,7 +11,7 @@
 
 package vista.modelo.paneles.agenda;
 
-import controlador.acciones.servicios.ControladorAgenda;
+import controlador.acciones.servicios.ControladorContactos;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -30,8 +30,8 @@ public class PanelHora extends javax.swing.JPanel {
         this.hora=hora;
         setHora(hora);
         this.setPreferredSize(new Dimension(
-                                            (int)ControladorAgenda.CONSTATE_ESPACIO_TIEMPO,
-                                            (int)ControladorAgenda.CONSTATE_ESPACIO_TIEMPO
+                                            (int)ControladorContactos.CONSTATE_ESPACIO_TIEMPO,
+                                            (int)ControladorContactos.CONSTATE_ESPACIO_TIEMPO
                                             )
                              );
     }

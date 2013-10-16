@@ -20,7 +20,7 @@ import vista.paneles.servicios.PnlServicios;
  *
  * @author 
  */
-public class ControladorAgenda {
+public class ControladorContactos {
      public static double CONSTATE_ESPACIO_TIEMPO=100;// 100px =1h
     
     private DialogoAgendaContactos fa;
@@ -28,7 +28,7 @@ public class ControladorAgenda {
     private ArrayList<Contacto> contactos;
     private static Agenda  agenda;
     
-    public ControladorAgenda(DialogoAgendaContactos fa) {
+    public ControladorContactos(DialogoAgendaContactos fa) {
         this.fa = fa;
     }
     

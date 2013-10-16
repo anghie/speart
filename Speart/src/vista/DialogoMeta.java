@@ -6,8 +6,7 @@ package vista;
 
 import controlador.acciones.agenda.ControladorActividades;
 import controlador.acciones.agenda.ControladorMeta;
-import vista.modelo.ModeloTablaMeta;
-import controlador.acciones.agenda.ControladorAgenda;
+import controlador.acciones.servicios.ControladorContactos;
 import controlador.acciones.usuario.ControladorUsuario;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -43,7 +42,7 @@ public class DialogoMeta extends javax.swing.JDialog {
     public  Usuario usuario; 
     private DialogoMeta(Usuario usuario) {
         setModal(true);
-        this.agenda = ControladorAgenda.getAgendaActual();
+        this.agenda = ControladorContactos.getAgendaActual();
         this.modeloTablaMeta = new ModeloTablaMeta();
         this.usuario=usuario;
         initComponents();
@@ -128,7 +127,7 @@ public class DialogoMeta extends javax.swing.JDialog {
         cmbIndic.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
         jLabel3.setText("Meta:");
-        cmbIndic.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
+        cmbIndic.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
 
         spnMeta.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
         spnMeta.setPreferredSize(new java.awt.Dimension(60, 20));
@@ -142,7 +141,7 @@ public class DialogoMeta extends javax.swing.JDialog {
         cmbIndic.add(cmbActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 190, -1));
 
         jLabel5.setText("Usuario:");
-        cmbIndic.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
+        cmbIndic.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, -1));
 
         cmbUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbUsuario.setPreferredSize(new java.awt.Dimension(80, 20));

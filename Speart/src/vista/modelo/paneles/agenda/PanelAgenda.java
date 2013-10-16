@@ -11,12 +11,12 @@
 
 package vista.modelo.paneles.agenda;
 import controlador.acciones.agenda.ControladorActividades;
+import controlador.acciones.agenda.ControladorAgenda;
 import controlador.acciones.agenda.ControladorDiasFeriados;
 
 
 import controlador.acciones.agenda.ControladorItemAgenda;
 import controlador.acciones.agenda.ControladorMeta;
-import controlador.acciones.agenda.ControladorAgenda;
 import controlador.basedatos.Conexion;
 import datechooser.beans.DateChooserPanel;
 import java.util.Calendar;
@@ -515,7 +515,7 @@ public class PanelAgenda extends ImagenJPanel {
         // TODO add your handling code here:
 //        if(cmbServidor.getSelectedIndex()>-1){
             Calendar calendario=dateChooserPanel1.getSelectedDate();
-            ControladorAgenda.changeAgenda(""+calendario.getTime().getYear());
+            //ControladorAgenda.changeAgenda(""+calendario.getTime().getYear());
             lblFechaSeleccionada.setText(infoFecha+Fecha.getFechaFormateada(calendario.getTime(), "yyyy/MM/dd"));
             Actividad actividad=new Actividad();//listaActividades.get(cmbServidor.getSelectedIndex());
            

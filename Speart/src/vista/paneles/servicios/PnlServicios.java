@@ -4,7 +4,7 @@
  */
 package vista.paneles.servicios;
 
-import controlador.acciones.servicios.ControladorAgenda;
+import controlador.acciones.servicios.ControladorContactos;
 import controlador.acciones.servicios.ControladorRecordatorio;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,7 +28,7 @@ public class PnlServicios extends javax.swing.JPanel {
 
     GestorEventosServ ges;
     ControladorRecordatorio cr;
-    ControladorAgenda ca;
+    ControladorContactos ca;
 
     /**
      * Creates new form PnlServicios

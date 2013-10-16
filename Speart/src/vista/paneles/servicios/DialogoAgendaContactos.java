@@ -4,7 +4,7 @@
  */
 package vista.paneles.servicios;
 
-import controlador.acciones.servicios.ControladorAgenda;
+import controlador.acciones.servicios.ControladorContactos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -18,7 +18,7 @@ import vista.modelo.Mensaje;
 public class DialogoAgendaContactos extends javax.swing.JDialog {
 
     private static DialogoAgendaContactos dac;
-    private ControladorAgenda ca;
+    private ControladorContactos ca;
     private GestorEventoAgenda gea;
 
     /**
@@ -26,7 +26,7 @@ public class DialogoAgendaContactos extends javax.swing.JDialog {
      */
     private DialogoAgendaContactos() {
         initComponents();
-        ca = new ControladorAgenda(this);
+        ca = new ControladorContactos(this);
         gea = new GestorEventoAgenda();
         poneAcciones();
     }

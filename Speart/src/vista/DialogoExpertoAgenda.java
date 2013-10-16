@@ -13,7 +13,7 @@ package vista;
 
 
 import controlador.acciones.agenda.ControladorItemAgenda;
-import controlador.acciones.servicios.ControladorAgenda;
+import controlador.acciones.servicios.ControladorContactos;
 import controlador.experto.ExpertoAgenda;
 import java.util.Date;
 import java.util.Iterator;
@@ -42,10 +42,10 @@ public class DialogoExpertoAgenda extends javax.swing.JDialog {
     }
      private void iniciarAgenda(){
         // cargar agenda
-        agendaActual=ControladorAgenda.getAgendaActual();
+        agendaActual=ControladorContactos.getAgendaActual();
         if(agendaActual==null){
             JOptionPane.showMessageDialog(this,"No se ha encontrado una agenda para el año:"+new Date().getYear()+" se creara una nueva");
-            agendaActual=ControladorAgenda.getInstance();
+            agendaActual=ControladorContactos.getInstance();
             agendaActual.setNombre(""+new Date().getYear());
         }
         //iniciar paneles agenda
@@ -204,7 +204,7 @@ public class DialogoExpertoAgenda extends javax.swing.JDialog {
             newItemAgenda.setTiempoDuracion(itemAgenda.getTiempoDuracion());
             agendaActual.getItemsAgenda().add(newItemAgenda);
         }
-      ControladorAgenda.updateAgenda();
+      ControladorContactos.updateAgenda();
       dispose();
     }//GEN-LAST:event_btGuardarActionPerformed
 
