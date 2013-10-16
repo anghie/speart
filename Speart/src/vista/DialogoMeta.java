@@ -6,7 +6,7 @@ package vista;
 
 import controlador.acciones.agenda.ControladorActividades;
 import controlador.acciones.agenda.ControladorMeta;
-import controlador.acciones.servicios.ControladorContactos;
+import controlador.acciones.agenda.ControladorAgenda;
 import controlador.acciones.usuario.ControladorUsuario;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -42,7 +42,7 @@ public class DialogoMeta extends javax.swing.JDialog {
     public  Usuario usuario; 
     private DialogoMeta(Usuario usuario) {
         setModal(true);
-        this.agenda = ControladorContactos.getAgendaActual();
+        this.agenda = ControladorAgenda.getAgendaActual();
         this.modeloTablaMeta = new ModeloTablaMeta();
         this.usuario=usuario;
         initComponents();
@@ -58,7 +58,7 @@ public class DialogoMeta extends javax.swing.JDialog {
     }
 
     private void iniciarActividades(Usuario usuario) {
-        listaActividades = ControladorActividades.getAllActividades(usuario.getRol().getIdRol());
+       listaActividades = ControladorActividades.getAllActividades(usuario.getRol().getIdRol());
         cmbActividad.setModel(new ModeloComboBoxActividad(listaActividades));
     }
 
