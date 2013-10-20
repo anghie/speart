@@ -8,6 +8,7 @@ import controlador.basedatos.OperacionesBD;
 import controlador.experto.BaseConocimiento;
 import java.awt.CardLayout;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import modelo.evaluacion.ResultadoConocimientos;
 import modelo.evaluacion.ResultadoFinalConocimiento;
@@ -133,7 +134,9 @@ public class ControladorTest {
     }
 
     public void califica() {
-        resultadoPreguntas = new ArrayList<>();
+        int r = JOptionPane.showConfirmDialog(null, "¿Usted esta de acuerdo en calificar  su Test /n si considera que si no puede regresar a revisarlo?", "Calificar", JOptionPane.YES_NO_OPTION);
+                    if (r == JOptionPane.YES_OPTION) {                        
+                         resultadoPreguntas = new ArrayList<>();
         int n = 0, aux = -1;
         double valPreg = ControladorEvaluacion.facConoc / ft.getPreguntas().size();//Calculando valor de cada pregunta
         double valResp = 0;
@@ -184,6 +187,12 @@ public class ControladorTest {
         ControladorEvaluacion.txtTotalConoc.setText(ControladorEvaluacion.totConoc + "%");
         ControladorEvaluacion.btnEvaluarCon.setEnabled(false);
         ft.dispose();
+                        
+                     
+                        
+                    } 
+ 
+      
 //        } else {
 //            Mensaje.datosNoGuardados();
 //        }
