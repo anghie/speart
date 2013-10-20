@@ -103,6 +103,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         txtFactorUniv.addKeyListener(gce);
         txtFactorTrab.addKeyListener(gce);
         tabbedEvaluacion.addChangeListener(gce);
+        btnIr.addActionListener(gce);
     }
 
     /**
@@ -1678,6 +1679,10 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             //            } 
             else if (e.getSource() == btnGenerar) {
                 generacionEval();
+            } else if (e.getSource() == btnIr) {
+                Date desde = dpDesde.getDate();
+                Date hasta = dpHasta.getDate();
+                ce.listarMetas(desde, hasta);
             }
         }
 
