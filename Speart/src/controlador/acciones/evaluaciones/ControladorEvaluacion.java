@@ -5,12 +5,16 @@
 package controlador.acciones.evaluaciones;
 
 import controlador.acciones.Constantes;
+import controlador.acciones.agenda.ControladorMeta;
 import controlador.basedatos.OperacionesBD;
 import java.awt.CardLayout;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import modelo.agenda.Meta;
 import modelo.operaciones.CompetenciaTecnica;
 import modelo.operaciones.CompetenciaUniversal;
 import modelo.operaciones.TrabajoEquipo;
@@ -61,7 +65,8 @@ public class ControladorEvaluacion {
 //    public static double totCompTec = 0;
     //contadores para cada panel de evaluaciones
 //    int i = 0, c = 0, ct = 0, cu = 0, te = 0;
-    private ArrayList<Actividad> actividades;
+//    private ArrayList<Actividad> actividades;
+    public static LinkedList<Meta> metas;
     public static ArrayList<Seccion> secciones;
     public static ArrayList<Pregunta> preguntas;
     public static ArrayList<CompetenciaTecnica> compTecnicas;
@@ -152,10 +157,10 @@ public class ControladorEvaluacion {
     //         PRIMER PANEL INDICADORES
     //******************************************************
 
-    public void agregaPanelIndicadores(String txt) {
+    public void agregaPanelIndicadores(Meta meta) {
 //        i++;
 //        if (i <= 5) {
-        PnlIndic pi = new PnlIndic(txt);
+        PnlIndic pi = new PnlIndic(meta);
         pnlEval.getPnlDatosIndic().add(pi);
         panelesIndicadores.add(pi);
         pnlEval.getPnlDatosIndic().validate();
@@ -234,15 +239,19 @@ public class ControladorEvaluacion {
 //        new FrmResultadosEvaluac().setVisible(true);
 //    }
 
-    public void listarActividades() {
-        int r = FrmPrincipal.userLogueado.getRol().getIdRol();
+    public void listarMetas(Date desde, Date hasta) {
+        String login = FrmPrincipal.userLogueado.getLogin();
         boolean e = true;
-        actividades = (ArrayList<Actividad>) OperacionesBD.listarconDobleCondicion("Actividad",
-                "rol_idRol", String.valueOf(r), "paraEvaluacion", String.valueOf(e));
-        for (Actividad a : actividades) {
-            agregaPanelIndicadores(a.getDescripcion());
+        metas = ControladorMeta.searchMetas(desde, hasta, login);
+        for(Meta m: metas){
+            agregaPanelIndicadores(m);
         }
-        pnlEval.getTxtNroActividades().setText(actividades.size() + "");
+//        actividades = (ArrayList<Actividad>) OperacionesBD.listarconDobleCondicion("Actividad",
+//                "rol_idRol", String.valueOf(r), "paraEvaluacion", String.valueOf(e));
+//        for (Actividad a : actividades) {
+//            agregaPanelIndicadores(a.getDescripcion());
+//        }
+        pnlEval.getTxtNroActividades().setText(metas.size() + "");
     }
 
     public void listarSeccion() {

@@ -5,15 +5,11 @@
 package vista;
 
 import controlador.acciones.agenda.ControladorItemAgenda;
-import controlador.basedatos.Conexion;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import modelo.agenda.Agenda;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;

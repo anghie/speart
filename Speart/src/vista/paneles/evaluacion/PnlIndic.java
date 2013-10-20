@@ -4,6 +4,8 @@
  */
 package vista.paneles.evaluacion;
 
+import modelo.agenda.Meta;
+
 /**
  *
  * @author jenny
@@ -13,9 +15,23 @@ public class PnlIndic extends javax.swing.JPanel {
     /**
      * Creates new form PnlIndic
      */
-    public PnlIndic(String texto) {
+    public PnlIndic(Meta meta) {
         initComponents();
-        txtActividad.setText(texto);
+        txtActividad.setText(meta.getActividad().getDescripcion());
+        txtIndicador.setText(meta.getIndicador());
+        txtMeta.setText(String.valueOf(meta.getValor()));
+        txtCumplidos.setText(String.valueOf(meta.getTotalHecho()));
+        double per = calcPorcentaje(meta.getValor(), meta.getTotalHecho());
+        txtPorcentaje.setText(String.valueOf(per));
+
+    }
+
+    private double calcPorcentaje(int meta, int cumplidos) {
+        double percent = (cumplidos * 100) / meta;
+        if (percent > 100) {
+            percent = 100;
+        }
+        return percent;
     }
 
     /**
@@ -56,13 +72,13 @@ public class PnlIndic extends javax.swing.JPanel {
         add(txtNivel);
         txtNivel.setBounds(800, 0, 100, 30);
         add(txtIndicador);
-        txtIndicador.setBounds(270, 0, 190, 30);
+        txtIndicador.setBounds(260, 0, 200, 30);
 
         txtActividad.setEditable(false);
         add(txtActividad);
         txtActividad.setBounds(10, 0, 250, 30);
     }// </editor-fold>//GEN-END:initComponents
-   
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField txtActividad;
     private javax.swing.JTextField txtCumplidos;
@@ -71,7 +87,6 @@ public class PnlIndic extends javax.swing.JPanel {
     private javax.swing.JTextField txtNivel;
     private javax.swing.JTextField txtPorcentaje;
     // End of variables declaration//GEN-END:variables
-
 
     /**
      * @return the txtCumplidos
@@ -115,6 +130,4 @@ public class PnlIndic extends javax.swing.JPanel {
         return txtActividad;
     }
 
-    
-    
 }
