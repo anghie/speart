@@ -56,7 +56,7 @@ public class FrmPrincipal extends JFrame {
     private EventHandler esc;
     private ControladorPrincipal cp;
     public static Usuario userLogueado;
-     public static boolean estaEvalActiva;
+    public static boolean estaEvalActiva;
     private JButton btnAgenda;
     private JButton btnReportes;
     private JMenuItem miGeneraAgenda;
@@ -68,6 +68,9 @@ public class FrmPrincipal extends JFrame {
     private FrmPrincipal() {
         cl = FrmPrincipal.class.getClassLoader();
         iniciaComponentes();
+//        ControladorPrincipal.listarFechasEval();
+//        System.out.println(estaEvalActiva);
+        
     }
 
     public synchronized static FrmPrincipal getInstance() {

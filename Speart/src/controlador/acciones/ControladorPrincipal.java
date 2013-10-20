@@ -199,8 +199,6 @@ public class ControladorPrincipal {
 //        Map<String, Object> parametros = new HashMap<>();
 //        parametros.put("NOMBRE", u.getNombre());
 //        parametros.put("TIPO", u.getRol().getTipo());
-
-
         try {
             JasperReport reporte = (JasperReport) JRLoader.loadObject(getClass().getResource("ReporteUsuarios.jasper"));
             JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, new JRBeanCollectionDataSource(usuarios));
@@ -219,14 +217,21 @@ public class ControladorPrincipal {
     }
 
     public static boolean verificaPeriodoEvaluacion() {
+        listarFechasEval();
         boolean entre = false;
         Calendar hoy = Calendar.getInstance();
         for (PeriodoEvaluacion pe : fechaeval) {
             Calendar inicio = pe.getFechaInicio();
             Calendar fin = pe.getFechaFin();
-            if ((hoy.after(inicio) && hoy.before(fin))//si hoy está entre inicio y fin
-                    || (hoy.equals(inicio))) {//si hoy es igual a inicio
-                entre = true;                
+            System.out.println("inicio: "+inicio.getTime());
+            System.out.println("fin"+fin.getTime());
+//            if ((hoy.after(inicio) && hoy.before(fin))//si hoy está entre inicio y fin
+//                    || (hoy.equals(inicio))) {//si hoy es igual a inicio
+//                entre = true;                
+//            }
+            if ((hoy.getTimeInMillis() > inicio.getTimeInMillis() && hoy.getTimeInMillis() < fin.getTimeInMillis())//si hoy está entre inicio y fin
+                    || (hoy.getTimeInMillis() == inicio.getTimeInMillis())) {//si hoy es igual a inicio
+                entre = true;
             }
         }
         return entre;

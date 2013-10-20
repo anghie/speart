@@ -58,10 +58,14 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
     private void poneTabs() {
         if (FrmPrincipal.userLogueado.getRol().getTipo().equals(Constantes.SERVIDOR)) {
-            //remover todos los tabs menos el primero y el segundo
-            for (int i = 0; i <= tabbedEvaluacion.getTabCount(); i++) {
-                int ultimo = tabbedEvaluacion.getTabCount() - 1;
-                tabbedEvaluacion.removeTabAt(ultimo);
+            if (FrmPrincipal.estaEvalActiva) {
+                //remover todos los tabs menos el primero y el segundo
+                for (int i = 0; i <= tabbedEvaluacion.getTabCount(); i++) {
+                    int ultimo = tabbedEvaluacion.getTabCount() - 1;
+                    tabbedEvaluacion.removeTabAt(ultimo);
+                }
+            } else {
+                tabbedEvaluacion.removeAll();
             }
         } else if (FrmPrincipal.userLogueado.getRol().getTipo().equals(Constantes.RRHH)) {
             //remover los primeros 3 tabs

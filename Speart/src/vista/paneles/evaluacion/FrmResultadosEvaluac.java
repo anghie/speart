@@ -18,7 +18,7 @@ import vista.modelo.OperacionesVarias;
  * @author jenny
  */
 public class FrmResultadosEvaluac extends javax.swing.JDialog {
-
+    
     private static FrmResultadosEvaluac fre = null;
     private ClassLoader cload = FrmResultadosEvaluac.class.getClassLoader();//para hacer referencia a archivos dentro del programa
     private String dirArchivo = cload.getResource("controlador/experto/evaluacion.pl").getPath();
@@ -49,9 +49,9 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         eval.setTotalEval(totl);
         eval.setFechaEvaluacion(Calendar.getInstance());
         eval.setUsuarioEval(FrmPrincipal.userLogueado);
-
+        
     }
-
+    
     public synchronized static FrmResultadosEvaluac getInstance(double tIndic, double tConoc, double tCT, double tCU, double tT, double totQ, double totl) {
         if (fre == null) {
             fre = new FrmResultadosEvaluac(tIndic, tConoc, tCT, tCU, tT, totQ, totl);
@@ -334,7 +334,10 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
 
     private void btnGuardaResEvaluacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaResEvaluacionActionPerformed
         if (OperacionesBD.guardar(eval)) {
-            Mensaje.datosGuardados();
+            FrmPrincipal.userLogueado.setEvaluacionActivada(false);
+            if (OperacionesBD.modificar(FrmPrincipal.userLogueado)) {
+                Mensaje.datosGuardados();
+            }
         } else {
             Mensaje.datosNoGuardados();
         }
