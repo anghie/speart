@@ -1143,7 +1143,6 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         }
 
-
     }
 
     private void llenaListaDisponibles() {
@@ -1293,14 +1292,18 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         if (!servidoresPlanif.isEmpty()) {
             for (Usuario u : servidoresPlanif) {
                 u.setEvaluacionActivada(true);
-                OperacionesBD.modificar(u);
+                if (OperacionesBD.modificar(u)) {
+                    System.out.println("Evaluacion activada a: " + u.getNombre());
+                }
             }
             oper = true;
         }
         if (!servidoresDisp.isEmpty()) {
             for (Usuario u : servidoresDisp) {
                 u.setEvaluacionActivada(false);
-                OperacionesBD.modificar(u);
+                if (OperacionesBD.modificar(u)) {
+                    System.out.println("Evaluacion desactivada a: " + u.getNombre());
+                }
             }
             oper = true;
         }
