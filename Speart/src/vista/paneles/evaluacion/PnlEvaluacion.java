@@ -1919,7 +1919,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
                     }
                 } catch (NumberFormatException nfe) {
                 }
-            }
+            } 
         }
 
         @Override

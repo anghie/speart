@@ -4,7 +4,10 @@
  */
 package vista.paneles.evaluacion;
 
+import controlador.acciones.agenda.ControladorItemAgenda;
+import java.util.Date;
 import modelo.agenda.Meta;
+import vista.FrmPrincipal;
 
 /**
  *
@@ -15,12 +18,15 @@ public class PnlIndic extends javax.swing.JPanel {
     /**
      * Creates new form PnlIndic
      */
-    public PnlIndic(Meta meta) {
+    public PnlIndic(Meta meta, Date desde, Date hasta) {
         initComponents();
         txtActividad.setText(meta.getActividad().getDescripcion());
         txtIndicador.setText(meta.getIndicador());
         txtMeta.setText(String.valueOf(meta.getValor()));
-        txtCumplidos.setText(String.valueOf(meta.getTotalHecho()));
+        int cumplidos = ControladorItemAgenda.searchItemAgendaTotalCumplido(
+                meta.getActividad().getIdActividad(), desde, hasta,
+                FrmPrincipal.userLogueado.getNombre());
+        txtCumplidos.setText(String.valueOf(cumplidos));
         double per = calcPorcentaje(meta.getValor(), meta.getTotalHecho());
         txtPorcentaje.setText(String.valueOf(per));
 

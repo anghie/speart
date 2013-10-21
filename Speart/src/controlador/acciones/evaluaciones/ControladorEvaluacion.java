@@ -157,10 +157,10 @@ public class ControladorEvaluacion {
     //         PRIMER PANEL INDICADORES
     //******************************************************
 
-    public void agregaPanelIndicadores(Meta meta) {
+    public void agregaPanelIndicadores(Meta meta, Date desde, Date hasta) {
 //        i++;
 //        if (i <= 5) {
-        PnlIndic pi = new PnlIndic(meta);
+        PnlIndic pi = new PnlIndic(meta, desde, hasta);
         pnlEval.getPnlDatosIndic().add(pi);
         panelesIndicadores.add(pi);
         pnlEval.getPnlDatosIndic().validate();
@@ -244,7 +244,7 @@ public class ControladorEvaluacion {
         boolean e = true;
         metas = ControladorMeta.searchMetas(desde, hasta, login);
         for(Meta m: metas){
-            agregaPanelIndicadores(m);
+            agregaPanelIndicadores(m, desde, hasta);
         }
 //        actividades = (ArrayList<Actividad>) OperacionesBD.listarconDobleCondicion("Actividad",
 //                "rol_idRol", String.valueOf(r), "paraEvaluacion", String.valueOf(e));
