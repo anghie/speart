@@ -62,21 +62,27 @@ public class PnlIndic extends javax.swing.JPanel {
         setRequestFocusEnabled(false);
         setLayout(null);
 
+        txtMeta.setEditable(false);
         txtMeta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         add(txtMeta);
         txtMeta.setBounds(460, 0, 120, 30);
 
+        txtCumplidos.setEditable(false);
         txtCumplidos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         add(txtCumplidos);
         txtCumplidos.setBounds(580, 0, 110, 30);
 
+        txtPorcentaje.setEditable(false);
         txtPorcentaje.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         add(txtPorcentaje);
         txtPorcentaje.setBounds(690, 0, 110, 30);
 
+        txtNivel.setEditable(false);
         txtNivel.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         add(txtNivel);
         txtNivel.setBounds(800, 0, 100, 30);
+
+        txtIndicador.setEditable(false);
         add(txtIndicador);
         txtIndicador.setBounds(260, 0, 200, 30);
 

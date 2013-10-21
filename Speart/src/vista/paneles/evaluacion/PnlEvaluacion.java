@@ -1881,7 +1881,6 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         public void generacionEval() {
             tabbedEvaluacion.setSelectedIndex(1);
-//            ce.listarMetas();
             ce.listarSeccion();
             ce.listarCompetenciasTecnicas();
             ce.listarCompetenciasUniversales();
