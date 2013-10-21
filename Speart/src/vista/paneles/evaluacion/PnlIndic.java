@@ -25,9 +25,9 @@ public class PnlIndic extends javax.swing.JPanel {
         txtMeta.setText(String.valueOf(meta.getValor()));
         int cumplidos = ControladorItemAgenda.searchItemAgendaTotalCumplido(
                 meta.getActividad().getIdActividad(), desde, hasta,
-                FrmPrincipal.userLogueado.getNombre());
+                FrmPrincipal.userLogueado.getLogin());
         txtCumplidos.setText(String.valueOf(cumplidos));
-        double per = calcPorcentaje(meta.getValor(), meta.getTotalHecho());
+        double per = calcPorcentaje(meta.getValor(), cumplidos);
         txtPorcentaje.setText(String.valueOf(per));
 
     }
