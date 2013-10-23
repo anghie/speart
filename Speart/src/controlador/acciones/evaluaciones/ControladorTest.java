@@ -79,9 +79,11 @@ public class ControladorTest {
     public void ponePreguntas() {
         panelesPregRpta = new ArrayList<>();
         respuestasCompletas = new ArrayList<>();
+        int n=0;
         for (Pregunta p : ft.getPreguntas()) {
+            n++;
             PnlTexto pt = new PnlTexto();
-            pt.getLblTexto().setText(p.getPreg());
+            pt.getLblTexto().setText(n+". "+p.getPreg());
             panelesPregRpta.add(pt);
             poneRespuestas(p.getIdPregunta());
         }

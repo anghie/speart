@@ -2040,7 +2040,8 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             ControladorEvaluacion.facCompTec = Double.parseDouble(p.getProperty("FCTP"));
             ControladorEvaluacion.facCompUniv = Double.parseDouble(p.getProperty("FCU"));
             ControladorEvaluacion.facTrabEquip = Double.parseDouble(p.getProperty("FTIL"));
-
+            ControladorEvaluacion.aplica = Double.parseDouble(p.getProperty("APLICA"));
+            
             txtFactorIndic.setText(p.getProperty("FIGP"));
             txtFactorConoc.setText(p.getProperty("FCON"));
             txtFactorCompTec.setText(p.getProperty("FCTP"));

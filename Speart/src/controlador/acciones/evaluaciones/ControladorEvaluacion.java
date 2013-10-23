@@ -65,6 +65,7 @@ public class ControladorEvaluacion {
     public static double facTrabEquip = 0;
     public static double totTrabEquip = 0;
     public static double totQuejas = 0;
+    public static double aplica=0;
 //    public static double totCompTec = 0;
     //contadores para cada panel de evaluaciones
 //    int i = 0, c = 0, ct = 0, cu = 0, te = 0;
@@ -336,7 +337,7 @@ public class ControladorEvaluacion {
 
     public void resultadosFinales() {
         double resFin = (totCompTec + totCompUniv + totConoc + totIndic + totTrabEquip) - totQuejas;
-        FrmResultadosEvaluac.getInstance(totIndic, totConoc, totCompTec, totCompUniv, totTrabEquip, totQuejas, resFin).setVisible(true);
+        FrmResultadosEvaluac.getInstance(totIndic, totConoc, totCompTec, totCompUniv, totTrabEquip, totQuejas, resFin+aplica).setVisible(true);
     }
 
 }
