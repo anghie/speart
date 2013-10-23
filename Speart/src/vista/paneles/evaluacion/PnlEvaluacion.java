@@ -1612,6 +1612,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             prop.setProperty("FTIL", txtTEIL.getText());
             prop.setProperty("APLICA", txtAplica.getText());
             p.setProperties(prop, "controlador/propiedades/factores.properties");
+            JOptionPane.showMessageDialog(null, "Factores asignados correctamente!!!");
         } else {
             JOptionPane.showMessageDialog(null, "Existen campos vacios");
         }
@@ -1997,6 +1998,13 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         return txtTotalQuejas;
     }
 
+    /**
+     * @return the txtTotActEsc
+     */
+    public javax.swing.JTextField getTxtTotActEsc() {
+        return txtTotActEsc;
+    }
+
     class GestorControladorEvaluacion extends KeyAdapter implements ActionListener, ChangeListener {
 
         @Override
@@ -2013,13 +2021,16 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             else if (e.getSource() == btnGenerar) {
                 generacionEval();
             } else if (e.getSource() == btnIr) {
-                Date desde = dpDesde.getDate();
-                Date hasta = dpHasta.getDate();
-                ce.listarMetas(desde, hasta);
+                try {
+                    Date desde = dpDesde.getDate();
+                    Date hasta = dpHasta.getDate();
+                    ce.listarMetas(desde, hasta);
+                }catch(NullPointerException npe){
+                    JOptionPane.showMessageDialog(null, "Debe seleccionar un rango de fechas");
+                }
             }
         }
 
-        
         public void generacionEval() {
             tabbedEvaluacion.setSelectedIndex(1);
             ce.listarSeccion();
@@ -2041,7 +2052,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             ControladorEvaluacion.facCompUniv = Double.parseDouble(p.getProperty("FCU"));
             ControladorEvaluacion.facTrabEquip = Double.parseDouble(p.getProperty("FTIL"));
             ControladorEvaluacion.aplica = Double.parseDouble(p.getProperty("APLICA"));
-            
+
             txtFactorIndic.setText(p.getProperty("FIGP"));
             txtFactorConoc.setText(p.getProperty("FCON"));
             txtFactorCompTec.setText(p.getProperty("FCTP"));

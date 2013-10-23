@@ -17,10 +17,13 @@ import vista.modelo.OperacionesVarias;
  * @author jenny
  */
 public class PnlIndic extends javax.swing.JPanel {
- private ClassLoader cload = PnlIndic.class.getClassLoader();//para hacer referencia a archivos dentro del programa
-    private String dirArchivo = cload.getResource("controlador/experto/evaluacion.pl").getPath();
+ private final ClassLoader cload = PnlIndic.class.getClassLoader();//para hacer referencia a archivos dentro del programa
+    private final String dirArchivo = cload.getResource("controlador/experto/evaluacion.pl").getPath();
     /**
      * Creates new form PnlIndic
+     * @param meta la meta
+     * @param desde fecha desde
+     * @param hasta fecha hasta
      */
     public PnlIndic(Meta meta, Date desde, Date hasta) {
         initComponents();
@@ -34,6 +37,7 @@ public class PnlIndic extends javax.swing.JPanel {
         double per = calcPorcentaje(meta.getValor(), cumplidos);
         txtPorcentaje.setText(String.valueOf(per));
         txtNivel.setText(rptaTexto(per));
+        ControladorEvaluacion.totIndic+=per;
     }
 
     private double calcPorcentaje(int meta, int cumplidos) {

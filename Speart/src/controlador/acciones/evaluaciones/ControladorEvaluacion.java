@@ -7,7 +7,6 @@ package controlador.acciones.evaluaciones;
 import controlador.acciones.Constantes;
 import controlador.acciones.agenda.ControladorMeta;
 import controlador.basedatos.OperacionesBD;
-import controlador.experto.BaseConocimiento;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,7 +24,6 @@ import modelo.proceso.Actividad;
 import modelo.usuario.Queja;
 import modelo.usuario.Usuario;
 import vista.FrmPrincipal;
-import vista.modelo.OperacionesVarias;
 import vista.paneles.evaluacion.FrmResultadosEvaluac;
 import vista.paneles.evaluacion.FrmTests;
 import vista.paneles.evaluacion.PnlCompTecn;
@@ -254,6 +252,7 @@ public class ControladorEvaluacion {
             agregaPanelIndicadores(m, desde, hasta);
         }
         pnlEval.getTxtNroActividades().setText(metas.size() + "");
+        pnlEval.getTxtTotActEsc().setText(String.valueOf(totIndic));
     }
 
 //    public String rptaTexto(double total) {
