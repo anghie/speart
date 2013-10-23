@@ -44,18 +44,15 @@ public class PnlCompTecn extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtCompObserv = new javax.swing.JTextField();
         cbRelevanciaTec = new javax.swing.JComboBox();
         txtCompTec = new javax.swing.JTextField();
         cbNivelDesarr = new javax.swing.JComboBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtCompObserv = new javax.swing.JTextArea();
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(902, 33));
         setLayout(null);
-
-        txtCompObserv.setEditable(false);
-        add(txtCompObserv);
-        txtCompObserv.setBounds(460, 0, 290, 30);
 
         cbRelevanciaTec.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Alta", "Media", "Baja" }));
         add(cbRelevanciaTec);
@@ -68,11 +65,21 @@ public class PnlCompTecn extends javax.swing.JPanel {
         cbNivelDesarr.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Altamente Desarrollada", "Desarrollada", "Medianamente Desarrollada", "Poco Desarrollada", "No Desarrollada" }));
         add(cbNivelDesarr);
         cbNivelDesarr.setBounds(750, 0, 150, 30);
+
+        txtCompObserv.setEditable(false);
+        txtCompObserv.setColumns(20);
+        txtCompObserv.setLineWrap(true);
+        txtCompObserv.setRows(5);
+        jScrollPane1.setViewportView(txtCompObserv);
+
+        add(jScrollPane1);
+        jScrollPane1.setBounds(460, 0, 290, 30);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cbNivelDesarr;
     private javax.swing.JComboBox cbRelevanciaTec;
-    private javax.swing.JTextField txtCompObserv;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea txtCompObserv;
     private javax.swing.JTextField txtCompTec;
     // End of variables declaration//GEN-END:variables
 
@@ -93,7 +100,7 @@ public class PnlCompTecn extends javax.swing.JPanel {
     /**
      * @return the txtCompObserv
      */
-    public javax.swing.JTextField getTxtCompObserv() {
+    public javax.swing.JTextArea getTxtCompObserv() {
         return txtCompObserv;
     }
 

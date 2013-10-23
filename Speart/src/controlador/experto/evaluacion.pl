@@ -1,14 +1,14 @@
 %porcentajes de evaluacion indicadores de gestion de puesto
 %actividdades cumplimiento 5
-regla1(X):- X>=91,X=<100.
+indic(X,5):- X>=91,X=<100.
 %actividades cumplimiento 4
-regla2(X):- X>=81,X=<90.
+indic(X,4):- X>=81,X=<90.
 %actividades cumplimiento 3
-regla3(X):- X>=71,X=<80.
+indic(X,3):- X>=71,X=<80.
 %actividaes cumplimiento 2
-regla4(X):- X>=61,X=<70.
+indic(X,2):- X>=61,X=<70.
 %actividades cumplimiento 1
-regla5(X):- X=<60.
+indic(X,1):- X=<60.
 
 
 %ESCALAS pARA EVALUAR CONOCIMIENTOS

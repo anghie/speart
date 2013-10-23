@@ -5,8 +5,10 @@
 package vista.paneles.evaluacion;
 
 import controlador.acciones.Constantes;
+import controlador.acciones.ControladorPrincipal;
 import controlador.acciones.evaluaciones.ControladorEvaluacion;
 import controlador.basedatos.OperacionesBD;
+import controlador.propiedades.Propiedades;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -14,6 +16,7 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Properties;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
@@ -24,6 +27,7 @@ import modelo.usuario.Usuario;
 import vista.FrmPrincipal;
 import vista.modelo.ImagenJPanel;
 import vista.modelo.Mensaje;
+import vista.modelo.OperacionesVarias;
 
 /**
  *
@@ -58,11 +62,14 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
     private void poneTabs() {
         if (FrmPrincipal.userLogueado.getRol().getTipo().equals(Constantes.SERVIDOR)) {
-            if (FrmPrincipal.estaEvalActiva) {
+            if (FrmPrincipal.estaEvalActiva && FrmPrincipal.userLogueado.isEvaluacionActivada()) {
                 //remover todos los tabs menos el primero y el segundo
                 for (int i = 0; i <= tabbedEvaluacion.getTabCount(); i++) {
                     int ultimo = tabbedEvaluacion.getTabCount() - 1;
                     tabbedEvaluacion.removeTabAt(ultimo);
+                }
+                if (tabbedEvaluacion.getTabCount() == 3) {
+                    tabbedEvaluacion.removeTabAt(2);
                 }
             } else {
                 tabbedEvaluacion.removeAll();
@@ -75,6 +82,9 @@ public class PnlEvaluacion extends javax.swing.JPanel {
                 }
             }
             if (FrmPrincipal.estaEvalActiva) {
+                tabbedEvaluacion.removeTabAt(0);
+            }
+            if (tabbedEvaluacion.getTabCount() == 3) {
                 tabbedEvaluacion.removeTabAt(0);
             }
         } else if (FrmPrincipal.userLogueado.getRol().getTipo().equals(Constantes.JEFE)) {
@@ -258,6 +268,31 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jLabel46 = new javax.swing.JLabel();
         cbNombres = new javax.swing.JComboBox();
         btnNuevoNombre = new javax.swing.JButton();
+        pnlSeis = new javax.swing.JPanel();
+        pnlFactores = new javax.swing.JPanel();
+        jLabel49 = new javax.swing.JLabel();
+        txtIGP = new javax.swing.JTextField();
+        jLabel50 = new javax.swing.JLabel();
+        txtCON = new javax.swing.JTextField();
+        jLabel51 = new javax.swing.JLabel();
+        txtCTP = new javax.swing.JTextField();
+        jLabel52 = new javax.swing.JLabel();
+        txtCU = new javax.swing.JTextField();
+        jLabel53 = new javax.swing.JLabel();
+        txtTEIL = new javax.swing.JTextField();
+        txtSubTotal = new javax.swing.JTextField();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        lblFactor6 = new javax.swing.JLabel();
+        lblFactor7 = new javax.swing.JLabel();
+        lblFactor8 = new javax.swing.JLabel();
+        lblFactor9 = new javax.swing.JLabel();
+        lblFactor10 = new javax.swing.JLabel();
+        lblFactor12 = new javax.swing.JLabel();
+        txtAplica = new javax.swing.JTextField();
+        jLabel56 = new javax.swing.JLabel();
+        txtTotal = new javax.swing.JTextField();
+        btnAplicarFactores = new javax.swing.JButton();
         pnlTres = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         btnAplicar = new javax.swing.JButton();
@@ -281,29 +316,6 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         lstParaEvaluar = new javax.swing.JList();
         btnAceptar = new javax.swing.JButton();
-        pnlSeis = new javax.swing.JPanel();
-        pnlFactores = new javax.swing.JPanel();
-        jLabel49 = new javax.swing.JLabel();
-        txtIGP = new javax.swing.JTextField();
-        jLabel50 = new javax.swing.JLabel();
-        txtCON = new javax.swing.JTextField();
-        jLabel51 = new javax.swing.JLabel();
-        txtCTP = new javax.swing.JTextField();
-        jLabel52 = new javax.swing.JLabel();
-        txtCU = new javax.swing.JTextField();
-        jLabel53 = new javax.swing.JLabel();
-        txtTEIL = new javax.swing.JTextField();
-        txtTotal = new javax.swing.JTextField();
-        jLabel54 = new javax.swing.JLabel();
-        jLabel55 = new javax.swing.JLabel();
-        lblFactor6 = new javax.swing.JLabel();
-        lblFactor7 = new javax.swing.JLabel();
-        lblFactor8 = new javax.swing.JLabel();
-        lblFactor9 = new javax.swing.JLabel();
-        lblFactor10 = new javax.swing.JLabel();
-        lblFactor11 = new javax.swing.JLabel();
-        lblFactor12 = new javax.swing.JLabel();
-        txtTotal1 = new javax.swing.JTextField();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -471,7 +483,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         lblTotActivEscen.setText("Total Actividades Esenciales:");
         pnlIndicGestionPuesto.add(lblTotActivEscen);
-        lblTotActivEscen.setBounds(540, 410, 190, 14);
+        lblTotActivEscen.setBounds(540, 410, 190, 17);
         pnlIndicGestionPuesto.add(txtTotActEsc);
         txtTotActEsc.setBounds(720, 400, 200, 30);
 
@@ -504,21 +516,23 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         txtNroActividades.setEditable(false);
         pnlIndicGestionPuesto.add(txtNroActividades);
-        txtNroActividades.setBounds(130, 10, 60, 20);
+        txtNroActividades.setBounds(130, 10, 60, 27);
 
         lblFactor.setText("%");
         pnlIndicGestionPuesto.add(lblFactor);
         lblFactor.setBounds(400, 10, 20, 20);
+
+        txtFactorIndic.setEditable(false);
         pnlIndicGestionPuesto.add(txtFactorIndic);
-        txtFactorIndic.setBounds(330, 10, 60, 20);
+        txtFactorIndic.setBounds(330, 10, 60, 27);
 
         lblFactor1.setText("# Factor: ");
         pnlIndicGestionPuesto.add(lblFactor1);
         lblFactor1.setBounds(260, 10, 70, 20);
         pnlIndicGestionPuesto.add(dpDesde);
-        dpDesde.setBounds(480, 10, 140, 22);
+        dpDesde.setBounds(480, 10, 140, 27);
         pnlIndicGestionPuesto.add(dpHasta);
-        dpHasta.setBounds(700, 10, 140, 22);
+        dpHasta.setBounds(700, 10, 140, 27);
 
         jLabel47.setText("Hasta:");
         pnlIndicGestionPuesto.add(jLabel47);
@@ -530,7 +544,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         btnIr.setText("Ir");
         pnlIndicGestionPuesto.add(btnIr);
-        btnIr.setBounds(850, 10, 41, 23);
+        btnIr.setBounds(850, 10, 19, 29);
 
         pnlMedio.add(pnlIndicGestionPuesto, "pnlIndicGestionPuesto");
 
@@ -553,7 +567,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         jLabel13.setText("Total Conocimientos:");
         pnlConocimientos.add(jLabel13);
-        jLabel13.setBounds(560, 350, 180, 14);
+        jLabel13.setBounds(560, 350, 180, 17);
         pnlConocimientos.add(txtTotalConocimientos);
         txtTotalConocimientos.setBounds(720, 340, 200, 30);
 
@@ -582,12 +596,14 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         lblFactorConoc.setText("# Factor: ");
         pnlConocimientos.add(lblFactorConoc);
         lblFactorConoc.setBounds(260, 10, 70, 20);
+
+        txtFactorConoc.setEditable(false);
         pnlConocimientos.add(txtFactorConoc);
-        txtFactorConoc.setBounds(330, 10, 60, 20);
+        txtFactorConoc.setBounds(330, 10, 60, 27);
 
         txtNroConocimientos.setEditable(false);
         pnlConocimientos.add(txtNroConocimientos);
-        txtNroConocimientos.setBounds(130, 10, 60, 20);
+        txtNroConocimientos.setBounds(130, 10, 60, 27);
 
         lblConocimientos.setText("# Conocimientos: ");
         pnlConocimientos.add(lblConocimientos);
@@ -632,7 +648,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         jLabel16.setText("Total Competencias Tecnicas del Puesto:");
         pnlCompetTecnicas.add(jLabel16);
-        jLabel16.setBounds(450, 340, 270, 14);
+        jLabel16.setBounds(450, 340, 270, 17);
         pnlCompetTecnicas.add(txtTotalCompTec);
         txtTotalCompTec.setBounds(720, 330, 200, 30);
 
@@ -664,13 +680,15 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         txtNroCompetTecnic.setEditable(false);
         pnlCompetTecnicas.add(txtNroCompetTecnic);
-        txtNroCompetTecnic.setBounds(130, 10, 60, 20);
+        txtNroCompetTecnic.setBounds(130, 10, 60, 27);
 
         lblFactCompTec.setText("# Factor: ");
         pnlCompetTecnicas.add(lblFactCompTec);
         lblFactCompTec.setBounds(260, 10, 70, 20);
+
+        txtFactorCompTec.setEditable(false);
         pnlCompetTecnicas.add(txtFactorCompTec);
-        txtFactorCompTec.setBounds(330, 10, 60, 20);
+        txtFactorCompTec.setBounds(330, 10, 60, 27);
 
         lblFactor3.setText("%");
         pnlCompetTecnicas.add(lblFactor3);
@@ -711,7 +729,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         jLabel23.setText("Total Competencias Universales:");
         pnlCompetUniver.add(jLabel23);
-        jLabel23.setBounds(450, 340, 270, 14);
+        jLabel23.setBounds(450, 340, 270, 17);
         pnlCompetUniver.add(txtTotalCompUniv);
         txtTotalCompUniv.setBounds(720, 330, 200, 30);
 
@@ -743,13 +761,15 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         txtNroCompetUniv.setEditable(false);
         pnlCompetUniver.add(txtNroCompetUniv);
-        txtNroCompetUniv.setBounds(130, 10, 60, 20);
+        txtNroCompetUniv.setBounds(130, 10, 60, 27);
 
         lblFactorUniv.setText("# Factor: ");
         pnlCompetUniver.add(lblFactorUniv);
         lblFactorUniv.setBounds(260, 10, 70, 20);
+
+        txtFactorUniv.setEditable(false);
         pnlCompetUniver.add(txtFactorUniv);
-        txtFactorUniv.setBounds(330, 10, 60, 20);
+        txtFactorUniv.setBounds(330, 10, 60, 27);
 
         lblFactor4.setText("%");
         pnlCompetUniver.add(lblFactor4);
@@ -790,7 +810,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         jLabel28.setText("Trabajo en equipo iniciativa y liderazgo:");
         pnlTrabEquipo.add(jLabel28);
-        jLabel28.setBounds(450, 340, 280, 14);
+        jLabel28.setBounds(450, 340, 280, 17);
         pnlTrabEquipo.add(txtTotalTrabEquip);
         txtTotalTrabEquip.setBounds(720, 330, 200, 30);
 
@@ -819,8 +839,10 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         lblFactorTrab.setText("# Factor: ");
         pnlTrabEquipo.add(lblFactorTrab);
         lblFactorTrab.setBounds(10, 10, 70, 20);
+
+        txtFactorTrab.setEditable(false);
         pnlTrabEquipo.add(txtFactorTrab);
-        txtFactorTrab.setBounds(80, 10, 60, 20);
+        txtFactorTrab.setBounds(80, 10, 60, 27);
 
         lblFactor5.setText("  %");
         pnlTrabEquipo.add(lblFactor5);
@@ -948,41 +970,41 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         jLabel38.setText("INEFICIENTE CALIFICACIÓN:");
         jPanel11.add(jLabel38);
-        jLabel38.setBounds(10, 310, 170, 14);
+        jLabel38.setBounds(10, 310, 170, 17);
 
         jLabel39.setFont(new java.awt.Font("Cantarell", 1, 12)); // NOI18N
         jLabel39.setText("EFECTOS EVALUACIÓN");
         jPanel11.add(jLabel39);
-        jLabel39.setBounds(130, 10, 140, 16);
+        jLabel39.setBounds(130, 10, 140, 17);
 
         jLabel44.setText("BUENA CALIFICACIÓN:");
         jPanel11.add(jLabel44);
-        jLabel44.setBounds(10, 90, 140, 14);
+        jLabel44.setBounds(10, 90, 140, 17);
 
         jLabel45.setText("DEFICIENTE CALIFICACIÓN:");
         jPanel11.add(jLabel45);
-        jLabel45.setBounds(10, 200, 170, 14);
+        jLabel45.setBounds(10, 200, 170, 17);
 
         txtIneficienteCalificacion.setColumns(20);
         txtIneficienteCalificacion.setRows(5);
         jScrollPane1.setViewportView(txtIneficienteCalificacion);
 
         jPanel11.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 330, 380, 96);
+        jScrollPane1.setBounds(10, 330, 380, 87);
 
         txtBuenaCalificacion.setColumns(20);
         txtBuenaCalificacion.setRows(5);
         jScrollPane4.setViewportView(txtBuenaCalificacion);
 
         jPanel11.add(jScrollPane4);
-        jScrollPane4.setBounds(10, 110, 380, 96);
+        jScrollPane4.setBounds(10, 110, 380, 87);
 
         txtDeficienteCalificacion.setColumns(20);
         txtDeficienteCalificacion.setRows(5);
         jScrollPane5.setViewportView(txtDeficienteCalificacion);
 
         jPanel11.add(jScrollPane5);
-        jScrollPane5.setBounds(10, 220, 380, 96);
+        jScrollPane5.setBounds(10, 220, 380, 87);
 
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -1018,6 +1040,155 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         tabbedEvaluacion.addTab("EFECTOS EVALUACIÓN", pnlCinco);
 
+        pnlUno  = new  ImagenJPanel ("zzz.jpg");
+
+        pnlFactores.setOpaque(false);
+        pnlFactores.setPreferredSize(new java.awt.Dimension(750, 500));
+        pnlFactores.setLayout(null);
+
+        jLabel49.setText("FACTOR PARA INDICADORES DE GESTION DE PUESTO:");
+        pnlFactores.add(jLabel49);
+        jLabel49.setBounds(110, 70, 340, 17);
+
+        txtIGP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIGPKeyTyped(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtIGPKeyReleased(evt);
+            }
+        });
+        pnlFactores.add(txtIGP);
+        txtIGP.setBounds(430, 60, 90, 30);
+
+        jLabel50.setText("                                 FACTOR PARA CONOCIMIENTO:");
+        pnlFactores.add(jLabel50);
+        jLabel50.setBounds(140, 100, 310, 17);
+
+        txtCON.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCONKeyTyped(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCONKeyReleased(evt);
+            }
+        });
+        pnlFactores.add(txtCON);
+        txtCON.setBounds(430, 90, 90, 30);
+
+        jLabel51.setText(" FACTOR PARA COMPETENCIAS TÉCNICAS DE PUESTO:");
+        pnlFactores.add(jLabel51);
+        jLabel51.setBounds(110, 130, 340, 17);
+
+        txtCTP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCTPKeyTyped(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCTPKeyReleased(evt);
+            }
+        });
+        pnlFactores.add(txtCTP);
+        txtCTP.setBounds(430, 120, 90, 30);
+
+        jLabel52.setText("             FACTOR PARA COMPETENCIAS UNIVERSALES:");
+        pnlFactores.add(jLabel52);
+        jLabel52.setBounds(120, 160, 330, 17);
+
+        txtCU.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCUKeyTyped(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCUKeyReleased(evt);
+            }
+        });
+        pnlFactores.add(txtCU);
+        txtCU.setBounds(430, 150, 90, 30);
+
+        jLabel53.setText("SUBTOTAL:");
+        pnlFactores.add(jLabel53);
+        jLabel53.setBounds(340, 220, 90, 17);
+
+        txtTEIL.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTEILKeyTyped(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTEILKeyReleased(evt);
+            }
+        });
+        pnlFactores.add(txtTEIL);
+        txtTEIL.setBounds(430, 180, 90, 30);
+
+        txtSubTotal.setEditable(false);
+        pnlFactores.add(txtSubTotal);
+        txtSubTotal.setBounds(430, 210, 90, 30);
+
+        jLabel54.setText("        TOTAL:");
+        pnlFactores.add(jLabel54);
+        jLabel54.setBounds(340, 280, 110, 17);
+
+        jLabel55.setText("FACTOR PARA TRABAJO EN EQUIPO, INICIATIVA Y LIDERAZGO:");
+        pnlFactores.add(jLabel55);
+        jLabel55.setBounds(70, 190, 380, 17);
+
+        lblFactor6.setText("%");
+        pnlFactores.add(lblFactor6);
+        lblFactor6.setBounds(530, 240, 20, 20);
+
+        lblFactor7.setText("%");
+        pnlFactores.add(lblFactor7);
+        lblFactor7.setBounds(530, 60, 20, 20);
+
+        lblFactor8.setText("%");
+        pnlFactores.add(lblFactor8);
+        lblFactor8.setBounds(530, 90, 20, 20);
+
+        lblFactor9.setText("%");
+        pnlFactores.add(lblFactor9);
+        lblFactor9.setBounds(530, 120, 20, 20);
+
+        lblFactor10.setText("%");
+        pnlFactores.add(lblFactor10);
+        lblFactor10.setBounds(530, 150, 20, 20);
+
+        lblFactor12.setText("%");
+        pnlFactores.add(lblFactor12);
+        lblFactor12.setBounds(530, 180, 20, 20);
+
+        txtAplica.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAplicaKeyTyped(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtAplicaKeyReleased(evt);
+            }
+        });
+        pnlFactores.add(txtAplica);
+        txtAplica.setBounds(430, 240, 90, 30);
+
+        jLabel56.setText("        APLICA:");
+        pnlFactores.add(jLabel56);
+        jLabel56.setBounds(340, 250, 110, 17);
+
+        txtTotal.setEditable(false);
+        pnlFactores.add(txtTotal);
+        txtTotal.setBounds(430, 270, 90, 30);
+
+        btnAplicarFactores.setText("Aplicar");
+        btnAplicarFactores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAplicarFactoresActionPerformed(evt);
+            }
+        });
+        pnlFactores.add(btnAplicarFactores);
+        btnAplicarFactores.setBounds(341, 349, 90, 40);
+
+        pnlSeis.add(pnlFactores);
+
+        tabbedEvaluacion.addTab("FACTORES", pnlSeis);
+
         jPanel9.setOpaque(false);
         jPanel9.setPreferredSize(new java.awt.Dimension(400, 400));
         jPanel9.setLayout(null);
@@ -1043,13 +1214,13 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jPanel9.add(lblDesde);
         lblDesde.setBounds(10, 100, 60, 30);
         jPanel9.add(txtMinDesde);
-        txtMinDesde.setBounds(330, 100, 50, 20);
+        txtMinDesde.setBounds(330, 100, 50, 27);
         jPanel9.add(txtHoraDesde);
-        txtHoraDesde.setBounds(270, 100, 50, 20);
+        txtHoraDesde.setBounds(270, 100, 50, 27);
         jPanel9.add(txtMinHasta);
-        txtMinHasta.setBounds(330, 140, 50, 20);
+        txtMinHasta.setBounds(330, 140, 50, 27);
         jPanel9.add(txtHoraHasta);
-        txtHoraHasta.setBounds(270, 140, 50, 20);
+        txtHoraHasta.setBounds(270, 140, 50, 27);
 
         lblSepHasta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSepHasta.setText(":");
@@ -1085,7 +1256,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         });
         jPanel10.add(btnAgregar);
-        btnAgregar.setBounds(250, 110, 50, 23);
+        btnAgregar.setBounds(250, 110, 50, 29);
 
         btnQuitar.setText("<");
         btnQuitar.addActionListener(new java.awt.event.ActionListener() {
@@ -1094,7 +1265,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         });
         jPanel10.add(btnQuitar);
-        btnQuitar.setBounds(250, 160, 50, 23);
+        btnQuitar.setBounds(250, 160, 50, 29);
 
         jScrollPane2.setViewportView(lstParaEvaluar);
 
@@ -1113,116 +1284,6 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         pnlCuatro.add(jPanel10);
 
         tabbedEvaluacion.addTab("ACTIVAR EVALUACIÓN", pnlCuatro);
-
-        pnlUno  = new  ImagenJPanel ("zzz.jpg");
-
-        pnlFactores.setOpaque(false);
-        pnlFactores.setPreferredSize(new java.awt.Dimension(750, 500));
-        pnlFactores.setLayout(null);
-
-        jLabel49.setText("FACTOR PARA INDICADORES DE GESTION DE PUESTO:");
-        pnlFactores.add(jLabel49);
-        jLabel49.setBounds(180, 70, 270, 14);
-
-        txtIGP.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtIGPKeyReleased(evt);
-            }
-        });
-        pnlFactores.add(txtIGP);
-        txtIGP.setBounds(450, 60, 90, 30);
-
-        jLabel50.setText("                                 FACTOR PARA CONOCIMIENTO:");
-        pnlFactores.add(jLabel50);
-        jLabel50.setBounds(180, 100, 270, 14);
-
-        txtCON.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtCONKeyReleased(evt);
-            }
-        });
-        pnlFactores.add(txtCON);
-        txtCON.setBounds(450, 90, 90, 30);
-
-        jLabel51.setText(" FACTOR PARA COMPETENCIAS TÉCNICAS DE PUESTO:");
-        pnlFactores.add(jLabel51);
-        jLabel51.setBounds(180, 130, 270, 14);
-
-        txtCTP.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtCTPKeyReleased(evt);
-            }
-        });
-        pnlFactores.add(txtCTP);
-        txtCTP.setBounds(450, 120, 90, 30);
-
-        jLabel52.setText("             FACTOR PARA COMPETENCIAS UNIVERSALES:");
-        pnlFactores.add(jLabel52);
-        jLabel52.setBounds(180, 160, 270, 14);
-
-        txtCU.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtCUKeyReleased(evt);
-            }
-        });
-        pnlFactores.add(txtCU);
-        txtCU.setBounds(450, 150, 90, 30);
-
-        jLabel53.setText("APLICA:");
-        pnlFactores.add(jLabel53);
-        jLabel53.setBounds(410, 220, 40, 14);
-
-        txtTEIL.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtTEILKeyReleased(evt);
-            }
-        });
-        pnlFactores.add(txtTEIL);
-        txtTEIL.setBounds(450, 180, 90, 30);
-        pnlFactores.add(txtTotal);
-        txtTotal.setBounds(450, 240, 90, 30);
-
-        jLabel54.setText("        TOTAL:");
-        pnlFactores.add(jLabel54);
-        jLabel54.setBounds(390, 250, 60, 14);
-
-        jLabel55.setText("FACTOR PARA TRABAJO EN EQUIPO, INICIATIVA Y LIDERAZGO:");
-        pnlFactores.add(jLabel55);
-        jLabel55.setBounds(130, 190, 320, 14);
-
-        lblFactor6.setText("%");
-        pnlFactores.add(lblFactor6);
-        lblFactor6.setBounds(550, 210, 20, 20);
-
-        lblFactor7.setText("%");
-        pnlFactores.add(lblFactor7);
-        lblFactor7.setBounds(550, 60, 20, 20);
-
-        lblFactor8.setText("%");
-        pnlFactores.add(lblFactor8);
-        lblFactor8.setBounds(550, 90, 20, 20);
-
-        lblFactor9.setText("%");
-        pnlFactores.add(lblFactor9);
-        lblFactor9.setBounds(550, 120, 20, 20);
-
-        lblFactor10.setText("%");
-        pnlFactores.add(lblFactor10);
-        lblFactor10.setBounds(550, 150, 20, 20);
-
-        lblFactor11.setText("%");
-        pnlFactores.add(lblFactor11);
-        lblFactor11.setBounds(550, 150, 20, 20);
-
-        lblFactor12.setText("%");
-        pnlFactores.add(lblFactor12);
-        lblFactor12.setBounds(550, 180, 20, 20);
-        pnlFactores.add(txtTotal1);
-        txtTotal1.setBounds(450, 210, 90, 30);
-
-        pnlSeis.add(pnlFactores);
-
-        tabbedEvaluacion.addTab("FACTORES", pnlSeis);
 
         add(tabbedEvaluacion, java.awt.BorderLayout.PAGE_START);
     }// </editor-fold>//GEN-END:initComponents
@@ -1359,20 +1420,31 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
-   private void suma() {
+    private void suma() {
         try {
-            double suma = Integer.parseInt(txtCON.getText())
-                    + Integer.parseInt(txtCTP.getText())
-                    + Integer.parseInt(txtCU.getText())
-                    + Integer.parseInt(txtIGP.getText())
-                    + Integer.parseInt(txtTEIL.getText());
+            double suma = poneNro(txtCON.getText())
+                    + poneNro(txtCTP.getText())
+                    + poneNro(txtCU.getText())
+                    + poneNro(txtIGP.getText())
+                    + poneNro(txtTEIL.getText());
+            if (suma <= 100) {
+                txtSubTotal.setText(String.valueOf(suma));
+            } else {
+                JOptionPane.showMessageDialog(this, "La suma de los factores no puede exceder el 100%");
+            }
 
-            txtTotal.setText(String.valueOf(suma));
         } catch (NumberFormatException ex) {
         }
-
     }
-    
+
+    private int poneNro(String s) {
+        if (s.isEmpty()) {
+            return 0;
+        } else {
+            return Integer.parseInt(s);
+        }
+    }
+
     private void btnQuitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitarActionPerformed
         if (lstParaEvaluar.getSelectedIndex() != -1) {
             Usuario u = servidoresPlanif.get(lstParaEvaluar.getSelectedIndex());
@@ -1469,10 +1541,6 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnResultadosActionPerformed
 
-    private void txtIGPKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIGPKeyReleased
-       suma();
-    }//GEN-LAST:event_txtIGPKeyReleased
-
     private void txtCONKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCONKeyReleased
         suma();
     }//GEN-LAST:event_txtCONKeyReleased
@@ -1486,14 +1554,85 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     }//GEN-LAST:event_txtCUKeyReleased
 
     private void txtTEILKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTEILKeyReleased
-       suma();
+        suma();
     }//GEN-LAST:event_txtTEILKeyReleased
 
+    private void txtIGPKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIGPKeyReleased
+
+        suma();
+    }//GEN-LAST:event_txtIGPKeyReleased
+
+    private void txtIGPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIGPKeyTyped
+        OperacionesVarias.ingresoSoloNumeros(evt);
+    }//GEN-LAST:event_txtIGPKeyTyped
+
+    private void txtCONKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCONKeyTyped
+        txtIGPKeyTyped(evt);
+    }//GEN-LAST:event_txtCONKeyTyped
+
+    private void txtCTPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCTPKeyTyped
+        txtIGPKeyTyped(evt);
+    }//GEN-LAST:event_txtCTPKeyTyped
+
+    private void txtCUKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCUKeyTyped
+        txtIGPKeyTyped(evt);
+    }//GEN-LAST:event_txtCUKeyTyped
+
+    private void txtTEILKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTEILKeyTyped
+        txtIGPKeyTyped(evt);
+    }//GEN-LAST:event_txtTEILKeyTyped
+
+    private void txtAplicaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAplicaKeyTyped
+        txtIGPKeyTyped(evt);
+    }//GEN-LAST:event_txtAplicaKeyTyped
+
+    private void txtAplicaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAplicaKeyReleased
+        double subt = Double.parseDouble(txtSubTotal.getText());
+        if (subt == 100) {
+            int n = poneNro(txtAplica.getText());
+            double sum = n + subt;
+            if (sum <= 105) {
+                txtTotal.setText(String.valueOf(sum));
+            } else {
+                JOptionPane.showMessageDialog(null, "Verifique el valor del campo Aplica, parece ser muy elevado");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "El valor de subtotal debe ser 100. Verifique los valores ingresados antes de asignar un valor al campo Aplica");
+        }
+    }//GEN-LAST:event_txtAplicaKeyReleased
+
+    private void btnAplicarFactoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarFactoresActionPerformed
+        if (!compruebaVacios()) {
+            Propiedades p = new Propiedades();
+            Properties prop = p.getProperties("controlador/propiedades/factores.properties");
+            prop.setProperty("FIGP", txtIGP.getText());
+            prop.setProperty("FCON", txtCON.getText());
+            prop.setProperty("FCTP", txtCTP.getText());
+            prop.setProperty("FCU", txtCU.getText());
+            prop.setProperty("FTIL", txtTEIL.getText());
+            prop.setProperty("APLICA", txtAplica.getText());
+            p.setProperties(prop, "controlador/propiedades/factores.properties");
+        } else {
+            JOptionPane.showMessageDialog(null, "Existen campos vacios");
+        }
+    }//GEN-LAST:event_btnAplicarFactoresActionPerformed
+    private boolean compruebaVacios() {
+        if (txtIGP.getText().isEmpty()
+                || txtCON.getText().isEmpty()
+                || txtCTP.getText().isEmpty()
+                || txtCU.getText().isEmpty()
+                || txtTEIL.getText().isEmpty()
+                || txtAplica.getText().isEmpty()) {
+            return true;
+        }
+        return false;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnAnterior;
     private javax.swing.JButton btnAplicar;
+    private javax.swing.JButton btnAplicarFactores;
     private javax.swing.JButton btnGenerar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnIr;
@@ -1557,6 +1696,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1585,7 +1725,6 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JLabel lblFactor;
     private javax.swing.JLabel lblFactor1;
     private javax.swing.JLabel lblFactor10;
-    private javax.swing.JLabel lblFactor11;
     private javax.swing.JLabel lblFactor12;
     private javax.swing.JLabel lblFactor2;
     private javax.swing.JLabel lblFactor3;
@@ -1643,6 +1782,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JScrollPane scrollDatosQuejas;
     private javax.swing.JScrollPane scrollDatosTrabEquipo;
     private javax.swing.JTabbedPane tabbedEvaluacion;
+    private javax.swing.JTextField txtAplica;
     private javax.swing.JTextArea txtBuenaCalificacion;
     private javax.swing.JTextField txtCON;
     private javax.swing.JTextField txtCTP;
@@ -1665,11 +1805,11 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JTextField txtNroCompetUniv;
     private javax.swing.JTextField txtNroConocimientos;
     private javax.swing.JTextField txtPuesto;
+    private javax.swing.JTextField txtSubTotal;
     private javax.swing.JTextField txtTEIL;
     private javax.swing.JTextField txtTitulo;
     private javax.swing.JTextField txtTotActEsc;
     private javax.swing.JTextField txtTotal;
-    private javax.swing.JTextField txtTotal1;
     private javax.swing.JTextField txtTotalCompTec;
     private javax.swing.JTextField txtTotalCompUniv;
     private javax.swing.JTextField txtTotalConocimientos;
@@ -1879,6 +2019,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         }
 
+        
         public void generacionEval() {
             tabbedEvaluacion.setSelectedIndex(1);
             ce.listarSeccion();
@@ -1888,6 +2029,24 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             ce.listarQuejas();
             ControladorEvaluacion.txtTotalConoc = getTxtTotalConocimientos();
             ControladorEvaluacion.totConoc = 0;
+            propFactores();
+        }
+
+        private void propFactores() {
+            Propiedades prop = new Propiedades();
+            Properties p = prop.getProperties("controlador/propiedades/factores.properties");
+            ControladorEvaluacion.facIndic = Double.parseDouble(p.getProperty("FIGP"));
+            ControladorEvaluacion.facConoc = Double.parseDouble(p.getProperty("FCON"));
+            ControladorEvaluacion.facCompTec = Double.parseDouble(p.getProperty("FCTP"));
+            ControladorEvaluacion.facCompUniv = Double.parseDouble(p.getProperty("FCU"));
+            ControladorEvaluacion.facTrabEquip = Double.parseDouble(p.getProperty("FTIL"));
+
+            txtFactorIndic.setText(p.getProperty("FIGP"));
+            txtFactorConoc.setText(p.getProperty("FCON"));
+            txtFactorCompTec.setText(p.getProperty("FCTP"));
+            txtFactorUniv.setText(p.getProperty("FCU"));
+            txtFactorTrab.setText(p.getProperty("FTIL"));
+
         }
 
         @Override
@@ -1918,7 +2077,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
                     }
                 } catch (NumberFormatException nfe) {
                 }
-            } 
+            }
         }
 
         @Override

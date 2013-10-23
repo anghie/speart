@@ -7,6 +7,7 @@ package controlador.acciones.evaluaciones;
 import controlador.acciones.Constantes;
 import controlador.acciones.agenda.ControladorMeta;
 import controlador.basedatos.OperacionesBD;
+import controlador.experto.BaseConocimiento;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.Date;
@@ -24,6 +25,7 @@ import modelo.proceso.Actividad;
 import modelo.usuario.Queja;
 import modelo.usuario.Usuario;
 import vista.FrmPrincipal;
+import vista.modelo.OperacionesVarias;
 import vista.paneles.evaluacion.FrmResultadosEvaluac;
 import vista.paneles.evaluacion.FrmTests;
 import vista.paneles.evaluacion.PnlCompTecn;
@@ -52,6 +54,7 @@ public class ControladorEvaluacion {
     public static ArrayList<Actividad> actividadesUsEval;
 //    public static Usuario usuarioEval;
     public static int posActual = 0;
+    public static double facIndic = 0;
     public static double totIndic = 0;
     public static double facConoc = 0;
     public static double totConoc = 0;
@@ -76,6 +79,9 @@ public class ControladorEvaluacion {
     public static JTextField txRptaConocIndiv;
     public static JTextField txtTotalConoc;
     public static JButton btnEvaluarCon;
+
+//    private ClassLoader cload = ControladorEvaluacion.class.getClassLoader();//para hacer referencia a archivos dentro del programa
+//    private String dirArchivo = cload.getResource("controlador/experto/evaluacion.pl").getPath();
 
     public ControladorEvaluacion(PnlEvaluacion pnlEval) {
         this.pnlEval = pnlEval;
@@ -243,16 +249,21 @@ public class ControladorEvaluacion {
         String login = FrmPrincipal.userLogueado.getLogin();
         boolean e = true;
         metas = ControladorMeta.searchMetas(desde, hasta, login);
-        for(Meta m: metas){
+        for (Meta m : metas) {
             agregaPanelIndicadores(m, desde, hasta);
         }
-//        actividades = (ArrayList<Actividad>) OperacionesBD.listarconDobleCondicion("Actividad",
-//                "rol_idRol", String.valueOf(r), "paraEvaluacion", String.valueOf(e));
-//        for (Actividad a : actividades) {
-//            agregaPanelIndicadores(a.getDescripcion());
-//        }
         pnlEval.getTxtNroActividades().setText(metas.size() + "");
     }
+
+//    public String rptaTexto(double total) {
+//        String s;
+//        BaseConocimiento bc = new BaseConocimiento();
+//        double r = OperacionesVarias.redondeaDosCifras((total * 100) / ControladorEvaluacion.facConoc);
+//        if (bc.compilaArchivo(dirArchivo)) {
+//            return bc.consultaSegundoElemento("indic(" + r + ",X)");
+//        }
+//        return null;
+//    }
 
     public void listarSeccion() {
         ArrayList<Seccion> secc = (ArrayList<Seccion>) OperacionesBD.listar("Seccion");
@@ -327,5 +338,5 @@ public class ControladorEvaluacion {
         double resFin = (totCompTec + totCompUniv + totConoc + totIndic + totTrabEquip) - totQuejas;
         FrmResultadosEvaluac.getInstance(totIndic, totConoc, totCompTec, totCompUniv, totTrabEquip, totQuejas, resFin).setVisible(true);
     }
-    
+
 }

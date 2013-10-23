@@ -1,7 +1,6 @@
 
 package vista.paneles.evaluacion;
 
-import controlador.acciones.evaluaciones.ControladorQuejas;
 import modelo.usuario.Queja;
 
 /**
@@ -20,6 +19,7 @@ public class PnlQuejas extends javax.swing.JPanel {
         txtNombPersona.setText(q.getNombreDenun());
         txtDescrip.setText(q.getDetalle());
         txtNroForm.setText(q.getNroForm());
+        txtAplicDesc.setText("SI");
     }
 
     /**
@@ -35,7 +35,7 @@ public class PnlQuejas extends javax.swing.JPanel {
         txtNombPersona = new javax.swing.JTextField();
         txtDescrip = new javax.swing.JTextField();
         txtNroForm = new javax.swing.JTextField();
-        cbAplicDesc = new javax.swing.JComboBox();
+        txtAplicDesc = new javax.swing.JTextField();
 
         setLayout(null);
 
@@ -54,28 +54,12 @@ public class PnlQuejas extends javax.swing.JPanel {
         txtNroForm.setEditable(false);
         add(txtNroForm);
         txtNroForm.setBounds(530, 0, 90, 30);
-
-        cbAplicDesc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SI", "NO" }));
-        cbAplicDesc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbAplicDescActionPerformed(evt);
-            }
-        });
-        add(cbAplicDesc);
-        cbAplicDesc.setBounds(620, 0, 170, 30);
+        add(txtAplicDesc);
+        txtAplicDesc.setBounds(620, 0, 170, 30);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbAplicDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAplicDescActionPerformed
-        if (getCbAplicDesc().getSelectedIndex() == 0) {
-            porcentaje = 4;            
-        } else {
-            porcentaje = 0;
-        }
-        getTxtPorcentaje().setText(getPorcentaje() + "%");
-        ControladorQuejas.sumatoriaQuejas();
-    }//GEN-LAST:event_cbAplicDescActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox cbAplicDesc;
+    private javax.swing.JTextField txtAplicDesc;
     private javax.swing.JTextField txtDescrip;
     private javax.swing.JTextField txtNombPersona;
     private javax.swing.JTextField txtNroForm;
@@ -92,8 +76,8 @@ public class PnlQuejas extends javax.swing.JPanel {
     /**
      * @return the cbAplicDesc
      */
-    public javax.swing.JComboBox getCbAplicDesc() {
-        return cbAplicDesc;
+    public javax.swing.JTextField getCbAplicDesc() {
+        return txtAplicDesc;
     }
 
     /**

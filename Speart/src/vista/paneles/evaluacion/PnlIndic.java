@@ -5,16 +5,20 @@
 package vista.paneles.evaluacion;
 
 import controlador.acciones.agenda.ControladorItemAgenda;
+import controlador.acciones.evaluaciones.ControladorEvaluacion;
+import controlador.experto.BaseConocimiento;
 import java.util.Date;
 import modelo.agenda.Meta;
 import vista.FrmPrincipal;
+import vista.modelo.OperacionesVarias;
 
 /**
  *
  * @author jenny
  */
 public class PnlIndic extends javax.swing.JPanel {
-
+ private ClassLoader cload = PnlIndic.class.getClassLoader();//para hacer referencia a archivos dentro del programa
+    private String dirArchivo = cload.getResource("controlador/experto/evaluacion.pl").getPath();
     /**
      * Creates new form PnlIndic
      */
@@ -29,7 +33,7 @@ public class PnlIndic extends javax.swing.JPanel {
         txtCumplidos.setText(String.valueOf(cumplidos));
         double per = calcPorcentaje(meta.getValor(), cumplidos);
         txtPorcentaje.setText(String.valueOf(per));
-
+        txtNivel.setText(rptaTexto(per));
     }
 
     private double calcPorcentaje(int meta, int cumplidos) {
@@ -142,4 +146,13 @@ public class PnlIndic extends javax.swing.JPanel {
         return txtActividad;
     }
 
+    public String rptaTexto(double porcentaje) {
+        String s;
+        BaseConocimiento bc = new BaseConocimiento();
+        double r = OperacionesVarias.redondeaDosCifras(porcentaje);
+        if (bc.compilaArchivo(dirArchivo)) {
+            return bc.consultaSegundoElemento("indic(" + r + ",X)");
+        }
+        return null;
+    }
 }
