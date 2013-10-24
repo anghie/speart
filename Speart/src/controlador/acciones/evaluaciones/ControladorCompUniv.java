@@ -49,7 +49,7 @@ public class ControladorCompUniv {
             if (c.getClass().equals(PnlCompUniv.class)) {
                 PnlCompUniv pct = (PnlCompUniv) c;
                 totalCompUniv += califCompUniv(pct.getCbFrecuenciaAplic().getSelectedIndex());
-                System.out.println(pct.getTxtCompUniv().getText() + "  " + califCompUniv(pct.getCbFrecuenciaAplic().getSelectedIndex()));
+                System.out.println(pct.getTxtCompUniv().getText() + " aquiiiiiiiii  " + califCompUniv(pct.getCbFrecuenciaAplic().getSelectedIndex()));
             }
         }
         ControladorEvaluacion.totCompUniv = totalCompUniv;

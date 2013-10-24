@@ -54,7 +54,7 @@ public class ControladorCompTecn {
             if (c.getClass().equals(PnlCompTecn.class)) {
                 PnlCompTecn pct = (PnlCompTecn) c;
                 totalCompTec += califCompTec(pct.getCbNivelDesarr().getSelectedIndex());
-                System.out.println(pct.getTxtCompTec().getText() + "  " + califCompTec(pct.getCbNivelDesarr().getSelectedIndex()));
+                System.out.println(pct.getTxtCompTec().getText() + " aqui puede ser " + califCompTec(pct.getCbNivelDesarr().getSelectedIndex()));
             }
         }
         ControladorEvaluacion.totCompTec = totalCompTec;

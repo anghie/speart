@@ -6,8 +6,10 @@ package vista.paneles.evaluacion;
 
 import controlador.basedatos.OperacionesBD;
 import controlador.experto.BaseConocimiento;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import modelo.evaluacion.Efectos;
 import modelo.evaluacion.Evaluacion;
 import vista.FrmPrincipal;
 import vista.modelo.Mensaje;
@@ -23,12 +25,15 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
     private ClassLoader cload = FrmResultadosEvaluac.class.getClassLoader();//para hacer referencia a archivos dentro del programa
     private String dirArchivo = cload.getResource("controlador/experto/evaluacion.pl").getPath();
     private Evaluacion eval;
-
+    private double totalEvaluacion=0;
+    String result="";
+    Efectos efecto;
     /**
      * Creates new form FrmResultadosEvaluac
      */
     private FrmResultadosEvaluac(double tIndic, double tConoc, double tCT, double tCU, double tT, double totQ, double totl) {
         initComponents();
+        listarEfectos();
         lblIndicadores.setText(tIndic + "");
         lblConocimientos.setText(tConoc + "");
         lblTecnicas.setText(tCT + "");
@@ -36,8 +41,8 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         lblTrabajoEquipo.setText(tT + "");
         lblEvalCiudadano.setText(totQ + "");
         lblTotalEvl.setText(lblTotalEvl.getText() + " " + totl);
-        String s = califResultados(totl);
-        lblDesempeño.setText(lblDesempeño.getText() + " " + s);
+        result = califResultados(totl);
+        lblDesempeño.setText(lblDesempeño.getText() + " " + result);
         lblFecha.setText(OperacionesVarias.fechaString(new Date()));
         eval = new Evaluacion();
         eval.setIgp(tIndic);
@@ -334,6 +339,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
 
     private void btnGuardaResEvaluacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaResEvaluacionActionPerformed
         if (OperacionesBD.guardar(eval)) {
+            System.out.println("Usted es malo malo malo");
             FrmPrincipal.userLogueado.setEvaluacionActivada(false);
             if (OperacionesBD.modificar(FrmPrincipal.userLogueado)) {
                 Mensaje.datosGuardados();
@@ -380,5 +386,12 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
             return bc.consultaSegundoElemento("califResult(" + porcen + ",X)");
         }
         return null;
+    }
+    private void listarEfectos(){
+        Efectos efecto = new Efectos();
+        ArrayList<Efectos> ef = (ArrayList<Efectos>) OperacionesBD.listar("Efectos");
+        for(Efectos e: ef){
+            efecto=e;
+        }
     }
 }

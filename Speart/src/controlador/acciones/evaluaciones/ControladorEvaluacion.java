@@ -63,7 +63,7 @@ public class ControladorEvaluacion {
     public static double facTrabEquip = 0;
     public static double totTrabEquip = 0;
     public static double totQuejas = 0;
-    public static double aplica=0;
+    public static double aplica = 0;
 //    public static double totCompTec = 0;
     //contadores para cada panel de evaluaciones
 //    int i = 0, c = 0, ct = 0, cu = 0, te = 0;
@@ -81,7 +81,6 @@ public class ControladorEvaluacion {
 
 //    private ClassLoader cload = ControladorEvaluacion.class.getClassLoader();//para hacer referencia a archivos dentro del programa
 //    private String dirArchivo = cload.getResource("controlador/experto/evaluacion.pl").getPath();
-
     public ControladorEvaluacion(PnlEvaluacion pnlEval) {
         this.pnlEval = pnlEval;
         panelesIndicadores = new ArrayList<>();
@@ -264,7 +263,6 @@ public class ControladorEvaluacion {
 //        }
 //        return null;
 //    }
-
     public void listarSeccion() {
         ArrayList<Seccion> secc = (ArrayList<Seccion>) OperacionesBD.listar("Seccion");
         secciones = new ArrayList<>();
@@ -301,8 +299,12 @@ public class ControladorEvaluacion {
     }
 
     public void listarCompetenciasUniversales() {
+//        compUniversales = new ArrayList<>();
         compUniversales = (ArrayList<CompetenciaUniversal>) OperacionesBD.listar("CompetenciaUniversal");
+        System.out.println("comp univ " + compUniversales.size());
+        int c = 0;
         for (CompetenciaUniversal cun : compUniversales) {
+            System.out.println("recorriendo... " + c++);
             agregaPanelCompetenciasUniversales(cun);
         }
         ControladorCompUniv.pe = pnlEval;
@@ -336,7 +338,7 @@ public class ControladorEvaluacion {
 
     public void resultadosFinales() {
         double resFin = (totCompTec + totCompUniv + totConoc + totIndic + totTrabEquip) - totQuejas;
-        FrmResultadosEvaluac.getInstance(totIndic, totConoc, totCompTec, totCompUniv, totTrabEquip, totQuejas, resFin+aplica).setVisible(true);
+        FrmResultadosEvaluac.getInstance(totIndic, totConoc, totCompTec, totCompUniv, totTrabEquip, totQuejas, resFin + aplica).setVisible(true);
     }
 
 }

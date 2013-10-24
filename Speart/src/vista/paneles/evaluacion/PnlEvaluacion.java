@@ -116,7 +116,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         txtFactorCompTec.addKeyListener(gce);
         txtFactorUniv.addKeyListener(gce);
         txtFactorTrab.addKeyListener(gce);
-        tabbedEvaluacion.addChangeListener(gce);
+//        tabbedEvaluacion.addChangeListener(gce);
         btnIr.addActionListener(gce);
     }
 
@@ -2005,7 +2005,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         return txtTotActEsc;
     }
 
-    class GestorControladorEvaluacion extends KeyAdapter implements ActionListener, ChangeListener {
+    class GestorControladorEvaluacion extends KeyAdapter implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -2031,7 +2031,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         }
 
-        public void generacionEval() {
+        private void generacionEval() {
             tabbedEvaluacion.setSelectedIndex(1);
             ce.listarSeccion();
             ce.listarCompetenciasTecnicas();
@@ -2092,11 +2092,5 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         }
 
-        @Override
-        public void stateChanged(ChangeEvent e) {
-            if (tabbedEvaluacion.getSelectedIndex() == 1) {
-                generacionEval();
-            }
-        }
     }
 }

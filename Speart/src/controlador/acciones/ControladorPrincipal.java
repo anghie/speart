@@ -217,18 +217,15 @@ public class ControladorPrincipal {
     }
 
     public static boolean verificaPeriodoEvaluacion() {
+        fechaeval = new ArrayList<>();
         listarFechasEval();
         boolean entre = false;
         Calendar hoy = Calendar.getInstance();
         for (PeriodoEvaluacion pe : fechaeval) {
             Calendar inicio = pe.getFechaInicio();
             Calendar fin = pe.getFechaFin();
-            System.out.println("inicio: "+inicio.getTime());
-            System.out.println("fin"+fin.getTime());
-//            if ((hoy.after(inicio) && hoy.before(fin))//si hoy está entre inicio y fin
-//                    || (hoy.equals(inicio))) {//si hoy es igual a inicio
-//                entre = true;                
-//            }
+//            System.out.println("inicio: "+inicio.getTime());
+//            System.out.println("fin"+fin.getTime());
             if ((hoy.getTimeInMillis() > inicio.getTimeInMillis() && hoy.getTimeInMillis() < fin.getTimeInMillis())//si hoy está entre inicio y fin
                     || (hoy.getTimeInMillis() == inicio.getTimeInMillis())) {//si hoy es igual a inicio
                 entre = true;
