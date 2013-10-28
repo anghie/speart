@@ -13,7 +13,7 @@ import vista.paneles.evaluacion.PnlEvaluacion;
 
 /**
  *
- * @author 
+ * @author
  */
 public class ControladorCompTecn {
 
@@ -63,7 +63,8 @@ public class ControladorCompTecn {
 
     private void poneRespuesta() {
         double porcen = calculaPorcentaje(totalCompTec);
-        pe.getTxtTotalCompTec().setText(totalCompTec + " - " + rptaTexto(porcen));
+        double r = (porcen * ControladorEvaluacion.facCompTec) / 100;
+        pe.getTxtTotalCompTec().setText(r + "% - " + rptaTexto(porcen));
     }
 
     public static double califCompTec(int index) {
