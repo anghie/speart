@@ -92,26 +92,17 @@ public class ControladorMeta {
            }
        }
     }
-    public  static void delateAgenda(){
-        if(meta.getAgenda()!=null) {
-           if(meta.getActividad()!=null){
-               if(meta.getUsuario()!=null){
-                    if(meta.getMes()!=0) {
-                       try {
-                            if (OperacionesBD.eliminar(meta.getClass(), meta.getId())) {
-                                Mensaje.datosEliminados();
-                            } else {
-                                Mensaje.datosNoEliminados();
-                            }
-                        } catch (Exception ex) {
-                            Logger.getLogger(ControladorAgenda.class.getName()).log(Level.SEVERE, null, ex);
-                        }     
-                    }else{
-                       Mensaje.camposVacios();
-                    }
+    public  static void delateMeta(long idMeta){
+        try {
+                if (OperacionesBD.eliminar(new Meta() ,idMeta)) {
+                        Mensaje.datosEliminados();
+                } else {
+                       Mensaje.datosNoEliminados();
                 }
-           }
-       }
+         } catch (Exception ex) {
+              Logger.getLogger(ControladorAgenda.class.getName()).log(Level.SEVERE, null, ex);
+         }     
+                   
        
     }
     public static LinkedList<Meta> searchMetas(String mes) {

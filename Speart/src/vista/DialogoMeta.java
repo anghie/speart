@@ -5,8 +5,9 @@
 package vista;
 
 import controlador.acciones.agenda.ControladorActividades;
-import controlador.acciones.agenda.ControladorMeta;
 import controlador.acciones.agenda.ControladorAgenda;
+import controlador.acciones.agenda.ControladorMeta;
+
 import controlador.acciones.usuario.ControladorUsuario;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -40,8 +41,10 @@ public class DialogoMeta extends javax.swing.JDialog {
     private ModeloTablaMeta modeloTablaMeta;
     private static DialogoMeta dm;
     public  Usuario usuario; 
+    private LinkedList<Long>metasHaEliminar;
     private DialogoMeta(Usuario usuario) {
         setModal(true);
+        metasHaEliminar=new LinkedList<>();
         this.agenda = ControladorAgenda.getAgendaActual();
         this.modeloTablaMeta = new ModeloTablaMeta();
         this.usuario=usuario;
@@ -58,7 +61,7 @@ public class DialogoMeta extends javax.swing.JDialog {
     }
 
     private void iniciarActividades(Usuario usuario) {
-       listaActividades = ControladorActividades.getAllActividades(usuario.getRol().getIdRol());
+        listaActividades = ControladorActividades.getAllActividades(usuario.getRol().getIdRol());
         cmbActividad.setModel(new ModeloComboBoxActividad(listaActividades));
     }
 
@@ -222,6 +225,11 @@ public class DialogoMeta extends javax.swing.JDialog {
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here:
         ModeloTablaMeta modeloTabla = (ModeloTablaMeta) tablaMetas.getModel();
+        Meta meta=modeloTablaMeta.getItemMeta(tablaMetas.getSelectedRow());
+        if (meta.getId() != null){
+            if(meta.getId()> -1)
+            metasHaEliminar.add(meta.getId());
+        }
         modeloTabla.removMeta(tablaMetas.getSelectedRow());
         modificado = true;
     }//GEN-LAST:event_btnRemoveActionPerformed
@@ -270,7 +278,7 @@ public class DialogoMeta extends javax.swing.JDialog {
 
     public void guardarActualizar() {
         ModeloTablaMeta modeloTabla = (ModeloTablaMeta) tablaMetas.getModel();
-        LinkedList<Meta> metas = modeloTabla.getDatos();
+        LinkedList<Meta> metas = (LinkedList<Meta>) modeloTabla.getDatos();
         for (Iterator<Meta> it = metas.iterator(); it.hasNext();) {
             Meta meta = it.next();
             if (meta.getId() == null || meta.getId() == -1) {
@@ -278,6 +286,10 @@ public class DialogoMeta extends javax.swing.JDialog {
             } else {
                 ControladorMeta.updateMeta(meta);
             }
+        }
+        for (Iterator<Long> it = metasHaEliminar.iterator(); it.hasNext();) {
+            long id_meta = it.next();
+            ControladorMeta.delateMeta(id_meta);
         }
     }
     /**

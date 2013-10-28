@@ -44,18 +44,15 @@ public class PnlCompUniv extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtCompObserv = new javax.swing.JTextField();
         cbRelev = new javax.swing.JComboBox();
         txtCompUniv = new javax.swing.JTextField();
         cbFrecuenciaAplic = new javax.swing.JComboBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtCompObserv = new javax.swing.JTextArea();
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(902, 33));
         setLayout(null);
-
-        txtCompObserv.setEditable(false);
-        add(txtCompObserv);
-        txtCompObserv.setBounds(460, 0, 290, 30);
 
         cbRelev.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Alta", "Media", "Baja" }));
         add(cbRelev);
@@ -68,11 +65,21 @@ public class PnlCompUniv extends javax.swing.JPanel {
         cbFrecuenciaAplic.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Siempre", "Frecuentemente", "Alguna vez", "Rara vez", "Nunca" }));
         add(cbFrecuenciaAplic);
         cbFrecuenciaAplic.setBounds(750, 0, 150, 30);
+
+        txtCompObserv.setEditable(false);
+        txtCompObserv.setColumns(20);
+        txtCompObserv.setLineWrap(true);
+        txtCompObserv.setRows(5);
+        jScrollPane1.setViewportView(txtCompObserv);
+
+        add(jScrollPane1);
+        jScrollPane1.setBounds(460, 0, 290, 30);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cbFrecuenciaAplic;
     private javax.swing.JComboBox cbRelev;
-    private javax.swing.JTextField txtCompObserv;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea txtCompObserv;
     private javax.swing.JTextField txtCompUniv;
     // End of variables declaration//GEN-END:variables
 
@@ -93,7 +100,7 @@ public class PnlCompUniv extends javax.swing.JPanel {
     /**
      * @return the txtCompObserv
      */
-    public javax.swing.JTextField getTxtCompObserv() {
+    public javax.swing.JTextArea getTxtCompObserv() {
         return txtCompObserv;
     }
 

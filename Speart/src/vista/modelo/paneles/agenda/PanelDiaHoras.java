@@ -12,9 +12,9 @@
 package vista.modelo.paneles.agenda;
 
 
+import controlador.acciones.agenda.ControladorAgenda;
 import controlador.acciones.agenda.ControladorDiasFeriados;
 import controlador.acciones.agenda.ControladorItemAgenda;
-import controlador.acciones.servicios.ControladorContactos;
 import controlador.experto.ExpertoAgenda;
 import java.awt.Color;
 import java.awt.Component;
@@ -113,9 +113,9 @@ public class PanelDiaHoras extends javax.swing.JPanel {
 //                panelActividad.setBackground(Color.orange);
 
                 panelActividad.setBounds( 10,
-                                    ControladorContactos.calcularPinceles(item.getHoraInicio().getHours(),item.getHoraInicio().getMinutes()),
+                                    ControladorAgenda.calcularPinceles(item.getHoraInicio().getHours(),item.getHoraInicio().getMinutes()),
                                     420,//punto2.x-punto.x
-                                    ControladorContactos.calcularPinceles(item.getTiempoDuracion().getHours(),item.getTiempoDuracion().getMinutes())
+                                    ControladorAgenda.calcularPinceles(item.getTiempoDuracion().getHours(),item.getTiempoDuracion().getMinutes())
                                     );
 
               panelContenedorTareas.add(panelActividad);
@@ -148,9 +148,9 @@ public class PanelDiaHoras extends javax.swing.JPanel {
     //                panelActividad.setBackground(Color.orange);
 
                     panelActividad.setBounds( 10,
-                                        ControladorContactos.calcularPinceles(item.getHoraInicio().getHours(),item.getHoraInicio().getMinutes()),
+                                        ControladorAgenda.calcularPinceles(item.getHoraInicio().getHours(),item.getHoraInicio().getMinutes()),
                                         420,//punto2.x-punto.x
-                                        ControladorContactos.calcularPinceles(item.getTiempoDuracion().getHours(),item.getTiempoDuracion().getMinutes())
+                                        ControladorAgenda.calcularPinceles(item.getTiempoDuracion().getHours(),item.getTiempoDuracion().getMinutes())
                                         );
 
                   panelContenedorTareas.add(panelActividad);
@@ -324,21 +324,21 @@ public class PanelDiaHoras extends javax.swing.JPanel {
           itemAgenda.setHoraInicio(new Date(fecha.getYear(),
                                          numeroMes,
                                          numeroDia,
-                                         ControladorContactos.calcularHoras((int)(punto.getY())),
-                                         ControladorContactos.calcularMinutos((int)(punto.getY()))));
+                                         ControladorAgenda.calcularHoras((int)(punto.getY())),
+                                         ControladorAgenda.calcularMinutos((int)(punto.getY()))));
 
           itemAgenda.setHoraFin(new Date(fecha.getYear(),
                                          numeroMes,
                                          numeroDia,
-                                         ControladorContactos.calcularHoras((int)(punto2.getY())),
-                                         ControladorContactos.calcularMinutos((int)(punto2.getY()))));
+                                         ControladorAgenda.calcularHoras((int)(punto2.getY())),
+                                         ControladorAgenda.calcularMinutos((int)(punto2.getY()))));
 
           ControladorItemAgenda.setTiempoDuracion(itemAgenda,
                                                    fecha,
                                                    numeroMes,
                                                    numeroDia,
-                                                  ControladorContactos.calcularHoras((int)(punto2.getY()-punto.getY())),
-                                                  ControladorContactos.calcularMinutos((int)(punto2.getY()-punto.getY())));
+                                                  ControladorAgenda.calcularHoras((int)(punto2.getY()-punto.getY())),
+                                                  ControladorAgenda.calcularMinutos((int)(punto2.getY()-punto.getY())));
           
 
           //itemAgenda.setActividad(null);
@@ -381,9 +381,8 @@ public class PanelDiaHoras extends javax.swing.JPanel {
                generar=false;
            }
         }
-//        aqui revisa  porque tengo ingresada informacion desde el 16 al 27 de sep paso al mes de octubre
-//        que estamos ahora yya no genera sale mensaje "Error no se puede generar actividades para fechas pasadas" 
-        if(numeroMes==Calendar.getInstance().get(Calendar.MONTH)  && numeroDia>= Calendar.getInstance().get(Calendar.DAY_OF_MONTH)){
+        
+        if(numeroMes>=Calendar.getInstance().get(Calendar.MONTH)  && numeroDia>= Calendar.getInstance().get(Calendar.DAY_OF_MONTH)){
             generar=true;
         }else{
             generar=false;
@@ -429,8 +428,8 @@ public class PanelDiaHoras extends javax.swing.JPanel {
         String tiempo = null;
          if(punto!=null){
             int espacio=(int)( punto2.getY()-punto.getY());
-            tiempo=" "+ControladorContactos.calcularHoras(espacio)
-                    +"h:"+ControladorContactos.calcularMinutos(espacio)+" min";
+            tiempo=" "+ControladorAgenda.calcularHoras(espacio)
+                    +"h:"+ControladorAgenda.calcularMinutos(espacio)+" min";
         }
         return tiempo;
     }

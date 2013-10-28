@@ -28,11 +28,17 @@ public class Agenda implements Serializable {
 //    @Column(name = " id")
     private int id;
     @OneToMany(mappedBy = "agenda", cascade = CascadeType.ALL)
+    @org.hibernate.annotations.Cascade( {org.hibernate.annotations.CascadeType.ALL,org.hibernate.annotations.CascadeType.DELETE_ORPHAN})
     private List<ItemAgenda> itemsAgenda;
+    
     @OneToMany(mappedBy = "agenda", cascade = CascadeType.ALL)
+    @org.hibernate.annotations.Cascade( {org.hibernate.annotations.CascadeType.ALL,org.hibernate.annotations.CascadeType.DELETE_ORPHAN})
     private List<DiaFeriado> diasFeriados;
+    
     @OneToMany(mappedBy = "agenda", cascade = CascadeType.ALL)
+    @org.hibernate.annotations.Cascade( {org.hibernate.annotations.CascadeType.ALL,org.hibernate.annotations.CascadeType.DELETE_ORPHAN})
     private List<Meta> metas;
+    
     @Column(unique = true)
     private String nombre;
 

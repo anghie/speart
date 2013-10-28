@@ -16,7 +16,7 @@ public class ModeloTablaItemInforme implements TableModel {
     private LinkedList<Meta> datos = new LinkedList<Meta>();
     @SuppressWarnings({"rawtypes"})
     private LinkedList suscriptores = new LinkedList();
-    String[] column = {"Fecha", "Proceso", "Actividad","Descripcion","Indicador","Meta","Total"};
+    String[] column = {"Mes", "Proceso", "Actividad","Descripcion","Indicador","Meta","Total"};
     private Date fechaInicio=Calendar.getInstance().getTime();
     private Date fechFin=Calendar.getInstance().getTime();
     private String loginUsuario;
@@ -57,7 +57,7 @@ public class ModeloTablaItemInforme implements TableModel {
         Meta aux = (Meta) datos.get(fila);
         switch (columna) {
             case 0:
-                return aux.getFecha();
+                return Fecha.getNombreMes(aux.getFecha().getMonth());
             case 1: {
                         if(aux.getActividad()!=null)
                             return aux.getActividad().getProcesito().getNombreProceso();

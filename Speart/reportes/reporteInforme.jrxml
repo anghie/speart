@@ -15,7 +15,7 @@ from meta,persona,actividad
 where meta.actividad_idActividad=idActividad
 and meta.usuario_idPersona=persona.idPersona]]>
 	</queryString>
-	<field name="Fecha" class="java.sql.Date"/>
+	<field name="Mes" class="java.lang.String"/>
 	<field name="Proceso" class="java.lang.String"/>
 	<field name="Indicador" class="java.lang.String"/>
 	<field name="Descripcion" class="java.lang.String"/>
@@ -79,11 +79,6 @@ and meta.usuario_idPersona=persona.idPersona]]>
 	<columnHeader>
 		<band height="27" splitType="Stretch">
 			<staticText>
-				<reportElement x="10" y="0" width="71" height="20"/>
-				<textElement/>
-				<text><![CDATA[Fecha]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="91" y="0" width="89" height="20"/>
 				<textElement/>
 				<text><![CDATA[Proceso]]></text>
@@ -114,17 +109,17 @@ and meta.usuario_idPersona=persona.idPersona]]>
 				<text><![CDATA[Total]]></text>
 			</staticText>
 			<rectangle radius="10">
-				<reportElement mode="Transparent" x="5" y="0" width="550" height="27"/>
+				<reportElement mode="Transparent" x="0" y="0" width="555" height="27"/>
 			</rectangle>
+			<staticText>
+				<reportElement x="10" y="0" width="69" height="20"/>
+				<textElement/>
+				<text><![CDATA[Mes]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="34" splitType="Stretch">
-			<textField>
-				<reportElement x="10" y="14" width="71" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
-			</textField>
 			<textField>
 				<reportElement x="91" y="14" width="89" height="20"/>
 				<textElement/>
@@ -158,6 +153,11 @@ and meta.usuario_idPersona=persona.idPersona]]>
 			<line>
 				<reportElement x="3" y="32" width="552" height="1"/>
 			</line>
+			<textField>
+				<reportElement x="10" y="12" width="69" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Mes}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>

@@ -11,7 +11,7 @@ import modelo.agenda.Meta;
 
 public class ModeloTablaMeta implements TableModel {
 
-    private LinkedList<Meta> datos = new LinkedList<Meta>();
+    private List<Meta> datos = new LinkedList<Meta>();
     @SuppressWarnings({"rawtypes"})
     private LinkedList suscriptores = new LinkedList();
     String[] column = {"Fecha", "Mes", "Indicador","Meta","Actividad","Usuario"};
@@ -163,7 +163,7 @@ public class ModeloTablaMeta implements TableModel {
             return null;
         }
     }
-    public LinkedList<Meta> getDatos(){
+    public List<Meta> getDatos(){
             return datos;
     }
 }
