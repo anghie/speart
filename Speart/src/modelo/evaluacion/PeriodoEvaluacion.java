@@ -54,4 +54,19 @@ public class PeriodoEvaluacion implements Serializable {
     public void setFechaFin(Calendar fechaFin) {
         this.fechaFin = fechaFin;
     }
+
+    /**
+     * @return the idPeriodoEval
+     */
+    public long getIdPeriodoEval() {
+        return idPeriodoEval;
+    }
+
+    /**
+     * @param idPeriodoEval the idPeriodoEval to set
+     */
+    public void setIdPeriodoEval(long idPeriodoEval) {
+        this.idPeriodoEval = idPeriodoEval;
+    }
+    
 }

@@ -9,12 +9,16 @@ import controlador.acciones.agenda.ControladorMeta;
 import controlador.basedatos.OperacionesBD;
 import java.awt.CardLayout;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 import modelo.agenda.Meta;
+import modelo.evaluacion.PeriodoEvaluacion;
 import modelo.operaciones.CompetenciaTecnica;
 import modelo.operaciones.CompetenciaUniversal;
 import modelo.operaciones.TrabajoEquipo;
@@ -24,6 +28,7 @@ import modelo.proceso.Actividad;
 import modelo.usuario.Queja;
 import modelo.usuario.Usuario;
 import vista.FrmPrincipal;
+import vista.modelo.OperacionesVarias;
 import vista.paneles.evaluacion.FrmResultadosEvaluac;
 import vista.paneles.evaluacion.FrmTests;
 import vista.paneles.evaluacion.PnlCompTecn;
@@ -75,6 +80,7 @@ public class ControladorEvaluacion {
     public static ArrayList<CompetenciaUniversal> compUniversales;
     public static ArrayList<TrabajoEquipo> trabequip;
     public static ArrayList<Queja> quejas;
+//    public ArrayList<PeriodoEvaluacion>periodos;
     public static JTextField txRptaConocIndiv;
     public static JTextField txtTotalConoc;
     public static JButton btnEvaluarCon;
@@ -259,15 +265,6 @@ public class ControladorEvaluacion {
         //porcentaje por factor / 100
     }
 
-//    public String rptaTexto(double total) {
-//        String s;
-//        BaseConocimiento bc = new BaseConocimiento();
-//        double r = OperacionesVarias.redondeaDosCifras((total * 100) / ControladorEvaluacion.facConoc);
-//        if (bc.compilaArchivo(dirArchivo)) {
-//            return bc.consultaSegundoElemento("indic(" + r + ",X)");
-//        }
-//        return null;
-//    }
     public void listarSeccion() {
         ArrayList<Seccion> secc = (ArrayList<Seccion>) OperacionesBD.listar("Seccion");
         secciones = new ArrayList<>();

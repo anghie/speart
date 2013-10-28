@@ -188,7 +188,9 @@ public class ControladorTest {
 //            Mensaje.datosGuardados();
             ControladorEvaluacion.txRptaConocIndiv.setText(rfc.getTotal() + " - " + rptaTexto(total));
             ControladorEvaluacion.totConoc += rfc.getTotal();
-            ControladorEvaluacion.txtTotalConoc.setText(ControladorEvaluacion.totConoc + "%");
+            double p = calculaPorcentaje(ControladorEvaluacion.totConoc);
+            double res = OperacionesVarias.redondeaDosCifras((p * ControladorEvaluacion.facConoc) / 100);
+            ControladorEvaluacion.txtTotalConoc.setText(res + "%");
             ControladorEvaluacion.btnEvaluarCon.setEnabled(false);
             ft.dispose();
 
@@ -207,7 +209,7 @@ public class ControladorTest {
                 c++;
             }
         }
-        System.out.println("valPreg: "+valPreg+ " c:"+c);
+        System.out.println("valPreg: " + valPreg + " c:" + c);
         v = valPreg / c;
         return v;
     }
@@ -220,5 +222,11 @@ public class ControladorTest {
             return bc.consultaSegundoElemento("califResult(" + r + ",X)");
         }
         return null;
+    }
+
+    private double calculaPorcentaje(double totalObt) {
+        double factor = ControladorEvaluacion.facConoc * ControladorEvaluacion.secciones.size();//factor asignado por el estado
+        double porcen = (totalObt * 100) / factor;
+        return OperacionesVarias.redondeaDosCifras(porcen);
     }
 }

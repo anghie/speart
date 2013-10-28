@@ -5,7 +5,6 @@
 package vista.paneles.evaluacion;
 
 import controlador.acciones.Constantes;
-import controlador.acciones.ControladorPrincipal;
 import controlador.acciones.evaluaciones.ControladorEvaluacion;
 import controlador.basedatos.OperacionesBD;
 import controlador.propiedades.Propiedades;
@@ -19,8 +18,8 @@ import java.util.Date;
 import java.util.Properties;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import modelo.evaluacion.Efectos;
 import modelo.evaluacion.PeriodoEvaluacion;
 import modelo.usuario.Usuario;
@@ -42,6 +41,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private Efectos efec;
     private ArrayList<Efectos> efectos;
     private String nombreEf;//nombre efecto
+    public ArrayList<PeriodoEvaluacion> periodos;
 
     /**
      * Creates new form PnlEvaluacion
@@ -54,6 +54,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         btnResultados.setEnabled(false);
 //        ce.llenaCbServidores();
         ce.llenaServidorEscogido();
+        actualizaTblPeriodos();
         poneEventos();
         llenaCombo();
         poneTabs();
@@ -87,6 +88,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             if (tabbedEvaluacion.getTabCount() == 3) {
                 tabbedEvaluacion.removeTabAt(0);
             }
+
         } else if (FrmPrincipal.userLogueado.getRol().getTipo().equals(Constantes.JEFE)) {
             //remover todos los tabs menos el primero y el segundo
             if (FrmPrincipal.userLogueado.isEvaluacionActivada() && FrmPrincipal.estaEvalActiva) {
@@ -98,7 +100,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
                 for (int i = 0; i < 2; i++) {//remover los primeros dos tabs
                     tabbedEvaluacion.removeTabAt(0);
                 }
-                tabbedEvaluacion.removeTabAt(tabbedEvaluacion.getTabCount()-1);
+                tabbedEvaluacion.removeTabAt(tabbedEvaluacion.getTabCount() - 1);
             }
         }
         listarServidores();
@@ -119,6 +121,39 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         txtFactorTrab.addKeyListener(gce);
 //        tabbedEvaluacion.addChangeListener(gce);
         btnIr.addActionListener(gce);
+    }
+
+    public void actualizaTblPeriodos() {
+        listarPeriodos();
+        modeloTablaPeriodos();
+    }
+
+    private void listarPeriodos() {
+        periodos = (ArrayList<PeriodoEvaluacion>) OperacionesBD.listar("PeriodoEvaluacion");
+    }
+
+    private void modeloTablaPeriodos() {
+        DefaultTableModel dtm = new DefaultTableModel();
+        dtm.addColumn("Nro");
+        dtm.addColumn("Desde");
+//        dtm.addColumn("Frecuencia");
+//        dtm.addColumn("Medio Verificacion");
+        dtm.addColumn("Hasta");
+        int n = 1;
+        for (PeriodoEvaluacion p : periodos) {
+            Object[] act = new Object[5];
+            act[0] = n++;
+            int hi = p.getFechaInicio().get(Calendar.HOUR_OF_DAY);
+            int mi = p.getFechaInicio().get(Calendar.MINUTE);
+            act[1] = OperacionesVarias.fechaString(p.getFechaInicio().getTime()) + ", " + hi + ":" + mi;
+            int hf = p.getFechaFin().get(Calendar.HOUR_OF_DAY);
+            int mf = p.getFechaFin().get(Calendar.MINUTE);
+            act[2] = OperacionesVarias.fechaString(p.getFechaFin().getTime()) + ", " + hf + ":" + mf;
+            dtm.addRow(act);
+        }
+        getTblPeriodos().setModel(dtm);
+        getTblPeriodos().getColumnModel().getColumn(0).setPreferredWidth(20);
+        getTblPeriodos().setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
     }
 
     /**
@@ -310,14 +345,15 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         dateHasta = new org.jdesktop.swingx.JXDatePicker();
         dateDesde = new org.jdesktop.swingx.JXDatePicker();
         lblDesde = new javax.swing.JLabel();
-        txtMinDesde = new javax.swing.JTextField();
-        txtHoraDesde = new javax.swing.JTextField();
-        txtMinHasta = new javax.swing.JTextField();
-        txtHoraHasta = new javax.swing.JTextField();
         lblSepHasta = new javax.swing.JLabel();
         lblSepDesde = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblPeriodos = new javax.swing.JTable();
+        spHoraDesde = new javax.swing.JSpinner();
+        spMinDesde = new javax.swing.JSpinner();
+        spHoraHasta = new javax.swing.JSpinner();
+        spMinHasta = new javax.swing.JSpinner();
+        btnEliminarPeriodo = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -1264,14 +1300,6 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         lblDesde.setText("Desde:");
         jPanel9.add(lblDesde);
         lblDesde.setBounds(90, 50, 60, 30);
-        jPanel9.add(txtMinDesde);
-        txtMinDesde.setBounds(410, 50, 50, 27);
-        jPanel9.add(txtHoraDesde);
-        txtHoraDesde.setBounds(350, 50, 50, 27);
-        jPanel9.add(txtMinHasta);
-        txtMinHasta.setBounds(410, 90, 50, 27);
-        jPanel9.add(txtHoraHasta);
-        txtHoraHasta.setBounds(350, 90, 50, 27);
 
         lblSepHasta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSepHasta.setText(":");
@@ -1283,7 +1311,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jPanel9.add(lblSepDesde);
         lblSepDesde.setBounds(400, 50, 10, 30);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblPeriodos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -1294,10 +1322,35 @@ public class PnlEvaluacion extends javax.swing.JPanel {
                 "Nro", "Desde", "Hasta"
             }
         ));
-        jScrollPane6.setViewportView(jTable1);
+        jScrollPane6.setViewportView(tblPeriodos);
 
         jPanel9.add(jScrollPane6);
-        jScrollPane6.setBounds(30, 140, 600, 240);
+        jScrollPane6.setBounds(30, 140, 600, 150);
+
+        spHoraDesde.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
+        jPanel9.add(spHoraDesde);
+        spHoraDesde.setBounds(350, 50, 50, 28);
+
+        spMinDesde.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        jPanel9.add(spMinDesde);
+        spMinDesde.setBounds(410, 50, 50, 28);
+
+        spHoraHasta.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
+        jPanel9.add(spHoraHasta);
+        spHoraHasta.setBounds(350, 90, 50, 28);
+
+        spMinHasta.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        jPanel9.add(spMinHasta);
+        spMinHasta.setBounds(410, 90, 50, 28);
+
+        btnEliminarPeriodo.setText("Eliminar");
+        btnEliminarPeriodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarPeriodoActionPerformed(evt);
+            }
+        });
+        jPanel9.add(btnEliminarPeriodo);
+        btnEliminarPeriodo.setBounds(30, 300, 70, 29);
 
         pnlTres.add(jPanel9);
 
@@ -1312,13 +1365,13 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         Calendar fin = Calendar.getInstance();
 
         inicio.setTime(dateDesde.getDate());
-        inicio.set(Calendar.HOUR_OF_DAY, Integer.parseInt(txtHoraDesde.getText()));
-        inicio.set(Calendar.MINUTE, Integer.parseInt(txtMinDesde.getText()));
+        inicio.set(Calendar.HOUR_OF_DAY, Integer.parseInt(String.valueOf(spHoraDesde.getValue())));
+        inicio.set(Calendar.MINUTE, Integer.parseInt(String.valueOf(spMinDesde.getValue())));
 //        System.out.println(inicio.getTime().toString());
 
         fin.setTime(dateHasta.getDate());
-        fin.set(Calendar.HOUR_OF_DAY, Integer.parseInt(txtHoraHasta.getText()));
-        fin.set(Calendar.MINUTE, Integer.parseInt(txtMinHasta.getText()));
+        fin.set(Calendar.HOUR_OF_DAY, Integer.parseInt(String.valueOf(spHoraHasta.getValue())));
+        fin.set(Calendar.MINUTE, Integer.parseInt(String.valueOf(spMinHasta.getValue())));
 //        System.out.println(fin.getTime().toString());
 
         if (fin.after(inicio)) {
@@ -1326,6 +1379,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
                     && (fin.after(actual))) {
                 PeriodoEvaluacion pe = new PeriodoEvaluacion(inicio, fin);
                 if (OperacionesBD.guardar(pe)) {
+                    actualizaTblPeriodos();
                     JOptionPane.showMessageDialog(null, "Periodo asignado correctamente");
                 } else {
                     JOptionPane.showMessageDialog(null, "Hubo un error al asignar el periodo");
@@ -1635,6 +1689,21 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Existen campos vacios");
         }
     }//GEN-LAST:event_btnAplicarFactoresActionPerformed
+
+    private void btnEliminarPeriodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPeriodoActionPerformed
+        int f = tblPeriodos.getSelectedRow();
+        if (f != -1) {
+            PeriodoEvaluacion pe = periodos.get(f);
+            if (OperacionesBD.eliminar(pe, pe.getIdPeriodoEval())) {
+                Mensaje.datosEliminados();
+                actualizaTblPeriodos();
+            } else {
+                Mensaje.datosNoEliminados();
+            }
+        } else {
+            Mensaje.filaNoSeleccionada();
+        }
+    }//GEN-LAST:event_btnEliminarPeriodoActionPerformed
     private boolean compruebaVacios() {
         if (txtIGP.getText().isEmpty()
                 || txtCON.getText().isEmpty()
@@ -1652,6 +1721,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JButton btnAnterior;
     private javax.swing.JButton btnAplicar;
     private javax.swing.JButton btnAplicarFactores;
+    private javax.swing.JButton btnEliminarPeriodo;
     private javax.swing.JButton btnGenerar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnIr;
@@ -1734,7 +1804,6 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblActividades;
     private javax.swing.JLabel lblApellNomb;
     private javax.swing.JLabel lblCompetTec;
@@ -1801,7 +1870,12 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JScrollPane scrollDatosIndic;
     private javax.swing.JScrollPane scrollDatosQuejas;
     private javax.swing.JScrollPane scrollDatosTrabEquipo;
+    private javax.swing.JSpinner spHoraDesde;
+    private javax.swing.JSpinner spHoraHasta;
+    private javax.swing.JSpinner spMinDesde;
+    private javax.swing.JSpinner spMinHasta;
     private javax.swing.JTabbedPane tabbedEvaluacion;
+    private javax.swing.JTable tblPeriodos;
     private javax.swing.JTextField txtAplica;
     private javax.swing.JTextArea txtBuenaCalificacion;
     private javax.swing.JTextField txtCON;
@@ -1813,12 +1887,8 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JTextField txtFactorIndic;
     private javax.swing.JTextField txtFactorTrab;
     private javax.swing.JTextField txtFactorUniv;
-    private javax.swing.JTextField txtHoraDesde;
-    private javax.swing.JTextField txtHoraHasta;
     private javax.swing.JTextField txtIGP;
     private javax.swing.JTextArea txtIneficienteCalificacion;
-    private javax.swing.JTextField txtMinDesde;
-    private javax.swing.JTextField txtMinHasta;
     private javax.swing.JTextField txtNombreApellidos;
     private javax.swing.JTextField txtNroActividades;
     private javax.swing.JTextField txtNroCompetTecnic;
@@ -2022,6 +2092,13 @@ public class PnlEvaluacion extends javax.swing.JPanel {
      */
     public javax.swing.JTextField getTxtTotActEsc() {
         return txtTotActEsc;
+    }
+
+    /**
+     * @return the tblPeriodos
+     */
+    public javax.swing.JTable getTblPeriodos() {
+        return tblPeriodos;
     }
 
     class GestorControladorEvaluacion extends KeyAdapter implements ActionListener {
