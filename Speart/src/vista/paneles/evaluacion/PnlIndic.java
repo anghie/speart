@@ -38,6 +38,7 @@ public class PnlIndic extends javax.swing.JPanel {
         txtPorcentaje.setText(String.valueOf(per));
         txtNivel.setText(rptaTexto(per));
         ControladorEvaluacion.totIndic+=per;
+        System.out.println("torIndic: "+ControladorEvaluacion.totIndic );
     }
 
     private double calcPorcentaje(int meta, int cumplidos) {

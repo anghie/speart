@@ -42,7 +42,7 @@ public class LblHora extends JLabel implements Runnable {
                 if (c.get(Calendar.SECOND) % 60 == 0) {
                     OperacionesVarias.recordatorio();
                     FrmPrincipal.estaEvalActiva= ControladorPrincipal.verificaPeriodoEvaluacion();
-                    System.out.println("Estado Evaluacion: "+FrmPrincipal.estaEvalActiva);
+//                    System.out.println("Estado Evaluacion: "+FrmPrincipal.estaEvalActiva);
                 }
                 Thread.sleep(100);
 

@@ -58,7 +58,9 @@ public class ControladorTest {
             if (i != 0 && i % 10 == 0) {
                 t++;
             }
+
             contenedores.get(t).add(panelesPregRpta.get(i));
+
         }
         ft.getPnlMedio().validate();
         ft.getPnlMedio().updateUI();
@@ -79,11 +81,11 @@ public class ControladorTest {
     public void ponePreguntas() {
         panelesPregRpta = new ArrayList<>();
         respuestasCompletas = new ArrayList<>();
-        int n=0;
+        int n = 0;
         for (Pregunta p : ft.getPreguntas()) {
             n++;
             PnlTexto pt = new PnlTexto();
-            pt.getLblTexto().setText(n+". "+p.getPreg());
+            pt.getLblTexto().setText(n + ". " + p.getPreg());
             panelesPregRpta.add(pt);
             poneRespuestas(p.getIdPregunta());
         }
@@ -136,69 +138,65 @@ public class ControladorTest {
     }
 
     public void califica() {
-        int r = JOptionPane.showConfirmDialog(null, "¿Usted esta de acuerdo en calificar  su Test /n si considera que si no puede regresar a revisarlo?", "Calificar", JOptionPane.YES_NO_OPTION);
-                    if (r == JOptionPane.YES_OPTION) {                        
-                         resultadoPreguntas = new ArrayList<>();
-        int n = 0, aux = -1;
-        double valPreg = ControladorEvaluacion.facConoc / ft.getPreguntas().size();//Calculando valor de cada pregunta
-        double valResp = 0;
-        for (JPanel p : panelesPregRpta) {
-            if (p instanceof PnlRespuesta) {
-                PnlRespuesta pr = (PnlRespuesta) p;
-                int idPreg = respuestasCompletas.get(n).getPregunta().getIdPregunta();
-                int idResp = respuestasCompletas.get(n).getIdRespuesta();
-                if (idPreg != aux) {
-                    valResp = valRpta(idPreg, valPreg);
-                    aux = idPreg;
+        int r = JOptionPane.showConfirmDialog(null, "¿Usted esta de acuerdo en calificar  su Test \n si considera que si no puede regresar a revisarlo?", "Calificar", JOptionPane.YES_NO_OPTION);
+        if (r == JOptionPane.YES_OPTION) {
+            resultadoPreguntas = new ArrayList<>();
+            int n = 0, aux = -1;
+            double valPreg = ControladorEvaluacion.facConoc / ft.getPreguntas().size();//Calculando valor de cada pregunta
+            double valResp = 0;
+            for (JPanel p : panelesPregRpta) {
+                if (p instanceof PnlRespuesta) {
+                    PnlRespuesta pr = (PnlRespuesta) p;
+                    int idPreg = respuestasCompletas.get(n).getPregunta().getIdPregunta();
+                    int idResp = respuestasCompletas.get(n).getIdRespuesta();
+                    if (idPreg != aux) {
+                        valResp = valRpta(idPreg, valPreg);
+                        aux = idPreg;
+                    }
+                    //si lo escogido por el usuario es correcto
+                    if ((respuestasCompletas.get(n).isEstadoRpta() && pr.getChbPregunta().isSelected())
+                            || (!respuestasCompletas.get(n).isEstadoRpta() && !pr.getChbPregunta().isSelected())) {
+                        resultadoPreguntas.add(new ResultadoConocimientos(idPreg, idResp, true, valResp));
+                    } else {//si lo escogido por el usuario es falso
+                        resultadoPreguntas.add(new ResultadoConocimientos(idPreg, idResp, false, 0));
+                    }
+                    n++;
                 }
-                //si lo escogido por el usuario es correcto
-                if ((respuestasCompletas.get(n).isEstadoRpta() && pr.getChbPregunta().isSelected())
-                        || (!respuestasCompletas.get(n).isEstadoRpta() && !pr.getChbPregunta().isSelected())) {
-                    resultadoPreguntas.add(new ResultadoConocimientos(idPreg, idResp, true, valResp));
-                } else {//si lo escogido por el usuario es falso
-                    resultadoPreguntas.add(new ResultadoConocimientos(idPreg, idResp, false, 0));
-                }
-                n++;
             }
-        }
-        double total = 0;
-        for (ResultadoConocimientos rc : resultadoPreguntas) {
-            total += rc.getValor();
-            System.out.print("Pregunta: " + rc.getIdPreg() + " ");
-            System.out.print("Respuesta: " + rc.getIdResp() + " ");
-            System.out.print("Valor: " + rc.getValor() + " ");
-            System.out.print("Resultado: " + rc.isRptaCorrecta() + "\n");
+            double total = 0;
+            for (ResultadoConocimientos rc : resultadoPreguntas) {
+                total += rc.getValor();
+                System.out.print("Pregunta: " + rc.getIdPreg() + " ");
+                System.out.print("Respuesta: " + rc.getIdResp() + " ");
+                System.out.print("Valor: " + rc.getValor() + " ");
+                System.out.print("Resultado: " + rc.isRptaCorrecta() + "\n");
 
-        }
-        total = OperacionesVarias.redondeaDosCifras(total);
+            }
+            total = OperacionesVarias.redondeaDosCifras(total);//este es el total por seccion
 //        double total=;
-        int idSeccion = (int) respuestasCompletas.get(0).getPregunta().getSeccion().getIdSeccion();
-        ResultadoFinalConocimiento rfc = new ResultadoFinalConocimiento();
-        rfc.setIdSeccion(idSeccion);
-        rfc.setAprobado(true);
-        rfc.setTotal(total);
-        for (ResultadoConocimientos rc : resultadoPreguntas) {
-            rc.setResultadoFinalConocimiento(rfc);
-            rfc.addResultadoConocimiento(rc);
-        }
-        System.out.println(rptaTexto(total));
+            int idSeccion = (int) respuestasCompletas.get(0).getPregunta().getSeccion().getIdSeccion();
+            ResultadoFinalConocimiento rfc = new ResultadoFinalConocimiento();
+            rfc.setIdSeccion(idSeccion);
+            rfc.setAprobado(true);
+            rfc.setTotal(total);
+            for (ResultadoConocimientos rc : resultadoPreguntas) {
+                rc.setResultadoFinalConocimiento(rfc);
+                rfc.addResultadoConocimiento(rc);
+            }
+            System.out.println(rptaTexto(total));
 //        if (OperacionesBD.guardar(rfc)) {
 //            Mensaje.datosGuardados();
-        ControladorEvaluacion.txRptaConocIndiv.setText(rfc.getTotal() + " - " + rptaTexto(total));
-        ControladorEvaluacion.totConoc += rfc.getTotal();
-        ControladorEvaluacion.txtTotalConoc.setText(ControladorEvaluacion.totConoc + "%");
-        ControladorEvaluacion.btnEvaluarCon.setEnabled(false);
-        ft.dispose();
-                        
-                     
-                        
-                    } 
- 
-      
+            ControladorEvaluacion.txRptaConocIndiv.setText(rfc.getTotal() + " - " + rptaTexto(total));
+            ControladorEvaluacion.totConoc += rfc.getTotal();
+            ControladorEvaluacion.txtTotalConoc.setText(ControladorEvaluacion.totConoc + "%");
+            ControladorEvaluacion.btnEvaluarCon.setEnabled(false);
+            ft.dispose();
+
+        }
+
 //        } else {
 //            Mensaje.datosNoGuardados();
 //        }
-
     }
 
     //Calcula el valor que vale cada respuesta correspondiente a una pregunta determinada
@@ -209,6 +207,7 @@ public class ControladorTest {
                 c++;
             }
         }
+        System.out.println("valPreg: "+valPreg+ " c:"+c);
         v = valPreg / c;
         return v;
     }

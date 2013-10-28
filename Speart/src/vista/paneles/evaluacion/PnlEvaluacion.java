@@ -98,6 +98,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
                 for (int i = 0; i < 2; i++) {//remover los primeros dos tabs
                     tabbedEvaluacion.removeTabAt(0);
                 }
+                tabbedEvaluacion.removeTabAt(tabbedEvaluacion.getTabCount()-1);
             }
         }
         listarServidores();
@@ -293,6 +294,16 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jLabel56 = new javax.swing.JLabel();
         txtTotal = new javax.swing.JTextField();
         btnAplicarFactores = new javax.swing.JButton();
+        pnlCuatro = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        lblTitulo = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        lstDisponibleParaEval = new javax.swing.JList();
+        btnAgregar = new javax.swing.JButton();
+        btnQuitar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lstParaEvaluar = new javax.swing.JList();
+        btnAceptar = new javax.swing.JButton();
         pnlTres = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         btnAplicar = new javax.swing.JButton();
@@ -306,16 +317,6 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         txtHoraHasta = new javax.swing.JTextField();
         lblSepHasta = new javax.swing.JLabel();
         lblSepDesde = new javax.swing.JLabel();
-        pnlCuatro = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
-        lblTitulo = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        lstDisponibleParaEval = new javax.swing.JList();
-        btnAgregar = new javax.swing.JButton();
-        btnQuitar = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        lstParaEvaluar = new javax.swing.JList();
-        btnAceptar = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -1189,53 +1190,6 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         tabbedEvaluacion.addTab("FACTORES", pnlSeis);
 
-        jPanel9.setOpaque(false);
-        jPanel9.setPreferredSize(new java.awt.Dimension(400, 400));
-        jPanel9.setLayout(null);
-
-        btnAplicar.setText("Aplicar");
-        btnAplicar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAplicarActionPerformed(evt);
-            }
-        });
-        jPanel9.add(btnAplicar);
-        btnAplicar.setBounds(150, 230, 110, 40);
-
-        lblHasta.setText("Hasta:");
-        jPanel9.add(lblHasta);
-        lblHasta.setBounds(10, 140, 70, 30);
-        jPanel9.add(dateHasta);
-        dateHasta.setBounds(80, 140, 180, 30);
-        jPanel9.add(dateDesde);
-        dateDesde.setBounds(80, 100, 180, 30);
-
-        lblDesde.setText("Desde:");
-        jPanel9.add(lblDesde);
-        lblDesde.setBounds(10, 100, 60, 30);
-        jPanel9.add(txtMinDesde);
-        txtMinDesde.setBounds(330, 100, 50, 27);
-        jPanel9.add(txtHoraDesde);
-        txtHoraDesde.setBounds(270, 100, 50, 27);
-        jPanel9.add(txtMinHasta);
-        txtMinHasta.setBounds(330, 140, 50, 27);
-        jPanel9.add(txtHoraHasta);
-        txtHoraHasta.setBounds(270, 140, 50, 27);
-
-        lblSepHasta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSepHasta.setText(":");
-        jPanel9.add(lblSepHasta);
-        lblSepHasta.setBounds(320, 140, 10, 30);
-
-        lblSepDesde.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSepDesde.setText(":");
-        jPanel9.add(lblSepDesde);
-        lblSepDesde.setBounds(320, 100, 10, 30);
-
-        pnlTres.add(jPanel9);
-
-        tabbedEvaluacion.addTab("FECHA EVALUACIÓN", pnlTres);
-
         jPanel10.setPreferredSize(new java.awt.Dimension(550, 350));
         jPanel10.setLayout(null);
 
@@ -1284,6 +1238,53 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         pnlCuatro.add(jPanel10);
 
         tabbedEvaluacion.addTab("ACTIVAR EVALUACIÓN", pnlCuatro);
+
+        jPanel9.setOpaque(false);
+        jPanel9.setPreferredSize(new java.awt.Dimension(400, 400));
+        jPanel9.setLayout(null);
+
+        btnAplicar.setText("Aplicar");
+        btnAplicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAplicarActionPerformed(evt);
+            }
+        });
+        jPanel9.add(btnAplicar);
+        btnAplicar.setBounds(150, 230, 110, 40);
+
+        lblHasta.setText("Hasta:");
+        jPanel9.add(lblHasta);
+        lblHasta.setBounds(10, 140, 70, 30);
+        jPanel9.add(dateHasta);
+        dateHasta.setBounds(80, 140, 180, 30);
+        jPanel9.add(dateDesde);
+        dateDesde.setBounds(80, 100, 180, 30);
+
+        lblDesde.setText("Desde:");
+        jPanel9.add(lblDesde);
+        lblDesde.setBounds(10, 100, 60, 30);
+        jPanel9.add(txtMinDesde);
+        txtMinDesde.setBounds(330, 100, 50, 27);
+        jPanel9.add(txtHoraDesde);
+        txtHoraDesde.setBounds(270, 100, 50, 27);
+        jPanel9.add(txtMinHasta);
+        txtMinHasta.setBounds(330, 140, 50, 27);
+        jPanel9.add(txtHoraHasta);
+        txtHoraHasta.setBounds(270, 140, 50, 27);
+
+        lblSepHasta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSepHasta.setText(":");
+        jPanel9.add(lblSepHasta);
+        lblSepHasta.setBounds(320, 140, 10, 30);
+
+        lblSepDesde.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSepDesde.setText(":");
+        jPanel9.add(lblSepDesde);
+        lblSepDesde.setBounds(320, 100, 10, 30);
+
+        pnlTres.add(jPanel9);
+
+        tabbedEvaluacion.addTab("FECHA EVALUACIÓN", pnlTres);
 
         add(tabbedEvaluacion, java.awt.BorderLayout.PAGE_START);
     }// </editor-fold>//GEN-END:initComponents
@@ -2025,7 +2026,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
                     Date desde = dpDesde.getDate();
                     Date hasta = dpHasta.getDate();
                     ce.listarMetas(desde, hasta);
-                }catch(NullPointerException npe){
+                } catch (NullPointerException npe) {
                     JOptionPane.showMessageDialog(null, "Debe seleccionar un rango de fechas");
                 }
             }
