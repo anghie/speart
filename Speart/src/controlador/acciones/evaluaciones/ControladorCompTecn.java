@@ -63,7 +63,7 @@ public class ControladorCompTecn {
 
     private void poneRespuesta() {
         double porcen = calculaPorcentaje(totalCompTec);
-        double r = (porcen * ControladorEvaluacion.facCompTec) / 100;
+        double r = OperacionesVarias.redondeaDosCifras((porcen * ControladorEvaluacion.facCompTec) / 100);
         pe.getTxtTotalCompTec().setText(r + "% - " + rptaTexto(porcen));
     }
 

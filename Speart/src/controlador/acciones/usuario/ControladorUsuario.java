@@ -364,21 +364,25 @@ public class ControladorUsuario {
             n = JOptionPane.showConfirmDialog(null, "¿Desea habilitar el usuario?", "Habilitar", JOptionPane.YES_NO_OPTION);
         }
         if (n == JOptionPane.YES_OPTION) {
-            usuario.setHabilitado(!usuario.isHabilitado());
-            usuario.setRol(rol);
-            if (OperacionesBD.modificar(usuario)) {
-                if (usuario.isHabilitado()) {
-                    JOptionPane.showMessageDialog(null, "Se ha habilitado el usuario", "Habilitar", JOptionPane.INFORMATION_MESSAGE);
+            if (!usuario.equals(FrmPrincipal.userLogueado)) {
+                usuario.setHabilitado(!usuario.isHabilitado());
+                usuario.setRol(rol);
+                if (OperacionesBD.modificar(usuario)) {
+                    if (usuario.isHabilitado()) {
+                        JOptionPane.showMessageDialog(null, "Se ha habilitado el usuario", "Habilitar", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Se ha deshabilitado el usuario", "Deshabilitar", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    actualizaTabla();
                 } else {
-                    JOptionPane.showMessageDialog(null, "Se ha deshabilitado el usuario", "Deshabilitar", JOptionPane.INFORMATION_MESSAGE);
+                    if (usuario.isHabilitado()) {
+                        JOptionPane.showMessageDialog(null, "Error al deshabilitar el usuario", "Deshabilitar", JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Errol al habilitar el usuario", "Habilitar", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
-                actualizaTabla();
             } else {
-                if (usuario.isHabilitado()) {
-                    JOptionPane.showMessageDialog(null, "Error al deshabilitar el usuario", "Deshabilitar", JOptionPane.ERROR_MESSAGE);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Errol al habilitar el usuario", "Habilitar", JOptionPane.ERROR_MESSAGE);
-                }
+                JOptionPane.showMessageDialog(null, "No puede deshabilitar al usuario administrador");
             }
         }
     }
@@ -432,6 +436,5 @@ public class ControladorUsuario {
             Mensaje.filaNoSeleccionada();
         }
     }
-    
-    
+
 }
