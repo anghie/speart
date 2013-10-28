@@ -317,6 +317,8 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         txtHoraHasta = new javax.swing.JTextField();
         lblSepHasta = new javax.swing.JLabel();
         lblSepDesde = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -1240,7 +1242,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         tabbedEvaluacion.addTab("ACTIVAR EVALUACIÓN", pnlCuatro);
 
         jPanel9.setOpaque(false);
-        jPanel9.setPreferredSize(new java.awt.Dimension(400, 400));
+        jPanel9.setPreferredSize(new java.awt.Dimension(650, 450));
         jPanel9.setLayout(null);
 
         btnAplicar.setText("Aplicar");
@@ -1250,37 +1252,53 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         });
         jPanel9.add(btnAplicar);
-        btnAplicar.setBounds(150, 230, 110, 40);
+        btnAplicar.setBounds(480, 60, 110, 40);
 
         lblHasta.setText("Hasta:");
         jPanel9.add(lblHasta);
-        lblHasta.setBounds(10, 140, 70, 30);
+        lblHasta.setBounds(90, 90, 70, 30);
         jPanel9.add(dateHasta);
-        dateHasta.setBounds(80, 140, 180, 30);
+        dateHasta.setBounds(160, 90, 180, 30);
         jPanel9.add(dateDesde);
-        dateDesde.setBounds(80, 100, 180, 30);
+        dateDesde.setBounds(160, 50, 180, 30);
 
         lblDesde.setText("Desde:");
         jPanel9.add(lblDesde);
-        lblDesde.setBounds(10, 100, 60, 30);
+        lblDesde.setBounds(90, 50, 60, 30);
         jPanel9.add(txtMinDesde);
-        txtMinDesde.setBounds(330, 100, 50, 27);
+        txtMinDesde.setBounds(410, 50, 50, 27);
         jPanel9.add(txtHoraDesde);
-        txtHoraDesde.setBounds(270, 100, 50, 27);
+        txtHoraDesde.setBounds(350, 50, 50, 27);
         jPanel9.add(txtMinHasta);
-        txtMinHasta.setBounds(330, 140, 50, 27);
+        txtMinHasta.setBounds(410, 90, 50, 27);
         jPanel9.add(txtHoraHasta);
-        txtHoraHasta.setBounds(270, 140, 50, 27);
+        txtHoraHasta.setBounds(350, 90, 50, 27);
 
         lblSepHasta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSepHasta.setText(":");
         jPanel9.add(lblSepHasta);
-        lblSepHasta.setBounds(320, 140, 10, 30);
+        lblSepHasta.setBounds(400, 90, 10, 30);
 
         lblSepDesde.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSepDesde.setText(":");
         jPanel9.add(lblSepDesde);
-        lblSepDesde.setBounds(320, 100, 10, 30);
+        lblSepDesde.setBounds(400, 50, 10, 30);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Nro", "Desde", "Hasta"
+            }
+        ));
+        jScrollPane6.setViewportView(jTable1);
+
+        jPanel9.add(jScrollPane6);
+        jScrollPane6.setBounds(30, 140, 600, 240);
 
         pnlTres.add(jPanel9);
 
@@ -1716,6 +1734,8 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblActividades;
     private javax.swing.JLabel lblApellNomb;

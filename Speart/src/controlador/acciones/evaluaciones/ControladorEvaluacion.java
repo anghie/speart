@@ -247,6 +247,7 @@ public class ControladorEvaluacion {
         String login = FrmPrincipal.userLogueado.getLogin();
         boolean e = true;
         metas = ControladorMeta.searchMetas(desde, hasta, login);
+        pnlEval.getPnlDatosIndic().removeAll();
         for (Meta m : metas) {
             agregaPanelIndicadores(m, desde, hasta);
         }
