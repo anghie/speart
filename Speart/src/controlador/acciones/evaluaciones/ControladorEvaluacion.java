@@ -253,7 +253,7 @@ public class ControladorEvaluacion {
             agregaPanelIndicadores(m, desde, hasta);
         }
         pnlEval.getTxtNroActividades().setText(metas.size() + "");
-        pnlEval.getTxtTotActEsc().setText(String.valueOf(totIndic));
+        pnlEval.getTxtTotActEsc().setText(String.valueOf(totIndic/metas.size())+"%");
     }
 
 //    public String rptaTexto(double total) {
