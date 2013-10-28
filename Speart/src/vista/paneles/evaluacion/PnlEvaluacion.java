@@ -160,7 +160,6 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         lblTotActivEscen = new javax.swing.JLabel();
         txtTotActEsc = new javax.swing.JTextField();
         pnlInfoIndic = new javax.swing.JPanel();
@@ -478,8 +477,6 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jLabel9.setText("% DE AUMENTO");
         pnlDatosInf.add(jLabel9);
         jLabel9.setBounds(708, 2, 200, 26);
-        pnlDatosInf.add(jTextField1);
-        jTextField1.setBounds(708, 34, 200, 32);
 
         pnlIndicGestionPuesto.add(pnlDatosInf);
         pnlDatosInf.setBounds(10, 330, 910, 70);
@@ -487,6 +484,8 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         lblTotActivEscen.setText("Total Actividades Esenciales:");
         pnlIndicGestionPuesto.add(lblTotActivEscen);
         lblTotActivEscen.setBounds(540, 410, 190, 17);
+
+        txtTotActEsc.setEditable(false);
         pnlIndicGestionPuesto.add(txtTotActEsc);
         txtTotActEsc.setBounds(720, 400, 200, 30);
 
@@ -1736,7 +1735,6 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblActividades;
     private javax.swing.JLabel lblApellNomb;
     private javax.swing.JLabel lblCompetTec;

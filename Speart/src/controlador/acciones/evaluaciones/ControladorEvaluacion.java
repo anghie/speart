@@ -248,6 +248,7 @@ public class ControladorEvaluacion {
         boolean e = true;
         metas = ControladorMeta.searchMetas(desde, hasta, login);
         pnlEval.getPnlDatosIndic().removeAll();
+        totIndic = 0;
         for (Meta m : metas) {
             agregaPanelIndicadores(m, desde, hasta);
         }
