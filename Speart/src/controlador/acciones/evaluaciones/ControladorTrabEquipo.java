@@ -4,6 +4,7 @@
  */
 package controlador.acciones.evaluaciones;
 
+import controlador.experto.BaseConocimiento;
 import java.awt.Component;
 import modelo.operaciones.TrabajoEquipo;
 import vista.modelo.OperacionesVarias;
@@ -12,13 +13,15 @@ import vista.paneles.evaluacion.PnlTrabEquipo;
 
 /**
  *
- * @author 
+ * @author
  */
 public class ControladorTrabEquipo {
 
     private PnlTrabEquipo pte;
     public static PnlEvaluacion pe;
     public static double totalTrabEquip = 0;
+    private ClassLoader cload = ControladorTrabEquipo.class.getClassLoader();//para hacer referencia a archivos dentro del programa
+    private String dirArchivo = cload.getResource("controlador/experto/evaluacion.pl").getPath();
 
     public ControladorTrabEquipo(PnlTrabEquipo pte) {
         this.pte = pte;
@@ -33,9 +36,10 @@ public class ControladorTrabEquipo {
             pte.getTxtComObserv().setText(te.getBajaTrabEquipo());
         }
     }
-    
-    public void actualizaResTrabEquip(){
+
+    public void actualizaResTrabEquip() {
         sumatoriaTrabEquip();
+        poneRespuesta();
     }
 
     public static void sumatoriaTrabEquip() {
@@ -49,8 +53,14 @@ public class ControladorTrabEquipo {
         }
         ControladorEvaluacion.totTrabEquip = totalTrabEquip;
         totalTrabEquip = OperacionesVarias.redondeaDosCifras(totalTrabEquip);
-        double p = OperacionesVarias.redondeaDosCifras((totalTrabEquip*100)/ControladorEvaluacion.facTrabEquip);
-        pe.getTxtTotalTrabEquip().setText(p + "%");
+//        double p = OperacionesVarias.redondeaDosCifras((totalTrabEquip*100)/ControladorEvaluacion.facTrabEquip);
+//        pe.getTxtTotalTrabEquip().setText(p + "%");
+    }
+
+    private void poneRespuesta() {
+        double porcen = calculaPorcentaje(totalTrabEquip);
+        double r = OperacionesVarias.redondeaDosCifras((porcen * ControladorEvaluacion.facTrabEquip) / 100);
+        pe.getTxtTotalCompTec().setText(r + "% - " + rptaTexto(porcen));
     }
 
     public static double califTrabEquipo(int index) {
@@ -64,8 +74,22 @@ public class ControladorTrabEquipo {
         } else if (index == 3) {
             a = 2;
         } else if (index == 4) {
-            a = 1;
+            a = 0;
         }
         return (a * ControladorEvaluacion.facTrabEquip) / 5;
+    }
+
+    private double calculaPorcentaje(double totalObt) {
+        double factor = ControladorEvaluacion.facTrabEquip * ControladorEvaluacion.trabequip.size();//factor asignado por el estado
+        double porcen = (totalObt * 100) / factor;
+        return OperacionesVarias.redondeaDosCifras(porcen);
+    }
+
+    private String rptaTexto(double porcen) {
+        BaseConocimiento bc = new BaseConocimiento();
+        if (bc.compilaArchivo(dirArchivo)) {
+            return bc.consultaSegundoElemento("esrespuestacu(" + porcen + ",X)");
+        }
+        return null;
     }
 }
