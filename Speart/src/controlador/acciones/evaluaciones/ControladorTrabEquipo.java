@@ -44,12 +44,13 @@ public class ControladorTrabEquipo {
             if (c.getClass().equals(PnlTrabEquipo.class)) {
                 PnlTrabEquipo pct = (PnlTrabEquipo) c;
                 totalTrabEquip += califTrabEquipo(pct.getCbFrecAplic().getSelectedIndex());
-                System.out.println(pct.getTxtTrabEquip().getText() + "  " + califTrabEquipo(pct.getCbFrecAplic().getSelectedIndex()));
+//                System.out.println(pct.getTxtTrabEquip().getText() + "  " + califTrabEquipo(pct.getCbFrecAplic().getSelectedIndex()));
             }
         }
         ControladorEvaluacion.totTrabEquip = totalTrabEquip;
         totalTrabEquip = OperacionesVarias.redondeaDosCifras(totalTrabEquip);
-        pe.getTxtTotalTrabEquip().setText(totalTrabEquip + "");
+        double p = OperacionesVarias.redondeaDosCifras((totalTrabEquip*100)/ControladorEvaluacion.facTrabEquip);
+        pe.getTxtTotalTrabEquip().setText(p + "%");
     }
 
     public static double califTrabEquipo(int index) {

@@ -75,7 +75,8 @@ public class ControladorCompUniv {
 
     private void poneRespuesta() {
         double porcen = calculaPorcentaje(totalCompUniv);
-        pe.getTxtTotalCompUniv().setText(totalCompUniv + " - " + rptaTexto(porcen));
+        double r = OperacionesVarias.redondeaDosCifras((porcen * ControladorEvaluacion.facCompUniv) / 100);
+        pe.getTxtTotalCompUniv().setText(r + "% - " + rptaTexto(porcen));
     }
 
     private double calculaPorcentaje(double totalObt) {
