@@ -60,7 +60,7 @@ public class ControladorTrabEquipo {
     private void poneRespuesta() {
         double porcen = calculaPorcentaje(totalTrabEquip);
         double r = OperacionesVarias.redondeaDosCifras((porcen * ControladorEvaluacion.facTrabEquip) / 100);
-        pe.getTxtTotalCompTec().setText(r + "% - " + rptaTexto(porcen));
+        pe.getTxtTotalTrabEquip().setText(r + "% - " + rptaTexto(porcen));
     }
 
     public static double califTrabEquipo(int index) {
