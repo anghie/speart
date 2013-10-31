@@ -39,6 +39,7 @@ public class ControladorPrincipal {
     private static ControladorPrincipal cp = null;
     public static int esInhab = 0;
     public static ArrayList<PeriodoEvaluacion> fechaeval;
+    public static boolean clavemal;
 
     private ControladorPrincipal(FrmPrincipal frm) {
         this.frm = frm;
@@ -73,6 +74,7 @@ public class ControladorPrincipal {
 
     public static boolean datosCorrectos(String user, String clave) {
         boolean existe = false;
+        clavemal = false;
         for (Usuario us : ControladorUsuario.usuarios) {
             if (user.equals(us.getLogin()) && us.isHabilitado()) {
                 String st = us.getClave();
@@ -84,6 +86,8 @@ public class ControladorPrincipal {
                     tipoUs = us.getRol().getTipo();
                     System.out.println(tipoUs);
                     existe = true;
+                }else {
+                    clavemal = true;
                 }
             } else if (user.equals(us.getLogin()) && !us.isHabilitado()) {
                 esInhab = 1;
@@ -213,7 +217,9 @@ public class ControladorPrincipal {
 
     public static void listarFechasEval() {
         fechaeval = (ArrayList<PeriodoEvaluacion>) OperacionesBD.listar("PeriodoEvaluacion");
-
+        if(fechaeval.isEmpty() || fechaeval==null){
+            fechaeval = new ArrayList<>();
+        }
     }
 
     public static boolean verificaPeriodoEvaluacion() {

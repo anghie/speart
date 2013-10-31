@@ -111,7 +111,9 @@ public class FrmPrincipal extends JFrame {
         miCambiaClave.setVisible(ControladorPermisos.itemCambiaClave);
         btnAgenda.setVisible(ControladorPermisos.agenda);
         btnReportes.setVisible(ControladorPermisos.usuarios);
-        miAgenda.setVisible(ControladorPermisos.agendaExperto);
+        miAgenda.setVisible(ControladorPermisos.miAgendaCont);
+        miGeneraAgenda.setVisible(ControladorPermisos.miGeneraAgenda);
+        miMeta.setVisible(ControladorPermisos.miAdminMeta);
 //        menuAgregados.setVisible(ControladorPermisos.menuAgregados);
         menuReportes.setVisible(ControladorPermisos.menuReportes);
 //        miActivEval.setVisible(ControladorPermisos.miActivaEval);

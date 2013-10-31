@@ -27,6 +27,7 @@ public class ControladorPermisos {
     public static boolean miEfectosEval;
     public static boolean menuReportes;
     public static boolean miAdminMeta;
+    public static boolean miGeneraAgenda;
     public static boolean miAgendaCont;
 
     public static void permisoInvitado() {
@@ -87,6 +88,7 @@ public class ControladorPermisos {
         menuAgregados = false;
         menuReportes = false;
         miAdminMeta = false;
+        miGeneraAgenda=false;
         miAgendaCont =true;
         if(!FrmPrincipal.userLogueado.isEvaluacionActivada()&&!FrmPrincipal.estaEvalActiva){
             evaluaciones=false;
@@ -96,7 +98,7 @@ public class ControladorPermisos {
     public static void permisoRRHH() {
         usuarios = false;
         procesos = false;
-        servicios = false;
+        servicios = true;
         respaldos = false;
         operaciones = false;
         evaluaciones = true;
@@ -112,5 +114,6 @@ public class ControladorPermisos {
         miActivaEval = true;
         miEfectosEval = false;
         miFechaEval = false;
+        miAgendaCont =true;
     }
 }

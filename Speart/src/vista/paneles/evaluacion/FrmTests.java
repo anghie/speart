@@ -72,20 +72,22 @@ public class FrmTests extends javax.swing.JDialog {
 
         pnlMedio.setLayout(new java.awt.CardLayout());
 
-        pnlUno.setLayout(new java.awt.GridLayout(10, 0));
+        pnlUno.setLayout(new java.awt.GridLayout(10, 1));
         pnlMedio.add(pnlUno, "pnlUno");
 
-        pnlDos.setLayout(new java.awt.GridLayout(10, 0));
+        pnlDos.setLayout(new java.awt.GridLayout(10, 1));
         pnlMedio.add(pnlDos, "pnlDos");
 
-        pnlTres.setLayout(new java.awt.GridLayout(10, 0));
+        pnlTres.setLayout(new java.awt.GridLayout(10, 1));
         pnlMedio.add(pnlTres, "pnlTres");
 
-        pnlCuatro.setLayout(new java.awt.GridLayout(10, 0));
+        pnlCuatro.setLayout(new java.awt.GridLayout(10, 1));
         pnlMedio.add(pnlCuatro, "pnlCuatro");
 
-        pnlCinco.setLayout(new java.awt.GridLayout(10, 0));
+        pnlCinco.setLayout(new java.awt.GridLayout(10, 1));
         pnlMedio.add(pnlCinco, "pnlCinco");
+
+        pnlSeis.setLayout(new java.awt.GridLayout(10, 1));
         pnlMedio.add(pnlSeis, "pnlSeis");
 
         pnlPrincipal.add(pnlMedio, java.awt.BorderLayout.CENTER);
@@ -106,20 +108,20 @@ public class FrmTests extends javax.swing.JDialog {
             }
         });
         getContentPane().add(btnAnterior);
-        btnAnterior.setBounds(390, 500, 110, 41);
+        btnAnterior.setBounds(390, 500, 110, 42);
 
         btnSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/agt_forward.png"))); // NOI18N
         btnSiguiente.setText("Siguiente");
         getContentPane().add(btnSiguiente);
-        btnSiguiente.setBounds(530, 500, 120, 41);
+        btnSiguiente.setBounds(530, 500, 120, 42);
 
         btnCalificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/business.png"))); // NOI18N
         btnCalificar.setText("Calificar");
         getContentPane().add(btnCalificar);
-        btnCalificar.setBounds(660, 500, 110, 41);
+        btnCalificar.setBounds(660, 500, 110, 42);
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-1028)/2, (screenSize.height-579)/2, 1028, 579);
+        setSize(new java.awt.Dimension(1028, 579));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed

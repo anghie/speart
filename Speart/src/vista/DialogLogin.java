@@ -122,12 +122,16 @@ public class DialogLogin extends javax.swing.JDialog {
                 fp.ponePermisos();
                 ControladorRecordatorio.listarRecordatorios();
                 ControladorPrincipal.listarFechasEval();
+                System.out.println(FrmPrincipal.estaEvalActiva);
+                System.out.println(FrmPrincipal.userLogueado.isEvaluacionActivada());
             } else {
-                if (ControladorPrincipal.esInhab == 0) {
+                if (ControladorPrincipal.clavemal) {
+                    JOptionPane.showMessageDialog(null, "La clave ingresada es incorrecta");
+                } else if (ControladorPrincipal.esInhab == 0) {
                     JOptionPane.showMessageDialog(null, "El usuario ingresado no está registrado pida al administrador su ingreso");
                 } else if (ControladorPrincipal.esInhab == 1) {
                     JOptionPane.showMessageDialog(null, "El usuario ingresado está deshabilitado pida al administrador su habilitacion");
-                    ControladorPrincipal.esInhab=0;
+                    ControladorPrincipal.esInhab = 0;
                 }
                 //JOptionPane.showMessageDialog(null, "Usuario o clave incorrecta");
             }

@@ -53,29 +53,16 @@ public class ControladorTest {
         contenedores.add(ft.getPnlCinco());
         contenedores.add(ft.getPnlSeis());
 
-        int t = 0;
+        int t = 0;//indica el panel en el que se estan poniendo las preguntas
         for (int i = 0; i < panelesPregRpta.size(); i++) {
             if (i != 0 && i % 10 == 0) {
                 t++;
             }
-
             contenedores.get(t).add(panelesPregRpta.get(i));
-
         }
         ft.getPnlMedio().validate();
         ft.getPnlMedio().updateUI();
     }
-    //        for(JPanel p:panelesPregRpta){
-//            
-//            if(p instanceof PnlTexto){
-//                PnlTexto pt=(PnlTexto) p;
-//                System.out.println("Pregunta: "+pt.getLblTexto().getText());
-//            }else if( p instanceof PnlRespuesta){
-//                PnlRespuesta pr=(PnlRespuesta) p;
-//                System.out.println("Respuesta: "+pr.getChbPregunta().getText());
-//            }
-//        }
-
 //tengo array de preguntas de acuerdo a la seccion
 //tengo array de respuestas
     public void ponePreguntas() {
