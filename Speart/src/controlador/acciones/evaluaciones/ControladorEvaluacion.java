@@ -29,6 +29,7 @@ import modelo.usuario.Queja;
 import modelo.usuario.Usuario;
 import vista.FrmPrincipal;
 import vista.modelo.OperacionesVarias;
+import vista.paneles.evaluacion.DialogTest;
 import vista.paneles.evaluacion.FrmResultadosEvaluac;
 import vista.paneles.evaluacion.FrmTests;
 import vista.paneles.evaluacion.PnlCompTecn;
@@ -259,9 +260,9 @@ public class ControladorEvaluacion {
             agregaPanelIndicadores(m, desde, hasta);
         }
         pnlEval.getTxtNroActividades().setText(metas.size() + "");
-        double r= ((totIndic/metas.size())*ControladorEvaluacion.facIndic)/100;
-        pnlEval.getTxtTotActEsc().setText(String.valueOf(r)+"%");
-        
+        double r = ((totIndic / metas.size()) * ControladorEvaluacion.facIndic) / 100;
+        pnlEval.getTxtTotActEsc().setText(String.valueOf(r) + "%");
+
         //porcentaje por factor / 100
     }
 
@@ -280,7 +281,7 @@ public class ControladorEvaluacion {
     public static void abreCuestionario(long idSeccion) {
         if (facConoc > 0) {
             preguntas = (ArrayList<Pregunta>) OperacionesBD.listarconCondicion("Pregunta", "seccion_idSeccion", String.valueOf(idSeccion));
-            new FrmTests(preguntas).setVisible(true);
+            new DialogTest(preguntas).setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Debe llenar el campo de factor de conocimiento con valores mayores a cero");
         }

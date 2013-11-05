@@ -34,8 +34,8 @@ import vista.modelo.OperacionesVarias;
  */
 public class PnlEvaluacion extends javax.swing.JPanel {
 
-    private ControladorEvaluacion ce;
-    private GestorControladorEvaluacion gce;
+    private final ControladorEvaluacion ce;
+    private final GestorControladorEvaluacion gce;
     private ArrayList<Usuario> servidoresDisp;
     private ArrayList<Usuario> servidoresPlanif;
     private Efectos efec;
@@ -62,46 +62,44 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     }
 
     private void poneTabs() {
-        if (FrmPrincipal.userLogueado.getRol().getTipo().equals(Constantes.SERVIDOR)) {
-            if (FrmPrincipal.estaEvalActiva && FrmPrincipal.userLogueado.isEvaluacionActivada()) {
+        switch (FrmPrincipal.userLogueado.getRol().getTipo()) {
+            case Constantes.SERVIDOR:
+                if (FrmPrincipal.estaEvalActiva && FrmPrincipal.userLogueado.isEvaluacionActivada()) {
+                    //remover todos los tabs menos el primero y el segundo
+                    for (int i = 0; i <= tabbedEvaluacion.getTabCount(); i++) {
+                        int ultimo = tabbedEvaluacion.getTabCount() - 1;
+                        tabbedEvaluacion.removeTabAt(ultimo);
+                    }
+                    if (tabbedEvaluacion.getTabCount() == 3) {
+                        tabbedEvaluacion.removeTabAt(2);
+                    }
+                } else {
+                    tabbedEvaluacion.removeAll();
+                }   break;
+            case Constantes.RRHH:
+                //remover los primeros 3 tabs
+                for (int i = 0; i <= tabbedEvaluacion.getTabCount(); i++) {
+                    if (i < tabbedEvaluacion.getTabCount()) {
+                        tabbedEvaluacion.removeTabAt(0);
+                    }
+                }   if (FrmPrincipal.estaEvalActiva) {
+                tabbedEvaluacion.removeTabAt(0);
+            }   if (tabbedEvaluacion.getTabCount() == 3) {
+                tabbedEvaluacion.removeTabAt(0);
+            }   break;
+            case Constantes.JEFE:
                 //remover todos los tabs menos el primero y el segundo
-                for (int i = 0; i <= tabbedEvaluacion.getTabCount(); i++) {
-                    int ultimo = tabbedEvaluacion.getTabCount() - 1;
-                    tabbedEvaluacion.removeTabAt(ultimo);
-                }
-                if (tabbedEvaluacion.getTabCount() == 3) {
-                    tabbedEvaluacion.removeTabAt(2);
-                }
-            } else {
-                tabbedEvaluacion.removeAll();
-            }
-        } else if (FrmPrincipal.userLogueado.getRol().getTipo().equals(Constantes.RRHH)) {
-            //remover los primeros 3 tabs
-            for (int i = 0; i <= tabbedEvaluacion.getTabCount(); i++) {
-                if (i < tabbedEvaluacion.getTabCount()) {
-                    tabbedEvaluacion.removeTabAt(0);
-                }
-            }
-            if (FrmPrincipal.estaEvalActiva) {
-                tabbedEvaluacion.removeTabAt(0);
-            }
-            if (tabbedEvaluacion.getTabCount() == 3) {
-                tabbedEvaluacion.removeTabAt(0);
-            }
-
-        } else if (FrmPrincipal.userLogueado.getRol().getTipo().equals(Constantes.JEFE)) {
-            //remover todos los tabs menos el primero y el segundo
-            if (FrmPrincipal.userLogueado.isEvaluacionActivada() && FrmPrincipal.estaEvalActiva) {
-                for (int i = 0; i <= tabbedEvaluacion.getTabCount(); i++) {
-                    int ultimo = tabbedEvaluacion.getTabCount() - 1;
-                    tabbedEvaluacion.removeTabAt(ultimo);
-                }
-            } else {
-                for (int i = 0; i < 2; i++) {//remover los primeros dos tabs
-                    tabbedEvaluacion.removeTabAt(0);
-                }
-                tabbedEvaluacion.removeTabAt(tabbedEvaluacion.getTabCount() - 1);
-            }
+                if (FrmPrincipal.userLogueado.isEvaluacionActivada() && FrmPrincipal.estaEvalActiva) {
+                    for (int i = 0; i <= tabbedEvaluacion.getTabCount(); i++) {
+                        int ultimo = tabbedEvaluacion.getTabCount() - 1;
+                        tabbedEvaluacion.removeTabAt(ultimo);
+                    }
+                } else {
+                    for (int i = 0; i < 2; i++) {//remover los primeros dos tabs
+                        tabbedEvaluacion.removeTabAt(0);
+                    }
+                    tabbedEvaluacion.removeTabAt(tabbedEvaluacion.getTabCount() - 1);
+                }   break;
         }
         listarServidores();
         llenaListaDisponibles();
@@ -123,7 +121,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         btnIr.addActionListener(gce);
     }
 
-    public void actualizaTblPeriodos() {
+    private void actualizaTblPeriodos() {
         listarPeriodos();
         modeloTablaPeriodos();
     }
@@ -582,7 +580,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         btnIr.setText("Ir");
         pnlIndicGestionPuesto.add(btnIr);
-        btnIr.setBounds(850, 10, 19, 29);
+        btnIr.setBounds(850, 10, 20, 27);
 
         pnlMedio.add(pnlIndicGestionPuesto, "pnlIndicGestionPuesto");
 
@@ -1247,7 +1245,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         });
         jPanel10.add(btnAgregar);
-        btnAgregar.setBounds(250, 110, 50, 29);
+        btnAgregar.setBounds(250, 110, 50, 27);
 
         btnQuitar.setText("<");
         btnQuitar.addActionListener(new java.awt.event.ActionListener() {
@@ -1256,7 +1254,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         });
         jPanel10.add(btnQuitar);
-        btnQuitar.setBounds(250, 160, 50, 29);
+        btnQuitar.setBounds(250, 160, 50, 27);
 
         jScrollPane2.setViewportView(lstParaEvaluar);
 
@@ -1313,10 +1311,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         tblPeriodos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Nro", "Desde", "Hasta"
@@ -1350,7 +1345,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         });
         jPanel9.add(btnEliminarPeriodo);
-        btnEliminarPeriodo.setBounds(30, 300, 70, 29);
+        btnEliminarPeriodo.setBounds(30, 300, 70, 27);
 
         pnlTres.add(jPanel9);
 
@@ -1466,19 +1461,13 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     }
 
     private boolean hayVacios() {
-        if (txtBuenaCalificacion.getText().isEmpty()
+        return txtBuenaCalificacion.getText().isEmpty()
                 || txtDeficienteCalificacion.getText().isEmpty()
-                || txtIneficienteCalificacion.getText().isEmpty()) {
-            return true;
-        }
-        return false;
+                || txtIneficienteCalificacion.getText().isEmpty();
     }
 
     private boolean nombreEscogido() {
-        if (cbNombres.getSelectedIndex() == 0) {
-            return false;
-        }
-        return true;
+        return cbNombres.getSelectedIndex() != 0;
     }
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         if (lstDisponibleParaEval.getSelectedIndex() != -1) {
@@ -1705,15 +1694,12 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnEliminarPeriodoActionPerformed
     private boolean compruebaVacios() {
-        if (txtIGP.getText().isEmpty()
+        return txtIGP.getText().isEmpty()
                 || txtCON.getText().isEmpty()
                 || txtCTP.getText().isEmpty()
                 || txtCU.getText().isEmpty()
                 || txtTEIL.getText().isEmpty()
-                || txtAplica.getText().isEmpty()) {
-            return true;
-        }
-        return false;
+                || txtAplica.getText().isEmpty();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;

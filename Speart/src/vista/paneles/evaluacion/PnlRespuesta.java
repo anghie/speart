@@ -28,9 +28,11 @@ public class PnlRespuesta extends javax.swing.JPanel {
 
         chbPregunta = new javax.swing.JCheckBox();
 
+        setMinimumSize(new java.awt.Dimension(902, 0));
+        setPreferredSize(new java.awt.Dimension(902, 35));
         setLayout(null);
         add(chbPregunta);
-        chbPregunta.setBounds(10, 10, 670, 24);
+        chbPregunta.setBounds(10, 0, 890, 30);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox chbPregunta;

@@ -29,7 +29,7 @@ public class FrmTests extends javax.swing.JDialog {
     public FrmTests(ArrayList<Pregunta> preg) {
         initComponents();
         preguntas = preg;
-        ct = new ControladorTest(this);
+//        ct = new ControladorTest(this);
         gct = new GestorControladorTest();
         ct.ponePreguntas();
         ct.llenaPaneles();
@@ -225,15 +225,15 @@ public class FrmTests extends javax.swing.JDialog {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == btnAnterior) {
-                ct.anteriorPanel();
-            } else if (e.getSource() == btnSiguiente) {
-                ct.siguientePanel();
-            } else if (e.getSource() == btnCerrar) {
-                dispose();
-            } else if (e.getSource() == btnCalificar) {
-                ct.califica();
-            }
+//            if (e.getSource() == btnAnterior) {
+//                ct.anteriorPanel();
+//            } else if (e.getSource() == btnSiguiente) {
+//                ct.siguientePanel();
+//            } else if (e.getSource() == btnCerrar) {
+//                dispose();
+//            } else if (e.getSource() == btnCalificar) {
+//                ct.califica();
+//            }
         }
     }
     //aciertos * 5 /numPreguntas

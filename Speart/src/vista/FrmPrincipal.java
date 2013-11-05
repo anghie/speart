@@ -68,6 +68,7 @@ public class FrmPrincipal extends JFrame {
     private FrmPrincipal() {
         cl = FrmPrincipal.class.getClassLoader();
         iniciaComponentes();
+        estaEvalActiva=ControladorPrincipal.verificaPeriodoEvaluacion();
 //        ControladorPrincipal.listarFechasEval();
 //        System.out.println(estaEvalActiva);
         

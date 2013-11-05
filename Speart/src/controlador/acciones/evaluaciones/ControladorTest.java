@@ -15,6 +15,7 @@ import modelo.evaluacion.ResultadoFinalConocimiento;
 import modelo.pregunta.Pregunta;
 import modelo.pregunta.Respuesta;
 import vista.modelo.OperacionesVarias;
+import vista.paneles.evaluacion.DialogTest;
 import vista.paneles.evaluacion.FrmTests;
 import vista.paneles.evaluacion.PnlRespuesta;
 import vista.paneles.evaluacion.PnlTexto;
@@ -25,7 +26,7 @@ import vista.paneles.evaluacion.PnlTexto;
  */
 public class ControladorTest {
 
-    private FrmTests ft;
+    private DialogTest ft;
     private int c, n;//c contador de numero de preguntas
     private CardLayout cl;
     private ArrayList<JPanel> contenedores;
@@ -37,31 +38,36 @@ public class ControladorTest {
     private ClassLoader cload = ControladorTest.class.getClassLoader();//para hacer referencia a archivos dentro del programa
     private String dirArchivo = cload.getResource("controlador/experto/evaluacion.pl").getPath();
 
-    public ControladorTest(FrmTests ft) {
+    public ControladorTest(DialogTest ft) {
         this.ft = ft;
-        ft.getBtnCalificar().setEnabled(false);
 //        ControladorEvaluacion.totConoc = 0;
     }
 
-    public void llenaPaneles() {
-        c = panelesPregRpta.size();
-        contenedores = new ArrayList<>();
-        contenedores.add(ft.getPnlUno());
-        contenedores.add(ft.getPnlDos());
-        contenedores.add(ft.getPnlTres());
-        contenedores.add(ft.getPnlCuatro());
-        contenedores.add(ft.getPnlCinco());
-        contenedores.add(ft.getPnlSeis());
-
-        int t = 0;//indica el panel en el que se estan poniendo las preguntas
+//    public void llenaPaneles() {
+//        c = panelesPregRpta.size();
+//        contenedores = new ArrayList<>();
+//        contenedores.add(ft.getPnlUno());
+//        contenedores.add(ft.getPnlDos());
+//        contenedores.add(ft.getPnlTres());
+//        contenedores.add(ft.getPnlCuatro());
+//        contenedores.add(ft.getPnlCinco());
+//        contenedores.add(ft.getPnlSeis());
+//
+//        int t = 0;//indica el panel en el que se estan poniendo las preguntas
+//        for (int i = 0; i < panelesPregRpta.size(); i++) {
+//            if (i != 0 && i % 10 == 0) {
+//                t++;
+//            }
+//            contenedores.get(t).add(panelesPregRpta.get(i));
+//        }
+//        ft.getPnlMedio().validate();
+//        ft.getPnlMedio().updateUI();
+//    }
+    
+    public void llenaPaneles(){
         for (int i = 0; i < panelesPregRpta.size(); i++) {
-            if (i != 0 && i % 10 == 0) {
-                t++;
-            }
-            contenedores.get(t).add(panelesPregRpta.get(i));
+            ft.getPnlTest().add(panelesPregRpta.get(i));
         }
-        ft.getPnlMedio().validate();
-        ft.getPnlMedio().updateUI();
     }
 //tengo array de preguntas de acuerdo a la seccion
 //tengo array de respuestas
@@ -88,41 +94,41 @@ public class ControladorTest {
         }
     }
 
-    public void siguientePanel() {
-        n += 10;
-        if (n >= c || c < n + 10 || c < n) {
-            n = c;
-        }
-        if (n <= c) {
-            cl = (CardLayout) ft.getPnlMedio().getLayout();
-            cl.next(ft.getPnlMedio());
-        }
-        poneEnables();
-    }
-
-    public void anteriorPanel() {
-        n -= 10;
-        if (n <= 0) {
-            n = 0;
-        }
-        if (n >= 0) {
-            cl = (CardLayout) ft.getPnlMedio().getLayout();
-            cl.previous(ft.getPnlMedio());
-        }
-        poneEnables();
-    }
-
-    public void poneEnables() {
-        if (n < c) {
-            ft.getBtnSiguiente().setEnabled(true);
-            ft.getBtnAnterior().setEnabled(true);
-            ft.getBtnCalificar().setEnabled(false);
-        } else if (n >= c) {
-            ft.getBtnSiguiente().setEnabled(false);
-            ft.getBtnAnterior().setEnabled(true);
-            ft.getBtnCalificar().setEnabled(true);
-        }
-    }
+//    public void siguientePanel() {
+//        n += 10;
+//        if (n >= c || c < n + 10 || c < n) {
+//            n = c;
+//        }
+//        if (n <= c) {
+//            cl = (CardLayout) ft.getPnlMedio().getLayout();
+//            cl.next(ft.getPnlMedio());
+//        }
+//        poneEnables();
+//    }
+//
+//    public void anteriorPanel() {
+//        n -= 10;
+//        if (n <= 0) {
+//            n = 0;
+//        }
+//        if (n >= 0) {
+//            cl = (CardLayout) ft.getPnlMedio().getLayout();
+//            cl.previous(ft.getPnlMedio());
+//        }
+//        poneEnables();
+//    }
+//
+//    public void poneEnables() {
+//        if (n < c) {
+//            ft.getBtnSiguiente().setEnabled(true);
+//            ft.getBtnAnterior().setEnabled(true);
+//            ft.getBtnCalificar().setEnabled(false);
+//        } else if (n >= c) {
+//            ft.getBtnSiguiente().setEnabled(false);
+//            ft.getBtnAnterior().setEnabled(true);
+//            ft.getBtnCalificar().setEnabled(true);
+//        }
+//    }
 
     public void califica() {
         int r = JOptionPane.showConfirmDialog(null, "¿Usted esta de acuerdo en calificar  su Test \n si considera que si no puede regresar a revisarlo?", "Calificar", JOptionPane.YES_NO_OPTION);
@@ -155,7 +161,7 @@ public class ControladorTest {
                 total += rc.getValor();
                 System.out.print("Pregunta: " + rc.getIdPreg() + " ");
                 System.out.print("Respuesta: " + rc.getIdResp() + " ");
-                System.out.print("Valor: " + rc.getValor() + " ");
+                System.out.print("Valor: " + rc.getValor() + " ");//lo q contesto el usuario
                 System.out.print("Resultado: " + rc.isRptaCorrecta() + "\n");
 
             }

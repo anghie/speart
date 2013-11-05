@@ -28,11 +28,13 @@ public class PnlTexto extends javax.swing.JPanel {
 
         lblTexto = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(902, 0));
+        setPreferredSize(new java.awt.Dimension(902, 35));
         setLayout(null);
 
         lblTexto.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         add(lblTexto);
-        lblTexto.setBounds(10, 10, 670, 30);
+        lblTexto.setBounds(10, 0, 880, 30);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblTexto;
