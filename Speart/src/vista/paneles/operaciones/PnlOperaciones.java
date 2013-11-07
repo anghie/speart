@@ -193,6 +193,8 @@ public class PnlOperaciones extends javax.swing.JPanel {
         lblNuevaPreg.setText("  Ingrese la nueva pregunta:");
         pnlNuevaPregunta.add(lblNuevaPreg);
         lblNuevaPreg.setBounds(30, 80, 200, 30);
+
+        txtNuevaPregunt.setToolTipText("Ingresa la pregunta para el conocimiento seleccionado");
         pnlNuevaPregunta.add(txtNuevaPregunt);
         txtNuevaPregunt.setBounds(230, 80, 450, 30);
 
@@ -251,6 +253,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         btnCancelarPreg.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnCancelarPreg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnCancelarPreg.setText("Cancelar");
+        btnCancelarPreg.setToolTipText("Candelar para no guardar  la información");
         pnlNuevaPregunta.add(btnCancelarPreg);
         btnCancelarPreg.setBounds(390, 400, 120, 40);
 
@@ -377,7 +380,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         txtBaja.setColumns(20);
         txtBaja.setLineWrap(true);
         txtBaja.setRows(5);
-        txtBaja.setToolTipText("Ingrese su informacion ");
+        txtBaja.setToolTipText("Ingrese su informacion  cuando destreza sea baja");
         jScrollPane5.setViewportView(txtBaja);
 
         pnlCompTecPuesto.add(jScrollPane5);
@@ -461,7 +464,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         btnNuevaCompetenciaUniversal.setText("Nuevo");
         btnNuevaCompetenciaUniversal.setToolTipText("Agregar nuevas competencias universales");
         pnlCompUniv.add(btnNuevaCompetenciaUniversal);
-        btnNuevaCompetenciaUniversal.setBounds(40, 230, 100, 40);
+        btnNuevaCompetenciaUniversal.setBounds(40, 230, 110, 40);
 
         btnEditarCompetenciaUniversal.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnEditarCompetenciaUniversal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/AGENDA1.png"))); // NOI18N
@@ -473,6 +476,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         btnEliminarCompetenciaUniversal.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnEliminarCompetenciaUniversal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnEliminarCompetenciaUniversal.setText("Eliminar");
+        btnEliminarCompetenciaUniversal.setToolTipText("Eliminar destreza de competencia universal");
         pnlCompUniv.add(btnEliminarCompetenciaUniversal);
         btnEliminarCompetenciaUniversal.setBounds(260, 230, 100, 40);
 
@@ -492,12 +496,15 @@ public class PnlOperaciones extends javax.swing.JPanel {
 
         pnlCompUniv.add(jScrollPane7);
         jScrollPane7.setBounds(40, 40, 700, 180);
+
+        txtDestrezaCompUniv.setToolTipText("Ingrese la destreza");
         pnlCompUniv.add(txtDestrezaCompUniv);
         txtDestrezaCompUniv.setBounds(110, 300, 270, 30);
 
         txtMediaCompUniv.setColumns(20);
         txtMediaCompUniv.setLineWrap(true);
         txtMediaCompUniv.setRows(5);
+        txtMediaCompUniv.setToolTipText("Ingrese su información si su destreza es media");
         jScrollPane8.setViewportView(txtMediaCompUniv);
 
         pnlCompUniv.add(jScrollPane8);
@@ -506,6 +513,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         txtAltaCompUniv.setColumns(20);
         txtAltaCompUniv.setLineWrap(true);
         txtAltaCompUniv.setRows(5);
+        txtAltaCompUniv.setToolTipText("Ingrese su información si compet");
         jScrollPane9.setViewportView(txtAltaCompUniv);
 
         pnlCompUniv.add(jScrollPane9);
@@ -514,6 +522,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         txtBajaCompUniv.setColumns(20);
         txtBajaCompUniv.setLineWrap(true);
         txtBajaCompUniv.setRows(5);
+        txtBajaCompUniv.setToolTipText("Ingrese  su información si la destreza es baja");
         jScrollPane10.setViewportView(txtBajaCompUniv);
 
         pnlCompUniv.add(jScrollPane10);
@@ -553,9 +562,11 @@ public class PnlOperaciones extends javax.swing.JPanel {
         jLabel16.setBounds(230, 10, 340, 20);
 
         btnCancelarUniversales.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnCancelarUniversales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnCancelarUniversales.setText("Cancelar");
+        btnCancelarUniversales.setToolTipText("Cancelar  si no desea guardar la información");
         pnlCompUniv.add(btnCancelarUniversales);
-        btnCancelarUniversales.setBounds(410, 440, 100, 40);
+        btnCancelarUniversales.setBounds(410, 440, 110, 40);
 
         pnlCuatro.add(pnlCompUniv);
         pnlCompUniv.setBounds(180, 10, 770, 490);
@@ -616,12 +627,15 @@ public class PnlOperaciones extends javax.swing.JPanel {
         jLabel17.setText("Descripcion:");
         pnlTrabajoEquipo.add(jLabel17);
         jLabel17.setBounds(20, 300, 110, 20);
+
+        txtDescripcionTrabEq.setToolTipText("Ingrese la destreza");
         pnlTrabajoEquipo.add(txtDescripcionTrabEq);
         txtDescripcionTrabEq.setBounds(110, 300, 280, 30);
 
         txtAltaTrabEquipo.setColumns(20);
         txtAltaTrabEquipo.setLineWrap(true);
         txtAltaTrabEquipo.setRows(5);
+        txtAltaTrabEquipo.setToolTipText("Ingrese la información si la destreza es  alta");
         jScrollPane12.setViewportView(txtAltaTrabEquipo);
 
         pnlTrabajoEquipo.add(jScrollPane12);
@@ -630,6 +644,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         txtMediaTrabEquipo.setColumns(20);
         txtMediaTrabEquipo.setLineWrap(true);
         txtMediaTrabEquipo.setRows(5);
+        txtMediaTrabEquipo.setToolTipText("Ingrese si la destreza es media");
         jScrollPane13.setViewportView(txtMediaTrabEquipo);
 
         pnlTrabajoEquipo.add(jScrollPane13);
@@ -638,6 +653,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         txtBajaTrabEquipo.setColumns(20);
         txtBajaTrabEquipo.setLineWrap(true);
         txtBajaTrabEquipo.setRows(5);
+        txtBajaTrabEquipo.setToolTipText("Ingrese si la destreza  es baja");
         jScrollPane14.setViewportView(txtBajaTrabEquipo);
 
         pnlTrabajoEquipo.add(jScrollPane14);
