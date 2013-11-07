@@ -82,7 +82,7 @@ public class FrmPrincipal extends JFrame {
     }
 
     private void iniciaComponentes() {
-        this.setTitle("SPEIESS 2013");
+        this.setTitle("SISTEMA DE PLANIFICACIÓN Y EVALUACIONES DEL ÁREA DE RIESGOS DEL TRABAJO 2013");
 //        this.setLocationRelativeTo(null);
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(d);
@@ -130,7 +130,7 @@ public class FrmPrincipal extends JFrame {
         //Poniendo imagen y logo
         pnlImagen = new ImagenJPanel("zzz.jpg");
         pnlImagen.setLayout(new BorderLayout());
-        JLabel lblTitulo = new JLabel("<html><br>SPEIESS</html>", SwingConstants.CENTER);
+        JLabel lblTitulo = new JLabel("<html><br>BIENVENIDOS AL SPEIESS</html>", SwingConstants.CENTER);
         lblTitulo.setFont(new Font("Dialog", Font.BOLD, 15));
         //  JLabel lblLogo = new JLabel(new ImageIcon(cl.getResource("vista/imagenes/logo-iess.png")));
         JLabel lblCopyright = new JLabel("Copyright 2013 - Todos los derechos reservados", SwingConstants.CENTER);

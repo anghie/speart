@@ -11,6 +11,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import modelo.usuario.Usuario;
 import vista.FrmPrincipal;
+import vista.modelo.ImagenJPanel;
 import vista.modelo.Mensaje;
 
 /**
@@ -100,68 +101,88 @@ public class DialogActivarEvaluacion extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnCancelar = new javax.swing.JButton();
-        btnAceptar = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        lstParaEvaluar = new javax.swing.JList();
+        jPanel1 = new javax.swing.JPanel();
+        lblTitulo = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         lstDisponibleParaEval = new javax.swing.JList();
-        btnQuitar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
-        lblTitulo = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lstParaEvaluar = new javax.swing.JList();
+        btnCancelar = new javax.swing.JButton();
+        btnAceptar = new javax.swing.JButton();
+        btnQuitar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Activacion Evaluacion");
         getContentPane().setLayout(null);
 
+        jPanel1  = new  ImagenJPanel ("quejas.jpg");
+        jPanel1.setLayout(null);
+
+        lblTitulo.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo.setText("ACTIVACIÓN DE EVALUACIÓN");
+        jPanel1.add(lblTitulo);
+        lblTitulo.setBounds(170, 10, 250, 30);
+
+        lstDisponibleParaEval.setToolTipText("Lista de usurios de este sistema");
+        jScrollPane3.setViewportView(lstDisponibleParaEval);
+
+        jPanel1.add(jScrollPane3);
+        jScrollPane3.setBounds(30, 50, 200, 200);
+
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/1rightarrow.png"))); // NOI18N
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAgregar);
+        btnAgregar.setBounds(240, 100, 50, 31);
+
+        lstParaEvaluar.setToolTipText("Servisores activados  para el proceso de evaluación");
+        jScrollPane2.setViewportView(lstParaEvaluar);
+
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(300, 50, 200, 200);
+
+        btnCancelar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancelar);
-        btnCancelar.setBounds(260, 280, 100, 40);
+        jPanel1.add(btnCancelar);
+        btnCancelar.setBounds(450, 300, 110, 40);
 
+        btnAceptar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Select.png"))); // NOI18N
         btnAceptar.setText("Aceptar");
-        getContentPane().add(btnAceptar);
-        btnAceptar.setBounds(140, 280, 100, 40);
+        jPanel1.add(btnAceptar);
+        btnAceptar.setBounds(330, 300, 110, 40);
 
-        jScrollPane2.setViewportView(lstParaEvaluar);
-
-        getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(290, 50, 200, 200);
-
-        jScrollPane3.setViewportView(lstDisponibleParaEval);
-
-        getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(20, 50, 200, 200);
-
-        btnQuitar.setText("<");
+        btnQuitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/1leftarrow.png"))); // NOI18N
         btnQuitar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQuitarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnQuitar);
-        btnQuitar.setBounds(230, 150, 50, 27);
+        jPanel1.add(btnQuitar);
+        btnQuitar.setBounds(240, 150, 50, 31);
 
-        btnAgregar.setText(">");
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnAgregar);
-        btnAgregar.setBounds(230, 100, 50, 27);
+        jLabel3.setText("<html>Seleccione de esta lista los servidores <br>que seran activados para ser evaluados</html>\n");
+        jLabel3.setOpaque(true);
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(40, 260, 220, 50);
 
-        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("ACTIVACIÓN DE EVALUACIÓN");
-        getContentPane().add(lblTitulo);
-        lblTitulo.setBounds(160, 10, 200, 30);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 570, 350);
 
-        setSize(new java.awt.Dimension(525, 369));
-        setLocationRelativeTo(null);
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-583)/2, (screenSize.height-386)/2, 583, 386);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -198,6 +219,8 @@ public class DialogActivarEvaluacion extends javax.swing.JDialog {
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnQuitar;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblTitulo;

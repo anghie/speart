@@ -11,6 +11,7 @@ import java.util.Calendar;
 import javax.swing.JOptionPane;
 import modelo.recordatorio.Recordatorio;
 import vista.modelo.Calendario;
+import vista.modelo.ImagenJPanel;
 import vista.modelo.Mensaje;
 
 /**
@@ -65,92 +66,109 @@ public class DialogoCreaRecordatorio extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnGuardar = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
-        scrollDescripcion = new javax.swing.JScrollPane();
-        txtDescripcion = new javax.swing.JTextArea();
-        lblDescripcion = new javax.swing.JLabel();
-        lblEvento = new javax.swing.JLabel();
-        txtEvento = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        lblFecha = new javax.swing.JLabel();
+        txtFecha = new javax.swing.JLabel();
         lblHora = new javax.swing.JLabel();
         spHora = new javax.swing.JSpinner();
-        LblSep = new javax.swing.JLabel();
         spMinuto = new javax.swing.JSpinner();
+        LblSep = new javax.swing.JLabel();
         lblRecordar = new javax.swing.JLabel();
         cbRecord = new javax.swing.JComboBox();
-        txtFecha = new javax.swing.JLabel();
-        lblFecha = new javax.swing.JLabel();
+        txtEvento = new javax.swing.JTextField();
+        lblEvento = new javax.swing.JLabel();
+        lblDescripcion = new javax.swing.JLabel();
+        scrollDescripcion = new javax.swing.JScrollPane();
+        txtDescripcion = new javax.swing.JTextArea();
+        btnCancelar = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        btnGuardar.setText("Guardar");
-        getContentPane().add(btnGuardar);
-        btnGuardar.setBounds(130, 253, 110, 30);
+        jPanel1  = new  ImagenJPanel ("quejas.jpg");
+        jPanel1.setLayout(null);
 
-        btnCancelar.setText("Cancelar");
-        getContentPane().add(btnCancelar);
-        btnCancelar.setBounds(250, 253, 110, 30);
+        lblFecha.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        lblFecha.setText("Fecha :");
+        jPanel1.add(lblFecha);
+        lblFecha.setBounds(20, 10, 90, 30);
+
+        txtFecha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.add(txtFecha);
+        txtFecha.setBounds(80, 10, 390, 30);
+
+        lblHora.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        lblHora.setText("  Hora:");
+        jPanel1.add(lblHora);
+        lblHora.setBounds(10, 40, 90, 30);
+
+        spHora.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
+        jPanel1.add(spHora);
+        spHora.setBounds(80, 40, 50, 30);
+
+        spMinuto.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        jPanel1.add(spMinuto);
+        spMinuto.setBounds(160, 40, 50, 30);
+
+        LblSep.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        LblSep.setText("  :");
+        jPanel1.add(LblSep);
+        LblSep.setBounds(130, 40, 20, 30);
+
+        lblRecordar.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        lblRecordar.setText("Recordar:");
+        jPanel1.add(lblRecordar);
+        lblRecordar.setBounds(230, 40, 90, 30);
+
+        cbRecord.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "5 min antes", "10 min antes", "30 min antes", "1 hora antes" }));
+        jPanel1.add(cbRecord);
+        cbRecord.setBounds(300, 40, 170, 30);
+        jPanel1.add(txtEvento);
+        txtEvento.setBounds(80, 70, 390, 30);
+
+        lblEvento.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        lblEvento.setText(" Evento:");
+        jPanel1.add(lblEvento);
+        lblEvento.setBounds(10, 70, 70, 30);
+
+        lblDescripcion.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        lblDescripcion.setText(" Descripcion:");
+        jPanel1.add(lblDescripcion);
+        lblDescripcion.setBounds(10, 100, 110, 30);
 
         txtDescripcion.setColumns(20);
         txtDescripcion.setLineWrap(true);
         txtDescripcion.setRows(5);
         scrollDescripcion.setViewportView(txtDescripcion);
 
-        getContentPane().add(scrollDescripcion);
-        scrollDescripcion.setBounds(20, 137, 460, 110);
+        jPanel1.add(scrollDescripcion);
+        scrollDescripcion.setBounds(10, 120, 460, 110);
 
-        lblDescripcion.setText(" Descripcion:");
-        getContentPane().add(lblDescripcion);
-        lblDescripcion.setBounds(20, 110, 110, 30);
+        btnCancelar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/button_cancel.png"))); // NOI18N
+        btnCancelar.setText("Cancelar");
+        jPanel1.add(btnCancelar);
+        btnCancelar.setBounds(250, 250, 110, 30);
 
-        lblEvento.setText(" Evento:");
-        getContentPane().add(lblEvento);
-        lblEvento.setBounds(20, 80, 70, 30);
-        getContentPane().add(txtEvento);
-        txtEvento.setBounds(90, 80, 390, 30);
+        btnGuardar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
+        btnGuardar.setText("Guardar");
+        jPanel1.add(btnGuardar);
+        btnGuardar.setBounds(130, 250, 110, 30);
 
-        lblHora.setText("  Hora:");
-        getContentPane().add(lblHora);
-        lblHora.setBounds(20, 50, 90, 30);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 510, 310);
 
-        spHora.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
-        getContentPane().add(spHora);
-        spHora.setBounds(90, 50, 50, 30);
-
-        LblSep.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        LblSep.setText("  :");
-        getContentPane().add(LblSep);
-        LblSep.setBounds(140, 50, 20, 30);
-
-        spMinuto.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
-        getContentPane().add(spMinuto);
-        spMinuto.setBounds(170, 50, 50, 30);
-
-        lblRecordar.setText("Recordar:");
-        getContentPane().add(lblRecordar);
-        lblRecordar.setBounds(240, 53, 90, 30);
-
-        cbRecord.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "5 min antes", "10 min antes", "30 min antes", "1 hora antes" }));
-        getContentPane().add(cbRecord);
-        cbRecord.setBounds(310, 50, 170, 30);
-
-        txtFecha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(txtFecha);
-        txtFecha.setBounds(90, 20, 390, 30);
-
-        lblFecha.setText("Fecha :");
-        getContentPane().add(lblFecha);
-        lblFecha.setBounds(30, 20, 90, 30);
-
-        setSize(new java.awt.Dimension(521, 326));
-        setLocationRelativeTo(null);
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-526)/2, (screenSize.height-351)/2, 526, 351);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LblSep;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JComboBox cbRecord;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblEvento;
     private javax.swing.JLabel lblFecha;

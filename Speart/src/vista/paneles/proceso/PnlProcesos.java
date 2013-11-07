@@ -77,6 +77,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         pnlAddProceso = new javax.swing.JPanel();
         btnNuevoProceso = new javax.swing.JButton();
         cbProcesos = new javax.swing.JComboBox();
+        jLabel2 = new javax.swing.JLabel();
         pnlDos = new javax.swing.JPanel();
         pnlListaProcesos = new javax.swing.JPanel();
         txtBuscar = new javax.swing.JTextField();
@@ -88,73 +89,95 @@ public class PnlProcesos extends javax.swing.JPanel {
         lblProceso = new javax.swing.JLabel();
         btnEliminarActividad = new javax.swing.JButton();
         btnEditarActividad = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
+        tabbedProcesos.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+
         pnlUno  = new  ImagenJPanel ("zzz.jpg");
+        pnlUno.setLayout(null);
 
         pnlProcesos.setOpaque(false);
         pnlProcesos.setPreferredSize(new java.awt.Dimension(670, 450));
         pnlProcesos.setLayout(null);
 
-        pnlAddActiv.setBorder(javax.swing.BorderFactory.createTitledBorder("ACTIVIDAD"));
+        pnlAddActiv.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 255), 2), "Actividades", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB", 0, 18), new java.awt.Color(0, 0, 102))); // NOI18N
         pnlAddActiv.setOpaque(false);
         pnlAddActiv.setPreferredSize(new java.awt.Dimension(650, 250));
         pnlAddActiv.setLayout(null);
 
+        lblPuestoResponsable.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblPuestoResponsable.setText("   Puesto Responsable:");
         pnlAddActiv.add(lblPuestoResponsable);
         lblPuestoResponsable.setBounds(10, 140, 160, 30);
 
+        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel3.setText("Tipo:");
         pnlAddActiv.add(jLabel3);
         jLabel3.setBounds(390, 140, 50, 30);
+
+        txtNombreActividad.setToolTipText("Ingrese el nombre de la actividad");
         pnlAddActiv.add(txtNombreActividad);
         txtNombreActividad.setBounds(160, 30, 470, 30);
 
+        lblNombre.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblNombre.setText("Nombre:");
         pnlAddActiv.add(lblNombre);
         lblNombre.setBounds(80, 30, 90, 30);
 
+        cbTipo.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         cbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ADMINISTRATIVA", "TECNICA", "PROFESIONAL", "DIRECCION", "DE SERVICIO" }));
+        cbTipo.setToolTipText("Seleccione el tipo de actividad q ha ingresado");
         pnlAddActiv.add(cbTipo);
         cbTipo.setBounds(440, 140, 190, 30);
 
+        btnGuardarActividad.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnGuardarActividad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnGuardarActividad.setText("Guardar");
         btnGuardarActividad.setToolTipText("Guardar informacion del proceso");
         pnlAddActiv.add(btnGuardarActividad);
-        btnGuardarActividad.setBounds(280, 190, 110, 40);
+        btnGuardarActividad.setBounds(280, 190, 120, 40);
+
+        cbPuesto.setToolTipText("Elija a que puesto pertenecera la actividad ingresada");
         pnlAddActiv.add(cbPuesto);
         cbPuesto.setBounds(160, 140, 200, 30);
 
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel1.setText("  Descripcion:   ");
         pnlAddActiv.add(jLabel1);
-        jLabel1.setBounds(60, 80, 73, 14);
+        jLabel1.setBounds(60, 90, 90, 16);
 
         txtDescripcion.setColumns(20);
         txtDescripcion.setRows(5);
+        txtDescripcion.setToolTipText("Ingrese la descripcion de la actividad que ha sido ingresada");
         jScrollPane2.setViewportView(txtDescripcion);
 
         pnlAddActiv.add(jScrollPane2);
         jScrollPane2.setBounds(160, 70, 470, 60);
 
+        btnCancelar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/button_cancel.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
+        btnCancelar.setToolTipText("Cancelar si desea salir sin guardar");
         pnlAddActiv.add(btnCancelar);
         btnCancelar.setBounds(400, 190, 110, 40);
 
         pnlProcesos.add(pnlAddActiv);
         pnlAddActiv.setBounds(10, 130, 650, 270);
 
-        pnlAddProceso.setBorder(javax.swing.BorderFactory.createTitledBorder("PROCESO"));
+        pnlAddProceso.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 255), 2), "Procesos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB", 0, 18), new java.awt.Color(0, 0, 102))); // NOI18N
         pnlAddProceso.setPreferredSize(new java.awt.Dimension(650, 70));
         pnlAddProceso.setLayout(null);
 
+        btnNuevoProceso.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnNuevoProceso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Edit.png"))); // NOI18N
         btnNuevoProceso.setText("Nuevo");
         btnNuevoProceso.setToolTipText("Ingresar un nuevo proceso");
         pnlAddProceso.add(btnNuevoProceso);
-        btnNuevoProceso.setBounds(520, 20, 100, 40);
+        btnNuevoProceso.setBounds(520, 20, 110, 40);
+
+        cbProcesos.setToolTipText("Nuevos procesos");
         pnlAddProceso.add(cbProcesos);
         cbProcesos.setBounds(20, 25, 460, 30);
 
@@ -162,21 +185,32 @@ public class PnlProcesos extends javax.swing.JPanel {
         pnlAddProceso.setBounds(10, 40, 650, 70);
 
         pnlUno.add(pnlProcesos);
+        pnlProcesos.setBounds(163, 5, 670, 450);
+
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel2.setText("<html> Este módulo permite realizar el ingreso de<br> procesos,  aquí el Administrador podrá<br> realizar las siguientes tareas: <br>\nIngresar, actualizar o eliminar procesos<br> con sus respectivas actividades,  <br>además le admitirá  seleccionar a que puesto<br> responsable se le agregara la actividad ingresada.</html>\n");
+        pnlUno.add(jLabel2);
+        jLabel2.setBounds(10, 200, 150, 280);
 
         tabbedProcesos.addTab("NUEVO PROCESO", pnlUno);
 
+        pnlDos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255)));
         pnlDos  = new  ImagenJPanel ("zzz.jpg");
+        pnlDos.setLayout(null);
 
+        pnlListaProcesos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255)));
         pnlListaProcesos.setOpaque(false);
         pnlListaProcesos.setPreferredSize(new java.awt.Dimension(680, 380));
         pnlListaProcesos.setLayout(null);
         pnlListaProcesos.add(txtBuscar);
         txtBuscar.setBounds(390, 260, 270, 30);
 
+        lblBuscar.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblBuscar.setText("Buscar:");
         pnlListaProcesos.add(lblBuscar);
         lblBuscar.setBounds(320, 260, 70, 30);
 
+        tblActividades.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255), 2));
         tblActividades.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -195,22 +229,26 @@ public class PnlProcesos extends javax.swing.JPanel {
         pnlListaProcesos.add(cbProcesosLista);
         cbProcesosLista.setBounds(120, 20, 340, 30);
 
+        btnEditarProceso.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnEditarProceso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/AGENDA1.png"))); // NOI18N
         btnEditarProceso.setText("Editar Proceso");
         btnEditarProceso.setToolTipText("Actualizar informcion del proceso");
         pnlListaProcesos.add(btnEditarProceso);
-        btnEditarProceso.setBounds(470, 20, 137, 30);
+        btnEditarProceso.setBounds(470, 20, 140, 30);
 
+        lblProceso.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblProceso.setText("Proceso:");
         pnlListaProcesos.add(lblProceso);
         lblProceso.setBounds(50, 20, 110, 30);
 
+        btnEliminarActividad.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnEliminarActividad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnEliminarActividad.setText("Eliminar");
         btnEliminarActividad.setToolTipText("Quitar actividades del sistema");
         pnlListaProcesos.add(btnEliminarActividad);
         btnEliminarActividad.setBounds(150, 260, 100, 40);
 
+        btnEditarActividad.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnEditarActividad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/AGENDA1.png"))); // NOI18N
         btnEditarActividad.setText("Editar");
         btnEditarActividad.setToolTipText("Actualizar informacion de actividad");
@@ -218,6 +256,12 @@ public class PnlProcesos extends javax.swing.JPanel {
         btnEditarActividad.setBounds(40, 260, 100, 40);
 
         pnlDos.add(pnlListaProcesos);
+        pnlListaProcesos.setBounds(158, 6, 680, 380);
+
+        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel4.setText("<html>Para editar un proceso seleccione de la caja <br> el \"Proceso \"  para actualizar su nombre  <br>y elija  siempre de esta tabla<br> la actividad para poder modificar o eliminar su información  </html>\n\n");
+        pnlDos.add(jLabel4);
+        jLabel4.setBounds(10, 130, 140, 260);
 
         tabbedProcesos.addTab("LISTA PROCESOS", pnlDos);
 
@@ -236,7 +280,9 @@ public class PnlProcesos extends javax.swing.JPanel {
     private javax.swing.JComboBox cbTipo;
     private javax.swing.ButtonGroup grupoBotones;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblBuscar;

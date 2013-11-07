@@ -6,6 +6,7 @@ package vista.paneles.usuario;
 
 import controlador.acciones.ControladorPrincipal;
 import javax.swing.JOptionPane;
+import vista.modelo.ImagenJPanel;
 
 /**
  *
@@ -40,69 +41,69 @@ public class DialogCambiaClave extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblClaveInterior = new javax.swing.JLabel();
-        lblClaveNueva = new javax.swing.JLabel();
-        lblConfirmClave = new javax.swing.JLabel();
-        btnCambiar = new javax.swing.JButton();
-        txtComfirClave = new javax.swing.JPasswordField();
-        txtClaveAnterior = new javax.swing.JPasswordField();
-        txtClaveNueva = new javax.swing.JPasswordField();
+        jPanel1 = new javax.swing.JPanel();
+        lblClaveInterior1 = new javax.swing.JLabel();
+        txtClaveAnterior1 = new javax.swing.JPasswordField();
+        lblClaveNueva1 = new javax.swing.JLabel();
+        txtClaveNueva1 = new javax.swing.JPasswordField();
+        lblConfirmClave1 = new javax.swing.JLabel();
+        txtComfirClave1 = new javax.swing.JPasswordField();
+        btnCambiar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        lblClaveInterior.setText(" Clave anterior:");
-        getContentPane().add(lblClaveInterior);
-        lblClaveInterior.setBounds(20, 30, 120, 30);
+        jPanel1 = new  ImagenJPanel ("cambioclave.jpg");
+        jPanel1.setLayout(null);
 
-        lblClaveNueva.setText(" Clave nueva:");
-        getContentPane().add(lblClaveNueva);
-        lblClaveNueva.setBounds(30, 70, 110, 30);
+        lblClaveInterior1.setText(" Clave anterior:");
+        jPanel1.add(lblClaveInterior1);
+        lblClaveInterior1.setBounds(20, 30, 120, 30);
+        jPanel1.add(txtClaveAnterior1);
+        txtClaveAnterior1.setBounds(140, 30, 220, 30);
 
-        lblConfirmClave.setText("Confirme clave:");
-        getContentPane().add(lblConfirmClave);
-        lblConfirmClave.setBounds(20, 110, 140, 30);
+        lblClaveNueva1.setText(" Clave nueva:");
+        jPanel1.add(lblClaveNueva1);
+        lblClaveNueva1.setBounds(30, 70, 110, 30);
+        jPanel1.add(txtClaveNueva1);
+        txtClaveNueva1.setBounds(140, 70, 220, 30);
 
-        btnCambiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/kword.png"))); // NOI18N
-        btnCambiar.setText("Cambiar");
-        btnCambiar.setToolTipText("Actualizar clave");
-        btnCambiar.addActionListener(new java.awt.event.ActionListener() {
+        lblConfirmClave1.setText("Confirme clave:");
+        jPanel1.add(lblConfirmClave1);
+        lblConfirmClave1.setBounds(20, 110, 140, 30);
+        jPanel1.add(txtComfirClave1);
+        txtComfirClave1.setBounds(140, 110, 220, 30);
+
+        btnCambiar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/kword.png"))); // NOI18N
+        btnCambiar1.setText("Cambiar");
+        btnCambiar1.setToolTipText("Actualizar clave");
+        btnCambiar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCambiarActionPerformed(evt);
+                btnCambiar1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCambiar);
-        btnCambiar.setBounds(150, 160, 110, 40);
-        getContentPane().add(txtComfirClave);
-        txtComfirClave.setBounds(140, 110, 220, 30);
-        getContentPane().add(txtClaveAnterior);
-        txtClaveAnterior.setBounds(140, 30, 220, 30);
-        getContentPane().add(txtClaveNueva);
-        txtClaveNueva.setBounds(140, 70, 220, 30);
+        jPanel1.add(btnCambiar1);
+        btnCambiar1.setBounds(150, 160, 110, 40);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 470, 230);
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-396)/2, (screenSize.height-241)/2, 396, 241);
+        setBounds((screenSize.width-490)/2, (screenSize.height-266)/2, 490, 266);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarActionPerformed
-        if (ControladorPrincipal.verificaClave(String.valueOf(txtClaveAnterior.getPassword()))) {
-            if (String.valueOf(txtClaveNueva.getPassword()).equals(String.valueOf(txtComfirClave.getPassword()))) {
-                ControladorPrincipal.cambiaClave(String.valueOf(txtClaveNueva.getPassword()));
-                dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "Claves no coinciden");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Clave anterior no es valida");
-        }
-    }//GEN-LAST:event_btnCambiarActionPerformed
+    private void btnCambiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCambiar1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCambiar;
-    private javax.swing.JLabel lblClaveInterior;
-    private javax.swing.JLabel lblClaveNueva;
-    private javax.swing.JLabel lblConfirmClave;
-    private javax.swing.JPasswordField txtClaveAnterior;
-    private javax.swing.JPasswordField txtClaveNueva;
-    private javax.swing.JPasswordField txtComfirClave;
+    private javax.swing.JButton btnCambiar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblClaveInterior1;
+    private javax.swing.JLabel lblClaveNueva1;
+    private javax.swing.JLabel lblConfirmClave1;
+    private javax.swing.JPasswordField txtClaveAnterior1;
+    private javax.swing.JPasswordField txtClaveNueva1;
+    private javax.swing.JPasswordField txtComfirClave1;
     // End of variables declaration//GEN-END:variables
 }

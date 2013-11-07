@@ -39,6 +39,7 @@ public class DialogLogin extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel5 = new javax.swing.JLabel();
         lblClave = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
@@ -48,8 +49,13 @@ public class DialogLogin extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+
+        jLabel5.setText("jLabel5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         lblClave.setText("   Clave:");
@@ -90,7 +96,7 @@ public class DialogLogin extends javax.swing.JDialog {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/USUARIO.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 340, 90);
+        jLabel1.setBounds(0, 0, 346, 90);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/llave.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
@@ -100,8 +106,16 @@ public class DialogLogin extends javax.swing.JDialog {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(20, 100, 30, 30);
 
-        setSize(new java.awt.Dimension(360, 252));
-        setLocationRelativeTo(null);
+        jLabel4.setText("<html>NUNCA: entregue sus datos personales,<br>usuario, clave de acceso<br>\npor cualquier medio ya sea correo <br>elefctronico, mensajes de celular, <br>mensajeria instanatnea,\nteelefono, pagina web u otro,<br> el usuario y las claves son secretas>");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(330, 100, 200, 100);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/clave.jpg"))); // NOI18N
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(360, 0, 150, 90);
+
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-526)/2, (screenSize.height-226)/2, 526, 226);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
@@ -151,6 +165,9 @@ public class DialogLogin extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lblClave;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JPasswordField txtClave;

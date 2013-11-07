@@ -60,31 +60,37 @@ public class DialogUsuarios extends javax.swing.JDialog {
         getContentPane().add(cbUsuarios);
         cbUsuarios.setBounds(20, 50, 380, 30);
 
-        lblMensaje.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
+        lblMensaje.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblMensaje.setText("Escoja el servidor al que desea pasar las actividades:");
         getContentPane().add(lblMensaje);
         lblMensaje.setBounds(30, 10, 390, 30);
 
+        btnCancelar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
+        btnCancelar.setToolTipText("Cancelar para salir ");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
         getContentPane().add(btnCancelar);
-        btnCancelar.setBounds(220, 90, 90, 40);
+        btnCancelar.setBounds(220, 90, 110, 40);
 
+        btnAceptar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Select.png"))); // NOI18N
         btnAceptar.setText("Aceptar");
+        btnAceptar.setToolTipText("Aceptar para actualizar la información");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
             }
         });
         getContentPane().add(btnAceptar);
-        btnAceptar.setBounds(110, 90, 90, 40);
+        btnAceptar.setBounds(90, 90, 110, 40);
 
-        setSize(new java.awt.Dimension(444, 186));
-        setLocationRelativeTo(null);
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-442)/2, (screenSize.height-186)/2, 442, 186);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed

@@ -64,41 +64,48 @@ public class DialogConocUsuario extends javax.swing.JDialog {
         btnCerrar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jPanel1  = new  ImagenJPanel ("images.jpg");
+        jPanel1  = new  ImagenJPanel ("quejas.jpg");
         jPanel1.setLayout(null);
 
+        lstConocimientosDisp.setToolTipText("lista de conocimietos ingresados");
         scrollDisponibles.setViewportView(lstConocimientosDisp);
 
         jPanel1.add(scrollDisponibles);
         scrollDisponibles.setBounds(20, 40, 310, 180);
 
+        lstConocimientosAsignados.setToolTipText("conocimientos agregados ");
         scrollAsignadas.setViewportView(lstConocimientosAsignados);
 
         jPanel1.add(scrollAsignadas);
         scrollAsignadas.setBounds(450, 40, 310, 180);
 
+        btnAgregarConocimiento.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnAgregarConocimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/list-add.png"))); // NOI18N
         btnAgregarConocimiento.setText("Agregar");
         btnAgregarConocimiento.setToolTipText("Agregar Conocimientos");
         jPanel1.add(btnAgregarConocimiento);
         btnAgregarConocimiento.setBounds(330, 60, 100, 30);
 
+        btnQuitarConocimiento.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnQuitarConocimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnQuitarConocimiento.setText("Quitar");
         btnQuitarConocimiento.setToolTipText("Quitar Conocimientos de conocimientos agregados ");
         jPanel1.add(btnQuitarConocimiento);
         btnQuitarConocimiento.setBounds(330, 110, 100, 30);
 
+        btnAceptar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/acepta.png"))); // NOI18N
         btnAceptar.setText("Aceptar");
         btnAceptar.setToolTipText("Guardar Conocimientos");
         jPanel1.add(btnAceptar);
         btnAceptar.setBounds(520, 240, 110, 40);
 
+        btnCerrar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/exit.png"))); // NOI18N
         btnCerrar.setText("Cerrar");
         btnCerrar.setToolTipText("Salir sin Guardar Conocmientos");
@@ -110,15 +117,20 @@ public class DialogConocUsuario extends javax.swing.JDialog {
         jPanel1.add(btnCerrar);
         btnCerrar.setBounds(630, 240, 110, 40);
 
-        jLabel2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel2.setText("Conocimientos a agregar:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(20, 20, 180, 16);
+        jLabel2.setBounds(20, 20, 200, 21);
 
-        jLabel1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel1.setText("Conocimientos agregados");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(460, 20, 180, 16);
+        jLabel1.setBounds(460, 20, 200, 21);
+
+        jLabel3.setText("<html>Seleccione de esta lista los conocimientos <br>que seran agregados al usuario o servidor seleccionado</html>");
+        jLabel3.setOpaque(true);
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(30, 230, 250, 50);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 760, 300);
@@ -138,6 +150,7 @@ public class DialogConocUsuario extends javax.swing.JDialog {
     private javax.swing.JButton btnQuitarConocimiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JList lstConocimientosAsignados;
     private javax.swing.JList lstConocimientosDisp;

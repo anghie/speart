@@ -90,6 +90,7 @@ public class DialogoCalendarioRecor extends javax.swing.JDialog {
         pnlCalendario.add(lblTxtFecha);
         lblTxtFecha.setBounds(110, 300, 120, 40);
 
+        tblDiasMes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 255), 2));
         tblDiasMes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -148,6 +149,8 @@ public class DialogoCalendarioRecor extends javax.swing.JDialog {
         pnlCalendario.add(lblFecha);
         lblFecha.setBounds(220, 300, 240, 40);
 
+        btnCerrar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/button_cancel.png"))); // NOI18N
         btnCerrar.setText("Cerrar");
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,8 +162,8 @@ public class DialogoCalendarioRecor extends javax.swing.JDialog {
 
         getContentPane().add(pnlCalendario);
 
-        setSize(new java.awt.Dimension(736, 441));
-        setLocationRelativeTo(null);
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-736)/2, (screenSize.height-441)/2, 736, 441);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed

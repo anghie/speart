@@ -63,11 +63,12 @@ public class DialogCompetTecnica extends javax.swing.JDialog {
         btnCerrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jPanel1  = new  ImagenJPanel ("images.jpg");
+        jPanel1  = new  ImagenJPanel ("quejas.jpg");
         jPanel1.setLayout(null);
 
         scrollDisponibles.setViewportView(lstDestrezasDisponibles);
@@ -80,24 +81,31 @@ public class DialogCompetTecnica extends javax.swing.JDialog {
         jPanel1.add(scrollAsignadas);
         scrollAsignadas.setBounds(430, 40, 310, 180);
 
+        btnAgregarDestreza.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnAgregarDestreza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/list-add.png"))); // NOI18N
         btnAgregarDestreza.setText("Agregar");
         btnAgregarDestreza.setToolTipText("Agregar Competencias Tecnicas");
         jPanel1.add(btnAgregarDestreza);
-        btnAgregarDestreza.setBounds(330, 50, 97, 30);
+        btnAgregarDestreza.setBounds(330, 50, 99, 30);
 
-        btnQuitarDestreza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
+        btnQuitarDestreza.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnQuitarDestreza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/regresar.png"))); // NOI18N
         btnQuitarDestreza.setText("Quitar");
+        btnQuitarDestreza.setToolTipText("Quitar competencia");
         jPanel1.add(btnQuitarDestreza);
-        btnQuitarDestreza.setBounds(330, 100, 90, 30);
+        btnQuitarDestreza.setBounds(330, 100, 100, 30);
 
+        btnAceptar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/acepta.png"))); // NOI18N
         btnAceptar.setText("Aceptar");
+        btnAceptar.setToolTipText("Aceptar para guardar la información ");
         jPanel1.add(btnAceptar);
         btnAceptar.setBounds(520, 240, 110, 40);
 
+        btnCerrar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/exit.png"))); // NOI18N
         btnCerrar.setText("Cerrar");
+        btnCerrar.setToolTipText("Cancelar para salir sin guardar");
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCerrarActionPerformed(evt);
@@ -106,21 +114,26 @@ public class DialogCompetTecnica extends javax.swing.JDialog {
         jPanel1.add(btnCerrar);
         btnCerrar.setBounds(630, 240, 110, 40);
 
-        jLabel1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel1.setText("Competencias Tecnicas agregadas");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(460, 20, 230, 16);
+        jLabel1.setBounds(460, 20, 260, 21);
 
-        jLabel2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel2.setText("Competencias Tecnicas a agregar:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(20, 20, 240, 16);
+        jLabel2.setBounds(20, 20, 270, 21);
+
+        jLabel3.setText("<html>Seleccione de esta lista las destrzas <br>que seran agregadas al usuario o servidor seleccionado</html>");
+        jLabel3.setOpaque(true);
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(30, 230, 250, 50);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 750, 280);
+        jPanel1.setBounds(0, 0, 750, 310);
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-762)/2, (screenSize.height-320)/2, 762, 320);
+        setBounds((screenSize.width-762)/2, (screenSize.height-345)/2, 762, 345);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
@@ -134,6 +147,7 @@ public class DialogCompetTecnica extends javax.swing.JDialog {
     private javax.swing.JButton btnQuitarDestreza;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JList lstDestrezasAsignadas;
     private javax.swing.JList lstDestrezasDisponibles;

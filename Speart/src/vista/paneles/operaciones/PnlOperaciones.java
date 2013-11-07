@@ -100,6 +100,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         btnNuevaSeccion = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         btnCancelarPreg = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         pnlDos = new javax.swing.JPanel();
         pnlListaPregunta = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -109,6 +110,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         tblPreguntas = new javax.swing.JTable();
         btnEliminar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
         pnlTres = new javax.swing.JPanel();
         pnlCompTecPuesto = new javax.swing.JPanel();
         txtDestreza = new javax.swing.JTextField();
@@ -130,6 +132,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         btnNuevaCompetencia = new javax.swing.JButton();
         btnEditarCompetencias = new javax.swing.JButton();
         btnCancelarTecnicas = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
         pnlCuatro = new javax.swing.JPanel();
         pnlCompUniv = new javax.swing.JPanel();
         btnNuevaCompetenciaUniversal = new javax.swing.JButton();
@@ -151,6 +154,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         btnCancelarUniversales = new javax.swing.JButton();
+        jLabel24 = new javax.swing.JLabel();
         pnlCinco = new javax.swing.JPanel();
         pnlTrabajoEquipo = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
@@ -172,21 +176,27 @@ public class PnlOperaciones extends javax.swing.JPanel {
         btnGuardarTrabEquipo = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         btnCancelarTrabajo = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
+        tabbedOperaciones.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+
         pnlUno  = new  ImagenJPanel ("zzz.jpg");
+        pnlUno.setLayout(null);
 
         pnlNuevaPregunta.setOpaque(false);
         pnlNuevaPregunta.setPreferredSize(new java.awt.Dimension(760, 450));
         pnlNuevaPregunta.setLayout(null);
 
+        lblNuevaPreg.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblNuevaPreg.setText("  Ingrese la nueva pregunta:");
         pnlNuevaPregunta.add(lblNuevaPreg);
         lblNuevaPreg.setBounds(30, 80, 200, 30);
         pnlNuevaPregunta.add(txtNuevaPregunt);
         txtNuevaPregunt.setBounds(230, 80, 450, 30);
 
+        lblNroResp.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblNroResp.setText("Escoja el nro de respuestas:");
         pnlNuevaPregunta.add(lblNroResp);
         lblNroResp.setBounds(30, 120, 200, 30);
@@ -195,70 +205,87 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlNuevaPregunta.add(spNroPreg);
         spNroPreg.setBounds(230, 120, 80, 30);
 
+        btnGuardarPregunta.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnGuardarPregunta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnGuardarPregunta.setText("Guardar");
         btnGuardarPregunta.setToolTipText("Guardar informacion de test ");
         pnlNuevaPregunta.add(btnGuardarPregunta);
-        btnGuardarPregunta.setBounds(270, 400, 110, 40);
+        btnGuardarPregunta.setBounds(270, 400, 120, 40);
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        pnlRespuestas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255), 2));
         pnlRespuestas.setLayout(new java.awt.GridLayout(5, 0));
         jScrollPane1.setViewportView(pnlRespuestas);
 
         pnlNuevaPregunta.add(jScrollPane1);
         jScrollPane1.setBounds(30, 160, 710, 220);
 
+        btnAplicar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnAplicar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/add.png"))); // NOI18N
         btnAplicar.setText("Aplicar");
         btnAplicar.setToolTipText("Ingresar las respuestas a la pregunta");
         pnlNuevaPregunta.add(btnAplicar);
         btnAplicar.setBounds(320, 110, 100, 40);
 
+        lblEscogerSeccion.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblEscogerSeccion.setText("                Escoja Seccion:");
         pnlNuevaPregunta.add(lblEscogerSeccion);
         lblEscogerSeccion.setBounds(40, 43, 190, 30);
         pnlNuevaPregunta.add(cbSeccion);
         cbSeccion.setBounds(230, 40, 360, 30);
 
+        btnNuevaSeccion.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnNuevaSeccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Edit.png"))); // NOI18N
         btnNuevaSeccion.setText("Nueva");
         btnNuevaSeccion.setToolTipText("Ingresar nueva seccion");
         pnlNuevaPregunta.add(btnNuevaSeccion);
-        btnNuevaSeccion.setBounds(591, 40, 100, 30);
+        btnNuevaSeccion.setBounds(591, 40, 110, 30);
 
-        jLabel6.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("AGREGAR NUEVA PREGUNTA");
         pnlNuevaPregunta.add(jLabel6);
         jLabel6.setBounds(230, 0, 280, 30);
 
+        btnCancelarPreg.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnCancelarPreg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnCancelarPreg.setText("Cancelar");
         pnlNuevaPregunta.add(btnCancelarPreg);
         btnCancelarPreg.setBounds(390, 400, 120, 40);
 
         pnlUno.add(pnlNuevaPregunta);
+        pnlNuevaPregunta.setBounds(210, 10, 760, 450);
+
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel2.setText("<html> Este módulo permite realizar el ingreso de<br> de secciones, Competencias Tecnicas,<br> Comptencias Universales y Destrezas de Trabajo,<br> Iniciativa y Liderazgo  aquí el Administrador podrá<br> realizar las siguientes tareas: <br>\nIngresar preguntas, actualizar sección, eliminar preguntas<br>ingresar, actualizar y eliminar competencia Tecnica  <br>ingresar, actualizar y eliminar  Competencia Universal <br> ingresar, actualizar y eliminar destreza  de Trabajo iniciativa y liderazgo </html>\n");
+        pnlUno.add(jLabel2);
+        jLabel2.setBounds(10, 170, 170, 330);
 
         tabbedOperaciones.addTab("NUEVA PREGUNTA", pnlUno);
 
         pnlDos  = new  ImagenJPanel ("zzz.jpg");
+        pnlDos.setLayout(null);
 
         pnlListaPregunta.setOpaque(false);
         pnlListaPregunta.setPreferredSize(new java.awt.Dimension(760, 350));
         pnlListaPregunta.setLayout(null);
 
+        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel4.setText("Seccion:");
         pnlListaPregunta.add(jLabel4);
         jLabel4.setBounds(40, 70, 110, 30);
         pnlListaPregunta.add(cbSeccionLstPreg);
         cbSeccionLstPreg.setBounds(110, 70, 380, 30);
 
+        btnEditarSeccion.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnEditarSeccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/AGENDA1.png"))); // NOI18N
         btnEditarSeccion.setText("Editar Sección");
         btnEditarSeccion.setToolTipText("Actualizar seccion");
         pnlListaPregunta.add(btnEditarSeccion);
         btnEditarSeccion.setBounds(500, 70, 140, 30);
 
+        tblPreguntas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 102, 255), 2));
         tblPreguntas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -275,34 +302,46 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlListaPregunta.add(jScrollPane2);
         jScrollPane2.setBounds(40, 110, 590, 220);
 
+        btnEliminar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.setToolTipText("Quitar pregunta/as de la seccion");
         pnlListaPregunta.add(btnEliminar);
         btnEliminar.setBounds(630, 110, 110, 40);
 
-        jLabel5.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("LISTA DE PREGUNTAS");
         pnlListaPregunta.add(jLabel5);
         jLabel5.setBounds(240, 0, 280, 30);
 
         pnlDos.add(pnlListaPregunta);
+        pnlListaPregunta.setBounds(143, 5, 760, 350);
+
+        jLabel22.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel22.setText("<html>Para editar una sección seleccione de la caja <br> el \"Seción \"  para actualizar su nombre  <br>y elija  siempre de esta tabla<br> la/s pregunta/s para poder eliminar su información correspondiente  </html>\n\n");
+        pnlDos.add(jLabel22);
+        jLabel22.setBounds(10, 130, 140, 260);
 
         tabbedOperaciones.addTab("LISTA PREGUNTAS", pnlDos);
 
         pnlTres  = new  ImagenJPanel ("zzz.jpg");
+        pnlTres.setLayout(null);
 
         pnlCompTecPuesto.setOpaque(false);
         pnlCompTecPuesto.setPreferredSize(new java.awt.Dimension(770, 490));
         pnlCompTecPuesto.setLayout(null);
+
+        txtDestreza.setToolTipText("Ingrese la destreza");
         pnlCompTecPuesto.add(txtDestreza);
         txtDestreza.setBounds(110, 300, 270, 30);
 
+        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel7.setText("Destreza:");
         pnlCompTecPuesto.add(jLabel7);
         jLabel7.setBounds(40, 300, 110, 30);
 
+        jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel8.setText("       Alta:");
         pnlCompTecPuesto.add(jLabel8);
         jLabel8.setBounds(380, 310, 110, 20);
@@ -310,11 +349,13 @@ public class PnlOperaciones extends javax.swing.JPanel {
         txtAlta.setColumns(20);
         txtAlta.setLineWrap(true);
         txtAlta.setRows(5);
+        txtAlta.setToolTipText("Ingrese su informacion cuando la destreza sea alta");
         jScrollPane3.setViewportView(txtAlta);
 
         pnlCompTecPuesto.add(jScrollPane3);
         jScrollPane3.setBounds(450, 280, 280, 70);
 
+        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel9.setText("   Media:");
         pnlCompTecPuesto.add(jLabel9);
         jLabel9.setBounds(40, 390, 110, 20);
@@ -322,11 +363,13 @@ public class PnlOperaciones extends javax.swing.JPanel {
         txtMedia.setColumns(20);
         txtMedia.setLineWrap(true);
         txtMedia.setRows(5);
+        txtMedia.setToolTipText("Ingresa su informacion si la destreza es alta");
         jScrollPane4.setViewportView(txtMedia);
 
         pnlCompTecPuesto.add(jScrollPane4);
         jScrollPane4.setBounds(110, 360, 260, 70);
 
+        jLabel10.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel10.setText("    Baja:");
         pnlCompTecPuesto.add(jLabel10);
         jLabel10.setBounds(390, 390, 110, 20);
@@ -334,17 +377,20 @@ public class PnlOperaciones extends javax.swing.JPanel {
         txtBaja.setColumns(20);
         txtBaja.setLineWrap(true);
         txtBaja.setRows(5);
+        txtBaja.setToolTipText("Ingrese su informacion ");
         jScrollPane5.setViewportView(txtBaja);
 
         pnlCompTecPuesto.add(jScrollPane5);
         jScrollPane5.setBounds(450, 360, 280, 70);
 
+        btnGuardarCompetencia.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnGuardarCompetencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnGuardarCompetencia.setText("Guardar");
         btnGuardarCompetencia.setToolTipText("Guardar informacion del Competencias");
         pnlCompTecPuesto.add(btnGuardarCompetencia);
-        btnGuardarCompetencia.setBounds(290, 440, 110, 40);
+        btnGuardarCompetencia.setBounds(280, 440, 120, 40);
 
+        tblCompetencias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         tblCompetencias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -361,60 +407,76 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlCompTecPuesto.add(jScrollPane6);
         jScrollPane6.setBounds(40, 40, 700, 180);
 
+        jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("COMPETENCIAS TÉCNICAS DEL PUESTO");
         pnlCompTecPuesto.add(jLabel11);
         jLabel11.setBounds(230, 10, 340, 20);
 
+        btnEliminarCompetencias.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnEliminarCompetencias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnEliminarCompetencias.setText("Eliminar");
         btnEliminarCompetencias.setToolTipText("Quitar Competencias Tecnicas del Sistema");
         pnlCompTecPuesto.add(btnEliminarCompetencias);
         btnEliminarCompetencias.setBounds(260, 230, 100, 40);
 
+        btnNuevaCompetencia.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnNuevaCompetencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Edit.png"))); // NOI18N
         btnNuevaCompetencia.setText("Nuevo");
         btnNuevaCompetencia.setToolTipText("Ingresar Competencias Tecnicas de Puesto");
         pnlCompTecPuesto.add(btnNuevaCompetencia);
-        btnNuevaCompetencia.setBounds(40, 230, 100, 40);
+        btnNuevaCompetencia.setBounds(30, 230, 110, 40);
 
+        btnEditarCompetencias.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnEditarCompetencias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/AGENDA1.png"))); // NOI18N
         btnEditarCompetencias.setText("Editar");
         btnEditarCompetencias.setToolTipText("Actualizar informacio de Competencias Tecnicas");
         pnlCompTecPuesto.add(btnEditarCompetencias);
         btnEditarCompetencias.setBounds(150, 230, 100, 40);
 
+        btnCancelarTecnicas.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnCancelarTecnicas.setText("Cancelar");
         pnlCompTecPuesto.add(btnCancelarTecnicas);
         btnCancelarTecnicas.setBounds(410, 440, 100, 40);
 
         pnlTres.add(pnlCompTecPuesto);
+        pnlCompTecPuesto.setBounds(170, 10, 770, 490);
+
+        jLabel23.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel23.setText("<html>Para ingresar una nueva Competencia <br>Tecnica siempre seleccione Nuevo<br>Para editar o eliminar una destreza siempre <br>seleccione de la tabla aquella que desee, <br> eliminar o actualizar informacion  </html>\n\n");
+        pnlTres.add(jLabel23);
+        jLabel23.setBounds(10, 170, 140, 260);
 
         tabbedOperaciones.addTab("COMPETENCIAS TÉCNICAS DEL PUESTO", pnlTres);
 
         pnlCuatro  = new  ImagenJPanel ("zzz.jpg");
+        pnlCuatro.setLayout(null);
 
         pnlCompUniv.setOpaque(false);
         pnlCompUniv.setPreferredSize(new java.awt.Dimension(770, 490));
         pnlCompUniv.setLayout(null);
 
+        btnNuevaCompetenciaUniversal.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnNuevaCompetenciaUniversal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Edit.png"))); // NOI18N
         btnNuevaCompetenciaUniversal.setText("Nuevo");
         btnNuevaCompetenciaUniversal.setToolTipText("Agregar nuevas competencias universales");
         pnlCompUniv.add(btnNuevaCompetenciaUniversal);
         btnNuevaCompetenciaUniversal.setBounds(40, 230, 100, 40);
 
+        btnEditarCompetenciaUniversal.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnEditarCompetenciaUniversal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/AGENDA1.png"))); // NOI18N
         btnEditarCompetenciaUniversal.setText("Editar");
         btnEditarCompetenciaUniversal.setToolTipText("Actualizar datos de Competencias Universales");
         pnlCompUniv.add(btnEditarCompetenciaUniversal);
         btnEditarCompetenciaUniversal.setBounds(150, 230, 100, 40);
 
+        btnEliminarCompetenciaUniversal.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnEliminarCompetenciaUniversal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnEliminarCompetenciaUniversal.setText("Eliminar");
         pnlCompUniv.add(btnEliminarCompetenciaUniversal);
         btnEliminarCompetenciaUniversal.setBounds(260, 230, 100, 40);
 
+        tblCompetenciasUniversales.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 255), 2));
         tblCompetenciasUniversales.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -457,47 +519,62 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlCompUniv.add(jScrollPane10);
         jScrollPane10.setBounds(450, 360, 280, 70);
 
+        btnGuardarCompetenciaUniversal.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnGuardarCompetenciaUniversal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnGuardarCompetenciaUniversal.setText("Guardar");
         btnGuardarCompetenciaUniversal.setToolTipText("Guardar informacion de  Competencias Universales");
         pnlCompUniv.add(btnGuardarCompetenciaUniversal);
-        btnGuardarCompetenciaUniversal.setBounds(290, 440, 110, 40);
+        btnGuardarCompetenciaUniversal.setBounds(280, 440, 120, 40);
 
+        jLabel12.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel12.setText("Destreza:");
         pnlCompUniv.add(jLabel12);
         jLabel12.setBounds(40, 300, 110, 30);
 
+        jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel13.setText("   Media:");
         pnlCompUniv.add(jLabel13);
         jLabel13.setBounds(40, 390, 110, 20);
 
+        jLabel14.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel14.setText("    Baja:");
         pnlCompUniv.add(jLabel14);
         jLabel14.setBounds(390, 390, 110, 20);
 
+        jLabel15.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel15.setText("       Alta:");
         pnlCompUniv.add(jLabel15);
         jLabel15.setBounds(380, 310, 110, 20);
 
+        jLabel16.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("COMPETENCIAS UNIVERSALES");
         pnlCompUniv.add(jLabel16);
         jLabel16.setBounds(230, 10, 340, 20);
 
+        btnCancelarUniversales.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnCancelarUniversales.setText("Cancelar");
         pnlCompUniv.add(btnCancelarUniversales);
         btnCancelarUniversales.setBounds(410, 440, 100, 40);
 
         pnlCuatro.add(pnlCompUniv);
+        pnlCompUniv.setBounds(180, 10, 770, 490);
+
+        jLabel24.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel24.setText("<html>Para ingresar una nueva Competencia <br>Universal siempre seleccione Nuevo<br>Para editar o eliminar una destreza siempre <br>seleccione de la tabla aquella que desee, <br> eliminar o actualizar informacion  </html>\n\n");
+        pnlCuatro.add(jLabel24);
+        jLabel24.setBounds(10, 170, 140, 260);
 
         tabbedOperaciones.addTab("COMPETENCIAS UNIVERSALES", pnlCuatro);
 
         pnlCinco  = new  ImagenJPanel ("zzz.jpg");
+        pnlCinco.setLayout(null);
 
         pnlTrabajoEquipo.setOpaque(false);
         pnlTrabajoEquipo.setPreferredSize(new java.awt.Dimension(770, 490));
         pnlTrabajoEquipo.setLayout(null);
 
+        tblTrabajoEquipo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255), 2));
         tblTrabajoEquipo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -514,24 +591,28 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlTrabajoEquipo.add(jScrollPane11);
         jScrollPane11.setBounds(40, 40, 700, 180);
 
+        btnNuevoTrabajoEq.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnNuevoTrabajoEq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Edit.png"))); // NOI18N
         btnNuevoTrabajoEq.setText("Nuevo");
         btnNuevoTrabajoEq.setToolTipText("Agregar Destrezas de Trabajo enj equipo");
         pnlTrabajoEquipo.add(btnNuevoTrabajoEq);
-        btnNuevoTrabajoEq.setBounds(40, 230, 100, 40);
+        btnNuevoTrabajoEq.setBounds(40, 230, 110, 40);
 
+        btnEditTrabEq.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnEditTrabEq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/AGENDA1.png"))); // NOI18N
         btnEditTrabEq.setText("Editar");
         btnEditTrabEq.setToolTipText("Actualizar informacion de Trabajo en Equipo");
         pnlTrabajoEquipo.add(btnEditTrabEq);
         btnEditTrabEq.setBounds(150, 230, 100, 40);
 
+        btnElimTrabEq.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnElimTrabEq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnElimTrabEq.setText("Eliminar");
         btnElimTrabEq.setToolTipText("Eliminar destrezas de Trabaipojo en Equ");
         pnlTrabajoEquipo.add(btnElimTrabEq);
         btnElimTrabEq.setBounds(260, 230, 100, 40);
 
+        jLabel17.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel17.setText("Descripcion:");
         pnlTrabajoEquipo.add(jLabel17);
         jLabel17.setBounds(20, 300, 110, 20);
@@ -562,33 +643,45 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlTrabajoEquipo.add(jScrollPane14);
         jScrollPane14.setBounds(450, 360, 280, 70);
 
+        jLabel18.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel18.setText("    Baja:");
         pnlTrabajoEquipo.add(jLabel18);
         jLabel18.setBounds(390, 390, 110, 20);
 
+        jLabel19.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel19.setText("       Alta:");
         pnlTrabajoEquipo.add(jLabel19);
         jLabel19.setBounds(380, 310, 110, 20);
 
+        jLabel20.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel20.setText("   Media:");
         pnlTrabajoEquipo.add(jLabel20);
         jLabel20.setBounds(40, 390, 110, 20);
 
+        btnGuardarTrabEquipo.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnGuardarTrabEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnGuardarTrabEquipo.setText("Guardar");
         pnlTrabajoEquipo.add(btnGuardarTrabEquipo);
         btnGuardarTrabEquipo.setBounds(290, 440, 110, 40);
 
+        jLabel21.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("TRABAJO EN EQUIPO");
         pnlTrabajoEquipo.add(jLabel21);
         jLabel21.setBounds(230, 10, 340, 20);
 
+        btnCancelarTrabajo.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnCancelarTrabajo.setText("Cancelar");
         pnlTrabajoEquipo.add(btnCancelarTrabajo);
         btnCancelarTrabajo.setBounds(410, 440, 100, 40);
 
         pnlCinco.add(pnlTrabajoEquipo);
+        pnlTrabajoEquipo.setBounds(170, 10, 770, 490);
+
+        jLabel25.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel25.setText("<html>Para ingresar una nueva Competencia <br>de Trabajo, Iniciativa y  Liderazgo siempre seleccione Nuevo<br>Para editar o eliminar una destreza siempre <br>seleccione de la tabla aquella que desee, <br> eliminar o actualizar informacion  </html>\n\n");
+        pnlCinco.add(jLabel25);
+        jLabel25.setBounds(10, 170, 140, 260);
 
         tabbedOperaciones.addTab("TRABAJO EN EQUIPO", pnlCinco);
 
@@ -628,8 +721,13 @@ public class PnlOperaciones extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

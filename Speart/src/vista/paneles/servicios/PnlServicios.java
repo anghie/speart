@@ -114,6 +114,8 @@ public class PnlServicios extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
+        tabbedServicios.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+
         pnlRecordatorio  = new  ImagenJPanel ("inicisv.jpg");
 
         pnlCalendario.setOpaque(false);
@@ -192,6 +194,7 @@ public class PnlServicios extends javax.swing.JPanel {
         pnlAgendaContactos.setPreferredSize(new java.awt.Dimension(700, 500));
         pnlAgendaContactos.setLayout(null);
 
+        tblContactos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 255), 2));
         tblContactos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -208,24 +211,32 @@ public class PnlServicios extends javax.swing.JPanel {
         pnlAgendaContactos.add(scrollAgenda);
         scrollAgenda.setBounds(30, 70, 640, 200);
 
+        btnNuevo.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/AQUA ICONS APPLICATIONS TEXT EDIT1.png"))); // NOI18N
         btnNuevo.setText("Nuevo");
         pnlAgendaContactos.add(btnNuevo);
-        btnNuevo.setBounds(30, 280, 90, 30);
+        btnNuevo.setBounds(30, 280, 100, 30);
 
+        btnEditar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Edit.png"))); // NOI18N
         btnEditar.setText("Editar");
         pnlAgendaContactos.add(btnEditar);
-        btnEditar.setBounds(130, 280, 90, 30);
+        btnEditar.setBounds(130, 280, 100, 30);
 
+        btnEliminar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/application-exit.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
         pnlAgendaContactos.add(btnEliminar);
-        btnEliminar.setBounds(230, 280, 90, 30);
+        btnEliminar.setBounds(230, 280, 120, 30);
 
+        lblNombres.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblNombres.setText("Nombres:");
         pnlAgendaContactos.add(lblNombres);
         lblNombres.setBounds(30, 320, 80, 30);
         pnlAgendaContactos.add(txtNombres);
         txtNombres.setBounds(100, 320, 250, 30);
 
+        lblApellidos.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblApellidos.setText("Apellidos:");
         pnlAgendaContactos.add(lblApellidos);
         lblApellidos.setBounds(360, 320, 80, 30);
@@ -234,36 +245,42 @@ public class PnlServicios extends javax.swing.JPanel {
         pnlAgendaContactos.add(txtEmail);
         txtEmail.setBounds(100, 350, 250, 30);
 
+        lblEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblEmail.setText("    E-mail:");
         pnlAgendaContactos.add(lblEmail);
         lblEmail.setBounds(30, 350, 80, 30);
 
+        lblTelf.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblTelf.setText("Telf:");
         pnlAgendaContactos.add(lblTelf);
         lblTelf.setBounds(360, 350, 50, 30);
         pnlAgendaContactos.add(txtTelefono);
         txtTelefono.setBounds(420, 350, 90, 30);
 
+        lblCelular.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblCelular.setText("Celular:");
         pnlAgendaContactos.add(lblCelular);
         lblCelular.setBounds(520, 350, 70, 30);
         pnlAgendaContactos.add(txtCelular);
         txtCelular.setBounds(580, 350, 90, 30);
 
+        lblDireccion.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblDireccion.setText("   Direccion:");
         pnlAgendaContactos.add(lblDireccion);
         lblDireccion.setBounds(20, 380, 80, 30);
         pnlAgendaContactos.add(txtDireccion);
         txtDireccion.setBounds(100, 380, 470, 30);
 
+        btnGuardarContacto.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnGuardarContacto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnGuardarContacto.setText("Guardar");
         pnlAgendaContactos.add(btnGuardarContacto);
-        btnGuardarContacto.setBounds(580, 380, 90, 30);
+        btnGuardarContacto.setBounds(570, 380, 120, 30);
 
-        lblTituloAgenda.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        lblTituloAgenda.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblTituloAgenda.setText("AGENDA DE CONTACTOS");
         pnlAgendaContactos.add(lblTituloAgenda);
-        lblTituloAgenda.setBounds(250, 30, 220, 20);
+        lblTituloAgenda.setBounds(50, 20, 220, 20);
 
         pnlAgenda.add(pnlAgendaContactos);
 
@@ -271,6 +288,7 @@ public class PnlServicios extends javax.swing.JPanel {
 
         add(tabbedServicios, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnEditar;

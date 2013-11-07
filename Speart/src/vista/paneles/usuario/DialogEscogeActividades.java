@@ -53,7 +53,7 @@ public class DialogEscogeActividades extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jPanel1  = new  ImagenJPanel ("images.jpg");
+        jPanel1  = new  ImagenJPanel ("quejas.jpg");
         jPanel1.setLayout(null);
 
         scrollDisponibles.setViewportView(lstActivDisponibles);
@@ -66,6 +66,7 @@ public class DialogEscogeActividades extends javax.swing.JDialog {
         jPanel1.add(scrollAsignadas);
         scrollAsignadas.setBounds(440, 40, 310, 180);
 
+        btnAceptar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/acepta.png"))); // NOI18N
         btnAceptar.setText("Aceptar");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -76,6 +77,7 @@ public class DialogEscogeActividades extends javax.swing.JDialog {
         jPanel1.add(btnAceptar);
         btnAceptar.setBounds(520, 240, 110, 40);
 
+        btnCerrar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/exit.png"))); // NOI18N
         btnCerrar.setText("Cerrar");
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +88,7 @@ public class DialogEscogeActividades extends javax.swing.JDialog {
         jPanel1.add(btnCerrar);
         btnCerrar.setBounds(630, 240, 110, 40);
 
+        btnAgregar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/list-add.png"))); // NOI18N
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -96,6 +99,7 @@ public class DialogEscogeActividades extends javax.swing.JDialog {
         jPanel1.add(btnAgregar);
         btnAgregar.setBounds(340, 50, 100, 30);
 
+        btnQuitar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnQuitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnQuitar.setText("Quitar");
         btnQuitar.addActionListener(new java.awt.event.ActionListener() {
@@ -104,23 +108,23 @@ public class DialogEscogeActividades extends javax.swing.JDialog {
             }
         });
         jPanel1.add(btnQuitar);
-        btnQuitar.setBounds(340, 100, 90, 30);
+        btnQuitar.setBounds(340, 100, 100, 30);
 
-        jLabel1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel1.setText("Actividades agregadas");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(440, 20, 150, 16);
+        jLabel1.setBounds(440, 20, 190, 21);
 
-        jLabel2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel2.setText("Actividades a agregar:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(20, 20, 150, 16);
+        jLabel2.setBounds(20, 20, 190, 21);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 760, 280);
+        jPanel1.setBounds(0, 0, 760, 310);
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-776)/2, (screenSize.height-321)/2, 776, 321);
+        setBounds((screenSize.width-776)/2, (screenSize.height-349)/2, 776, 349);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed

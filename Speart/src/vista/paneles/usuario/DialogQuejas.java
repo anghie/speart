@@ -8,6 +8,7 @@ import controlador.basedatos.OperacionesBD;
 import javax.swing.JOptionPane;
 import modelo.proceso.Rol;
 import modelo.usuario.Queja;
+import vista.modelo.ImagenJPanel;
 import vista.modelo.Mensaje;
 
 /**
@@ -36,12 +37,13 @@ public class DialogQuejas extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        txtPersonaQueja = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescripcionQueja = new javax.swing.JTextArea();
+        txtPersonaQueja = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtNroFormulario = new javax.swing.JTextField();
         chbNo = new javax.swing.JCheckBox();
@@ -54,77 +56,98 @@ public class DialogQuejas extends javax.swing.JDialog {
         setBackground(new java.awt.Color(64, 170, 100));
         getContentPane().setLayout(null);
 
-        jLabel1.setText("QUEJAS");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(280, 10, 70, 17);
-
-        jLabel2.setText("Descripcion:");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 90, 110, 17);
-
-        jLabel3.setText("Nombre de la persona que realiza la queja:");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 60, 260, 17);
-        getContentPane().add(txtPersonaQueja);
-        txtPersonaQueja.setBounds(260, 50, 350, 30);
+        jPanel1  = new  ImagenJPanel ("quejas.jpg");
+        jPanel1.setLayout(null);
 
         txtDescripcionQueja.setColumns(20);
         txtDescripcionQueja.setLineWrap(true);
         txtDescripcionQueja.setRows(5);
+        txtDescripcionQueja.setToolTipText("Reaalice la descripción de la queja");
         jScrollPane1.setViewportView(txtDescripcionQueja);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(120, 90, 490, 140);
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(140, 90, 490, 140);
 
+        txtPersonaQueja.setToolTipText("Nombre de  la persona que hace la queja");
+        jPanel1.add(txtPersonaQueja);
+        txtPersonaQueja.setBounds(280, 50, 350, 30);
+
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jLabel1.setText("QUEJAS");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(300, 10, 120, 30);
+
+        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel3.setText("Nombre de la persona que realiza la queja:");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(20, 60, 270, 16);
+
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel2.setText("Descripcion:");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(40, 90, 110, 16);
+
+        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel4.setText("Formulario Nro:");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(20, 240, 90, 20);
-        getContentPane().add(txtNroFormulario);
-        txtNroFormulario.setBounds(120, 240, 90, 27);
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(130, 250, 90, 20);
+        jPanel1.add(txtNroFormulario);
+        txtNroFormulario.setBounds(230, 250, 90, 20);
 
+        chbNo.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         chbNo.setText("No");
         chbNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chbNoActionPerformed(evt);
             }
         });
-        getContentPane().add(chbNo);
-        chbNo.setBounds(460, 240, 60, 22);
+        jPanel1.add(chbNo);
+        chbNo.setBounds(570, 250, 60, 25);
 
+        chbSi.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         chbSi.setText("Si");
         chbSi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chbSiActionPerformed(evt);
             }
         });
-        getContentPane().add(chbSi);
-        chbSi.setBounds(400, 240, 60, 22);
+        jPanel1.add(chbSi);
+        chbSi.setBounds(510, 250, 60, 25);
 
+        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel5.setText("Descuento en evaluacion:");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(230, 240, 160, 20);
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(340, 250, 160, 20);
 
+        btnGuardarQueja.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnGuardarQueja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnGuardarQueja.setText("Guardar");
+        btnGuardarQueja.setToolTipText("Guardar quejas ingresadas");
         btnGuardarQueja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarQuejaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuardarQueja);
-        btnGuardarQueja.setBounds(200, 290, 110, 40);
+        jPanel1.add(btnGuardarQueja);
+        btnGuardarQueja.setBounds(300, 300, 120, 40);
 
+        btnCancelar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
+        btnCancelar.setToolTipText("Salir sin guardar la información");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancelar);
-        btnCancelar.setBounds(320, 290, 100, 40);
+        jPanel1.add(btnCancelar);
+        btnCancelar.setBounds(430, 300, 110, 40);
 
-        setSize(new java.awt.Dimension(642, 378));
-        setLocationRelativeTo(null);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 710, 350);
+
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-729)/2, (screenSize.height-391)/2, 729, 391);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarQuejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarQuejaActionPerformed
@@ -177,6 +200,7 @@ public class DialogQuejas extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea txtDescripcionQueja;
     private javax.swing.JTextField txtNroFormulario;
