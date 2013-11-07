@@ -356,7 +356,9 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         setLayout(new java.awt.BorderLayout());
 
         tabbedEvaluacion.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        tabbedEvaluacion.setPreferredSize(new java.awt.Dimension(940, 560));
 
+        pnlUno.setOpaque(false);
         pnlUno  = new  ImagenJPanel ("zzz.jpg");
 
         pnlDatosServidor.setOpaque(false);
@@ -1026,32 +1028,40 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         tabbedEvaluacion.addTab("EVALUACION AL SERVIDOR", pnlDos);
 
+        pnlCinco.setOpaque(false);
+        pnlCinco.setPreferredSize(new java.awt.Dimension(940, 560));
+        pnlCinco  = new  ImagenJPanel ("zzz.jpg");
+
+        jPanel11.setOpaque(false);
         jPanel11.setPreferredSize(new java.awt.Dimension(400, 480));
         jPanel11.setLayout(null);
 
+        jLabel38.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel38.setText("INEFICIENTE CALIFICACIÓN:");
         jPanel11.add(jLabel38);
-        jLabel38.setBounds(10, 310, 170, 14);
+        jLabel38.setBounds(10, 330, 170, 16);
 
-        jLabel39.setFont(new java.awt.Font("Cantarell", 1, 12)); // NOI18N
+        jLabel39.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel39.setText("EFECTOS EVALUACIÓN");
         jPanel11.add(jLabel39);
-        jLabel39.setBounds(130, 10, 140, 16);
+        jLabel39.setBounds(110, 10, 210, 21);
 
+        jLabel44.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel44.setText("BUENA CALIFICACIÓN:");
         jPanel11.add(jLabel44);
-        jLabel44.setBounds(10, 90, 140, 14);
+        jLabel44.setBounds(10, 90, 140, 16);
 
+        jLabel45.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel45.setText("DEFICIENTE CALIFICACIÓN:");
         jPanel11.add(jLabel45);
-        jLabel45.setBounds(10, 200, 170, 14);
+        jLabel45.setBounds(10, 210, 170, 16);
 
         txtIneficienteCalificacion.setColumns(20);
         txtIneficienteCalificacion.setRows(5);
         jScrollPane1.setViewportView(txtIneficienteCalificacion);
 
         jPanel11.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 330, 380, 96);
+        jScrollPane1.setBounds(10, 350, 380, 96);
 
         txtBuenaCalificacion.setColumns(20);
         txtBuenaCalificacion.setRows(5);
@@ -1065,8 +1075,10 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jScrollPane5.setViewportView(txtDeficienteCalificacion);
 
         jPanel11.add(jScrollPane5);
-        jScrollPane5.setBounds(10, 220, 380, 96);
+        jScrollPane5.setBounds(10, 230, 380, 96);
 
+        btnGuardar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/document-save.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1074,8 +1086,9 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         });
         jPanel11.add(btnGuardar);
-        btnGuardar.setBounds(150, 430, 100, 40);
+        btnGuardar.setBounds(150, 450, 110, 30);
 
+        jLabel46.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel46.setText("NOMBRE:");
         jPanel11.add(jLabel46);
         jLabel46.setBounds(9, 37, 70, 30);
@@ -1086,8 +1099,10 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         });
         jPanel11.add(cbNombres);
-        cbNombres.setBounds(80, 40, 220, 30);
+        cbNombres.setBounds(80, 40, 200, 30);
 
+        btnNuevoNombre.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnNuevoNombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/AQUA ICONS APPLICATIONS TEXT EDIT1.png"))); // NOI18N
         btnNuevoNombre.setText("Nuevo");
         btnNuevoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1095,18 +1110,21 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         });
         jPanel11.add(btnNuevoNombre);
-        btnNuevoNombre.setBounds(310, 40, 80, 30);
+        btnNuevoNombre.setBounds(290, 40, 100, 30);
 
         pnlCinco.add(jPanel11);
 
         tabbedEvaluacion.addTab("EFECTOS EVALUACIÓN", pnlCinco);
 
-        pnlUno  = new  ImagenJPanel ("zzz.jpg");
+        pnlSeis.setOpaque(false);
+        pnlSeis.setPreferredSize(new java.awt.Dimension(940, 560));
+        pnlSeis  = new  ImagenJPanel ("zzz.jpg");
 
         pnlFactores.setOpaque(false);
         pnlFactores.setPreferredSize(new java.awt.Dimension(750, 500));
         pnlFactores.setLayout(null);
 
+        jLabel49.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel49.setText("FACTOR PARA INDICADORES DE GESTION DE PUESTO:");
         pnlFactores.add(jLabel49);
         jLabel49.setBounds(110, 70, 340, 14);
@@ -1122,6 +1140,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         pnlFactores.add(txtIGP);
         txtIGP.setBounds(430, 60, 90, 30);
 
+        jLabel50.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel50.setText("                                 FACTOR PARA CONOCIMIENTO:");
         pnlFactores.add(jLabel50);
         jLabel50.setBounds(140, 100, 310, 14);
@@ -1137,6 +1156,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         pnlFactores.add(txtCON);
         txtCON.setBounds(430, 90, 90, 30);
 
+        jLabel51.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel51.setText(" FACTOR PARA COMPETENCIAS TÉCNICAS DE PUESTO:");
         pnlFactores.add(jLabel51);
         jLabel51.setBounds(110, 130, 340, 14);
@@ -1152,6 +1172,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         pnlFactores.add(txtCTP);
         txtCTP.setBounds(430, 120, 90, 30);
 
+        jLabel52.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel52.setText("             FACTOR PARA COMPETENCIAS UNIVERSALES:");
         pnlFactores.add(jLabel52);
         jLabel52.setBounds(120, 160, 330, 14);
@@ -1167,6 +1188,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         pnlFactores.add(txtCU);
         txtCU.setBounds(430, 150, 90, 30);
 
+        jLabel53.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel53.setText("SUBTOTAL:");
         pnlFactores.add(jLabel53);
         jLabel53.setBounds(340, 220, 90, 14);
@@ -1186,10 +1208,12 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         pnlFactores.add(txtSubTotal);
         txtSubTotal.setBounds(430, 210, 90, 30);
 
+        jLabel54.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel54.setText("        TOTAL:");
         pnlFactores.add(jLabel54);
         jLabel54.setBounds(340, 280, 110, 14);
 
+        jLabel55.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel55.setText("FACTOR PARA TRABAJO EN EQUIPO, INICIATIVA Y LIDERAZGO:");
         pnlFactores.add(jLabel55);
         jLabel55.setBounds(70, 190, 380, 14);
@@ -1229,6 +1253,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         pnlFactores.add(txtAplica);
         txtAplica.setBounds(430, 240, 90, 30);
 
+        jLabel56.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel56.setText("        APLICA:");
         pnlFactores.add(jLabel56);
         jLabel56.setBounds(340, 250, 110, 14);
@@ -1237,6 +1262,8 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         pnlFactores.add(txtTotal);
         txtTotal.setBounds(430, 270, 90, 30);
 
+        btnAplicarFactores.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnAplicarFactores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Select.png"))); // NOI18N
         btnAplicarFactores.setText("Aplicar");
         btnAplicarFactores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1244,48 +1271,56 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         });
         pnlFactores.add(btnAplicarFactores);
-        btnAplicarFactores.setBounds(341, 349, 90, 40);
+        btnAplicarFactores.setBounds(341, 349, 110, 40);
 
         pnlSeis.add(pnlFactores);
 
         tabbedEvaluacion.addTab("FACTORES", pnlSeis);
 
+        pnlCuatro.setOpaque(false);
+        pnlCuatro.setPreferredSize(new java.awt.Dimension(940, 560));
+        pnlCuatro  = new  ImagenJPanel ("zzz.jpg");
+
+        jPanel10.setOpaque(false);
         jPanel10.setPreferredSize(new java.awt.Dimension(550, 350));
         jPanel10.setLayout(null);
 
+        lblTitulo.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setText("ACTIVACIÓN DE EVALUACIÓN");
         jPanel10.add(lblTitulo);
-        lblTitulo.setBounds(180, 20, 200, 30);
+        lblTitulo.setBounds(180, 20, 250, 30);
 
         jScrollPane3.setViewportView(lstDisponibleParaEval);
 
         jPanel10.add(jScrollPane3);
         jScrollPane3.setBounds(40, 60, 200, 200);
 
-        btnAgregar.setText(">");
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/1rightarrow.png"))); // NOI18N
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
             }
         });
         jPanel10.add(btnAgregar);
-        btnAgregar.setBounds(250, 110, 50, 23);
+        btnAgregar.setBounds(250, 110, 50, 31);
 
-        btnQuitar.setText("<");
+        btnQuitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/1leftarrow.png"))); // NOI18N
         btnQuitar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQuitarActionPerformed(evt);
             }
         });
         jPanel10.add(btnQuitar);
-        btnQuitar.setBounds(250, 160, 50, 23);
+        btnQuitar.setBounds(250, 160, 50, 31);
 
         jScrollPane2.setViewportView(lstParaEvaluar);
 
         jPanel10.add(jScrollPane2);
         jScrollPane2.setBounds(310, 60, 200, 200);
 
+        btnAceptar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnAceptar.setText("Aceptar");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1293,16 +1328,22 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         });
         jPanel10.add(btnAceptar);
-        btnAceptar.setBounds(220, 290, 100, 40);
+        btnAceptar.setBounds(220, 290, 120, 40);
 
         pnlCuatro.add(jPanel10);
 
         tabbedEvaluacion.addTab("ACTIVAR EVALUACIÓN", pnlCuatro);
 
+        pnlTres.setOpaque(false);
+        pnlTres.setPreferredSize(new java.awt.Dimension(940, 560));
+        pnlTres  = new  ImagenJPanel ("zzz.jpg");
+
         jPanel9.setOpaque(false);
         jPanel9.setPreferredSize(new java.awt.Dimension(650, 450));
         jPanel9.setLayout(null);
 
+        btnAplicar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnAplicar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Select.png"))); // NOI18N
         btnAplicar.setText("Aplicar");
         btnAplicar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1312,6 +1353,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jPanel9.add(btnAplicar);
         btnAplicar.setBounds(480, 60, 110, 40);
 
+        lblHasta.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblHasta.setText("Hasta:");
         jPanel9.add(lblHasta);
         lblHasta.setBounds(90, 90, 70, 30);
@@ -1320,6 +1362,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jPanel9.add(dateDesde);
         dateDesde.setBounds(160, 50, 180, 30);
 
+        lblDesde.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblDesde.setText("Desde:");
         jPanel9.add(lblDesde);
         lblDesde.setBounds(90, 50, 60, 30);
@@ -1334,6 +1377,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jPanel9.add(lblSepDesde);
         lblSepDesde.setBounds(400, 50, 10, 30);
 
+        tblPeriodos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 102, 255), 2));
         tblPeriodos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1363,6 +1407,8 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jPanel9.add(spMinHasta);
         spMinHasta.setBounds(410, 90, 50, 20);
 
+        btnEliminarPeriodo.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnEliminarPeriodo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/button_cancel.png"))); // NOI18N
         btnEliminarPeriodo.setText("Eliminar");
         btnEliminarPeriodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1370,7 +1416,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         });
         jPanel9.add(btnEliminarPeriodo);
-        btnEliminarPeriodo.setBounds(30, 300, 70, 23);
+        btnEliminarPeriodo.setBounds(30, 300, 110, 33);
 
         pnlTres.add(jPanel9);
 
