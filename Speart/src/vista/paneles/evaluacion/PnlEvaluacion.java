@@ -1357,8 +1357,12 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         lblHasta.setText("Hasta:");
         jPanel9.add(lblHasta);
         lblHasta.setBounds(90, 90, 70, 30);
+
+        dateHasta.setEditable(false);
         jPanel9.add(dateHasta);
         dateHasta.setBounds(160, 90, 180, 30);
+
+        dateDesde.setEditable(false);
         jPanel9.add(dateDesde);
         dateDesde.setBounds(160, 50, 180, 30);
 

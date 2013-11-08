@@ -14,7 +14,7 @@ import modelo.pregunta.Pregunta;
  * @author francisco
  */
 public class DialogResultEval extends javax.swing.JDialog {
-private final ArrayList<Pregunta> preguntas=null;
+
     /**
      * Creates new form DialogResultEval
      */
@@ -68,13 +68,5 @@ private final ArrayList<Pregunta> preguntas=null;
     public javax.swing.JPanel getPnlTestResult() {
         return pnlTestResult;
     }
-
-    /**
-     * @return the preguntas
-     */
-    public ArrayList<Pregunta> getPreguntas() {
-        return preguntas;
-    }
-
 
 }

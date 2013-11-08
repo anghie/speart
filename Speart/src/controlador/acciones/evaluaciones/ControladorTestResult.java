@@ -4,21 +4,12 @@
  */
 package controlador.acciones.evaluaciones;
 
-import controlador.basedatos.OperacionesBD;
-import controlador.experto.BaseConocimiento;
-import java.awt.CardLayout;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import modelo.evaluacion.ResultadoConocimientos;
-import modelo.evaluacion.ResultadoFinalConocimiento;
 import modelo.pregunta.Pregunta;
 import modelo.pregunta.Respuesta;
-import vista.modelo.OperacionesVarias;
 import vista.paneles.evaluacion.DialogResultEval;
-import vista.paneles.evaluacion.PnlRespuesta;
-import vista.paneles.evaluacion.PnlRespuestaResult;
-import vista.paneles.evaluacion.PnlTexto;
 import vista.paneles.evaluacion.PnlTextoResult;
 
 /**
@@ -66,6 +57,27 @@ public class ControladorTestResult {
 //                panelesPregRpta.add(pr);
             }
         }
+    }
+
+    /**
+     * @param preguntas the preguntas to set
+     */
+    public void setPreguntas(ArrayList<Pregunta> preguntas) {
+        this.preguntas = preguntas;
+    }
+
+    /**
+     * @param respuestas the respuestas to set
+     */
+    public void setRespuestas(ArrayList<Respuesta> respuestas) {
+        this.respuestas = respuestas;
+    }
+
+    /**
+     * @param resultadoPreguntas the resultadoPreguntas to set
+     */
+    public void setResultadoPreguntas(ArrayList<ResultadoConocimientos> resultadoPreguntas) {
+        this.resultadoPreguntas = resultadoPreguntas;
     }
     
 

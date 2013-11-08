@@ -2474,6 +2474,9 @@
                   </Constraints>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dateHasta">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="160" y="90" width="180" height="30"/>
@@ -2481,6 +2484,9 @@
                   </Constraints>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dateDesde">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="160" y="50" width="180" height="30"/>

@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import vista.FrmPrincipal;
 
 public class LblHora extends JLabel implements Runnable {
@@ -42,6 +43,9 @@ public class LblHora extends JLabel implements Runnable {
                 if (c.get(Calendar.SECOND) % 60 == 0) {
                     OperacionesVarias.recordatorio();
                     FrmPrincipal.estaEvalActiva= ControladorPrincipal.verificaPeriodoEvaluacion();
+                    if(ControladorPrincipal.faltanCinco){
+                        JOptionPane.showMessageDialog(null,"Tiene cinco minutos para terminar la evaluación");
+                    }
 //                    System.out.println("Estado Evaluacion: "+FrmPrincipal.estaEvalActiva);
                 }
                 Thread.sleep(100);

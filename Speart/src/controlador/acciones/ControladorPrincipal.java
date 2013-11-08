@@ -40,6 +40,7 @@ public class ControladorPrincipal {
     public static int esInhab = 0;
     public static ArrayList<PeriodoEvaluacion> fechaeval;
     public static boolean clavemal;
+    public static boolean faltanCinco = false;
 
     private ControladorPrincipal(FrmPrincipal frm) {
         this.frm = frm;
@@ -86,7 +87,7 @@ public class ControladorPrincipal {
                     tipoUs = us.getRol().getTipo();
                     System.out.println(tipoUs);
                     existe = true;
-                }else {
+                } else {
                     clavemal = true;
                 }
             } else if (user.equals(us.getLogin()) && !us.isHabilitado()) {
@@ -217,7 +218,7 @@ public class ControladorPrincipal {
 
     public static void listarFechasEval() {
         fechaeval = (ArrayList<PeriodoEvaluacion>) OperacionesBD.listar("PeriodoEvaluacion");
-        if(fechaeval.isEmpty() || fechaeval==null){
+        if (fechaeval.isEmpty() || fechaeval == null) {
             fechaeval = new ArrayList<>();
         }
     }
@@ -235,6 +236,10 @@ public class ControladorPrincipal {
             if ((hoy.getTimeInMillis() > inicio.getTimeInMillis() && hoy.getTimeInMillis() < fin.getTimeInMillis())//si hoy está entre inicio y fin
                     || (hoy.getTimeInMillis() == inicio.getTimeInMillis())) {//si hoy es igual a inicio
                 entre = true;
+            }
+            if ((hoy.get(Calendar.MINUTE) < fin.get(Calendar.MINUTE))
+                    && (fin.get(Calendar.MINUTE) - hoy.get(Calendar.MINUTE)) == 5) {
+                ControladorPrincipal.faltanCinco = true;
             }
         }
         return entre;
