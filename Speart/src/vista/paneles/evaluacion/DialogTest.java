@@ -28,6 +28,7 @@ public class DialogTest extends javax.swing.JDialog {
      */
     public DialogTest(ArrayList<Pregunta> preg) {
         initComponents();
+        setModal(true);
         preguntas = preg;
         ct = new ControladorTest(this);
         gct = new GestorControladorTest();

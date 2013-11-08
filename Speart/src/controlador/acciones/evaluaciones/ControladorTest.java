@@ -26,17 +26,14 @@ import vista.paneles.evaluacion.PnlTexto;
  */
 public class ControladorTest {
 
-    private DialogTest ft;
-    private int c, n;//c contador de numero de preguntas
-    private CardLayout cl;
-    private ArrayList<JPanel> contenedores;
+    private final DialogTest ft;
     private ArrayList<JPanel> panelesPregRpta;
     private ArrayList<Respuesta> respuestas;
     private ArrayList<Respuesta> respuestasCompletas;
     private ArrayList<ResultadoConocimientos> resultadoPreguntas;
 //    private Seccion s;
-    private ClassLoader cload = ControladorTest.class.getClassLoader();//para hacer referencia a archivos dentro del programa
-    private String dirArchivo = cload.getResource("controlador/experto/evaluacion.pl").getPath();
+    private final ClassLoader cload = ControladorTest.class.getClassLoader();//para hacer referencia a archivos dentro del programa
+    private final String dirArchivo = cload.getResource("controlador/experto/evaluacion.pl").getPath();
 
     public ControladorTest(DialogTest ft) {
         this.ft = ft;
