@@ -3,6 +3,7 @@ package controlador.acciones.agenda;
 import static controlador.acciones.agenda.ControladorItemAgenda.getDateSQL;
 import controlador.basedatos.OperacionesBD;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
@@ -115,9 +116,21 @@ public class ControladorMeta {
     }
     public static LinkedList<Meta> searchMetas(Date fechaDesde ,Date fechaHasta, String login) {
         LinkedList<Meta> items= new LinkedList<Meta>(OperacionesBD.buscarMetas("Meta","fecha",getDateSQL(fechaDesde),getDateSQL(fechaHasta),login));
-        if(items!=null)
-            return items;
-        else
+        LinkedList<Meta> metasAcumuladas=new LinkedList<>();
+        if(items!=null){
+            for (Iterator<Meta> it = items.iterator(); it.hasNext();) {
+                Meta meta1 = it.next();
+                if(!metasAcumuladas.contains(meta1))
+                    metasAcumuladas.add(meta1);
+                else{
+                   int index= metasAcumuladas.indexOf(meta1);
+                   int val=metasAcumuladas.get(index).getValor();
+                   metasAcumuladas.get(index).setValor(val+meta1.getValor());
+                }
+                    
+            }
+            return metasAcumuladas;
+        }else
             return new LinkedList<Meta>();
     }
     public static java.sql.Date getDateSQL(java.util.Date fecha){

@@ -154,7 +154,6 @@ public class PanelAgenda extends ImagenJPanel {
         btnBuscar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         bntImprimir = new javax.swing.JButton();
-        btnGuardarInforme = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblUsuario = new javax.swing.JLabel();
         panelNorte = new javax.swing.JPanel();
@@ -252,15 +251,6 @@ public class PanelAgenda extends ImagenJPanel {
             }
         });
         jPanel2.add(bntImprimir);
-
-        btnGuardarInforme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/filesave.png"))); // NOI18N
-        btnGuardarInforme.setText("Guardar");
-        btnGuardarInforme.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarInformeActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnGuardarInforme);
 
         panelInforme.add(jPanel2, java.awt.BorderLayout.PAGE_END);
 
@@ -687,21 +677,6 @@ public class PanelAgenda extends ImagenJPanel {
                                                          ));  
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void btnGuardarInformeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarInformeActionPerformed
-        // TODO add your handling code here:
-        ModeloTablaItemInforme modeloTabla=(ModeloTablaItemInforme)tablaInforme.getModel();
-               LinkedList<Meta> metas=modeloTabla.getDatos();
-               for (Iterator<Meta> it = metas.iterator(); it.hasNext();) {
-                   Meta meta = it.next();
-                   if(meta.getId()==null || meta.getId()==-1){
-                       ControladorMeta.createMeta(meta);
-                   }else{
-                       ControladorMeta.updateMeta(meta);
-                   }
-               }
-    
-    }//GEN-LAST:event_btnGuardarInformeActionPerformed
-
     private void bntImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntImprimirActionPerformed
         // TODO add your handling code here:
         try {
@@ -788,7 +763,6 @@ public void loadPanel(JScrollPane panelScroll, JPanel panel){
     private javax.swing.JButton btnAddActividad;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnFeriado;
-    private javax.swing.JButton btnGuardarInforme;
     private javax.swing.JCheckBox chbRecordar;
     private javax.swing.JComboBox cmbServidor;
     private datechooser.beans.DateChooserPanel dateChooserPanel1;

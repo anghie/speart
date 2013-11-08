@@ -12,9 +12,9 @@
 package vista.modelo.paneles.agenda;
 
 
-import controlador.acciones.agenda.ControladorAgenda;
 import controlador.acciones.agenda.ControladorDiasFeriados;
 import controlador.acciones.agenda.ControladorItemAgenda;
+import controlador.acciones.agenda.ControladorAgenda;
 import controlador.experto.ExpertoAgenda;
 import java.awt.Color;
 import java.awt.Component;
@@ -382,7 +382,8 @@ public class PanelDiaHoras extends javax.swing.JPanel {
            }
         }
         
-        if(numeroMes>=Calendar.getInstance().get(Calendar.MONTH)  && numeroDia>= Calendar.getInstance().get(Calendar.DAY_OF_MONTH)){
+        Calendar calendarioActual=Calendar.getInstance();
+        if(calendario.getInstance().getTime().getTime()>=calendarioActual.getTime().getTime()){
             generar=true;
         }else{
             generar=false;

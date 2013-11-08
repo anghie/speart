@@ -15,8 +15,8 @@ public class ModeloTablaItemInforme implements TableModel {
 
     private LinkedList<Meta> datos = new LinkedList<Meta>();
     @SuppressWarnings({"rawtypes"})
-    private LinkedList suscriptores = new LinkedList();
-    String[] column = {"Mes", "Proceso", "Actividad","Descripcion","Indicador","Meta","Total"};
+    private LinkedList suscriptores = new LinkedList();//"Mes",
+    String[] column = { "Proceso", "Actividad","Descripcion","Indicador","Meta","Total"};
     private Date fechaInicio=Calendar.getInstance().getTime();
     private Date fechFin=Calendar.getInstance().getTime();
     private String loginUsuario;
@@ -56,31 +56,31 @@ public class ModeloTablaItemInforme implements TableModel {
     public Object getValueAt(int fila, int columna) {
         Meta aux = (Meta) datos.get(fila);
         switch (columna) {
-            case 0:
-                return Fecha.getNombreMes(aux.getFecha().getMonth());
-            case 1: {
+//            case 0:
+//                return Fecha.getNombreMes(aux.getFecha().getMonth());
+            case 0: {
                         if(aux.getActividad()!=null)
                             return aux.getActividad().getProcesito().getNombreProceso();
                          else
                             return "";
                     }
-            case 2: {
+            case 1: {
                         if(aux.getActividad()!=null)
                          return aux.getActividad().getNombreActividad();
                         else
                             return "";
                     }
-           case 3: {
+           case 2: {
                         if(aux.getActividad()!=null)
                          return aux.getActividad().getDescripcion();
                         else
                             return "";
                     }
-           case 4:    
+           case 3:    
                 return aux.getIndicador();
-           case 5:
+           case 4:
                 return aux.getValor();
-           case 6:
+           case 5:
                 return controlador.acciones.agenda.ControladorItemAgenda.searchItemAgendaTotalCumplido( aux.getActividad().getIdActividad(), 
                                                                                                         fechaInicio,
                                                                                                         fechFin,
@@ -94,10 +94,10 @@ public class ModeloTablaItemInforme implements TableModel {
     public void setValueAt(Object dato, int fila, int columna) {
          Meta aux = datos.get(fila);
         switch (columna) {
-           case 4:
+           case 3:
                 aux.setIndicador((String)dato);
                 break;
-           case 5:
+           case 4:
                 aux.setValor((Integer)dato);
                 break;
         }

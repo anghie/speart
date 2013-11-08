@@ -103,7 +103,7 @@ public class Meta implements Serializable {
         }
         Meta other = (Meta) object;
         if ((this.id == null && other.id != null)
-                || (this.id != null && !this.id.equals(other.id))
+                //|| (this.id != null && !this.id.equals(other.id))
                 || (this.agenda != null && !this.agenda.equals(other.agenda))
                 || (this.actividad != null && !this.actividad.equals(other.actividad))
                 || (this.usuario != null && !this.usuario.equals(other.usuario))) {
