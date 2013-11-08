@@ -1,6 +1,7 @@
-
 package vista.paneles.evaluacion;
 
+import controlador.propiedades.Propiedades;
+import java.util.Properties;
 import modelo.usuario.Queja;
 
 /**
@@ -20,6 +21,9 @@ public class PnlQuejas extends javax.swing.JPanel {
         txtDescrip.setText(q.getDetalle());
         txtNroForm.setText(q.getNroForm());
         txtAplicDesc.setText("SI");
+        Propiedades p = new Propiedades();
+        Properties prop = p.getProperties("controlador/propiedades/factores.properties");
+        txtPorcentaje.setText(prop.getProperty("APLICA"));
     }
 
     /**

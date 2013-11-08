@@ -4,7 +4,6 @@
  */
 package controlador.acciones.evaluaciones;
 
-
 import controlador.experto.BaseConocimiento;
 import java.awt.Component;
 import modelo.operaciones.CompetenciaUniversal;
@@ -14,7 +13,7 @@ import vista.paneles.evaluacion.PnlEvaluacion;
 
 /**
  *
- * @author 
+ * @author
  */
 public class ControladorCompUniv {
 
@@ -77,6 +76,7 @@ public class ControladorCompUniv {
         double porcen = calculaPorcentaje(totalCompUniv);
         double r = OperacionesVarias.redondeaDosCifras((porcen * ControladorEvaluacion.facCompUniv) / 100);
         pe.getTxtTotalCompUniv().setText(r + "% - " + rptaTexto(porcen));
+        ControladorEvaluacion.totCompUniv = r;
     }
 
     private double calculaPorcentaje(double totalObt) {

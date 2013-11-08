@@ -182,6 +182,7 @@ public class ControladorTest {
             double res = OperacionesVarias.redondeaDosCifras((p * ControladorEvaluacion.facConoc) / 100);
             ControladorEvaluacion.txtTotalConoc.setText(res + "%");
             ControladorEvaluacion.btnEvaluarCon.setEnabled(false);
+            ControladorEvaluacion.totConoc=res;
             ft.dispose();
 
         }

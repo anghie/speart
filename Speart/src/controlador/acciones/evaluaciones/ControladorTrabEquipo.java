@@ -61,6 +61,7 @@ public class ControladorTrabEquipo {
         double porcen = calculaPorcentaje(totalTrabEquip);
         double r = OperacionesVarias.redondeaDosCifras((porcen * ControladorEvaluacion.facTrabEquip) / 100);
         pe.getTxtTotalTrabEquip().setText(r + "% - " + rptaTexto(porcen));
+        ControladorEvaluacion.totTrabEquip = r;
     }
 
     public static double califTrabEquipo(int index) {

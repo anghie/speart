@@ -22,9 +22,10 @@ public class LblHora extends JLabel implements Runnable {
         t = new Thread(this);
         formato = "HH:mm:ss";
         t.start();
-        
+
     }
- public synchronized static LblHora getInstance() {
+
+    public synchronized static LblHora getInstance() {
         if (lbh == null) {
             lbh = new LblHora();
         }
@@ -42,9 +43,10 @@ public class LblHora extends JLabel implements Runnable {
             try {
                 if (c.get(Calendar.SECOND) % 60 == 0) {
                     OperacionesVarias.recordatorio();
-                    FrmPrincipal.estaEvalActiva= ControladorPrincipal.verificaPeriodoEvaluacion();
-                    if(ControladorPrincipal.faltanCinco){
-                        JOptionPane.showMessageDialog(null,"Tiene cinco minutos para terminar la evaluación");
+                    FrmPrincipal.estaEvalActiva = ControladorPrincipal.verificaPeriodoEvaluacion();
+                    if (ControladorPrincipal.faltanCinco) {
+                        JOptionPane.showMessageDialog(null, "Tiene cinco minutos para terminar la evaluación");
+                        ControladorPrincipal.faltanCinco = false;
                     }
 //                    System.out.println("Estado Evaluacion: "+FrmPrincipal.estaEvalActiva);
                 }
