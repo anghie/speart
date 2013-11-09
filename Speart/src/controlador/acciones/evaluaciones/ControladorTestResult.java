@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import modelo.evaluacion.ResultadoConocimientos;
 import modelo.pregunta.Pregunta;
 import modelo.pregunta.Respuesta;
-import vista.paneles.evaluacion.DialogResultEval;
+import vista.paneles.evaluacion.DialogResultTest;
 import vista.paneles.evaluacion.PnlTextoResult;
 
 /**
@@ -18,14 +18,14 @@ import vista.paneles.evaluacion.PnlTextoResult;
  */
 public class ControladorTestResult {
 
-    private final DialogResultEval ft;
+    private final DialogResultTest ft;
     private ArrayList<JPanel> panelesPregRpta;
     private ArrayList<Pregunta> preguntas;
     private ArrayList<Respuesta> respuestas;
     private ArrayList<ResultadoConocimientos> resultadoPreguntas;
     private int n=0;
 
-    public ControladorTestResult(DialogResultEval ft) {
+    public ControladorTestResult(DialogResultTest ft) {
         this.ft = ft;
     }
 

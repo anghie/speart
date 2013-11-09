@@ -6,19 +6,16 @@
 
 package vista.paneles.evaluacion;
 
-import java.util.ArrayList;
-import modelo.pregunta.Pregunta;
-
 /**
  *
  * @author francisco
  */
-public class DialogResultEval extends javax.swing.JDialog {
+public class DialogResultTest extends javax.swing.JDialog {
 
     /**
      * Creates new form DialogResultEval
      */
-    public DialogResultEval() {        
+    public DialogResultTest() {        
         initComponents();
     }
 

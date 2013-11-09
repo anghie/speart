@@ -69,10 +69,10 @@ public class FrmPrincipal extends JFrame {
     private FrmPrincipal() {
         cl = FrmPrincipal.class.getClassLoader();
         iniciaComponentes();
-        estaEvalActiva=ControladorPrincipal.verificaPeriodoEvaluacion();
+        estaEvalActiva = ControladorPrincipal.verificaPeriodoEvaluacion();
 //        ControladorPrincipal.listarFechasEval();
 //        System.out.println(estaEvalActiva);
-        
+
     }
 
     public synchronized static FrmPrincipal getInstance() {
@@ -176,12 +176,12 @@ public class FrmPrincipal extends JFrame {
         miIniciaSesion = new JMenuItem();
         creaMenuItem(getMiIniciaSesion(), mimenuSesion, "Inicia Sesion", "Inicia una nueva sesion usando un usuario y clave", "sesionIn.png");
         getMiIniciaSesion().addActionListener(esc);
-         miIniciaSesion.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.ALT_MASK));
+        miIniciaSesion.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.ALT_MASK));
         //MenuItem Cierra Sesion
         miCierraSesion = new JMenuItem();
         creaMenuItem(getMiCierraSesion(), mimenuSesion, "Cierra Sesion", "Cierra la sección actual", "logout.png");
         getMiCierraSesion().addActionListener(esc);
-        
+
         //MenuItem Cambia Clave
         miCambiaClave = new JMenuItem();
         creaMenuItem(getMiCambiaClave(), mimenuSesion, "Cambia Clave", "Cambia la clave del usuario actual", "password_1.png");
@@ -222,7 +222,6 @@ public class FrmPrincipal extends JFrame {
         miGeneraAgenda = new JMenuItem();
         creaMenuItem(miGeneraAgenda, menuServicios, "Genera Agenda", "Generador de agendas", "agendaTelefonica.png");
         miAgenda.addActionListener(esc);
-
 
         //Item Reportes
         miReporteEvaluaciones = new JMenuItem();
@@ -296,7 +295,6 @@ public class FrmPrincipal extends JFrame {
         tbOeste.setRollover(true);
         tbOeste.setOpaque(true);
 
-
         //Para el boton Inicio
 //        btnInicio = new JButton("Inicio");
 //        creaBotonToolbar(btnInicio, "Extra_sign.png");
@@ -326,9 +324,6 @@ public class FrmPrincipal extends JFrame {
         btnRespaldos = new JButton("Respaldos");
         creaBotonToolbar(getBtnRespaldos(), "resp.png");
         btnRespaldos.setToolTipText("<html> Respaldar la informacion del sistema</html> ");
-
-
-
 
         btnReportes = new JButton("Reportes");
         creaBotonToolbar(btnReportes, "kword.png");
@@ -547,11 +542,9 @@ public class FrmPrincipal extends JFrame {
                 }
             } else if (evt.getSource() == miReporteUsuarios) {
                 cp.reporteUsuarios();
-            }else if (evt.getSource() == miAyuda) {
-//  aqui es lo dee la ayuda                 new Ayuda(null,true).setVisible(true)"      
-               
-               
-                 }
+            } else if (evt.getSource() == miAyuda) {
+                new Ayuda(null);
+            }
         }
     }
 }
