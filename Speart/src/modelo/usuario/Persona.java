@@ -8,8 +8,9 @@ import java.io.Serializable;
 public class Persona implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="idpersona")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    
     private int idPersona;
     @Column(name="cedula")
     private String cedula;

@@ -21,9 +21,9 @@ import modelo.proceso.Rol;
 public class Queja implements Serializable{
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="idQueja")
-    private long idQueja;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+        private long idQueja;
     @Column(name="nombreDenun")
     private String nombreDenun;
      @Column(name="detalle")

@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+import javax.persistence.Column;
 
 public class AlgoritmoAES {
 
@@ -21,7 +22,9 @@ public class AlgoritmoAES {
     public AlgoritmoAES(byte[] password) {
         keyValue = password;
     }
+      @Column(name = "ALGORITHM")
     private static String ALGORITHM = "AES";
+      @Column(name = "CODIFICACION")
     private final String CODIFICACION = "UTF-8";
 
     public String encriptar(String valorEncriptar) {

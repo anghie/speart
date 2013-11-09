@@ -5,26 +5,37 @@
 package modelo.recordatorio;
 
 import java.util.Calendar;
+import javax.persistence.Column;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 
-
 /**
  *
- * @author 
+ * @author
  */
 public class Calendario {
 
+    @Column(name = "diasCalendario")
     public static String diasCalendario[] = {"Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"};
+    @Column(name = "mesesCalendario")
     public static String mesesCalendario[] = {"ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"};
+    @Column(name = "diasMeses")
     public static int diasMeses[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    @Column(name = "anioActual")
     public static int anioActual = 0;
+    @Column(name = "mesActual")
     public static int mesActual = 0;
+    @Column(name = "diaActualMes")
     public static int diaActualMes = 0;
+    @Column(name = "diaActualSemana")
     public static int diaActualSemana = 0;
+    @Column(name = "anioTemporal")
     public static int anioTemporal = 0;
+    @Column(name = "mesTemporal")
     public static int mesTemporal = 0;
+    @Column(name = "valorActual")
     public static String valorActual = "";
+    @Column(name = "mesAnio")
     public static String mesAnio = "";
 
     public static void poneCalendario(JTable tabla, JLabel mes) {
@@ -48,7 +59,7 @@ public class Calendario {
     }
 
     private static void tablaCalendario(int anio, int mes, JTable tabla, JLabel lblMes) {
-        int columna = getPrimerDiaDelMes(anio, mes);        
+        int columna = getPrimerDiaDelMes(anio, mes);
         int fila = 0;
         if (esBisiesto(anio)) {
             diasMeses[1] = 29;
@@ -56,9 +67,9 @@ public class Calendario {
             diasMeses[1] = 28;
         }
         lblMes.setText(mesesCalendario[mes] + " " + anio);
-        
+
         for (int i = 1; i <= diasMeses[mes]; i++) {
-                tabla.setValueAt(String.valueOf(i), fila, columna);
+            tabla.setValueAt(String.valueOf(i), fila, columna);
             if (i == diaActualMes && mes == mesActual && anio == anioActual) {
                 valorActual = String.valueOf(diaActualMes);
                 ModeloColorCeldaCalendario.habilitado = true;
@@ -128,7 +139,7 @@ public class Calendario {
             n = 0;
         } else if (dia.equals("Lun") || dia.equals("Mon")) {
             n = 1;
-        }else if (dia.equals("Mar") || dia.equals("Tue")) {
+        } else if (dia.equals("Mar") || dia.equals("Tue")) {
             n = 2;
         } else if (dia.equals("Mie") || dia.equals("Wed")) {
             n = 3;
@@ -138,7 +149,7 @@ public class Calendario {
             n = 5;
         } else if (dia.equals("Sab") || dia.equals("Sat")) {
             n = 6;
-        } 
+        }
         return n;
     }
 }

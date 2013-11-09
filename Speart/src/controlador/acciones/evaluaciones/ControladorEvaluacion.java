@@ -256,6 +256,7 @@ public class ControladorEvaluacion {
         pnlEval.getTxtNroActividades().setText(metas.size() + "");
         double r = ((totIndic / metas.size()) * ControladorEvaluacion.facIndic) / 100;
         pnlEval.getTxtTotActEsc().setText(String.valueOf(r) + "%");
+        ControladorEvaluacion.totIndic=r;
 
         //porcentaje por factor / 100
     }

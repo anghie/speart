@@ -18,6 +18,7 @@ import vista.paneles.servicios.DialogoAgendaContactos;
 import vista.paneles.servicios.DialogoCalendarioRecor;
 import vista.paneles.usuario.DialogCambiaClave;
 import vista.paneles.usuario.PnlUsuario;
+import vista.Ayuda;
 
 public class FrmPrincipal extends JFrame {
 
@@ -175,10 +176,12 @@ public class FrmPrincipal extends JFrame {
         miIniciaSesion = new JMenuItem();
         creaMenuItem(getMiIniciaSesion(), mimenuSesion, "Inicia Sesion", "Inicia una nueva sesion usando un usuario y clave", "sesionIn.png");
         getMiIniciaSesion().addActionListener(esc);
+         miIniciaSesion.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.ALT_MASK));
         //MenuItem Cierra Sesion
         miCierraSesion = new JMenuItem();
         creaMenuItem(getMiCierraSesion(), mimenuSesion, "Cierra Sesion", "Cierra la sección actual", "logout.png");
         getMiCierraSesion().addActionListener(esc);
+        
         //MenuItem Cambia Clave
         miCambiaClave = new JMenuItem();
         creaMenuItem(getMiCambiaClave(), mimenuSesion, "Cambia Clave", "Cambia la clave del usuario actual", "password_1.png");
@@ -544,7 +547,11 @@ public class FrmPrincipal extends JFrame {
                 }
             } else if (evt.getSource() == miReporteUsuarios) {
                 cp.reporteUsuarios();
-            }
+            }else if (evt.getSource() == miAyuda) {
+//  aqui es lo dee la ayuda                 new Ayuda(null,true).setVisible(true)"      
+               
+               
+                 }
         }
     }
 }

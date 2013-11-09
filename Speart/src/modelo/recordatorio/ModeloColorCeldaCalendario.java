@@ -6,17 +6,21 @@ package modelo.recordatorio;
 
 import java.awt.Color;
 import java.awt.Component;
+import javax.persistence.Column;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 
 public class ModeloColorCeldaCalendario extends DefaultTableCellRenderer {
 
+    @Column(name = "valor")
     public static String valor;//valor que se debe pintar
+    @Column(name = "habilitado")
     public static boolean habilitado;//si es true se pinta el valor
+    @Column(name = "recordatorio")
     public static boolean recordatorio;
+    @Column(name = "recordatorio")
     public static String valorRecordatorio;
-
 
     public ModeloColorCeldaCalendario() {
         setOpaque(true);

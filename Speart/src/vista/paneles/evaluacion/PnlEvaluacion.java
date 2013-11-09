@@ -359,6 +359,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         tabbedEvaluacion.setPreferredSize(new java.awt.Dimension(940, 560));
 
         pnlUno.setOpaque(false);
+        pnlUno.setPreferredSize(new java.awt.Dimension(940, 560));
         pnlUno  = new  ImagenJPanel ("zzz.jpg");
 
         pnlDatosServidor.setOpaque(false);
@@ -368,6 +369,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         btnGenerar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnGenerar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/arrow-right.png"))); // NOI18N
         btnGenerar.setText("Generar");
+        btnGenerar.setToolTipText("Genra la Evaluación  para el servidor logueado");
         pnlDatosServidor.add(btnGenerar);
         btnGenerar.setBounds(310, 360, 140, 40);
 
@@ -404,6 +406,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         pnlDos.setOpaque(false);
         pnlDos  = new  ImagenJPanel ("zzz.jpg");
+        pnlDos.setLayout(null);
 
         pnlEvalServ.setOpaque(false);
         pnlEvalServ.setPreferredSize(new java.awt.Dimension(930, 550));
@@ -528,7 +531,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         lblTotActivEscen.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         lblTotActivEscen.setText("Total Actividades Esenciales:");
         pnlIndicGestionPuesto.add(lblTotActivEscen);
-        lblTotActivEscen.setBounds(540, 410, 190, 15);
+        lblTotActivEscen.setBounds(540, 410, 190, 14);
 
         txtTotActEsc.setEditable(false);
         pnlIndicGestionPuesto.add(txtTotActEsc);
@@ -565,7 +568,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         txtNroActividades.setEditable(false);
         pnlIndicGestionPuesto.add(txtNroActividades);
-        txtNroActividades.setBounds(130, 10, 60, 24);
+        txtNroActividades.setBounds(130, 10, 60, 20);
 
         lblFactor.setText("%");
         pnlIndicGestionPuesto.add(lblFactor);
@@ -573,16 +576,20 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         txtFactorIndic.setEditable(false);
         pnlIndicGestionPuesto.add(txtFactorIndic);
-        txtFactorIndic.setBounds(330, 10, 60, 24);
+        txtFactorIndic.setBounds(330, 10, 60, 20);
 
         lblFactor1.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblFactor1.setText("# Factor: ");
         pnlIndicGestionPuesto.add(lblFactor1);
         lblFactor1.setBounds(260, 10, 70, 20);
+
+        dpDesde.setToolTipText("Elije la fecha desde el dia  que el jefe va a evaluar");
         pnlIndicGestionPuesto.add(dpDesde);
-        dpDesde.setBounds(480, 10, 140, 24);
+        dpDesde.setBounds(480, 10, 140, 22);
+
+        dpHasta.setToolTipText("Elije la fecha hasta el dia que el jefe va a evaluar");
         pnlIndicGestionPuesto.add(dpHasta);
-        dpHasta.setBounds(700, 10, 140, 24);
+        dpHasta.setBounds(700, 10, 140, 22);
 
         jLabel47.setText("Hasta:");
         pnlIndicGestionPuesto.add(jLabel47);
@@ -595,7 +602,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         btnIr.setText("Ir");
         pnlIndicGestionPuesto.add(btnIr);
-        btnIr.setBounds(850, 10, 20, 24);
+        btnIr.setBounds(850, 10, 20, 23);
 
         pnlMedio.add(pnlIndicGestionPuesto, "pnlIndicGestionPuesto");
 
@@ -619,7 +626,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel13.setText("Total Conocimientos:");
         pnlConocimientos.add(jLabel13);
-        jLabel13.setBounds(560, 350, 180, 15);
+        jLabel13.setBounds(560, 350, 180, 14);
         pnlConocimientos.add(txtTotalConocimientos);
         txtTotalConocimientos.setBounds(720, 340, 200, 30);
 
@@ -652,11 +659,11 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         txtFactorConoc.setEditable(false);
         pnlConocimientos.add(txtFactorConoc);
-        txtFactorConoc.setBounds(330, 10, 60, 24);
+        txtFactorConoc.setBounds(330, 10, 60, 20);
 
         txtNroConocimientos.setEditable(false);
         pnlConocimientos.add(txtNroConocimientos);
-        txtNroConocimientos.setBounds(130, 10, 60, 24);
+        txtNroConocimientos.setBounds(130, 10, 60, 20);
 
         lblConocimientos.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         lblConocimientos.setText("# Conocimientos: ");
@@ -703,7 +710,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jLabel16.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel16.setText("Total Competencias Tecnicas del Puesto:");
         pnlCompetTecnicas.add(jLabel16);
-        jLabel16.setBounds(450, 340, 270, 17);
+        jLabel16.setBounds(450, 340, 270, 16);
         pnlCompetTecnicas.add(txtTotalCompTec);
         txtTotalCompTec.setBounds(720, 330, 200, 30);
 
@@ -736,7 +743,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         txtNroCompetTecnic.setEditable(false);
         pnlCompetTecnicas.add(txtNroCompetTecnic);
-        txtNroCompetTecnic.setBounds(130, 10, 60, 24);
+        txtNroCompetTecnic.setBounds(130, 10, 60, 20);
 
         lblFactCompTec.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         lblFactCompTec.setText("# Factor: ");
@@ -745,7 +752,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         txtFactorCompTec.setEditable(false);
         pnlCompetTecnicas.add(txtFactorCompTec);
-        txtFactorCompTec.setBounds(330, 10, 60, 24);
+        txtFactorCompTec.setBounds(330, 10, 60, 20);
 
         lblFactor3.setText("%");
         pnlCompetTecnicas.add(lblFactor3);
@@ -818,7 +825,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         txtNroCompetUniv.setEditable(false);
         pnlCompetUniver.add(txtNroCompetUniv);
-        txtNroCompetUniv.setBounds(130, 10, 60, 24);
+        txtNroCompetUniv.setBounds(130, 10, 60, 20);
 
         lblFactorUniv.setText("# Factor: ");
         pnlCompetUniver.add(lblFactorUniv);
@@ -826,7 +833,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         txtFactorUniv.setEditable(false);
         pnlCompetUniver.add(txtFactorUniv);
-        txtFactorUniv.setBounds(330, 10, 60, 24);
+        txtFactorUniv.setBounds(330, 10, 60, 20);
 
         lblFactor4.setText("%");
         pnlCompetUniver.add(lblFactor4);
@@ -868,7 +875,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jLabel28.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel28.setText("Trabajo en equipo iniciativa y liderazgo:");
         pnlTrabEquipo.add(jLabel28);
-        jLabel28.setBounds(450, 340, 280, 17);
+        jLabel28.setBounds(450, 340, 280, 16);
         pnlTrabEquipo.add(txtTotalTrabEquip);
         txtTotalTrabEquip.setBounds(720, 330, 200, 30);
 
@@ -901,7 +908,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         txtFactorTrab.setEditable(false);
         pnlTrabEquipo.add(txtFactorTrab);
-        txtFactorTrab.setBounds(80, 10, 60, 24);
+        txtFactorTrab.setBounds(80, 10, 60, 20);
 
         lblFactor5.setText("  %");
         pnlTrabEquipo.add(lblFactor5);
@@ -987,14 +994,17 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         btnSiguiente.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/agt_forward.png"))); // NOI18N
         btnSiguiente.setText("Siguiente");
+        btnSiguiente.setToolTipText("va al indicador siguiente");
 
         btnAnterior.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/agt_back.png"))); // NOI18N
         btnAnterior.setText("Anterior");
+        btnAnterior.setToolTipText("Regresa al indicador anterior");
 
         btnResultados.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnResultados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/business.png"))); // NOI18N
         btnResultados.setText("Resultados");
+        btnResultados.setToolTipText("Resultados de la calificación obtenida en cada indicador");
         btnResultados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResultadosActionPerformed(evt);
@@ -1025,6 +1035,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         pnlEvalServ.add(pnlAbajo, java.awt.BorderLayout.PAGE_END);
 
         pnlDos.add(pnlEvalServ);
+        pnlEvalServ.setBounds(56, 5, 930, 550);
 
         tabbedEvaluacion.addTab("EVALUACION AL SERVIDOR", pnlDos);
 
@@ -1039,43 +1050,43 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jLabel38.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel38.setText("INEFICIENTE CALIFICACIÓN:");
         jPanel11.add(jLabel38);
-        jLabel38.setBounds(10, 330, 170, 17);
+        jLabel38.setBounds(10, 330, 170, 16);
 
         jLabel39.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel39.setText("EFECTOS EVALUACIÓN");
         jPanel11.add(jLabel39);
-        jLabel39.setBounds(110, 10, 210, 22);
+        jLabel39.setBounds(110, 10, 210, 21);
 
         jLabel44.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel44.setText("BUENA CALIFICACIÓN:");
         jPanel11.add(jLabel44);
-        jLabel44.setBounds(10, 90, 140, 17);
+        jLabel44.setBounds(10, 90, 140, 16);
 
         jLabel45.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel45.setText("DEFICIENTE CALIFICACIÓN:");
         jPanel11.add(jLabel45);
-        jLabel45.setBounds(10, 210, 170, 17);
+        jLabel45.setBounds(10, 210, 170, 16);
 
         txtIneficienteCalificacion.setColumns(20);
         txtIneficienteCalificacion.setRows(5);
         jScrollPane1.setViewportView(txtIneficienteCalificacion);
 
         jPanel11.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 350, 380, 72);
+        jScrollPane1.setBounds(10, 350, 380, 96);
 
         txtBuenaCalificacion.setColumns(20);
         txtBuenaCalificacion.setRows(5);
         jScrollPane4.setViewportView(txtBuenaCalificacion);
 
         jPanel11.add(jScrollPane4);
-        jScrollPane4.setBounds(10, 110, 380, 72);
+        jScrollPane4.setBounds(10, 110, 380, 96);
 
         txtDeficienteCalificacion.setColumns(20);
         txtDeficienteCalificacion.setRows(5);
         jScrollPane5.setViewportView(txtDeficienteCalificacion);
 
         jPanel11.add(jScrollPane5);
-        jScrollPane5.setBounds(10, 230, 380, 72);
+        jScrollPane5.setBounds(10, 230, 380, 96);
 
         btnGuardar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/document-save.png"))); // NOI18N
@@ -1127,8 +1138,9 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jLabel49.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel49.setText("FACTOR PARA INDICADORES DE GESTION DE PUESTO:");
         pnlFactores.add(jLabel49);
-        jLabel49.setBounds(110, 70, 340, 15);
+        jLabel49.setBounds(110, 70, 340, 14);
 
+        txtIGP.setToolTipText("Fator  que evaluara las activiades por puesto");
         txtIGP.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtIGPKeyTyped(evt);
@@ -1143,8 +1155,9 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jLabel50.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel50.setText("                                 FACTOR PARA CONOCIMIENTO:");
         pnlFactores.add(jLabel50);
-        jLabel50.setBounds(140, 100, 310, 15);
+        jLabel50.setBounds(140, 100, 310, 14);
 
+        txtCON.setToolTipText("Factor que evaluara el conocimiento");
         txtCON.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCONKeyTyped(evt);
@@ -1159,8 +1172,9 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jLabel51.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel51.setText(" FACTOR PARA COMPETENCIAS TÉCNICAS DE PUESTO:");
         pnlFactores.add(jLabel51);
-        jLabel51.setBounds(110, 130, 340, 15);
+        jLabel51.setBounds(110, 130, 340, 14);
 
+        txtCTP.setToolTipText("Fator que evaluara las destrezas  de Cometencias Tecnicas de Puesto");
         txtCTP.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCTPKeyTyped(evt);
@@ -1175,8 +1189,9 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jLabel52.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel52.setText("             FACTOR PARA COMPETENCIAS UNIVERSALES:");
         pnlFactores.add(jLabel52);
-        jLabel52.setBounds(120, 160, 330, 15);
+        jLabel52.setBounds(120, 160, 330, 14);
 
+        txtCU.setToolTipText("Factor que evaluara las Competencias Universales");
         txtCU.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCUKeyTyped(evt);
@@ -1191,8 +1206,9 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jLabel53.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel53.setText("SUBTOTAL:");
         pnlFactores.add(jLabel53);
-        jLabel53.setBounds(340, 220, 90, 15);
+        jLabel53.setBounds(340, 220, 90, 14);
 
+        txtTEIL.setToolTipText("Factor que evaluara las Destrezas de Trabajo en Equipo");
         txtTEIL.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTEILKeyTyped(evt);
@@ -1211,12 +1227,12 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jLabel54.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel54.setText("        TOTAL:");
         pnlFactores.add(jLabel54);
-        jLabel54.setBounds(340, 280, 110, 15);
+        jLabel54.setBounds(340, 280, 110, 14);
 
         jLabel55.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel55.setText("FACTOR PARA TRABAJO EN EQUIPO, INICIATIVA Y LIDERAZGO:");
         pnlFactores.add(jLabel55);
-        jLabel55.setBounds(70, 190, 380, 15);
+        jLabel55.setBounds(70, 190, 380, 14);
 
         lblFactor6.setText("%");
         pnlFactores.add(lblFactor6);
@@ -1242,6 +1258,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         pnlFactores.add(lblFactor12);
         lblFactor12.setBounds(530, 180, 20, 20);
 
+        txtAplica.setToolTipText("Porcentaje que se aplicara en caso de haber sobrepasado las metas de las actividades");
         txtAplica.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtAplicaKeyTyped(evt);
@@ -1256,7 +1273,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jLabel56.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel56.setText("        APLICA:");
         pnlFactores.add(jLabel56);
-        jLabel56.setBounds(340, 250, 110, 15);
+        jLabel56.setBounds(340, 250, 110, 14);
 
         txtTotal.setEditable(false);
         pnlFactores.add(txtTotal);
@@ -1303,7 +1320,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         });
         jPanel10.add(btnAgregar);
-        btnAgregar.setBounds(250, 110, 50, 32);
+        btnAgregar.setBounds(250, 110, 50, 31);
 
         btnQuitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/1leftarrow.png"))); // NOI18N
         btnQuitar.addActionListener(new java.awt.event.ActionListener() {
@@ -1312,7 +1329,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         });
         jPanel10.add(btnQuitar);
-        btnQuitar.setBounds(250, 160, 50, 32);
+        btnQuitar.setBounds(250, 160, 50, 31);
 
         jScrollPane2.setViewportView(lstParaEvaluar);
 
@@ -1322,6 +1339,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         btnAceptar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnAceptar.setText("Aceptar");
+        btnAceptar.setToolTipText("Aceptar para guardar los usuarios activos para la evaluación");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
@@ -1357,12 +1375,8 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         lblHasta.setText("Hasta:");
         jPanel9.add(lblHasta);
         lblHasta.setBounds(90, 90, 70, 30);
-
-        dateHasta.setEditable(false);
         jPanel9.add(dateHasta);
         dateHasta.setBounds(160, 90, 180, 30);
-
-        dateDesde.setEditable(false);
         jPanel9.add(dateDesde);
         dateDesde.setBounds(160, 50, 180, 30);
 
@@ -1397,19 +1411,19 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         spHoraDesde.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
         jPanel9.add(spHoraDesde);
-        spHoraDesde.setBounds(350, 50, 50, 24);
+        spHoraDesde.setBounds(350, 50, 50, 20);
 
         spMinDesde.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
         jPanel9.add(spMinDesde);
-        spMinDesde.setBounds(410, 50, 50, 24);
+        spMinDesde.setBounds(410, 50, 50, 20);
 
         spHoraHasta.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
         jPanel9.add(spHoraHasta);
-        spHoraHasta.setBounds(350, 90, 50, 24);
+        spHoraHasta.setBounds(350, 90, 50, 20);
 
         spMinHasta.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
         jPanel9.add(spMinHasta);
-        spMinHasta.setBounds(410, 90, 50, 24);
+        spMinHasta.setBounds(410, 90, 50, 20);
 
         btnEliminarPeriodo.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnEliminarPeriodo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/button_cancel.png"))); // NOI18N
@@ -1420,7 +1434,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             }
         });
         jPanel9.add(btnEliminarPeriodo);
-        btnEliminarPeriodo.setBounds(30, 300, 110, 34);
+        btnEliminarPeriodo.setBounds(30, 300, 110, 33);
 
         pnlTres.add(jPanel9);
 

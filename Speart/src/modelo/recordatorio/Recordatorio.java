@@ -17,16 +17,16 @@ import modelo.usuario.Usuario;
 public class Recordatorio implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idRecordatorio")
-    private int idRecordatorio;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+      private int idRecordatorio;
     @Column(name = "titulo")
     private String titulo;
     @Column(name = "detalle")
     private String detalle;
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "fechaHora")
-    private Calendar fechaHora;
+    @Temporal(TemporalType.TIMESTAMP)
+        private Calendar fechaHora;
     @Column(name = "cumplido")
     private boolean cumplido;
     @Column(name = "recordar")

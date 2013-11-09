@@ -36,6 +36,9 @@
         <Container class="javax.swing.JPanel" name="pnlUno">
           <Properties>
             <Property name="opaque" type="boolean" value="false"/>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[940, 560]"/>
+            </Property>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="pnlUno  = new  ImagenJPanel (&quot;zzz.jpg&quot;);"/>
@@ -71,6 +74,7 @@
                       <Image iconType="3" name="/vista/imagenes/arrow-right.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Generar"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Genra la Evaluaci&#xf3;n  para el servidor logueado"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -166,7 +170,9 @@
             </Constraint>
           </Constraints>
 
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+            <Property name="useNullLayout" type="boolean" value="true"/>
+          </Layout>
           <SubComponents>
             <Container class="javax.swing.JPanel" name="pnlEvalServ">
               <Properties>
@@ -175,6 +181,11 @@
                   <Dimension value="[930, 550]"/>
                 </Property>
               </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="56" y="5" width="-1" height="-1"/>
+                </Constraint>
+              </Constraints>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
               <SubComponents>
@@ -609,6 +620,9 @@
                           </Constraints>
                         </Component>
                         <Component class="org.jdesktop.swingx.JXDatePicker" name="dpDesde">
+                          <Properties>
+                            <Property name="toolTipText" type="java.lang.String" value="Elije la fecha desde el dia  que el jefe va a evaluar"/>
+                          </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                               <AbsoluteConstraints x="480" y="10" width="140" height="-1"/>
@@ -616,6 +630,9 @@
                           </Constraints>
                         </Component>
                         <Component class="org.jdesktop.swingx.JXDatePicker" name="dpHasta">
+                          <Properties>
+                            <Property name="toolTipText" type="java.lang.String" value="Elije la fecha hasta el dia que el jefe va a evaluar"/>
+                          </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                               <AbsoluteConstraints x="700" y="10" width="140" height="-1"/>
@@ -1731,6 +1748,7 @@
                           <Image iconType="3" name="/vista/imagenes/agt_forward.png"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Siguiente"/>
+                        <Property name="toolTipText" type="java.lang.String" value="va al indicador siguiente"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnAnterior">
@@ -1742,6 +1760,7 @@
                           <Image iconType="3" name="/vista/imagenes/agt_back.png"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Anterior"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Regresa al indicador anterior"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnResultados">
@@ -1753,6 +1772,7 @@
                           <Image iconType="3" name="/vista/imagenes/business.png"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Resultados"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Resultados de la calificaci&#xf3;n obtenida en cada indicador"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnResultadosActionPerformed"/>
@@ -2019,6 +2039,9 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtIGP">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Fator  que evaluara las activiades por puesto"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtIGPKeyTyped"/>
                     <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtIGPKeyReleased"/>
@@ -2043,6 +2066,9 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCON">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Factor que evaluara el conocimiento"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCONKeyTyped"/>
                     <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCONKeyReleased"/>
@@ -2067,6 +2093,9 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCTP">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Fator que evaluara las destrezas  de Cometencias Tecnicas de Puesto"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCTPKeyTyped"/>
                     <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCTPKeyReleased"/>
@@ -2091,6 +2120,9 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCU">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Factor que evaluara las Competencias Universales"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCUKeyTyped"/>
                     <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCUKeyReleased"/>
@@ -2115,6 +2147,9 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtTEIL">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Factor que evaluara las Destrezas de Trabajo en Equipo"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTEILKeyTyped"/>
                     <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTEILKeyReleased"/>
@@ -2222,6 +2257,9 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtAplica">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Porcentaje que se aplicara en caso de haber sobrepasado las metas de las actividades"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtAplicaKeyTyped"/>
                     <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtAplicaKeyReleased"/>
@@ -2395,6 +2433,7 @@
                       <Image iconType="3" name="/vista/imagenes/Save.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Aceptar"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Aceptar para guardar los usuarios activos para la evaluaci&#xf3;n"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAceptarActionPerformed"/>
@@ -2474,9 +2513,6 @@
                   </Constraints>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dateHasta">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="160" y="90" width="180" height="30"/>
@@ -2484,9 +2520,6 @@
                   </Constraints>
                 </Component>
                 <Component class="org.jdesktop.swingx.JXDatePicker" name="dateDesde">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="160" y="50" width="180" height="30"/>
