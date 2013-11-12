@@ -301,6 +301,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jLabel46 = new javax.swing.JLabel();
         cbNombres = new javax.swing.JComboBox();
         btnNuevoNombre = new javax.swing.JButton();
+        jLabel57 = new javax.swing.JLabel();
         pnlSeis = new javax.swing.JPanel();
         pnlFactores = new javax.swing.JPanel();
         jLabel49 = new javax.swing.JLabel();
@@ -326,6 +327,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jLabel56 = new javax.swing.JLabel();
         txtTotal = new javax.swing.JTextField();
         btnAplicarFactores = new javax.swing.JButton();
+        jLabel58 = new javax.swing.JLabel();
         pnlCuatro = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
@@ -336,6 +338,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         lstParaEvaluar = new javax.swing.JList();
         btnAceptar = new javax.swing.JButton();
+        jLabel59 = new javax.swing.JLabel();
         pnlTres = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         btnAplicar = new javax.swing.JButton();
@@ -352,6 +355,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         spHoraHasta = new javax.swing.JSpinner();
         spMinHasta = new javax.swing.JSpinner();
         btnEliminarPeriodo = new javax.swing.JButton();
+        jLabel60 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -1042,6 +1046,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         pnlCinco.setOpaque(false);
         pnlCinco.setPreferredSize(new java.awt.Dimension(940, 560));
         pnlCinco  = new  ImagenJPanel ("zzz.jpg");
+        pnlCinco.setLayout(null);
 
         jPanel11.setOpaque(false);
         jPanel11.setPreferredSize(new java.awt.Dimension(400, 480));
@@ -1124,12 +1129,19 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         btnNuevoNombre.setBounds(290, 40, 100, 30);
 
         pnlCinco.add(jPanel11);
+        jPanel11.setBounds(321, 5, 400, 480);
+
+        jLabel57.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel57.setText("<html>Ingrese los efectos de la evaluación, <br>llene los campos si la nota es Buena<br> Calificación, Deficiente Calificación e<br> Ineficiente Calificación </html> n</html> ");
+        pnlCinco.add(jLabel57);
+        jLabel57.setBounds(10, 170, 250, 200);
 
         tabbedEvaluacion.addTab("EFECTOS EVALUACIÓN", pnlCinco);
 
         pnlSeis.setOpaque(false);
         pnlSeis.setPreferredSize(new java.awt.Dimension(940, 560));
         pnlSeis  = new  ImagenJPanel ("zzz.jpg");
+        pnlSeis.setLayout(null);
 
         pnlFactores.setOpaque(false);
         pnlFactores.setPreferredSize(new java.awt.Dimension(750, 500));
@@ -1290,13 +1302,20 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         pnlFactores.add(btnAplicarFactores);
         btnAplicarFactores.setBounds(341, 349, 110, 40);
 
+        jLabel58.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel58.setText("<html>Estos factores deben ser ingresados cada <br>vez que activa la evalución de no<br> hacer este paso se calificara con los factores por defecto</html> ");
+        pnlFactores.add(jLabel58);
+        jLabel58.setBounds(550, 70, 200, 200);
+
         pnlSeis.add(pnlFactores);
+        pnlFactores.setBounds(190, 10, 750, 500);
 
         tabbedEvaluacion.addTab("FACTORES", pnlSeis);
 
         pnlCuatro.setOpaque(false);
         pnlCuatro.setPreferredSize(new java.awt.Dimension(940, 560));
         pnlCuatro  = new  ImagenJPanel ("zzz.jpg");
+        pnlCuatro.setLayout(null);
 
         jPanel10.setOpaque(false);
         jPanel10.setPreferredSize(new java.awt.Dimension(550, 350));
@@ -1349,12 +1368,19 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         btnAceptar.setBounds(220, 290, 120, 40);
 
         pnlCuatro.add(jPanel10);
+        jPanel10.setBounds(246, 5, 550, 350);
+
+        jLabel59.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel59.setText("<html>Seleccione de esta lista los usuarios <br>o servidores que seran evaluados posteriormente<br> y Acepte los cambios realizados para guardar la información</html>");
+        pnlCuatro.add(jLabel59);
+        jLabel59.setBounds(110, 280, 250, 110);
 
         tabbedEvaluacion.addTab("ACTIVAR EVALUACIÓN", pnlCuatro);
 
         pnlTres.setOpaque(false);
         pnlTres.setPreferredSize(new java.awt.Dimension(940, 560));
         pnlTres  = new  ImagenJPanel ("zzz.jpg");
+        pnlTres.setLayout(null);
 
         jPanel9.setOpaque(false);
         jPanel9.setPreferredSize(new java.awt.Dimension(650, 450));
@@ -1377,6 +1403,8 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         lblHasta.setBounds(90, 90, 70, 30);
         jPanel9.add(dateHasta);
         dateHasta.setBounds(160, 90, 180, 30);
+
+        dateDesde.setToolTipText("");
         jPanel9.add(dateDesde);
         dateDesde.setBounds(160, 50, 180, 30);
 
@@ -1437,6 +1465,12 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         btnEliminarPeriodo.setBounds(30, 300, 110, 33);
 
         pnlTres.add(jPanel9);
+        jPanel9.setBounds(196, 5, 650, 450);
+
+        jLabel60.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel60.setText("<html>En esta ventana,  seleccionará la fecha  <br>y hora de inicio y fin  para la activación de la <br>evaluación  a los usuarios o servidores del Área<br> y Aplique para Guardar cambios</html>");
+        pnlTres.add(jLabel60);
+        jLabel60.setBounds(10, 140, 190, 180);
 
         tabbedEvaluacion.addTab("FECHA EVALUACIÓN", pnlTres);
 
@@ -1861,7 +1895,11 @@ public class PnlEvaluacion extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

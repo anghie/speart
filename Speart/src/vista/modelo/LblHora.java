@@ -45,7 +45,7 @@ public class LblHora extends JLabel implements Runnable {
                     OperacionesVarias.recordatorio();
                     FrmPrincipal.estaEvalActiva = ControladorPrincipal.verificaPeriodoEvaluacion();
                     if (ControladorPrincipal.faltanCinco) {
-                        JOptionPane.showMessageDialog(null, "Tiene cinco minutos para terminar la evaluación");
+                        JOptionPane.showMessageDialog(null, "Tiene algunos minutos para terminar la evaluación");
                         ControladorPrincipal.faltanCinco = false;
                     }
 //                    System.out.println("Estado Evaluacion: "+FrmPrincipal.estaEvalActiva);

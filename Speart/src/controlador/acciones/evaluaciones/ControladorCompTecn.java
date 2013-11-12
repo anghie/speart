@@ -31,11 +31,15 @@ public class ControladorCompTecn {
     public void comportaObservTec(int n, CompetenciaTecnica ct) {
         if (n == 0) {
             pct.getTxtCompObserv().setText(ct.getAltaTec());
+
         } else if (n == 1) {
             pct.getTxtCompObserv().setText(ct.getMediaTec());
+
         } else if (n == 2) {
             pct.getTxtCompObserv().setText(ct.getBajaTec());
+
         }
+
     }
 
     //0. Altamente Desarrollada 5
@@ -44,6 +48,7 @@ public class ControladorCompTecn {
     //3. Poco Desarrollada 2
     //4. No Desarrollada 1
     public void actualizaResCompTec() {
+
         sumatoriaTecnicas();
         poneRespuesta();
     }
@@ -65,7 +70,8 @@ public class ControladorCompTecn {
         double porcen = calculaPorcentaje(totalCompTec);
         double r = OperacionesVarias.redondeaDosCifras((porcen * ControladorEvaluacion.facCompTec) / 100);
         pe.getTxtTotalCompTec().setText(r + "% - " + rptaTexto(porcen));
-        ControladorEvaluacion.totCompTec=r;
+        ControladorEvaluacion.totCompTec = r;
+       
     }
 
     public static double califCompTec(int index) {

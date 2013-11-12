@@ -59,7 +59,7 @@ public class Ayuda extends JDialog {
         }
         return presentacion;
     }
-
+//
 //        public static void main(String []args){
 //            Ayuda sd=new Ayuda(null);
 //

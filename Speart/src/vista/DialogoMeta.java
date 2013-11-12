@@ -21,6 +21,7 @@ import modelo.agenda.Meta;
 import modelo.proceso.Actividad;
 import modelo.usuario.Usuario;
 import vista.modelo.Fecha;
+import vista.modelo.ImagenJPanel;
 import vista.modelo.ModeloComboBoxActividad;
 import vista.modelo.ModeloComboBoxUsuarios;
 import vista.modelo.ModeloTablaMeta;
@@ -101,6 +102,7 @@ public class DialogoMeta extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        panelCenter = new  ImagenJPanel ("quejas.jpg");
         panelCenter.setLayout(new java.awt.BorderLayout());
 
         tablaMetas.setModel(modeloTablaMeta);
@@ -113,6 +115,7 @@ public class DialogoMeta extends javax.swing.JDialog {
         cmbIndic.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         cmbIndic.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 13)); // NOI18N
         jLabel1.setText("Mes:");
         cmbIndic.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
@@ -126,9 +129,11 @@ public class DialogoMeta extends javax.swing.JDialog {
         });
         cmbIndic.add(cmbMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 13)); // NOI18N
         jLabel2.setText("Indicador:");
         cmbIndic.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 13)); // NOI18N
         jLabel3.setText("Meta:");
         cmbIndic.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
 
@@ -136,6 +141,7 @@ public class DialogoMeta extends javax.swing.JDialog {
         spnMeta.setPreferredSize(new java.awt.Dimension(60, 20));
         cmbIndic.add(spnMeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 13)); // NOI18N
         jLabel4.setText("Actividad:");
         cmbIndic.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
 
@@ -143,6 +149,7 @@ public class DialogoMeta extends javax.swing.JDialog {
         cmbActividad.setPreferredSize(new java.awt.Dimension(80, 20));
         cmbIndic.add(cmbActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 190, -1));
 
+        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 13)); // NOI18N
         jLabel5.setText("Usuario:");
         cmbIndic.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, -1));
 
@@ -176,6 +183,7 @@ public class DialogoMeta extends javax.swing.JDialog {
 
         panelSur.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
+        btnCancelar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/delete.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -185,6 +193,7 @@ public class DialogoMeta extends javax.swing.JDialog {
         });
         panelSur.add(btnCancelar);
 
+        btnGuardar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/filesave.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {

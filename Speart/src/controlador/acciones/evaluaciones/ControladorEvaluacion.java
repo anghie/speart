@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import modelo.agenda.Meta;
@@ -79,7 +80,7 @@ public class ControladorEvaluacion {
     public static JTextField txRptaConocIndiv;
     public static JTextField txtTotalConoc;
     public static JButton btnEvaluarCon;
-
+   
 //    private ClassLoader cload = ControladorEvaluacion.class.getClassLoader();//para hacer referencia a archivos dentro del programa
 //    private String dirArchivo = cload.getResource("controlador/experto/evaluacion.pl").getPath();
     public ControladorEvaluacion(PnlEvaluacion pnlEval) {

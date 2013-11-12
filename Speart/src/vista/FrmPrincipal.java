@@ -96,8 +96,8 @@ public class FrmPrincipal extends JFrame {
         ponePanelInferior();
         poneBarraMenu();
         poneToolbarOeste();
-        ControladorPermisos.permisoInvitado();
-        ponePermisos();
+//        ControladorPermisos.permisoInvitado();
+//        ponePermisos();
     }
 
     public void ponePermisos() {
