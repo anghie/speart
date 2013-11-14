@@ -70,8 +70,8 @@ public class FrmPrincipal extends JFrame {
         cl = FrmPrincipal.class.getClassLoader();
         iniciaComponentes();
         estaEvalActiva = ControladorPrincipal.verificaPeriodoEvaluacion();
-//        ControladorPrincipal.listarFechasEval();
-//        System.out.println(estaEvalActiva);
+        ControladorPrincipal.listarFechasEval();
+        System.out.println(estaEvalActiva);
 
     }
 
@@ -96,8 +96,8 @@ public class FrmPrincipal extends JFrame {
         ponePanelInferior();
         poneBarraMenu();
         poneToolbarOeste();
-//        ControladorPermisos.permisoInvitado();
-//        ponePermisos();
+        ControladorPermisos.permisoInvitado();
+        ponePermisos();
     }
 
     public void ponePermisos() {

@@ -60,7 +60,7 @@ public class PanelAyuda extends JPanel {
         DefaultMutableTreeNode hojaEliminarActividad = new DefaultMutableTreeNode("ELIMINAR ACTIVIDAD");
         DefaultMutableTreeNode hojaBuscarActividad = new DefaultMutableTreeNode("BUSCAR ACTIVIDAD");
         //OPERACIONES
-        DefaultMutableTreeNode hojaAgregarSeccion = new DefaultMutableTreeNode("AGREGAR SECCIÓN");
+        DefaultMutableTreeNode hojaAgregarSeccion = new DefaultMutableTreeNode("AGREGAR SECCION");
         DefaultMutableTreeNode hojaEditarSeccion = new DefaultMutableTreeNode("EDITAR SECCIÓN");
         DefaultMutableTreeNode hojaEliminarPregunta = new DefaultMutableTreeNode("ELIMINAR PREGUNTA");
         DefaultMutableTreeNode hojaNuevaCOmpetenciaTecnica = new DefaultMutableTreeNode("NUEVA COMPETENCIA TÉCNICA");
@@ -69,9 +69,9 @@ public class PanelAyuda extends JPanel {
         DefaultMutableTreeNode hojaNuevaCompetenciaUniversal  = new DefaultMutableTreeNode("NUEVA COMPETENCIA UNIVERSAL");
         DefaultMutableTreeNode hojaEditarCompetenciaUniversal  = new DefaultMutableTreeNode("EDITAR COMPETENCIA UNIVERSAL");
         DefaultMutableTreeNode hojaEliminarCompetenciaUniversal  = new DefaultMutableTreeNode("ELIMINAR COMPETENCIA UNIVERSAL");
-        DefaultMutableTreeNode hojaNuevaCompetenciaTrabajo = new DefaultMutableTreeNode("NUEVA COMPTENCIA DE TRABAJO");
-        DefaultMutableTreeNode hojaEditarCompetenciaTrabajo = new DefaultMutableTreeNode("EDITAR COMPTENCIA DE TRABAJO ");
-         DefaultMutableTreeNode hojaEliminarCompetenciaTrabajo = new DefaultMutableTreeNode("ELIMINAR COMPTENCIA DE TRABAJO");
+        DefaultMutableTreeNode hojaNuevaCompetenciaTrabajo = new DefaultMutableTreeNode("NUEVA COMPETENCIA DE TRABAJO");
+        DefaultMutableTreeNode hojaEditarCompetenciaTrabajo = new DefaultMutableTreeNode("EDITAR COMPETENCIA DE TRABAJO ");
+         DefaultMutableTreeNode hojaEliminarCompetenciaTrabajo = new DefaultMutableTreeNode("ELIMINAR COMPETENCIA DE TRABAJO");
         
 
 //       
@@ -98,6 +98,9 @@ public class PanelAyuda extends JPanel {
         Indice.add(hojaNuevaCompetenciaUniversal);
         Indice.add(hojaEditarCompetenciaUniversal);
         Indice.add(hojaEliminarCompetenciaUniversal);
+        Indice.add(hojaNuevaCompetenciaTrabajo);
+        Indice.add(hojaEditarCompetenciaTecnica);
+        Indice.add(hojaEliminarCompetenciaTrabajo);
         
         
              
@@ -130,21 +133,75 @@ public class PanelAyuda extends JPanel {
                     } else if (enuso.equals("INGRESAR USUARIO O SERVIDOR")) {
                         url = new URL("file:" + "manuales/Agregar usuario" + ".html");
                         area.setPage(url);
-//                    } else if(enuso.equals("ADMINISTRAR DB")){
-//                    	 url=new URL("file:"+"ManualUsuario/adminDB"+".html");
-//                     		area.setPage(url);     
-//                     }else if(enuso.equals("MODIFICAR CLAVE")){
-//                    	 url=new URL("file:"+"ManualUsuario/adminClaves"+".html");
-//                     		area.setPage(url);     
-//                     }else if(enuso.equals("MODIFICAR PACIENTE")){
-//                    	 url=new URL("file:"+"ManualUsuario/modificarPaciente"+".html");
-//                     		area.setPage(url);     
-//                     }else if(enuso.equals("DIAGNOSTICAR")){
-//                    	 url=new URL("file:"+"ManualUsuario/diagnosticar"+".html");
-//                  		area.setPage(url);     
-//                     }
-
+                    } else if(enuso.equals("MODIFICAR USUARIO")){
+                    	 url=new URL("file:"+"manuales/Modificar usuarios" + ".html");
+                     		area.setPage(url);     
+                     }else if(enuso.equals("DESHABILITAR USUARIO")){
+                    	 url=new URL("file:"+"manuales/deshabilitar usuario" + ".html");
+                     		area.setPage(url);     
+                     }else if(enuso.equals("AGREGAR CONOCIMIENTOS")){
+                    	 url=new URL("file:"+"manuales/agregarconocimientos" + ".html");
+                     		area.setPage(url);     
+                     }else if(enuso.equals("AGREGAR DESTREZAS")){
+                    	 url=new URL("file:"+"manuales/agregardestreza" + ".html");
+                  		area.setPage(url);     
+                    }else if(enuso.equals("QUEJAS")){
+                    	 url=new URL("file:"+"manuales/agregarquejas" + ".html");
+                  		area.setPage(url);     
+                    }else if(enuso.equals("NUEVO PROCESO")){
+                    	 url=new URL("file:"+"manuales/ingresarproceso" + ".html");
+                  		area.setPage(url);     
+                    }else if(enuso.equals("EDITAR PROCESO")){
+                    	 url=new URL("file:"+"manuales/editarproceso" + ".html");
+                  		area.setPage(url);     
+                    }else if(enuso.equals("EDITAR ACTIVIDAD")){
+                    	 url=new URL("file:"+"manuales/editaractividad" + ".html");
+                  		area.setPage(url);     
+                    }else if(enuso.equals("ELIMINAR ACTIVIDAD")){
+                    	 url=new URL("file:"+"manuales/eliminaractividad" + ".html");
+                  		area.setPage(url);     
+                    }else if(enuso.equals("BUSCAR ACTIVIDAD")){
+                    	 url=new URL("file:"+"manuales/buscaractividad" + ".html");
+                  		area.setPage(url);     
+                    }else if(enuso.equals("AGREGAR SECCION")){
+                    	 url=new URL("file:"+"manuales/nueva seccion" + ".html");
+                  		area.setPage(url);     
+                    }else if(enuso.equals("EDITAR SECCIÓN")){
+                    	 url=new URL("file:"+"manuales/editar seccion" + ".html");
+                  		area.setPage(url);     
+                    }else if(enuso.equals("ELIMINAR PREGUNTA")){
+                    	 url=new URL("file:"+"manuales/eliminar pregunta" + ".html");
+                  		area.setPage(url);     
                     }
+                    else if(enuso.equals("NUEVA COMPETENCIA TÉCNICA")){
+                    	 url=new URL("file:"+"manuales/nuevacomptecnica" + ".html");
+                  		area.setPage(url);     
+                    }else if(enuso.equals("EDITAR COMPETENCIA TÉCNICA")){
+                    	 url=new URL("file:"+"manuales/editarcomptecnica" + ".html");
+                  		area.setPage(url);     
+                    }else if(enuso.equals("ELIMINAR COMPETENCIA TÉCNICA")){
+                    	 url=new URL("file:"+"manuales/eliminarcomptecnica" + ".html");
+                  		area.setPage(url);     
+                    }else if(enuso.equals("NUEVA COMPETENCIA UNIVERSAL")){
+                    	 url=new URL("file:"+"manuales/nuevacompuni" + ".html");
+                  		area.setPage(url);     
+                    }else if(enuso.equals("EDITAR COMPETENCIA UNIVERSAL")){
+                    	 url=new URL("file:"+"manuales/editarcompuniv" + ".html");
+                  		area.setPage(url);     
+                    }else if(enuso.equals("ELIMINAR COMPETENCIA UNIVERSAL")){
+                    	 url=new URL("file:"+"manuales/eliminarcompuniv" + ".html");
+                  		area.setPage(url);     
+                    }else if(enuso.equals("NUEVA COMPETENCIA DE TRABAJO")){
+                    	 url=new URL("file:"+"manuales/nuevotrabajo" + ".html");
+                  		area.setPage(url);     
+                    }else if(enuso.equals("EDITAR COMPETENCIA DE TRABAJO")){
+                    	 url=new URL("file:"+"manuales/editartrabajo" + ".html");
+                  		area.setPage(url);     
+                    }else if(enuso.equals("ELIMINAR COMPETENCIA DE TRABAJO")){
+                    	 url=new URL("file:"+"manuales/eliminartrabajo" + ".html");
+                  		area.setPage(url);     
+                    }
+                    
                 } catch (Exception eu) {
                     eu.printStackTrace();
                     JOptionPane.showMessageDialog(null, "Error al cargar la imformaci\363n\n" + eu.getMessage(), "ERROR EN URL(Dir no valida)", JOptionPane.ERROR_MESSAGE);

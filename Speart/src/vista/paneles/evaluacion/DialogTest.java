@@ -6,10 +6,14 @@
 package vista.paneles.evaluacion;
 
 import controlador.acciones.evaluaciones.ControladorTest;
+import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import modelo.pregunta.Pregunta;
+import vista.modelo.ImagenJPanel;
 
 /**
  *
@@ -21,12 +25,15 @@ public class DialogTest extends javax.swing.JDialog {
     private final ControladorTest ct;
     private final GestorControladorTest gct;
 
+  
+
     /**
      * Creates new form DialogTest
      *
      * @param preg
      */
     public DialogTest(ArrayList<Pregunta> preg) {
+        
         initComponents();
         setModal(true);
         preguntas = preg;
@@ -34,7 +41,10 @@ public class DialogTest extends javax.swing.JDialog {
         gct = new GestorControladorTest();
         ct.ponePreguntas();
         ct.llenaPaneles();
+        
         poneEventos();
+         
+        
     }
 
     private void poneEventos() {
