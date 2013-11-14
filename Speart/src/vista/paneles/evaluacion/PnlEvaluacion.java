@@ -5,6 +5,7 @@
 package vista.paneles.evaluacion;
 
 import controlador.acciones.Constantes;
+import controlador.acciones.ControladorPrincipal;
 import controlador.acciones.evaluaciones.ControladorEvaluacion;
 import controlador.basedatos.OperacionesBD;
 import controlador.propiedades.Propiedades;
@@ -2250,6 +2251,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             ControladorEvaluacion.txtTotalConoc = getTxtTotalConocimientos();
             ControladorEvaluacion.totConoc = 0;
             propFactores();
+            ControladorPrincipal.estaEnEval = true;
         }
 
         private void propFactores() {

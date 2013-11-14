@@ -41,6 +41,7 @@ public class ControladorPrincipal {
     public static ArrayList<PeriodoEvaluacion> fechaeval;
     public static boolean clavemal;
     public static boolean faltanCinco = false;
+    public static boolean estaEnEval = false;
 
     private ControladorPrincipal(FrmPrincipal frm) {
         this.frm = frm;

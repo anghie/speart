@@ -343,6 +343,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
             FrmPrincipal.userLogueado.setEvaluacionActivada(false);
             if (OperacionesBD.modificar(FrmPrincipal.userLogueado)) {
                 Mensaje.datosGuardados();
+                FrmPrincipal.estaEvalActiva = false;
             }
         } else {
             Mensaje.datosNoGuardados();

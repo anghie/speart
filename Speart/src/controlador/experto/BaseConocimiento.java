@@ -18,7 +18,7 @@ public class BaseConocimiento {
      *
      * @param dirArchivo La direccion donde se encuentra el archivo .pl
      * @return true Si se ha compilado el archivo correctamente<br>
-     * @return false Si el archivo <b>NO</b> se ha compilado correctamente
+     *         false Si el archivo <b>NO</b> se ha compilado correctamente
      */
     public boolean compilaArchivo(String dirArchivo) {
         Query q = new Query("consult('" + dirArchivo + "')");
@@ -34,15 +34,11 @@ public class BaseConocimiento {
      *
      * @param regla La regla a ser evaluada
      * @return true Si la regla se evaluo como verdadera<br>
-     * @return false Si la regla se evaluo como falsa
+     *         false Si la regla se evaluo como falsa
      */
     public boolean cumpleRegla(String regla) {
         Query q = new Query(regla);
-        if (q.hasSolution()) {
-            return true;
-        } else {
-            return false;
-        }
+        return q.hasSolution();
     }
 
     /**
