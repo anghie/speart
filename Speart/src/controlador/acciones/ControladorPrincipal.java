@@ -203,8 +203,8 @@ public class ControladorPrincipal {
 //        }
 //
 //        Map<String, Object> parametros = new HashMap<>();
-//        parametros.put("NOMBRE", u.getNombre());
-//        parametros.put("TIPO", u.getRol().getTipo());
+//        parametros.put("NOMBRESEVALUADO", u.getNombre());
+//        parametros.put("PUESTOSERVIDOR", u.getRol().getTipo());
         try {
             JasperReport reporte = (JasperReport) JRLoader.loadObject(getClass().getResource("ReporteUsuarios.jasper"));
             JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, new JRBeanCollectionDataSource(usuarios));
@@ -215,6 +215,17 @@ public class ControladorPrincipal {
         } catch (JRException ex) {
             Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
+//         try {
+//            JasperReport reporte = (JasperReport) JRLoader.loadObject(getClass().getResource("ReporteUsuarios.jasper"));
+//            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, new JRBeanCollectionDataSource(usuarios));
+//            JasperViewer vista = new JasperViewer(jasperPrint, false);
+//            if (!vista.isActive()) {
+//                vista.setVisible(true);
+//            }
+//        } catch (JRException ex) {
+//            Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        
     }
 
     public static void listarFechasEval() {

@@ -29,6 +29,7 @@ public class PnlTexto extends javax.swing.JPanel {
         lblTexto = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(902, 0));
+        setOpaque(false);
         setPreferredSize(new java.awt.Dimension(902, 35));
         setLayout(null);
 

@@ -22,10 +22,10 @@ import vista.modelo.OperacionesVarias;
 public class FrmResultadosEvaluac extends javax.swing.JDialog {
     
     private static FrmResultadosEvaluac fre = null;
-    private ClassLoader cload = FrmResultadosEvaluac.class.getClassLoader();//para hacer referencia a archivos dentro del programa
-    private String dirArchivo = cload.getResource("controlador/experto/evaluacion.pl").getPath();
-    private Evaluacion eval;
-    private double totalEvaluacion=0;
+    private final ClassLoader cload = FrmResultadosEvaluac.class.getClassLoader();//para hacer referencia a archivos dentro del programa
+    private final String dirArchivo = cload.getResource("controlador/experto/evaluacion.pl").getPath();
+    private final Evaluacion eval;
+    private final double totalEvaluacion=0;
     String result="";
     Efectos efecto;
     /**
@@ -40,7 +40,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         lblUniversales.setText(tCU + "");
         lblTrabajoEquipo.setText(tT + "");
         lblEvalCiudadano.setText(totQ + "");
-        lblTotalEvl.setText(lblTotalEvl.getText() + " " + totl);
+        lblTotalEvl.setText(lblTotalEvl.getText() + " " + OperacionesVarias.redondeaDosCifras(totl));
         result = califResultados(totl);
         lblDesempeño.setText(lblDesempeño.getText() + " " + result);
         lblFecha.setText(OperacionesVarias.fechaString(new Date()));
@@ -54,7 +54,10 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         eval.setTotalEval(totl);
         eval.setFechaEvaluacion(Calendar.getInstance());
         eval.setUsuarioEval(FrmPrincipal.userLogueado);
-        
+        String ef = poneEfecto();
+        if(ef!=null){
+            lblEfecto.setText(lblEfecto.getText()+" "+ef);
+        }
     }
     
     public synchronized static FrmResultadosEvaluac getInstance(double tIndic, double tConoc, double tCT, double tCU, double tT, double totQ, double totl) {
@@ -99,6 +102,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         jLabel19 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         lblTrabajoEquipo = new javax.swing.JLabel();
+        lblEfecto = new javax.swing.JLabel();
         btnCerrar = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
         btnGuardaResEvaluacion = new javax.swing.JButton();
@@ -194,7 +198,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         lblFecha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lblFecha.setOpaque(true);
         jPanel1.add(lblFecha);
-        lblFecha.setBounds(410, 360, 390, 30);
+        lblFecha.setBounds(410, 390, 390, 30);
 
         lblEvalCiudadano.setBackground(java.awt.Color.white);
         lblEvalCiudadano.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
@@ -218,7 +222,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         jLabel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel8.setOpaque(true);
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(30, 330, 770, 30);
+        jLabel8.setBounds(30, 360, 770, 30);
 
         lblTotalEvl.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         lblTotalEvl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -250,12 +254,12 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         jLabel14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel14.setOpaque(true);
         jPanel1.add(jLabel14);
-        jLabel14.setBounds(30, 360, 380, 30);
+        jLabel14.setBounds(30, 390, 380, 30);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("CERTIFICO: Que he evaluado al (a la) servidor (a) acorde al procedimiento de la norma de Evaluación de Desempeño.");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(30, 400, 770, 17);
+        jLabel2.setBounds(30, 430, 770, 14);
 
         jLabel15.setFont(new java.awt.Font("DejaVu Sans", 1, 11)); // NOI18N
         jLabel15.setText("___________________________________________________");
@@ -292,6 +296,14 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         jPanel1.add(lblTrabajoEquipo);
         lblTrabajoEquipo.setBounds(550, 210, 250, 30);
 
+        lblEfecto.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
+        lblEfecto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEfecto.setText("EFECTO:");
+        lblEfecto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblEfecto.setOpaque(true);
+        jPanel1.add(lblEfecto);
+        lblEfecto.setBounds(30, 330, 770, 30);
+
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 840, 620);
 
@@ -315,7 +327,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
             }
         });
         getContentPane().add(btnImprimir);
-        btnImprimir.setBounds(360, 630, 130, 50);
+        btnImprimir.setBounds(420, 630, 130, 50);
 
         btnGuardaResEvaluacion.setText("Guardar");
         btnGuardaResEvaluacion.addActionListener(new java.awt.event.ActionListener() {
@@ -324,7 +336,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
             }
         });
         getContentPane().add(btnGuardaResEvaluacion);
-        btnGuardaResEvaluacion.setBounds(239, 630, 110, 50);
+        btnGuardaResEvaluacion.setBounds(300, 630, 110, 50);
 
         setSize(new java.awt.Dimension(848, 716));
         setLocationRelativeTo(null);
@@ -339,7 +351,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
 
     private void btnGuardaResEvaluacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaResEvaluacionActionPerformed
         if (OperacionesBD.guardar(eval)) {
-            System.out.println("Usted es malo malo malo");
+//            System.out.println("Usted es malo malo malo");
             FrmPrincipal.userLogueado.setEvaluacionActivada(false);
             if (OperacionesBD.modificar(FrmPrincipal.userLogueado)) {
                 Mensaje.datosGuardados();
@@ -372,6 +384,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblConocimientos;
     private javax.swing.JLabel lblDesempeño;
+    private javax.swing.JLabel lblEfecto;
     private javax.swing.JLabel lblEvalCiudadano;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblIndicadores;
@@ -389,10 +402,25 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         return null;
     }
     private void listarEfectos(){
-        Efectos efecto = new Efectos();
+        efecto = new Efectos();
         ArrayList<Efectos> ef = (ArrayList<Efectos>) OperacionesBD.listar("Efectos");
         for(Efectos e: ef){
             efecto=e;
+        }
+    }
+    
+    private String poneEfecto(){        
+        switch (result) {
+            case "'Excelente'":
+            case "'Muy Bueno'":
+            case "'Satisfactorio'":
+                return efecto.getBueno();
+            case "'Deficiente'":
+                return efecto.getDeficiente();
+            case "'Inaceptable'":
+                return efecto.getIneficiente();
+            default:
+                return null;
         }
     }
 }

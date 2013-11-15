@@ -71,7 +71,7 @@ public class DialogTest extends javax.swing.JDialog {
 
         scrollTest.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        pnlTest.setOpaque(false);
+        pnlTest.setBackground(new java.awt.Color(254, 254, 254));
         pnlTest.setVerifyInputWhenFocusTarget(false);
         pnlTest.setLayout(new javax.swing.BoxLayout(pnlTest, javax.swing.BoxLayout.Y_AXIS));
         scrollTest.setViewportView(pnlTest);

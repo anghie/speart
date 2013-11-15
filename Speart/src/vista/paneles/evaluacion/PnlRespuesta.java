@@ -29,6 +29,7 @@ public class PnlRespuesta extends javax.swing.JPanel {
         chbPregunta = new javax.swing.JCheckBox();
 
         setMinimumSize(new java.awt.Dimension(902, 0));
+        setOpaque(false);
         setPreferredSize(new java.awt.Dimension(902, 35));
         setLayout(null);
         add(chbPregunta);
