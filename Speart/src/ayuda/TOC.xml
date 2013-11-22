@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<toc version="1.0">
+	   <tocitem text="SPEART"    target="indice">          
+           <tocitem text="INTRODUCCIÓN" target="introduccion"/>
+           <tocitem text="PRIVILEGIOS" target="privilegios"/>
+           <tocitem text="INGRESAR USUARIO O SERVIDOR" target="ingresousuario"/>
+           <tocitem text="MODIFICAR USUARIO" target="modificarusuario"/>
+           <tocitem text="DESHABILITAR USUARIO" target="deshabilitarusuario"/>
+           <tocitem text="AGREGAR CONOCIMIENTOS" target="agregarconocimientos"/>
+           <tocitem text="AGREGAR DESTREZAS"    target="agregardestrezas"/>          
+           <tocitem text="QUEJAS" target="quejas"/>
+           
+           
+           <tocitem text="NUEVO PROCESO" target="nuevoproceso"/>
+           <tocitem text="EDITAR PROCESO" target="editarproceso"/>
+           <tocitem text="EDITAR ACTIVIDAD" target="editaractividad"/>
+           <tocitem text="ELIMINAR ACTIVIDAD" target="eliminaractividad"/>
+           <tocitem text="BUSCAR ACTIVIDAD" target="buscaractividad"/>
+           <tocitem text="AGREGAR SECCION" target="agregarseccion"/>
+           <tocitem text="EDITAR SECCIÓN" target="editarseccion"/>
+           <tocitem text="ELIMINAR PREGUNTA" target="eliminarpregunta"/>
+           <tocitem text="NUEVA COMPETENCIA TÉCNICA" target="nuevacompetenciatecnica"/>
+           <tocitem text="EDITAR COMPETENCIA TÉCNICA" target="editarcompetenciatecnica"/>
+           <tocitem text="ELIMINAR COMPETENCIA TÉCNICA" target="eliminarcomptecnica"/>
+           <tocitem text="NUEVA COMPETENCIA UNIVERSAL" target="nuevacompuniversal"/>
+           <tocitem text="EDITAR COMPETENCIA UNIVERSAL" target="editarcompuniversal"/>
+           <tocitem text="ELIMINAR COMPETENCIA UNIVERSAL" target="eliminarcompuniversal"/>
+           <tocitem text="NUEVA COMPETENCIA DE TRABAJO" target="nuevacomptrabajo"/>
+            <tocitem text="EDITAR COMPETENCIA DE TRABAJO" target="editarcomptrabajo"/>
+           <tocitem text="ELIMINAR COMPETENCIA DE TRABAJO" target="eliminarcomptrabajo"/>
+           </tocitem>
+				
+</toc>

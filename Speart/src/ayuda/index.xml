@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE index
+PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 1.0//EN"
+"http://java.sun.com/products/javahelp/index_1_0.dtd">
+<index version="1.0">
+           <indexitem text="SPEART"    target="indice"/>          
+           <indexitem text="INTRODUCCIÓN" target="introduccion"/>
+           <indexitem text="PRIVILEGIOS" target="privilegios"/>
+           <indexitem text="INGRESAR USUARIO O SERVIDOR" target="ingresousuario"/>
+           <indexitem text="MODIFICAR USUARIO" target="modificarusuario"/>
+           <indexitem text="DESHABILITAR USUARIO" target="deshabilitarusuario"/>
+           <indexitem text="AGREGAR CONOCIMIENTOS" target="agregarconocimientos"/>
+           <indexitem text="AGREGAR DESTREZAS"    target="agregardestrezas"/>          
+           <indexitem text="QUEJAS" target="quejas"/>
+                      
+           <indexitem text="NUEVO PROCESO" target="nuevoproceso"/>
+           <indexitem text="EDITAR PROCESO" target="editarproceso"/>
+           <indexitem text="EDITAR ACTIVIDAD" target="editaractividad"/>
+           <indexitem text="ELIMINAR ACTIVIDAD" target="eliminaractividad"/>
+           <indexitem text="BUSCAR ACTIVIDAD" target="buscaractividad"/>
+           <indexitem text="AGREGAR SECCION" target="agregarseccion"/>
+           <indexitem text="EDITAR SECCIÓN" target="editarseccion"/>
+           <indexitem text="ELIMINAR PREGUNTA" target="eliminarpregunta"/>
+           <indexitem text="NUEVA COMPETENCIA TÉCNICA" target="nuevacompetenciatecnica"/>
+           <indexitem text="EDITAR COMPETENCIA TÉCNICA" target="editarcompetenciatecnica"/>
+           <indexitem text="ELIMINAR COMPETENCIA TÉCNICA" target="eliminarcomptecnica"/>
+           <indexitem text="NUEVA COMPETENCIA UNIVERSAL" target="nuevacompuniversal"/>
+           <indexitem text="EDITAR COMPETENCIA UNIVERSAL" target="editarcompuniversal"/>
+           <indexitem text="ELIMINAR COMPETENCIA UNIVERSAL" target="eliminarcompuniversal"/>
+           <indexitem text="NUEVA COMPETENCIA DE TRABAJO" target="nuevacomptrabajo"/>
+           <indexitem text="EDITAR COMPETENCIA DE TRABAJO" target="editarcomptrabajo"/>
+           <indexitem text="ELIMINAR COMPETENCIA DE TRABAJO" target="eliminarcomptrabajo"/>
+         
+ 	       
+</index>
+

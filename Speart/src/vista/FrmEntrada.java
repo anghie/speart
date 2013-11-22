@@ -79,7 +79,7 @@ public class FrmEntrada extends JFrame implements Runnable {
      */
     private void inicializarComponentes() {
         Estilos e = Estilos.getInstance();
-        e.aplicarEstilo(Estilos.ESTILO_SISTEMA);
+        e.aplicarEstilo(Estilos.ESTILO_NIMBUS);
         setSize(400, 300);
         setLocationRelativeTo(null);
         setUndecorated(true);

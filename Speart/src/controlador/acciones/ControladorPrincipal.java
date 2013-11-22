@@ -4,10 +4,13 @@ import controlador.acciones.usuario.ControladorUsuario;
 import controlador.basedatos.OperacionesBD;
 import vista.FrmPrincipal;
 import java.awt.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.help.HelpBroker;
+import javax.help.HelpSet;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -186,6 +189,20 @@ public class ControladorPrincipal {
 //        System.out.println("Memoria antes de pasar garbage: " + garbage.freeMemory());
         garbage.gc();
 //        System.out.println("Memoria despues de pasar garbage: " + garbage.freeMemory());
+    }
+     public void ponLaAyuda() {
+
+        try {
+            URL hsURL = getClass().getResource("/ayuda/principal.hs");
+            HelpSet hs = new HelpSet(getClass().getClassLoader(), hsURL);
+            HelpBroker hb = hs.createHelpBroker();
+            hb.enableHelpKey(frm.getRootPane(), "indice", hs);
+            hb.enableHelpOnButton(frm.getmiAyuda(), "indice", hs);
+            hb.setSize(new java.awt.Dimension(1050, 650));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 //    public boolean evalActiv(){

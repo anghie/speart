@@ -65,6 +65,8 @@ public class FrmPrincipal extends JFrame {
     private JMenuItem miReporteEvaluaciones;
     private JMenuItem miReporteUsuarios;
     private static FrmPrincipal fp = null;
+   
+
 
     private FrmPrincipal() {
         cl = FrmPrincipal.class.getClassLoader();
@@ -99,6 +101,7 @@ public class FrmPrincipal extends JFrame {
         ControladorPermisos.permisoInvitado();
         ponePermisos();
     }
+    
 
     public void ponePermisos() {
         btnEvaluacion.setVisible(ControladorPermisos.evaluaciones);
@@ -418,6 +421,9 @@ public class FrmPrincipal extends JFrame {
     public JButton getBtnProcesos() {
         return btnProcesos;
     }
+    public JMenuItem getmiAyuda() {
+        return miAyuda;
+    }
 
 //    /**
 //     * @return the btnServicios
@@ -543,7 +549,8 @@ public class FrmPrincipal extends JFrame {
             } else if (evt.getSource() == miReporteUsuarios) {
                 cp.reporteUsuarios();
             } else if (evt.getSource() == miAyuda) {
-                new Ayuda(null);
+                cp.ponLaAyuda();
+//                new Ayuda (null);
             }
         }
     }
