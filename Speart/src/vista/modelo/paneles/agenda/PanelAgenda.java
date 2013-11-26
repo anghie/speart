@@ -76,22 +76,6 @@ public class PanelAgenda extends ImagenJPanel {
     private Usuario usuario;
     private LinkedList<Actividad>listaActividades;
     private ModeloTablaItemInforme modeloTablaInforme;
-//    public PanelAgenda(String dirImagen) {
-//        super(dirImagen);
-//        fechaActual=new Date();
-//        formatoFecha="yyyy/MM/dd HH:mm:ss";
-//        infoFecha="Fecha Seleccionada: ";
-//        initComponents();
-//        lblFechaSeleccionada.setText(infoFecha+Fecha.getFechaFormateada(fechaActual,"yyyy/MM/dd"));
-//
-//        iniciarAgenda();
-//        iniciarServidores();
-//        hiloReloj=new Thread(new Reloj(this));
-//        hiloReloj.setDaemon(true);
-//        hiloReloj.start();
-//        guardar=false;
-//        panelAddActividad.setVisible(false);
-//    }
     public PanelAgenda(String dirImagen, Usuario usuario) {
         super(dirImagen);
         this.usuario=usuario;
@@ -110,7 +94,7 @@ public class PanelAgenda extends ImagenJPanel {
         hiloReloj.setDaemon(true);
         hiloReloj.start();
         guardar=false;
-        
+        seleccionarFecha();
     }
     private void iniciarServidores(){
        listaActividades=ControladorActividades.getAllActividades(usuario.getRol().getIdRol());
@@ -504,10 +488,13 @@ public class PanelAgenda extends ImagenJPanel {
     private void dateChooserPanel1OnSelectionChange(datechooser.events.SelectionChangedEvent evt) {//GEN-FIRST:event_dateChooserPanel1OnSelectionChange
         // TODO add your handling code here:
 //        if(cmbServidor.getSelectedIndex()>-1){
-            Calendar calendario=dateChooserPanel1.getSelectedDate();
+            seleccionarFecha();
+}//GEN-LAST:event_dateChooserPanel1OnSelectionChange
+private void seleccionarFecha(){
+    Calendar calendario=dateChooserPanel1.getSelectedDate();
             //ControladorAgenda.changeAgenda(""+calendario.getTime().getYear());
             lblFechaSeleccionada.setText(infoFecha+Fecha.getFechaFormateada(calendario.getTime(), "yyyy/MM/dd"));
-            Actividad actividad=new Actividad();//listaActividades.get(cmbServidor.getSelectedIndex());
+            //Actividad actividad=new Actividad();//listaActividades.get(cmbServidor.getSelectedIndex());
            
                 panelTodasActividades=new PanelTodasLasActividades(calendario,agendaActual,usuario);
                 panelDia=new PanelDiaHoras(calendario,agendaActual,null,usuario);
@@ -524,17 +511,7 @@ public class PanelAgenda extends ImagenJPanel {
             
             scPanelDia.getVerticalScrollBar().setValue(scPanelDia.getHeight()/3);
             scPanelSemana.getVerticalScrollBar().setValue(scPanelSemana.getHeight()/3);
-            
-//            if(usuario!=null){
-//                if(usuario.getRol().getTipo().equals("Jefe"))
-//                panelAddActividad.setVisible(true);
-//            }  
-//        }else{
-//            guardar=false;
-//            JOptionPane.showMessageDialog(this,"Porfavor primero seleccione una actividad");
-//        }
-}//GEN-LAST:event_dateChooserPanel1OnSelectionChange
-
+}
     private void btGuardarAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarAgendaActionPerformed
         // TODO add your handling code here:
         if(guardar){
@@ -578,7 +555,7 @@ public class PanelAgenda extends ImagenJPanel {
          Calendar calendarioActual=Calendar.getInstance();
         if(calendario.getInstance().getTime().getTime()<calendarioActual.getTime().getTime()){
             JOptionPane.showMessageDialog(panelSemana,"Error no se pueden crear actividades en fechas pasadas");
-            return;
+            return ;
         } 
         if(cmbServidor.getSelectedIndex()>-1){
             if (calendario!=null) {

@@ -1808,6 +1808,8 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         if (f != -1) {
             PeriodoEvaluacion pe = periodos.get(f);
             if (OperacionesBD.eliminar(pe, pe.getIdPeriodoEval())) {
+                  int n = JOptionPane.showConfirmDialog(null, "¿Desea eliminar la fecha seleccionada, realizada esta accion se desactivara la evaluación?", "Modificar", JOptionPane.YES_NO_OPTION);
+                    if (n == JOptionPane.YES_OPTION) {
                 Mensaje.datosEliminados();
                 actualizaTblPeriodos();
             } else {
@@ -1816,6 +1818,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         } else {
             Mensaje.filaNoSeleccionada();
         }
+            }  
     }//GEN-LAST:event_btnEliminarPeriodoActionPerformed
     private boolean compruebaVacios() {
         return txtIGP.getText().isEmpty()

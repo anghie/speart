@@ -229,6 +229,7 @@ public class OperacionesBD {
     
     public static List buscarMetas(String nombreTabla, String nombreCampo, Date fechaDesde, Date fechaHasta, String login) {
         List obj = null;
+         entidad.clear();
         entidad.getTransaction().begin();
         try {
             obj = entidad.createQuery(  "Select distinct a from " + nombreTabla + " a "

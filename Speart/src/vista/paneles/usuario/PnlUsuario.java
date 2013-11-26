@@ -312,7 +312,7 @@ public final class PnlUsuario extends javax.swing.JPanel {
         pnlDatosPers.setBounds(10, 0, 520, 170);
 
         pnlCreaUsuario.add(pnlDatos);
-        pnlDatos.setBounds(230, 10, 540, 590);
+        pnlDatos.setBounds(320, 10, 540, 590);
 
         tabbedUsuario.addTab("CREAR USUARIO", pnlCreaUsuario);
 
@@ -753,14 +753,12 @@ public final class PnlUsuario extends javax.swing.JPanel {
                 }
             } else if (evt.getSource() == btnDeshabilitar) {
                 if (cu.isRowSelected()) {
-                    int i = JOptionPane.showConfirmDialog(null, "¿Desea agregar las actividades a otro usuario?", "Actividads", JOptionPane.YES_NO_OPTION);
-                    if (i == JOptionPane.YES_OPTION) {                        
-                        cu.abreDialogUsuarios();
-                    } else {
+//                    int i = JOptionPane.showConfirmDialog(null, "¿Desea agregar las actividades a otro usuario?", "Actividads", JOptionPane.YES_NO_OPTION);
+//                    if (i == JOptionPane.YES_OPTION) {                        
+//                        cu.abreDialogUsuarios();
+//                    } else {
                         cu.desHabilitarUsuario();
-                    }
-
-                } else {
+                    }else {
                     Mensaje.filaNoSeleccionada();
                 }
             } else if (evt.getSource() == btnGuardarModificacion) {
