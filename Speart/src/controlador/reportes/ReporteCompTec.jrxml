@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f4b954f3-cc0e-4bc3-b4c0-73919c5dcdc0">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="nombreDestrezaTec" class="java.lang.String"/>
+	<field name="altaTec" class="java.lang.String"/>
+	<field name="mediaTec" class="java.lang.String"/>
+	<field name="bajaTec" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="92" y="27" width="398" height="20" uuid="85075920-5765-4e27-963f-e21175273c1d"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INSTITUTO ECUATORIANO DE SEGURIDAD SOCIAL]]></text>
+			</staticText>
+			<image>
+				<reportElement x="1" y="0" width="88" height="79" uuid="2986d45a-9c6b-4678-9315-27cf6fde3672"/>
+				<imageExpression><![CDATA["/home/francisco/NetBeansProjects/Speart/src/vista/imagenes/iess2.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement x="166" y="5" width="224" height="20" uuid="e684aa05-8e00-4de7-b78e-9ee002e8fa73"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCIÓN PROVINCIAL DE LOJA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="116" y="37" width="318" height="20" uuid="a08070fe-a74a-4901-ac64-86fbe6b4f702"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMPETENCIAS TÉCNICAS DEL PUESTO]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="2" width="100" height="20" uuid="330f321b-1e24-4a56-86d2-cd448550b62d"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESTREZA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="101" y="2" width="100" height="20" uuid="34fb6b10-0be8-4dc5-a0d4-ccf9afb55b83"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="264" y="2" width="100" height="20" uuid="121ff39c-fddb-4fea-97c1-81f0d8de55c0"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MEDIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="2" width="100" height="20" uuid="846178b2-1653-449e-87d6-0f86f097405c"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[BAJA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="04add511-0d76-40ab-a176-97e9a21198c1"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nombreDestrezaTec}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="101" y="0" width="163" height="20" uuid="68eba22d-88f8-4e91-bf1b-b7872b8f1514"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{altaTec}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="264" y="0" width="158" height="20" uuid="098826ea-7ecc-48e4-9d82-778d53bb1526"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{mediaTec}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="422" y="0" width="133" height="20" uuid="cba4454d-51c5-4cb0-a28e-a53ef9f045da"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{bajaTec}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bf56e5f3-8be5-418a-98bd-bed953b1c2f1">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="192"/>
+	<field name="descripcionTrabEquipo" class="java.lang.String"/>
+	<field name="altaTrabEquipo" class="java.lang.String"/>
+	<field name="mediaTrabEquipo" class="java.lang.String"/>
+	<field name="bajaTrabEquipo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="88" height="79" uuid="ad1b5e30-8812-40a6-afe6-85b62656de2f"/>
+				<imageExpression><![CDATA["/home/francisco/NetBeansProjects/Speart/src/vista/imagenes/iess2.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="90" y="23" width="398" height="20" uuid="358d4bb7-4858-4a87-a211-3a926c7454d2"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INSTITUTO ECUATORIANO DE SEGURIDAD SOCIAL]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="66" splitType="Stretch">
+			<staticText>
+				<reportElement x="176" y="5" width="224" height="20" uuid="6dfe369c-f4be-4048-8a75-a7df7677f476"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCIÓN PROVINCIAL DE LOJA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="126" y="35" width="318" height="20" uuid="30f5ef6b-c167-444e-b1bf-936c1da7a545"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TRABAJO INICIATIVA Y LIDERAZGO]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="4" width="100" height="20" uuid="f0c45db7-2cdc-4221-949c-f4e2f8608362"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIPCIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="424" y="4" width="100" height="20" uuid="66964255-9762-46e9-a1d8-de8d8ce58502"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[BAJA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="126" y="4" width="100" height="20" uuid="07b08e06-d3d3-4d4e-ba66-430a25b99ac4"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="4" width="100" height="20" uuid="fc8616f9-5081-4f6b-968a-6afc02a55fcc"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MEDIA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="126" height="20" uuid="5944ac6e-34e3-46cb-a622-26a911f5ce40"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{descripcionTrabEquipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="126" y="0" width="149" height="20" uuid="c3af968b-df28-4fd4-8f11-cda9cfee9fbb"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{altaTrabEquipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="275" y="0" width="149" height="20" uuid="eb184cd0-f3f3-4f55-b518-e4c71a0f08b7"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{mediaTrabEquipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="424" y="0" width="131" height="20" uuid="5bddc3db-32aa-4244-9d4b-461f29b43818"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{bajaTrabEquipo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

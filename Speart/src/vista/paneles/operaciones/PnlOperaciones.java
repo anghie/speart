@@ -73,6 +73,9 @@ public class PnlOperaciones extends javax.swing.JPanel {
         getBtnCancelarTecnicas().addActionListener(gco);
         getBtnCancelarUniversales().addActionListener(gco);
         getBtnCancelarTrabajo().addActionListener(gco);
+        btnReporteCT.addActionListener(gco);
+        btnReporteUniv.addActionListener(gco);
+        btnReporteTrabEq.addActionListener(gco);
     }
 
     /**
@@ -132,6 +135,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         btnNuevaCompetencia = new javax.swing.JButton();
         btnEditarCompetencias = new javax.swing.JButton();
         btnCancelarTecnicas = new javax.swing.JButton();
+        btnReporteCT = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         pnlCuatro = new javax.swing.JPanel();
         pnlCompUniv = new javax.swing.JPanel();
@@ -154,6 +158,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         btnCancelarUniversales = new javax.swing.JButton();
+        btnReporteUniv = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         pnlCinco = new javax.swing.JPanel();
         pnlTrabajoEquipo = new javax.swing.JPanel();
@@ -176,6 +181,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         btnGuardarTrabEquipo = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         btnCancelarTrabajo = new javax.swing.JButton();
+        btnReporteTrabEq = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
@@ -442,6 +448,10 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlCompTecPuesto.add(btnCancelarTecnicas);
         btnCancelarTecnicas.setBounds(410, 440, 100, 40);
 
+        btnReporteCT.setText("Reporte");
+        pnlCompTecPuesto.add(btnReporteCT);
+        btnReporteCT.setBounds(150, 440, 120, 40);
+
         pnlTres.add(pnlCompTecPuesto);
         pnlCompTecPuesto.setBounds(170, 10, 770, 490);
 
@@ -568,6 +578,10 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlCompUniv.add(btnCancelarUniversales);
         btnCancelarUniversales.setBounds(410, 440, 110, 40);
 
+        btnReporteUniv.setText("Reporte");
+        pnlCompUniv.add(btnReporteUniv);
+        btnReporteUniv.setBounds(150, 440, 120, 40);
+
         pnlCuatro.add(pnlCompUniv);
         pnlCompUniv.setBounds(180, 10, 770, 490);
 
@@ -691,6 +705,10 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlTrabajoEquipo.add(btnCancelarTrabajo);
         btnCancelarTrabajo.setBounds(410, 440, 100, 40);
 
+        btnReporteTrabEq.setText("Reporte");
+        pnlTrabajoEquipo.add(btnReporteTrabEq);
+        btnReporteTrabEq.setBounds(150, 440, 120, 40);
+
         pnlCinco.add(pnlTrabajoEquipo);
         pnlTrabajoEquipo.setBounds(170, 10, 770, 490);
 
@@ -725,6 +743,9 @@ public class PnlOperaciones extends javax.swing.JPanel {
     private javax.swing.JButton btnNuevaCompetenciaUniversal;
     private javax.swing.JButton btnNuevaSeccion;
     private javax.swing.JButton btnNuevoTrabajoEq;
+    private javax.swing.JButton btnReporteCT;
+    private javax.swing.JButton btnReporteTrabEq;
+    private javax.swing.JButton btnReporteUniv;
     public static javax.swing.JComboBox cbSeccion;
     public static javax.swing.JComboBox cbSeccionLstPreg;
     private javax.swing.JLabel jLabel10;
@@ -1124,6 +1145,8 @@ public class PnlOperaciones extends javax.swing.JPanel {
                 cctp.nuevaCompetenciaTecnica();
                 cctp.poneEnables(false);
                 btnGuardarCompetencia.setText("Guardar");
+            }else if(e.getSource()==btnReporteCT){
+                cctp.imprimeReporteTecnicas();
             }
             
             //**********************************************
@@ -1162,6 +1185,8 @@ public class PnlOperaciones extends javax.swing.JPanel {
                 ccu.nuevaCompetenciaUniversal();
                 ccu.poneEnablesUniv(false);
                 btnGuardarCompetenciaUniversal.setText("Guardar");
+            }else if(e.getSource()==btnReporteUniv){
+                ccu.imprimeReporteUniversales();
             }
             //**********************************************
             //*   PANEL TRABAJO EN EQUIPO                  *
@@ -1199,6 +1224,8 @@ public class PnlOperaciones extends javax.swing.JPanel {
                 cte.nuevoTrabajoEquipo();
                 cte.poneEnablesTrabEquip(false);
                 btnGuardarTrabEquipo.setText("Guardar");
+            }else if(e.getSource()==btnReporteTrabEq){
+                cte.imprimeReporteTE();
             }
         }
 

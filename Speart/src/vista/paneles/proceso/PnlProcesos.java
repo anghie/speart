@@ -47,6 +47,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         btnEliminarActividad.addActionListener(gcp);
         btnCancelar.addActionListener(gcp);
         txtBuscar.addKeyListener(gcp);
+        btnReporteActiv.addActionListener(gcp);
     }
 
     /**
@@ -89,6 +90,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         lblProceso = new javax.swing.JLabel();
         btnEliminarActividad = new javax.swing.JButton();
         btnEditarActividad = new javax.swing.JButton();
+        btnReporteActiv = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
@@ -146,7 +148,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel1.setText("  Descripcion:   ");
         pnlAddActiv.add(jLabel1);
-        jLabel1.setBounds(60, 90, 90, 16);
+        jLabel1.setBounds(60, 90, 90, 17);
 
         txtDescripcion.setColumns(20);
         txtDescripcion.setRows(5);
@@ -255,6 +257,10 @@ public class PnlProcesos extends javax.swing.JPanel {
         pnlListaProcesos.add(btnEditarActividad);
         btnEditarActividad.setBounds(40, 260, 100, 40);
 
+        btnReporteActiv.setText("Reporte");
+        pnlListaProcesos.add(btnReporteActiv);
+        btnReporteActiv.setBounds(280, 320, 120, 40);
+
         pnlDos.add(pnlListaProcesos);
         pnlListaProcesos.setBounds(158, 6, 680, 380);
 
@@ -274,6 +280,7 @@ public class PnlProcesos extends javax.swing.JPanel {
     private javax.swing.JButton btnEliminarActividad;
     private javax.swing.JButton btnGuardarActividad;
     private javax.swing.JButton btnNuevoProceso;
+    private javax.swing.JButton btnReporteActiv;
     private javax.swing.JComboBox cbProcesos;
     private javax.swing.JComboBox cbProcesosLista;
     private javax.swing.JComboBox cbPuesto;
@@ -495,6 +502,8 @@ public class PnlProcesos extends javax.swing.JPanel {
                 }
             }else if(e.getSource() == btnCancelar){
                 cpr.cancelarActividad();
+            }else if(e.getSource()==btnReporteActiv){
+                cpr.imprimeReporteActiv();
             }
         }
 

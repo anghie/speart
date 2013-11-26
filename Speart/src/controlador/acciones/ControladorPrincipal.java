@@ -208,33 +208,23 @@ public class ControladorPrincipal {
 //    public boolean evalActiv(){
 //        
 //    }
-    public void reporteUsuarios() {
-        ArrayList<Usuario> usuarios = (ArrayList<Usuario>) OperacionesBD.listar("Usuario");
-
-        //En caso de que hayan parametros, los parametros son unicos
-//        Usuario u = null;
-//        if (!usuarios.isEmpty()) {
-//            u = usuarios.get(0);
-//        } else {
-//            u = new Usuario();
-//        }
+//    public void reporteUsuarios() {
+//        ArrayList<Usuario> usuarios = (ArrayList<Usuario>) OperacionesBD.listar("Usuario");
 //
-//        Map<String, Object> parametros = new HashMap<>();
-//        parametros.put("NOMBRESEVALUADO", u.getNombre());
-//        parametros.put("PUESTOSERVIDOR", u.getRol().getTipo());
-        try {
-            JasperReport reporte = (JasperReport) JRLoader.loadObject(getClass().getResource("ReporteUsuarios.jasper"));
-            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, new JRBeanCollectionDataSource(usuarios));
-            JasperViewer vista = new JasperViewer(jasperPrint, false);
-            if (!vista.isActive()) {
-                vista.setVisible(true);
-            }
-        } catch (JRException ex) {
-            Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-//         try {
+//        //En caso de que hayan parametros, los parametros son unicos
+////        Usuario u = null;
+////        if (!usuarios.isEmpty()) {
+////            u = usuarios.get(0);
+////        } else {
+////            u = new Usuario();
+////        }
+////
+////        Map<String, Object> parametros = new HashMap<>();
+////        parametros.put("NOMBRESEVALUADO", u.getNombre());
+////        parametros.put("PUESTOSERVIDOR", u.getRol().getTipo());
+//        try {
 //            JasperReport reporte = (JasperReport) JRLoader.loadObject(getClass().getResource("ReporteUsuarios.jasper"));
-//            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, new JRBeanCollectionDataSource(usuarios));
+//            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, new JRBeanCollectionDataSource(usuarios));
 //            JasperViewer vista = new JasperViewer(jasperPrint, false);
 //            if (!vista.isActive()) {
 //                vista.setVisible(true);
@@ -242,8 +232,18 @@ public class ControladorPrincipal {
 //        } catch (JRException ex) {
 //            Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-        
-    }
+////         try {
+////            JasperReport reporte = (JasperReport) JRLoader.loadObject(getClass().getResource("ReporteUsuarios.jasper"));
+////            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros, new JRBeanCollectionDataSource(usuarios));
+////            JasperViewer vista = new JasperViewer(jasperPrint, false);
+////            if (!vista.isActive()) {
+////                vista.setVisible(true);
+////            }
+////        } catch (JRException ex) {
+////            Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+////        }
+//        
+//    }
 
     public static void listarFechasEval() {
         fechaeval = (ArrayList<PeriodoEvaluacion>) OperacionesBD.listar("PeriodoEvaluacion");

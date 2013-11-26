@@ -2,8 +2,11 @@ package controlador.acciones.proceso;
 
 import controlador.acciones.ControladorPrincipal;
 import controlador.basedatos.OperacionesBD;
+import controlador.reportes.ProcesoActividad;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
@@ -12,6 +15,13 @@ import javax.swing.table.DefaultTableModel;
 import modelo.proceso.Actividad;
 import modelo.proceso.Proceso;
 import modelo.proceso.Rol;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import vista.modelo.Mensaje;
 import vista.paneles.proceso.PnlProcesos;
 
@@ -288,5 +298,26 @@ public class ControladorProceso {
                 String.valueOf(idProceso));
         modeloTablaActividades();
 
+    }
+
+    public void imprimeReporteActiv() {
+        ArrayList<ProcesoActividad> pa = new ArrayList<>();
+        ArrayList<Actividad> activid = (ArrayList<Actividad>) OperacionesBD.listar("Actividad");
+        for (Actividad a : activid) {
+            ProcesoActividad n = new ProcesoActividad(a.getProcesito().getNombreProceso(),
+                    a.getNombreActividad(), a.getDescripcion(), a.getTipoActividad(), a.getRol().getCargo());
+            pa.add(n);
+        }
+        
+        try {
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(getClass().getResource("/controlador/reportes/ReporteProcesos.jasper"));
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, new JRBeanCollectionDataSource(pa));
+            JasperViewer vista = new JasperViewer(jasperPrint, false);
+            if (!vista.isActive()) {
+                vista.setVisible(true);
+            }
+        } catch (JRException ex) {
+            Logger.getLogger(ControladorProceso.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

@@ -7,8 +7,17 @@ package controlador.acciones.operaciones;
 import controlador.acciones.ControladorPrincipal;
 import controlador.basedatos.OperacionesBD;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import modelo.operaciones.CompetenciaUniversal;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import vista.modelo.Mensaje;
 import vista.paneles.operaciones.PnlOperaciones;
 
@@ -141,6 +150,19 @@ public class ControladorCompetenciasUniversales {
             actualizaTablaUnivers();
         } else {
             Mensaje.datosNoEliminados();
+        }
+    }
+    
+    public void imprimeReporteUniversales(){
+         try {
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(getClass().getResource("/controlador/reportes/ReporteCompUniv.jasper"));
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, new JRBeanCollectionDataSource(universales));
+            JasperViewer vista = new JasperViewer(jasperPrint, false);
+            if (!vista.isActive()) {
+                vista.setVisible(true);
+            }
+        } catch (JRException ex) {
+            Logger.getLogger(ControladorCompetenciasUniversales.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

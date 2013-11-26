@@ -7,12 +7,22 @@ import vista.paneles.usuario.PnlUsuario;
 import vista.modelo.*;
 import modelo.usuario.*;
 import controlador.basedatos.OperacionesBD;
+import controlador.reportes.UsuarioRol;
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import modelo.proceso.Actividad;
 import modelo.proceso.Rol;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import vista.FrmPrincipal;
 import vista.paneles.usuario.DialogCompetTecnica;
 import vista.paneles.usuario.DialogConocUsuario;
@@ -40,7 +50,7 @@ public class ControladorUsuario {
      * Método para verificar si existen campos vacios
      *
      * @return true Si hay campos vacios
-     * @return false Si no hay campos Vacios
+     *         false Si no hay campos Vacios
      *
      */
     public boolean verificaVacios() {
@@ -207,14 +217,10 @@ public class ControladorUsuario {
      * Verifica si una fila está seleccionada en la tabla
      *
      * @return true si hay una fila seleccionada
-     * @return false si no hay una fila seleccionada
+     *         false si no hay una fila seleccionada
      */
     public boolean isRowSelected() {
-        if (pu.getTblUsuarios().getSelectedRow() != -1) {
-            return true;
-        } else {
-            return false;
-        }
+        return pu.getTblUsuarios().getSelectedRow() != -1;
     }
 
     public void celdaSeleccionada() {
@@ -253,11 +259,7 @@ public class ControladorUsuario {
 
     }
 
-    /**
-     * Llena el objeto usuario
-     *
-     * @param fila La fila seleccionada en la tabla
-     */
+
     public void getUsuario() {
         pu.getTxtCedulaModif().setText(usuario.getCedula());
         pu.getTxtApelModif().setText(usuario.getApellidos());
@@ -265,11 +267,7 @@ public class ControladorUsuario {
         pu.getTxtProfModif().setText(usuario.getProfesion());
     }
 
-    /**
-     * Llena el objeto rol
-     *
-     * @param fila La fila seleccionada en la tabla
-     */
+   
     public void getRol() {
         pu.getTxtCargoModif().setText(rol.getCargo());
         pu.getTxtHExtModif().setText(String.valueOf(rol.gethExt()));
@@ -281,7 +279,7 @@ public class ControladorUsuario {
      * Método para verificar si existen campos vacios
      *
      * @return true Si hay campos vacios
-     * @return false Si no hay campos Vacios
+     *         false Si no hay campos Vacios
      *
      */
     public boolean verificaVaciosModif() {
@@ -437,4 +435,22 @@ public class ControladorUsuario {
         }
     }
 
+    public void imprimeUsuarios(){
+        ArrayList<UsuarioRol> ur= new ArrayList<>();
+        for(Usuario u : usuarios){
+            UsuarioRol us = new UsuarioRol(u.getCedula(), u.getApellidos()+" "
+                    +u.getNombre(), u.getRol().getTipo(), u.getProfesion());
+            ur.add(us);
+        }
+        try {
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(getClass().getResource("/controlador/reportes/reporteUsuarios.jasper"));
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, new JRBeanCollectionDataSource(ur));
+            JasperViewer vista = new JasperViewer(jasperPrint, false);
+            if (!vista.isActive()) {
+                vista.setVisible(true);
+            }
+        } catch (JRException ex) {
+            Logger.getLogger(ControladorUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

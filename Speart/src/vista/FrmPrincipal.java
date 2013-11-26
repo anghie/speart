@@ -547,7 +547,7 @@ public class FrmPrincipal extends JFrame {
                     dcr.setVisible(true);
                 }
             } else if (evt.getSource() == miReporteUsuarios) {
-                cp.reporteUsuarios();
+//                cp.reporteUsuarios();
             } else if (evt.getSource() == miAyuda) {
                 cp.ponLaAyuda();
 //                new Ayuda (null);
