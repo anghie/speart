@@ -164,8 +164,8 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="EVALUACION AL SERVIDOR">
-                <Property name="tabTitle" type="java.lang.String" value="EVALUACION AL SERVIDOR"/>
+              <JTabbedPaneConstraints tabName="EVALUACI&#xd3;N AL SERVIDOR">
+                <Property name="tabTitle" type="java.lang.String" value="EVALUACI&#xd3;N AL SERVIDOR"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -490,6 +490,7 @@
                         <Component class="javax.swing.JTextField" name="txtTotActEsc">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -579,6 +580,7 @@
                         <Component class="javax.swing.JTextField" name="txtNroActividades">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -599,6 +601,7 @@
                         <Component class="javax.swing.JTextField" name="txtFactorIndic">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1796,8 +1799,8 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="EFECTOS EVALUACI&#xd3;N">
-                <Property name="tabTitle" type="java.lang.String" value="EFECTOS EVALUACI&#xd3;N"/>
+              <JTabbedPaneConstraints tabName="EF&#xc9;CTOS EVALUACI&#xd3;N">
+                <Property name="tabTitle" type="java.lang.String" value="EF&#xc9;CTOS EVALUACI&#xd3;N"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -2344,7 +2347,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Berlin Sans FB" size="14" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="&lt;html&gt;Estos factores deben ser ingresados cada &lt;br&gt;vez que activa la evaluci&#xf3;n de no&lt;br&gt; hacer este paso se calificara con los factores por defecto&lt;/html&gt; "/>
+                    <Property name="text" type="java.lang.String" value="&lt;html&gt;Estos factores  seran actualizados &lt;br&gt;en base a la Normativa SENRES&lt;/html&gt; "/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2763,7 +2766,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="140" width="190" height="180"/>
+                  <AbsoluteConstraints x="10" y="160" width="190" height="180"/>
                 </Constraint>
               </Constraints>
             </Component>

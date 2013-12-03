@@ -148,7 +148,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel1.setText("  Descripcion:   ");
         pnlAddActiv.add(jLabel1);
-        jLabel1.setBounds(60, 90, 90, 17);
+        jLabel1.setBounds(60, 90, 90, 16);
 
         txtDescripcion.setColumns(20);
         txtDescripcion.setRows(5);
@@ -169,6 +169,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         pnlAddActiv.setBounds(10, 130, 650, 270);
 
         pnlAddProceso.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 255), 2), "Procesos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB", 0, 18), new java.awt.Color(0, 0, 102))); // NOI18N
+        pnlAddProceso.setOpaque(false);
         pnlAddProceso.setPreferredSize(new java.awt.Dimension(650, 70));
         pnlAddProceso.setLayout(null);
 
@@ -187,12 +188,12 @@ public class PnlProcesos extends javax.swing.JPanel {
         pnlAddProceso.setBounds(10, 40, 650, 70);
 
         pnlUno.add(pnlProcesos);
-        pnlProcesos.setBounds(163, 5, 670, 450);
+        pnlProcesos.setBounds(270, 10, 670, 450);
 
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        jLabel2.setText("<html> Este módulo permite realizar el ingreso de<br> procesos,  aquí el Administrador podrá<br> realizar las siguientes tareas: <br>\nIngresar, actualizar o eliminar procesos<br> con sus respectivas actividades,  <br>además le admitirá  seleccionar a que puesto<br> responsable se le agregara la actividad ingresada.</html>\n");
+        jLabel2.setText("<html> Este módulo permite realizar el ingreso de<br> procesos,  aquí el Administrador podrá<br> realizar las siguientes tareas: <br>\ningresar, actualizar o eliminar procesos<br> con sus respectivas actividades,  <br>además le admitirá  seleccionar a que puesto<br> responsable se le agregará la actividad ingresada.</html>\n");
         pnlUno.add(jLabel2);
-        jLabel2.setBounds(10, 200, 150, 280);
+        jLabel2.setBounds(30, 160, 170, 280);
 
         tabbedProcesos.addTab("NUEVO PROCESO", pnlUno);
 
@@ -257,17 +258,20 @@ public class PnlProcesos extends javax.swing.JPanel {
         pnlListaProcesos.add(btnEditarActividad);
         btnEditarActividad.setBounds(40, 260, 100, 40);
 
+        btnReporteActiv.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnReporteActiv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/imprimir.png"))); // NOI18N
         btnReporteActiv.setText("Reporte");
+        btnReporteActiv.setToolTipText("Resporte de actividades y procesos");
         pnlListaProcesos.add(btnReporteActiv);
-        btnReporteActiv.setBounds(280, 320, 120, 40);
+        btnReporteActiv.setBounds(550, 310, 120, 40);
 
         pnlDos.add(pnlListaProcesos);
-        pnlListaProcesos.setBounds(158, 6, 680, 380);
+        pnlListaProcesos.setBounds(290, 40, 680, 380);
 
         jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel4.setText("<html>Para editar un proceso seleccione de la caja <br> el \"Proceso \"  para actualizar su nombre  <br>y elija  siempre de esta tabla<br> la actividad para poder modificar o eliminar su información  </html>\n\n");
         pnlDos.add(jLabel4);
-        jLabel4.setBounds(10, 130, 140, 260);
+        jLabel4.setBounds(90, 270, 200, 160);
 
         tabbedProcesos.addTab("LISTA PROCESOS", pnlDos);
 

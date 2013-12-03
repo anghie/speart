@@ -7,16 +7,33 @@ package controlador.acciones.evaluaciones;
 import controlador.basedatos.OperacionesBD;
 import controlador.experto.BaseConocimiento;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.net.URL;
 import java.util.ArrayList;
+import javassist.tools.framedump;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 import modelo.evaluacion.ResultadoConocimientos;
 import modelo.evaluacion.ResultadoFinalConocimiento;
 import modelo.pregunta.Pregunta;
 import modelo.pregunta.Respuesta;
 import vista.modelo.OperacionesVarias;
 import vista.paneles.evaluacion.DialogTest;
-import vista.paneles.evaluacion.FrmTests;
+//import vista.paneles.evaluacion.FrmTests;
 import vista.paneles.evaluacion.PnlRespuesta;
 import vista.paneles.evaluacion.PnlTexto;
 
@@ -31,6 +48,7 @@ public class ControladorTest {
     private ArrayList<Respuesta> respuestas;
     private ArrayList<Respuesta> respuestasCompletas;
     private ArrayList<ResultadoConocimientos> resultadoPreguntas;
+    //private ArrayList<ResultadoConocimientos> auxprint;
 //    private Seccion s;
     private final ClassLoader cload = ControladorTest.class.getClassLoader();//para hacer referencia a archivos dentro del programa
     private final String dirArchivo = cload.getResource("controlador/experto/evaluacion.pl").getPath();
@@ -60,14 +78,14 @@ public class ControladorTest {
 //        ft.getPnlMedio().validate();
 //        ft.getPnlMedio().updateUI();
 //    }
-    
-    public void llenaPaneles(){
+    public void llenaPaneles() {
         for (int i = 0; i < panelesPregRpta.size(); i++) {
             ft.getPnlTest().add(panelesPregRpta.get(i));
         }
     }
 //tengo array de preguntas de acuerdo a la seccion
 //tengo array de respuestas
+
     public void ponePreguntas() {
         panelesPregRpta = new ArrayList<>();
         respuestasCompletas = new ArrayList<>();
@@ -126,11 +144,22 @@ public class ControladorTest {
 //            ft.getBtnCalificar().setEnabled(true);
 //        }
 //    }
-
     public void califica() {
+
+        //creacion del jframe para la presentacion de las respuestas
+        final JFrame frame = new JFrame("Panel de Respuestas");     
+        //asignacion de la imagen de fondo
+        Panel pa = new Panel("/vista/imagenes/quejas.jpg");        
+        //creacion del contender para el panel del jframe
+        Container c = frame.getContentPane();
+
+
+
+
         int r = JOptionPane.showConfirmDialog(null, "¿Usted esta de acuerdo en calificar  su Test \n si considera que si no puede regresar a revisarlo?", "Calificar", JOptionPane.YES_NO_OPTION);
         if (r == JOptionPane.YES_OPTION) {
             resultadoPreguntas = new ArrayList<>();
+            //auxprint = new ArrayList<>();
             int n = 0, aux = -1;
             double valPreg = ControladorEvaluacion.facConoc / ft.getPreguntas().size();//Calculando valor de cada pregunta
             double valResp = 0;
@@ -138,7 +167,9 @@ public class ControladorTest {
                 if (p instanceof PnlRespuesta) {
                     PnlRespuesta pr = (PnlRespuesta) p;
                     int idPreg = respuestasCompletas.get(n).getPregunta().getIdPregunta();
+                    String nompreg = respuestasCompletas.get(n).getPregunta().getPreg();
                     int idResp = respuestasCompletas.get(n).getIdRespuesta();
+                    String nomresp = respuestasCompletas.get(n).getRpta();
                     if (idPreg != aux) {
                         valResp = valRpta(idPreg, valPreg);
                         aux = idPreg;
@@ -147,13 +178,23 @@ public class ControladorTest {
                     if ((respuestasCompletas.get(n).isEstadoRpta() && pr.getChbPregunta().isSelected())
                             || (!respuestasCompletas.get(n).isEstadoRpta() && !pr.getChbPregunta().isSelected())) {
                         resultadoPreguntas.add(new ResultadoConocimientos(idPreg, idResp, true, valResp));
+                        
                     } else {//si lo escogido por el usuario es falso
                         resultadoPreguntas.add(new ResultadoConocimientos(idPreg, idResp, false, 0));
+                        
                     }
                     n++;
                 }
             }
             double total = 0;
+            // asignamos un tamaño para el panel
+            pa.setSize(800, 600);
+            //calculo del numero de elementos que contendra el panel
+            int numeropre = resultadoPreguntas.size();
+            //asignacion de los valores para que el layout se acople al numero de elementos a presentarse
+            pa.setLayout(new GridLayout(numeropre * 2, 1));
+
+
             for (ResultadoConocimientos rc : resultadoPreguntas) {
                 total += rc.getValor();
                 System.out.print("Pregunta: " + rc.getIdPreg() + " ");
@@ -162,6 +203,70 @@ public class ControladorTest {
                 System.out.print("Resultado: " + rc.isRptaCorrecta() + "\n");
 
             }
+            //Titulo 
+            JLabel title = new JLabel("Preguntas del Servidor");
+            Font fon = new Font("Verdana", Font.BOLD, 17);
+            title.setFont(fon);
+            title.setForeground(Color.RED);
+            pa.add(title);
+            int idaux = 0;
+            //creacion del ciclo para la presentacion de las respuestas de la evaluacion
+            for (ResultadoConocimientos rc : resultadoPreguntas) {
+                // aqui se presenta los valores                
+                if (idaux == rc.getIdPreg()) {
+                } else {
+                    idaux = 0;
+                }
+                if (idaux == 0) {
+                    Pregunta pr = (Pregunta) OperacionesBD.buscar("Pregunta", "idPregunta", String.valueOf(rc.getIdPreg()));
+                    JLabel jl = new JLabel(pr.getPreg());
+                    Font font = new Font("Arial", Font.BOLD, 12);
+                    jl.setFont(font);
+                    jl.setForeground(Color.BLACK);
+                    pa.add(jl);
+                    //consulta del atributo de la pregunta
+                    ArrayList<Respuesta> lisres = (ArrayList<Respuesta>) OperacionesBD.buscarTodos("Respuesta", "Pregunta_idPregunta", String.valueOf(rc.getIdPreg()));
+                    for (int i = 0; i < lisres.size(); i++) {
+                        if (lisres.get(i).isEstadoRpta() == true) {
+                            //asignacion de la imagen al label
+                            String path = "/vista/imagenes/button_more.png";
+                            URL url = this.getClass().getResource(path);
+                            ImageIcon icon = new ImageIcon(url);
+                            JLabel label = new JLabel("some text");
+                            label.setIcon(icon);
+                            label.setText(lisres.get(i).getRpta());
+                            pa.add(label);
+                        } else {
+                            //asignacion de la imagen al label
+                            String path = "/vista/imagenes/button_cancel.png";
+                            URL url = this.getClass().getResource(path);
+                            ImageIcon icon = new ImageIcon(url);
+                            JLabel label = new JLabel("some text");
+                            label.setIcon(icon);
+                            label.setText(lisres.get(i).getRpta());
+                            pa.add(label);
+                        }
+                    }
+                    idaux = rc.getIdPreg();
+                }
+            }
+            //creacion del scrooll para el panel
+            JScrollPane jsp = new JScrollPane(pa);
+            c.add(jsp);
+            frame.setSize(800, 600);
+            frame.setLocationRelativeTo(null);
+            //button para cerrar el frame
+            JButton btnSalir = new JButton("Salir");
+            btnSalir.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    frame.dispose();                    
+                }
+            });
+            pa.add(btnSalir);
+            frame.setVisible(true);
+
+
+
             total = OperacionesVarias.redondeaDosCifras(total);//este es el total por seccion
 //        double total=;
             int idSeccion = (int) respuestasCompletas.get(0).getPregunta().getSeccion().getIdSeccion();
@@ -182,8 +287,14 @@ public class ControladorTest {
             double res = OperacionesVarias.redondeaDosCifras((p * ControladorEvaluacion.facConoc) / 100);
             ControladorEvaluacion.txtTotalConoc.setText(res + "%");
             ControladorEvaluacion.btnEvaluarCon.setEnabled(false);
-            ControladorEvaluacion.totConoc=res;
+            ControladorEvaluacion.totConoc = res;
+
+
+
             ft.dispose();
+            // aqui va
+
+
 
         }
 

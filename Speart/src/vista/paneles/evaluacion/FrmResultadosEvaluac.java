@@ -103,6 +103,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
         lblTrabajoEquipo = new javax.swing.JLabel();
         lblEfecto = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         btnCerrar = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
         btnGuardaResEvaluacion = new javax.swing.JButton();
@@ -138,7 +139,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         jLabel3.setBounds(30, 20, 770, 30);
 
         jLabel4.setBackground(java.awt.Color.white);
-        jLabel4.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel4.setText("Indicadores de Gestión del Puesto");
         jLabel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel4.setOpaque(true);
@@ -146,7 +147,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         jLabel4.setBounds(30, 90, 520, 30);
 
         jLabel5.setBackground(java.awt.Color.white);
-        jLabel5.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel5.setText("Conocimientos");
         jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel5.setOpaque(true);
@@ -162,7 +163,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         lblConocimientos.setBounds(550, 120, 250, 30);
 
         jLabel7.setBackground(java.awt.Color.white);
-        jLabel7.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel7.setText("Competencias Técnicas del Puesto");
         jLabel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel7.setOpaque(true);
@@ -178,7 +179,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         lblTecnicas.setBounds(550, 150, 250, 30);
 
         jLabel9.setBackground(java.awt.Color.white);
-        jLabel9.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel9.setText("Competencias Universales");
         jLabel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel9.setOpaque(true);
@@ -210,7 +211,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
 
         jLabel6.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("FACTORES DE EVALUACION");
+        jLabel6.setText("FACTORES DE EVALUACIÓN");
         jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel6.setOpaque(true);
         jPanel1.add(jLabel6);
@@ -241,7 +242,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         lblDesempeño.setBounds(30, 300, 770, 30);
 
         jLabel13.setBackground(java.awt.Color.white);
-        jLabel13.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel13.setText("Evaluación del ciudadano (-)");
         jLabel13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel13.setOpaque(true);
@@ -281,7 +282,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         jLabel19.setBounds(280, 550, 300, 20);
 
         jLabel10.setBackground(java.awt.Color.white);
-        jLabel10.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel10.setText("Trabajo en Equipo, Iniciativa y Liderazgo");
         jLabel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel10.setOpaque(true);
@@ -304,9 +305,16 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         jPanel1.add(lblEfecto);
         lblEfecto.setBounds(30, 330, 770, 30);
 
+        jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel11.setText("<html> Nota: Al finalizar el proceso de Evaluación  debe Guardar<br> la información de los resultados obtenidos,<br>caso contrario no se guardaran sus resultados<br>luego si desea puede imprimir su reporte para visualizar su calificación</html> ");
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(20, 420, 170, 210);
+
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 840, 620);
 
+        btnCerrar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnCerrar.setText("Cerrar");
         btnCerrar.setToolTipText("Salir del  sistema");
@@ -318,6 +326,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         getContentPane().add(btnCerrar);
         btnCerrar.setBounds(730, 640, 100, 40);
 
+        btnImprimir.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/imprime.jpg"))); // NOI18N
         btnImprimir.setText("Imprimir");
         btnImprimir.setToolTipText("Imprimir resultado de lan evaluacio");
@@ -329,6 +338,8 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         getContentPane().add(btnImprimir);
         btnImprimir.setBounds(420, 630, 130, 50);
 
+        btnGuardaResEvaluacion.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnGuardaResEvaluacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/document-save.png"))); // NOI18N
         btnGuardaResEvaluacion.setText("Guardar");
         btnGuardaResEvaluacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -367,6 +378,7 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
     private javax.swing.JButton btnImprimir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;

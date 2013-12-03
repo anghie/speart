@@ -20,8 +20,8 @@
 				<text><![CDATA[INSTITUTO ECUATORIANO DE SEGURIDAD SOCIAL]]></text>
 			</staticText>
 			<image>
-				<reportElement uuid="e3d77d52-3628-47a6-8587-37e07f4e6c70" x="0" y="0" width="88" height="79"/>
-				<imageExpression><![CDATA["/home/francisco/NetBeansProjects/Speart/src/vista/imagenes/iess2.jpg"]]></imageExpression>
+				<reportElement uuid="bee16ce1-0e68-4d83-b309-fbc1cfa14bfd" x="0" y="0" width="88" height="70"/>
+				<imageExpression><![CDATA["D:\\Documents\\NetBeansProjects\\Speart\\src\\controlador\\reportes\\LOGO.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>

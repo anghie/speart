@@ -51,6 +51,7 @@ public class DialogLogin extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jLabel5.setText("jLabel5");
 
@@ -66,6 +67,7 @@ public class DialogLogin extends javax.swing.JDialog {
         getContentPane().add(lblUsuario);
         lblUsuario.setBounds(60, 110, 60, 20);
 
+        btnCancelar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,8 +75,9 @@ public class DialogLogin extends javax.swing.JDialog {
             }
         });
         getContentPane().add(btnCancelar);
-        btnCancelar.setBounds(180, 180, 90, 30);
+        btnCancelar.setBounds(110, 180, 90, 30);
 
+        btnAceptar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnAceptar.setText("Aceptar");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,7 +85,7 @@ public class DialogLogin extends javax.swing.JDialog {
             }
         });
         getContentPane().add(btnAceptar);
-        btnAceptar.setBounds(80, 180, 90, 30);
+        btnAceptar.setBounds(20, 180, 90, 30);
         getContentPane().add(txtUsuario);
         txtUsuario.setBounds(110, 110, 180, 25);
 
@@ -106,16 +109,26 @@ public class DialogLogin extends javax.swing.JDialog {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(20, 100, 30, 30);
 
-        jLabel4.setText("<html>NUNCA: entregue sus datos personales,<br>usuario, clave de acceso<br>\npor cualquier medio ya sea correo <br>elefctronico, mensajes de celular, <br>mensajeria instanatnea,\nteelefono, pagina web u otro,<br> el usuario y las claves son secretas>");
+        jLabel4.setText("<html>NUNCA: entregue sus datos personales,<br>usuario, clave de acceso<br> por cualquier medio ya sea correo <br>electronico, mensajes de celular, <br>mensajeria instantanea, teléfono, pagina web u otro,<br> el usuario y las claves son secretas>");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(330, 100, 200, 100);
+        jLabel4.setBounds(310, 100, 270, 120);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/clave.jpg"))); // NOI18N
         getContentPane().add(jLabel6);
         jLabel6.setBounds(360, 0, 150, 90);
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-526)/2, (screenSize.height-226)/2, 526, 226);
+        jButton1.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        jButton1.setText("Resetear clave");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(200, 180, 110, 30);
+
+        setSize(new java.awt.Dimension(579, 223));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
@@ -159,9 +172,16 @@ public class DialogLogin extends javax.swing.JDialog {
     private void txtClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClaveActionPerformed
         btnAceptarActionPerformed(evt);
     }//GEN-LAST:event_txtClaveActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         new Reset(this, true).setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

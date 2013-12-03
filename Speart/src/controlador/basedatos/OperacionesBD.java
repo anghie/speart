@@ -146,6 +146,7 @@ public class OperacionesBD {
     }
 
     public static List listar(String nombreEntidad) {
+          Object obj = null;
         entidad.getTransaction().begin();
         try {
             lista = entidad.createQuery("Select a from " + nombreEntidad + " a ").getResultList();
@@ -158,6 +159,7 @@ public class OperacionesBD {
     }
     
     public static List listar(String nombreEntidad, String campo,int id) {
+        Object obj = null;
         entidad.getTransaction().begin();
         try {
             lista = entidad.createQuery("Select a from " + nombreEntidad + " a where "+campo+" = "+id).getResultList();

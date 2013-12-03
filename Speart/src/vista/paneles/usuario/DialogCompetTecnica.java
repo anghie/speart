@@ -115,12 +115,12 @@ public class DialogCompetTecnica extends javax.swing.JDialog {
         btnCerrar.setBounds(630, 240, 110, 40);
 
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jLabel1.setText("Competencias Tecnicas agregadas");
+        jLabel1.setText("Competencias Técnicas agregadas");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(460, 20, 260, 21);
 
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jLabel2.setText("Competencias Tecnicas a agregar:");
+        jLabel2.setText("Competencias Técnicas a agregar:");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(20, 20, 270, 21);
 
@@ -132,8 +132,8 @@ public class DialogCompetTecnica extends javax.swing.JDialog {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 750, 310);
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-762)/2, (screenSize.height-345)/2, 762, 345);
+        setSize(new java.awt.Dimension(762, 345));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed

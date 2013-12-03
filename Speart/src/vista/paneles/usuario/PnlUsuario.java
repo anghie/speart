@@ -100,6 +100,13 @@ public final class PnlUsuario extends javax.swing.JPanel {
         txtUsuario = new javax.swing.JTextField();
         txtConfirm = new javax.swing.JPasswordField();
         txtClave = new javax.swing.JPasswordField();
+        jLabel4 = new javax.swing.JLabel();
+        dateDesde = new org.jdesktop.swingx.JXDatePicker();
+        jLabel5 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
         pnlDatosEmpleo = new javax.swing.JPanel();
         lblProfesion = new javax.swing.JLabel();
         lblRol = new javax.swing.JLabel();
@@ -160,10 +167,11 @@ public final class PnlUsuario extends javax.swing.JPanel {
         pnlCreaUsuario  = new  ImagenJPanel ("zzz.jpg");
         pnlCreaUsuario.setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        jLabel2.setText("<html> Este módulo permite realizar el proceso de<br> ingreso de usuarios, o servidores  aquí el<br> Administrador podrá realizar las siguientes tareas: <br>\nIngresar, actualizar o eliminar datos de los servidores, <br>además le permitirá agregar los<br> conocimientos,   destrezas y quejas a los<br>. servidores para el proceso de evaluación. <br>\nLe permitirá al administrador  Deshabilitar el<br> o los usuarios o servidores cuando estos ya no<br> trabajen para esta institución <br>\nTambién  al momento de deshabilitar <br> un usuario o servidor el administrador<br>  podrá agregar sus actividades a<br> otro usuario </html>\n");
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel2.setText("<html> Este módulo permite realizar el proceso de<br> ingreso de usuarios o servidores  aquí el<br> Administrador podrá realizar las siguientes tareas: <br>\nIngresar, actualizar o eliminar datos de los servidores, <br>además le permitirá agregar los<br> conocimientos,   destrezas y quejas a los<br> servidores para el proceso de evaluación. <br>\nLe permitirá al administrador  Deshabilitar el<br> o los usuarios o servidores cuando estos ya no<br> trabajen para esta institución <br>\nTambién  al momento de deshabilitar <br> un usuario o servidor el administrador<br>  podrá agregar sus actividades a<br> otro usuario </html>\n");
         pnlCreaUsuario.add(jLabel2);
-        jLabel2.setBounds(10, 140, 220, 350);
+        jLabel2.setBounds(670, 110, 280, 340);
 
         pnlDatos.setOpaque(false);
         pnlDatos.setPreferredSize(new java.awt.Dimension(540, 600));
@@ -184,34 +192,65 @@ public final class PnlUsuario extends javax.swing.JPanel {
         pnlDatosAcceso.setLayout(null);
 
         lblConfirm.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        lblConfirm.setText("Confirmacion:");
+        lblConfirm.setText("Confirmación:");
         pnlDatosAcceso.add(lblConfirm);
-        lblConfirm.setBounds(110, 110, 100, 30);
+        lblConfirm.setBounds(10, 110, 100, 30);
 
         lblUsuario.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblUsuario.setText("   Usuario:");
         pnlDatosAcceso.add(lblUsuario);
-        lblUsuario.setBounds(130, 40, 70, 30);
+        lblUsuario.setBounds(30, 50, 70, 30);
 
         lblClave.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblClave.setText("      Clave:");
         pnlDatosAcceso.add(lblClave);
-        lblClave.setBounds(130, 75, 80, 30);
+        lblClave.setBounds(30, 80, 80, 30);
 
         txtUsuario.setToolTipText("Ingrese el usuario que usuara para ingresar  a su sesión");
         pnlDatosAcceso.add(txtUsuario);
-        txtUsuario.setBounds(210, 40, 170, 30);
+        txtUsuario.setBounds(90, 50, 170, 30);
 
         txtConfirm.setToolTipText("Ingrese nuevamente la confirmaicón de su clave");
         pnlDatosAcceso.add(txtConfirm);
-        txtConfirm.setBounds(210, 110, 170, 30);
+        txtConfirm.setBounds(90, 110, 170, 30);
 
         txtClave.setToolTipText("Ingrese la clave que usuara para iniciar sesión");
         pnlDatosAcceso.add(txtClave);
-        txtClave.setBounds(210, 75, 170, 30);
+        txtClave.setBounds(90, 80, 170, 30);
+
+        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel4.setText("Elija pregunta de seguridad:");
+        pnlDatosAcceso.add(jLabel4);
+        jLabel4.setBounds(280, 80, 175, 16);
+
+        dateDesde.setToolTipText("");
+        pnlDatosAcceso.add(dateDesde);
+        dateDesde.setBounds(450, 50, 190, 20);
+
+        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel5.setText("Ingrese la fecha de nacimineto");
+        pnlDatosAcceso.add(jLabel5);
+        jLabel5.setBounds(270, 50, 175, 16);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione una", "Lugar de nacimiento de la madre", "Mejor amigo de la infancia", "Nombre de la primera mascota", "Profesor favorito", "Personaje historico favorito", "Ocupación del abuelo", " " }));
+        pnlDatosAcceso.add(jComboBox1);
+        jComboBox1.setBounds(450, 80, 190, 20);
+
+        jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        jLabel6.setText("Responda la pregunta");
+        pnlDatosAcceso.add(jLabel6);
+        jLabel6.setBounds(280, 110, 130, 16);
+        pnlDatosAcceso.add(jTextField2);
+        jTextField2.setBounds(420, 110, 220, 20);
+
+        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel7.setText("Si pierdes la contraseña, ¿cómo podemos ayudarte a restablecerla? ");
+        pnlDatosAcceso.add(jLabel7);
+        jLabel7.setBounds(280, 30, 350, 14);
 
         pnlDatos.add(pnlDatosAcceso);
-        pnlDatosAcceso.setBounds(10, 360, 520, 170);
+        pnlDatosAcceso.setBounds(10, 360, 650, 170);
 
         pnlDatosEmpleo.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 255), 2), "Datos de Empleo", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB", 0, 18), new java.awt.Color(0, 0, 102))); // NOI18N
         pnlDatosEmpleo.setOpaque(false);
@@ -274,7 +313,7 @@ public final class PnlUsuario extends javax.swing.JPanel {
         cbRol.setBounds(100, 110, 170, 30);
 
         pnlDatos.add(pnlDatosEmpleo);
-        pnlDatosEmpleo.setBounds(10, 180, 520, 170);
+        pnlDatosEmpleo.setBounds(60, 180, 520, 170);
 
         pnlDatosPers.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 255), 2), "Datos personales", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB", 0, 18), new java.awt.Color(0, 0, 102))); // NOI18N
         pnlDatosPers.setOpaque(false);
@@ -309,10 +348,10 @@ public final class PnlUsuario extends javax.swing.JPanel {
         txtNombres.setBounds(200, 65, 190, 30);
 
         pnlDatos.add(pnlDatosPers);
-        pnlDatosPers.setBounds(10, 0, 520, 170);
+        pnlDatosPers.setBounds(60, 0, 520, 170);
 
         pnlCreaUsuario.add(pnlDatos);
-        pnlDatos.setBounds(320, 10, 540, 590);
+        pnlDatos.setBounds(10, 10, 660, 590);
 
         tabbedUsuario.addTab("CREAR USUARIO", pnlCreaUsuario);
 
@@ -320,9 +359,9 @@ public final class PnlUsuario extends javax.swing.JPanel {
         pnlListaUsuarios.setLayout(null);
 
         jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        jLabel3.setText("<html>Seleccione siempre de esta tabla<br> al Servidor el cual se podra modificar<br> su información personal, podra ser<br> deshabilitado y para agregar Conocimientos,<br> Destrezas y quejas para el proceso de evaluación </html> n</html> ");
+        jLabel3.setText("<html>Seleccione siempre de esta tabla<br> al Servidor el cual se podra modificar<br> su información personal, podra ser<br> deshabilitado y para agregar Conocimientos,<br> Destrezas y Quejas para el proceso de evaluación </html> n</html> ");
         pnlListaUsuarios.add(jLabel3);
-        jLabel3.setBounds(10, 160, 120, 200);
+        jLabel3.setBounds(10, 270, 150, 200);
 
         pnlLstDatos.setOpaque(false);
         pnlLstDatos.setPreferredSize(new java.awt.Dimension(740, 550));
@@ -382,21 +421,23 @@ public final class PnlUsuario extends javax.swing.JPanel {
         btnQuejas.setText("Quejas");
         btnQuejas.setToolTipText("Agregar quejas a los usuarios");
         pnlBotones.add(btnQuejas);
-        btnQuejas.setBounds(550, 10, 93, 40);
+        btnQuejas.setBounds(550, 10, 110, 40);
 
+        btnReporteUsuario.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnReporteUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/imprimir.png"))); // NOI18N
         btnReporteUsuario.setText("Reporte");
         pnlBotones.add(btnReporteUsuario);
-        btnReporteUsuario.setBounds(650, 10, 90, 40);
+        btnReporteUsuario.setBounds(663, 10, 117, 40);
 
         pnlLstDatos.add(pnlBotones);
-        pnlBotones.setBounds(10, 230, 750, 60);
+        pnlBotones.setBounds(10, 230, 790, 60);
 
         pnlAccionesModificar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255), 2));
         pnlAccionesModificar.setOpaque(false);
         pnlAccionesModificar.setLayout(null);
 
         lblProfesionModif.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        lblProfesionModif.setText("Profesion:");
+        lblProfesionModif.setText("Profesión:");
         pnlAccionesModificar.add(lblProfesionModif);
         lblProfesionModif.setBounds(320, 90, 90, 30);
 
@@ -457,7 +498,7 @@ public final class PnlUsuario extends javax.swing.JPanel {
         btnCancelar.setBounds(450, 170, 110, 40);
 
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        jLabel1.setText("Cedula:");
+        jLabel1.setText("Cédula:");
         pnlAccionesModificar.add(jLabel1);
         jLabel1.setBounds(30, 10, 80, 30);
         pnlAccionesModificar.add(txtCedulaModif);
@@ -467,12 +508,13 @@ public final class PnlUsuario extends javax.swing.JPanel {
         pnlAccionesModificar.setBounds(50, 300, 620, 220);
 
         pnlListaUsuarios.add(pnlLstDatos);
-        pnlLstDatos.setBounds(118, 5, 770, 550);
+        pnlLstDatos.setBounds(170, 10, 810, 550);
 
         tabbedUsuario.addTab("LISTA USUARIOS", pnlListaUsuarios);
 
         add(tabbedUsuario, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnConocimientos;
@@ -484,9 +526,16 @@ public final class PnlUsuario extends javax.swing.JPanel {
     private javax.swing.JButton btnQuejas;
     private javax.swing.JButton btnReporteUsuario;
     private javax.swing.JComboBox cbRol;
+    private org.jdesktop.swingx.JXDatePicker dateDesde;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblApelModif;
     private javax.swing.JLabel lblApellidos;
     private javax.swing.JLabel lblCargo;

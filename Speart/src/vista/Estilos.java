@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import com.nilo.plaf.nimrod.NimRODLookAndFeel;
 import com.nilo.plaf.nimrod.NimRODTheme;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Estilos {
 
@@ -11,6 +13,7 @@ public class Estilos {
     public static final int ESTILO_GTK = 1;
     public static final int ESTILO_NIMBUS = 2;
     public static final int ESTILO_NIMROD = 3;
+    public static final int ESTILO_AQUA=4;
     private static Estilos estilo;
     public JFrame vtn;
 
@@ -38,6 +41,14 @@ public class Estilos {
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
         }
+    }
+    private void aplicaEstiloAqua (){
+        try {
+            UIManager.setLookAndFeel("com.apple.laf.AquaLookAndFeel");
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(Estilos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     private void aplicaEstiloNimbus() {
@@ -68,16 +79,21 @@ public class Estilos {
             nt.setOpacity(180);
             nt.setFrameOpacity(0);
             NimRODLookAndFeel nlf = new NimRODLookAndFeel();
+              
             NimRODLookAndFeel.setCurrentTheme(nt);
             UIManager.setLookAndFeel(nlf);
-            SwingUtilities.updateComponentTreeUI(vtn);
+           System.out.println("llegas");
+//           SwingUtilities.updateComponentTreeUI(vtn);
+             
         } catch (UnsupportedLookAndFeelException ex) {
-            System.err.println(ex.getMessage());
+                   System.err.println(ex.getMessage());
         }
     }
 
     /*Este método se usa en caso de que se use el estilo Nimrod*/
     public void setFrame(JFrame vtn) {
+      
+        
         this.vtn = vtn;
     }
 
@@ -91,10 +107,15 @@ public class Estilos {
                 break;
             case ESTILO_NIMBUS:
                 aplicaEstiloNimbus();
-                break;
+                break;            
+            
+            
             case ESTILO_NIMROD:
                 aplicaEstiloNimrod();
                 break;
+        case ESTILO_AQUA:
+                    aplicaEstiloAqua();
+            break;
             default:
         }
     }

@@ -237,7 +237,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         btnAplicar.setBounds(320, 110, 100, 40);
 
         lblEscogerSeccion.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        lblEscogerSeccion.setText("                Escoja Seccion:");
+        lblEscogerSeccion.setText("                Escoja Sección:");
         pnlNuevaPregunta.add(lblEscogerSeccion);
         lblEscogerSeccion.setBounds(40, 43, 190, 30);
         pnlNuevaPregunta.add(cbSeccion);
@@ -264,12 +264,12 @@ public class PnlOperaciones extends javax.swing.JPanel {
         btnCancelarPreg.setBounds(390, 400, 120, 40);
 
         pnlUno.add(pnlNuevaPregunta);
-        pnlNuevaPregunta.setBounds(210, 10, 760, 450);
+        pnlNuevaPregunta.setBounds(280, 0, 760, 450);
 
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        jLabel2.setText("<html> Este módulo permite realizar el ingreso de<br> de secciones, Competencias Tecnicas,<br> Comptencias Universales y Destrezas de Trabajo,<br> Iniciativa y Liderazgo  aquí el Administrador podrá<br> realizar las siguientes tareas: <br>\nIngresar preguntas, actualizar sección, eliminar preguntas<br>ingresar, actualizar y eliminar competencia Tecnica  <br>ingresar, actualizar y eliminar  Competencia Universal <br> ingresar, actualizar y eliminar destreza  de Trabajo iniciativa y liderazgo </html>\n");
+        jLabel2.setText("<html> Este módulo permite realizar el ingreso de<br> de Secciones, Competencias Tecnicas,<br> Comptencias Universales y Destrezas de Trabajo,<br> Iniciativa y Liderazgo  aquí el Administrador podrá<br> realizar las siguientes tareas: <br>\ningresar preguntas, actualizar sección, eliminar preguntas<br>ingresar, actualizar y eliminar competencia Tecnica  <br>ingresar, actualizar y eliminar  Competencia Universal <br> ingresar, actualizar y eliminar destreza  de Trabajo iniciativa y liderazgo </html>\n");
         pnlUno.add(jLabel2);
-        jLabel2.setBounds(10, 170, 170, 330);
+        jLabel2.setBounds(20, 150, 240, 330);
 
         tabbedOperaciones.addTab("NUEVA PREGUNTA", pnlUno);
 
@@ -328,7 +328,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlListaPregunta.setBounds(143, 5, 760, 350);
 
         jLabel22.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        jLabel22.setText("<html>Para editar una sección seleccione de la caja <br> el \"Seción \"  para actualizar su nombre  <br>y elija  siempre de esta tabla<br> la/s pregunta/s para poder eliminar su información correspondiente  </html>\n\n");
+        jLabel22.setText("<html>Para editar una sección seleccione de la caja <br> la \"Seción \"  para actualizar su nombre  <br>y elija  siempre de esta tabla<br> la/s pregunta/s para poder eliminar su información correspondiente  </html>\n\n");
         pnlDos.add(jLabel22);
         jLabel22.setBounds(10, 130, 140, 260);
 
@@ -448,6 +448,8 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlCompTecPuesto.add(btnCancelarTecnicas);
         btnCancelarTecnicas.setBounds(410, 440, 100, 40);
 
+        btnReporteCT.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnReporteCT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/imprimir.png"))); // NOI18N
         btnReporteCT.setText("Reporte");
         pnlCompTecPuesto.add(btnReporteCT);
         btnReporteCT.setBounds(150, 440, 120, 40);
@@ -578,6 +580,8 @@ public class PnlOperaciones extends javax.swing.JPanel {
         pnlCompUniv.add(btnCancelarUniversales);
         btnCancelarUniversales.setBounds(410, 440, 110, 40);
 
+        btnReporteUniv.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnReporteUniv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/imprimir.png"))); // NOI18N
         btnReporteUniv.setText("Reporte");
         pnlCompUniv.add(btnReporteUniv);
         btnReporteUniv.setBounds(150, 440, 120, 40);
@@ -692,7 +696,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
         btnGuardarTrabEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnGuardarTrabEquipo.setText("Guardar");
         pnlTrabajoEquipo.add(btnGuardarTrabEquipo);
-        btnGuardarTrabEquipo.setBounds(290, 440, 110, 40);
+        btnGuardarTrabEquipo.setBounds(290, 440, 120, 40);
 
         jLabel21.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -701,10 +705,13 @@ public class PnlOperaciones extends javax.swing.JPanel {
         jLabel21.setBounds(230, 10, 340, 20);
 
         btnCancelarTrabajo.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnCancelarTrabajo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnCancelarTrabajo.setText("Cancelar");
         pnlTrabajoEquipo.add(btnCancelarTrabajo);
-        btnCancelarTrabajo.setBounds(410, 440, 100, 40);
+        btnCancelarTrabajo.setBounds(410, 440, 110, 40);
 
+        btnReporteTrabEq.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnReporteTrabEq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/imprimir.png"))); // NOI18N
         btnReporteTrabEq.setText("Reporte");
         pnlTrabajoEquipo.add(btnReporteTrabEq);
         btnReporteTrabEq.setBounds(150, 440, 120, 40);

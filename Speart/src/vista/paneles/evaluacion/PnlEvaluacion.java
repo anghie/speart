@@ -539,6 +539,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         lblTotActivEscen.setBounds(540, 410, 190, 14);
 
         txtTotActEsc.setEditable(false);
+        txtTotActEsc.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         pnlIndicGestionPuesto.add(txtTotActEsc);
         txtTotActEsc.setBounds(720, 400, 200, 30);
 
@@ -572,6 +573,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         lblActividades.setBounds(10, 10, 100, 20);
 
         txtNroActividades.setEditable(false);
+        txtNroActividades.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         pnlIndicGestionPuesto.add(txtNroActividades);
         txtNroActividades.setBounds(130, 10, 60, 20);
 
@@ -580,6 +582,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         lblFactor.setBounds(400, 10, 20, 20);
 
         txtFactorIndic.setEditable(false);
+        txtFactorIndic.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         pnlIndicGestionPuesto.add(txtFactorIndic);
         txtFactorIndic.setBounds(330, 10, 60, 20);
 
@@ -1042,7 +1045,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         pnlDos.add(pnlEvalServ);
         pnlEvalServ.setBounds(56, 5, 930, 550);
 
-        tabbedEvaluacion.addTab("EVALUACION AL SERVIDOR", pnlDos);
+        tabbedEvaluacion.addTab("EVALUACIÓN AL SERVIDOR", pnlDos);
 
         pnlCinco.setOpaque(false);
         pnlCinco.setPreferredSize(new java.awt.Dimension(940, 560));
@@ -1137,7 +1140,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         pnlCinco.add(jLabel57);
         jLabel57.setBounds(10, 170, 250, 200);
 
-        tabbedEvaluacion.addTab("EFECTOS EVALUACIÓN", pnlCinco);
+        tabbedEvaluacion.addTab("EFÉCTOS EVALUACIÓN", pnlCinco);
 
         pnlSeis.setOpaque(false);
         pnlSeis.setPreferredSize(new java.awt.Dimension(940, 560));
@@ -1304,7 +1307,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         btnAplicarFactores.setBounds(341, 349, 110, 40);
 
         jLabel58.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        jLabel58.setText("<html>Estos factores deben ser ingresados cada <br>vez que activa la evalución de no<br> hacer este paso se calificara con los factores por defecto</html> ");
+        jLabel58.setText("<html>Estos factores  seran actualizados <br>en base a la Normativa SENRES</html> ");
         pnlFactores.add(jLabel58);
         jLabel58.setBounds(550, 70, 200, 200);
 
@@ -1471,7 +1474,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         jLabel60.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel60.setText("<html>En esta ventana,  seleccionará la fecha  <br>y hora de inicio y fin  para la activación de la <br>evaluación  a los usuarios o servidores del Área<br> y Aplique para Guardar cambios</html>");
         pnlTres.add(jLabel60);
-        jLabel60.setBounds(10, 140, 190, 180);
+        jLabel60.setBounds(10, 160, 190, 180);
 
         tabbedEvaluacion.addTab("FECHA EVALUACIÓN", pnlTres);
 

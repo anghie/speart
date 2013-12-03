@@ -204,30 +204,37 @@ public class PanelActividad extends javax.swing.JPanel {
         });
         setLayout(null);
 
+        lblTiempo.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         lblTiempo.setText("Dura:");
         add(lblTiempo);
         lblTiempo.setBounds(11, 30, 106, 14);
 
+        lblEncargado.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         lblEncargado.setText("Encargado:");
         add(lblEncargado);
         lblEncargado.setBounds(11, 183, 230, 14);
 
+        lblHoraInicio.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         lblHoraInicio.setText("Inicia:");
         add(lblHoraInicio);
         lblHoraInicio.setBounds(11, 143, 230, 14);
 
+        lblHpraTermina.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         lblHpraTermina.setText("Termina:");
         add(lblHpraTermina);
         lblHpraTermina.setBounds(11, 163, 230, 14);
 
+        lblFecha.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         lblFecha.setText("Fecha:");
         add(lblFecha);
         lblFecha.setBounds(11, 76, 230, 15);
 
+        lblCargo.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         lblCargo.setText("Cargo:");
         add(lblCargo);
         lblCargo.setBounds(11, 123, 230, 14);
 
+        btEditar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Edit.png"))); // NOI18N
         btEditar.setLabel("Editar");
         btEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -238,6 +245,7 @@ public class PanelActividad extends javax.swing.JPanel {
         add(btEditar);
         btEditar.setBounds(0, 0, 100, 20);
 
+        btnEliminar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.setToolTipText("Eliminar");
@@ -258,10 +266,12 @@ public class PanelActividad extends javax.swing.JPanel {
         add(cmbServidor);
         cmbServidor.setBounds(63, 97, 176, 20);
 
+        lbActividad.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         lbActividad.setText("Actividad:");
         add(lbActividad);
-        lbActividad.setBounds(11, 100, 48, 14);
+        lbActividad.setBounds(11, 100, 51, 14);
 
+        chbTerminada.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         chbTerminada.setText("Terminada");
         chbTerminada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -269,11 +279,12 @@ public class PanelActividad extends javax.swing.JPanel {
             }
         });
         add(chbTerminada);
-        chbTerminada.setBounds(11, 49, 75, 23);
+        chbTerminada.setBounds(11, 49, 81, 23);
 
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel1.setText("Total Hecho:");
         add(jLabel1);
-        jLabel1.setBounds(100, 50, 61, 14);
+        jLabel1.setBounds(100, 50, 70, 14);
 
         spnPorcentaje.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, 100.0d, 1.0d));
         spnPorcentaje.setPreferredSize(new java.awt.Dimension(100, 20));

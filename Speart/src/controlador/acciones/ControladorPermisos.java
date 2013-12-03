@@ -4,6 +4,7 @@
  */
 package controlador.acciones;
 
+//import vista.FrmPrincipal;
 import vista.FrmPrincipal;
 
 public class ControladorPermisos {

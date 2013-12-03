@@ -65,62 +65,72 @@ public class DialogEfectos extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel1.setText("INEFICIENTE CALIFICACIÓN:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 310, 170, 17);
+        jLabel1.setBounds(10, 330, 170, 14);
 
         jLabel2.setFont(new java.awt.Font("Cantarell", 1, 12)); // NOI18N
         jLabel2.setText("EFECTOS EVALUACIÓN");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(130, 10, 140, 17);
+        jLabel2.setBounds(130, 10, 140, 16);
 
+        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel3.setText("BUENA CALIFICACIÓN:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(10, 90, 140, 17);
+        jLabel3.setBounds(10, 90, 140, 14);
 
+        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel4.setText("DEFICIENTE CALIFICACIÓN:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(10, 200, 170, 17);
+        jLabel4.setBounds(10, 210, 170, 14);
 
         txtIneficienteCalificacion.setColumns(20);
         txtIneficienteCalificacion.setRows(5);
         jScrollPane1.setViewportView(txtIneficienteCalificacion);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 330, 380, 87);
+        jScrollPane1.setBounds(10, 350, 380, 96);
 
         txtBuenaCalificacion.setColumns(20);
         txtBuenaCalificacion.setRows(5);
         jScrollPane2.setViewportView(txtBuenaCalificacion);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(10, 110, 380, 87);
+        jScrollPane2.setBounds(10, 110, 380, 96);
 
         txtDeficienteCalificacion.setColumns(20);
         txtDeficienteCalificacion.setRows(5);
         jScrollPane3.setViewportView(txtDeficienteCalificacion);
 
         getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(10, 220, 380, 87);
+        jScrollPane3.setBounds(10, 230, 380, 96);
 
+        btnCancelar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
+        btnCancelar.setToolTipText("Cancelar si no desea guardar la información");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
         getContentPane().add(btnCancelar);
-        btnCancelar.setBounds(200, 430, 100, 40);
+        btnCancelar.setBounds(200, 450, 110, 40);
 
+        btnGuardar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btnGuardar.setText("Guardar");
+        btnGuardar.setToolTipText("Guardar informaión de efectos");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
         getContentPane().add(btnGuardar);
-        btnGuardar.setBounds(90, 430, 100, 40);
+        btnGuardar.setBounds(70, 450, 120, 40);
 
+        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel5.setText("NOMBRE:");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(9, 37, 70, 30);
@@ -133,16 +143,17 @@ public class DialogEfectos extends javax.swing.JDialog {
         getContentPane().add(cbNombres);
         cbNombres.setBounds(80, 40, 220, 30);
 
-        btnNuevoNombre.setText("N");
+        btnNuevoNombre.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnNuevoNombre.setText("Nueva");
         btnNuevoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoNombreActionPerformed(evt);
             }
         });
         getContentPane().add(btnNuevoNombre);
-        btnNuevoNombre.setBounds(310, 40, 50, 30);
+        btnNuevoNombre.setBounds(310, 40, 80, 30);
 
-        setSize(new java.awt.Dimension(410, 512));
+        setSize(new java.awt.Dimension(429, 539));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

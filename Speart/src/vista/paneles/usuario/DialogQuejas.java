@@ -83,7 +83,7 @@ public class DialogQuejas extends javax.swing.JDialog {
         jLabel3.setBounds(20, 60, 270, 16);
 
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        jLabel2.setText("Descripcion:");
+        jLabel2.setText("Descripción:");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(40, 90, 110, 16);
 
@@ -115,7 +115,7 @@ public class DialogQuejas extends javax.swing.JDialog {
         chbSi.setBounds(510, 250, 60, 25);
 
         jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        jLabel5.setText("Descuento en evaluacion:");
+        jLabel5.setText("Descuento en evaluación:");
         jPanel1.add(jLabel5);
         jLabel5.setBounds(340, 250, 160, 20);
 
@@ -146,8 +146,8 @@ public class DialogQuejas extends javax.swing.JDialog {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 710, 350);
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-729)/2, (screenSize.height-391)/2, 729, 391);
+        setSize(new java.awt.Dimension(729, 391));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarQuejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarQuejaActionPerformed

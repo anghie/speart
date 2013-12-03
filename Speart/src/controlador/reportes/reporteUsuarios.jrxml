@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f876d89a-76db-4c73-a4de-baf62385bc2a">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="252"/>
+	<property name="ireport.y" value="30"/>
 	<field name="cedula" class="java.lang.String"/>
 	<field name="apelNombres" class="java.lang.String"/>
 	<field name="cargo" class="java.lang.String"/>
@@ -12,10 +12,6 @@
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
-			<image>
-				<reportElement uuid="fd430f52-906d-4671-b9c3-c951e1682e12" x="0" y="0" width="88" height="79"/>
-				<imageExpression><![CDATA["/home/francisco/NetBeansProjects/Speart/src/vista/imagenes/iess2.jpg"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement uuid="dc79b320-2c67-496d-b04a-a968a4adb541" x="90" y="28" width="398" height="20"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
@@ -23,6 +19,10 @@
 				</textElement>
 				<text><![CDATA[INSTITUTO ECUATORIANO DE SEGURIDAD SOCIAL]]></text>
 			</staticText>
+			<image>
+				<reportElement uuid="4898a154-35de-4499-8e0b-e6970e77fcbe" x="10" y="12" width="78" height="50"/>
+				<imageExpression><![CDATA["D:\\Documents\\NetBeansProjects\\Speart\\src\\controlador\\reportes\\LOGO.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>

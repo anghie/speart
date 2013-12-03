@@ -13,29 +13,29 @@
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="92" y="27" width="398" height="20" uuid="85075920-5765-4e27-963f-e21175273c1d"/>
+				<reportElement uuid="85075920-5765-4e27-963f-e21175273c1d" x="92" y="27" width="398" height="20"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[INSTITUTO ECUATORIANO DE SEGURIDAD SOCIAL]]></text>
 			</staticText>
 			<image>
-				<reportElement x="1" y="0" width="88" height="79" uuid="2986d45a-9c6b-4678-9315-27cf6fde3672"/>
-				<imageExpression><![CDATA["/home/francisco/NetBeansProjects/Speart/src/vista/imagenes/iess2.jpg"]]></imageExpression>
+				<reportElement uuid="5f7b9fc5-5e18-4cff-b935-0c7f5aaa9562" x="15" y="12" width="77" height="55"/>
+				<imageExpression><![CDATA["D:\\Documents\\NetBeansProjects\\Speart\\src\\controlador\\reportes\\LOGO.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
 	<pageHeader>
 		<band height="70" splitType="Stretch">
 			<staticText>
-				<reportElement x="166" y="5" width="224" height="20" uuid="e684aa05-8e00-4de7-b78e-9ee002e8fa73"/>
+				<reportElement uuid="e684aa05-8e00-4de7-b78e-9ee002e8fa73" x="166" y="5" width="224" height="20"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[DIRECCIÓN PROVINCIAL DE LOJA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="116" y="37" width="318" height="20" uuid="a08070fe-a74a-4901-ac64-86fbe6b4f702"/>
+				<reportElement uuid="a08070fe-a74a-4901-ac64-86fbe6b4f702" x="116" y="37" width="318" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10" isBold="true"/>
 				</textElement>
@@ -46,28 +46,28 @@
 	<columnHeader>
 		<band height="30" splitType="Stretch">
 			<staticText>
-				<reportElement x="1" y="2" width="100" height="20" uuid="330f321b-1e24-4a56-86d2-cd448550b62d"/>
+				<reportElement uuid="330f321b-1e24-4a56-86d2-cd448550b62d" x="1" y="2" width="100" height="20"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[DESTREZA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="101" y="2" width="100" height="20" uuid="34fb6b10-0be8-4dc5-a0d4-ccf9afb55b83"/>
+				<reportElement uuid="34fb6b10-0be8-4dc5-a0d4-ccf9afb55b83" x="101" y="2" width="100" height="20"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[ALTA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="264" y="2" width="100" height="20" uuid="121ff39c-fddb-4fea-97c1-81f0d8de55c0"/>
+				<reportElement uuid="121ff39c-fddb-4fea-97c1-81f0d8de55c0" x="264" y="2" width="100" height="20"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[MEDIA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="422" y="2" width="100" height="20" uuid="846178b2-1653-449e-87d6-0f86f097405c"/>
+				<reportElement uuid="846178b2-1653-449e-87d6-0f86f097405c" x="422" y="2" width="100" height="20"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
@@ -78,22 +78,22 @@
 	<detail>
 		<band height="22" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="100" height="20" uuid="04add511-0d76-40ab-a176-97e9a21198c1"/>
+				<reportElement uuid="04add511-0d76-40ab-a176-97e9a21198c1" x="0" y="0" width="100" height="20"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{nombreDestrezaTec}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="101" y="0" width="163" height="20" uuid="68eba22d-88f8-4e91-bf1b-b7872b8f1514"/>
+				<reportElement uuid="68eba22d-88f8-4e91-bf1b-b7872b8f1514" x="101" y="0" width="163" height="20"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{altaTec}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="264" y="0" width="158" height="20" uuid="098826ea-7ecc-48e4-9d82-778d53bb1526"/>
+				<reportElement uuid="098826ea-7ecc-48e4-9d82-778d53bb1526" x="264" y="0" width="158" height="20"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{mediaTec}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="422" y="0" width="133" height="20" uuid="cba4454d-51c5-4cb0-a28e-a53ef9f045da"/>
+				<reportElement uuid="cba4454d-51c5-4cb0-a28e-a53ef9f045da" x="422" y="0" width="133" height="20"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{bajaTec}]]></textFieldExpression>
 			</textField>

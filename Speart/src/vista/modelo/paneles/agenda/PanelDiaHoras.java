@@ -249,8 +249,10 @@ public class PanelDiaHoras extends javax.swing.JPanel {
         panelContenedorHoras.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 1, 1));
         panelPrincipal.add(panelContenedorHoras, java.awt.BorderLayout.WEST);
 
-        panelContenedorTareas.setBackground(new java.awt.Color(36, 183, 193));
+        panelContenedorTareas.setBackground(new java.awt.Color(159, 215, 248));
         panelContenedorTareas.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        panelContenedorTareas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panelContenedorTareas.setDoubleBuffered(false);
         panelContenedorTareas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelContenedorTareasMouseClicked(evt);
@@ -277,9 +279,14 @@ public class PanelDiaHoras extends javax.swing.JPanel {
 
         add(panelPrincipal, java.awt.BorderLayout.CENTER);
 
+        panelNorte.setBackground(new java.awt.Color(51, 51, 51));
+
+        lblDia.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblDia.setForeground(new java.awt.Color(255, 255, 255));
         lblDia.setText("Dia:");
         panelNorte.add(lblDia);
 
+        btnGenerar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnGenerar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/History.png"))); // NOI18N
         btnGenerar.setText("Generar");
         btnGenerar.addActionListener(new java.awt.event.ActionListener() {
@@ -294,80 +301,80 @@ public class PanelDiaHoras extends javax.swing.JPanel {
 
     private void panelContenedorTareasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelContenedorTareasMouseClicked
         // TODO add your handling code here:
-        if(contador==0)
-            punto=evt.getPoint();
-        contador++;
-        if(contador==2){
-            List<DiaFeriado> dias=ControladorDiasFeriados.searchDiaFeriado(nombreDia, Fecha.getNombreMes(numeroMes), numeroDia, agenda.getId());
-                  if(dias!=null){
-                      if(dias.size()>0){
-                          JOptionPane.showMessageDialog(this,"Exepción no se puede crear actividades en dias feriados");
-                          return;
-                      }
-                  }
-          Calendar calendarioActual=Calendar.getInstance();
-        if(calendario.getInstance().getTime().getTime()<calendarioActual.getTime().getTime()){
-            JOptionPane.showMessageDialog(this,"Error no se pueden crear actividades en fechas pasadas");
-            return;
-           } 
-          //----------------------------------------------------------------------------------
-          ItemAgenda itemAgenda=new ItemAgenda();
-          Date fecha=new Date();
-          itemAgenda.setActividad(actividad);
-          if(actividad!=null)
-            itemAgenda.setNombre_actividad(actividad.getNombreActividad());
-          itemAgenda.setMes(Fecha.getNombreMes(numeroMes));
-          itemAgenda.setDia_del_mes(numeroDia+"");
-          itemAgenda.setDia(nombreDia);
-          itemAgenda.setFecha(new Date());
-          itemAgenda.setAgenda(agenda);
-          itemAgenda.setHoraInicio(new Date(fecha.getYear(),
-                                         numeroMes,
-                                         numeroDia,
-                                         ControladorAgenda.calcularHoras((int)(punto.getY())),
-                                         ControladorAgenda.calcularMinutos((int)(punto.getY()))));
-
-          itemAgenda.setHoraFin(new Date(fecha.getYear(),
-                                         numeroMes,
-                                         numeroDia,
-                                         ControladorAgenda.calcularHoras((int)(punto2.getY())),
-                                         ControladorAgenda.calcularMinutos((int)(punto2.getY()))));
-
-          ControladorItemAgenda.setTiempoDuracion(itemAgenda,
-                                                   fecha,
-                                                   numeroMes,
-                                                   numeroDia,
-                                                  ControladorAgenda.calcularHoras((int)(punto2.getY()-punto.getY())),
-                                                  ControladorAgenda.calcularMinutos((int)(punto2.getY()-punto.getY())));
-          
-
-          //itemAgenda.setActividad(null);
-          agenda.getItemsAgenda().add(itemAgenda);
-//-------------------------------------------------------------------
-          PanelActividad panelActividad=new PanelActividad(false,itemAgenda, panelContenedorTareas,usuario);
-          panelActividad.setTiempoDuracion(tiempoTarea);
-          panelActividad.setBackground(Color.white);
-          panelContenedorTareas.add(panelActividad);
-          panelContenedorTareas.repaint();
-          PanelAgenda.guardar=true;
-          
-          punto=null;
-          contador=0;
-        }
+//        if(contador==0)
+//            punto=evt.getPoint();
+//        contador++;
+//        if(contador==2){
+//            List<DiaFeriado> dias=ControladorDiasFeriados.searchDiaFeriado(nombreDia, Fecha.getNombreMes(numeroMes), numeroDia, agenda.getId());
+//                  if(dias!=null){
+//                      if(dias.size()>0){
+//                          JOptionPane.showMessageDialog(this,"Exepción no se puede crear actividades en dias feriados");
+//                          return;
+//                      }
+//                  }
+//          Calendar calendarioActual=Calendar.getInstance();
+//        if(calendario.getInstance().getTime().getTime()<calendarioActual.getTime().getTime()){
+//            JOptionPane.showMessageDialog(this,"Error no se pueden crear actividades en fechas pasadas");
+//            return;
+//           } 
+//          //----------------------------------------------------------------------------------
+//          ItemAgenda itemAgenda=new ItemAgenda();
+//          Date fecha=new Date();
+//          itemAgenda.setActividad(actividad);
+//          if(actividad!=null)
+//            itemAgenda.setNombre_actividad(actividad.getNombreActividad());
+//          itemAgenda.setMes(Fecha.getNombreMes(numeroMes));
+//          itemAgenda.setDia_del_mes(numeroDia+"");
+//          itemAgenda.setDia(nombreDia);
+//          itemAgenda.setFecha(new Date());
+//          itemAgenda.setAgenda(agenda);
+//          itemAgenda.setHoraInicio(new Date(fecha.getYear(),
+//                                         numeroMes,
+//                                         numeroDia,
+//                                         ControladorAgenda.calcularHoras((int)(punto.getY())),
+//                                         ControladorAgenda.calcularMinutos((int)(punto.getY()))));
+//
+//          itemAgenda.setHoraFin(new Date(fecha.getYear(),
+//                                         numeroMes,
+//                                         numeroDia,
+//                                         ControladorAgenda.calcularHoras((int)(punto2.getY())),
+//                                         ControladorAgenda.calcularMinutos((int)(punto2.getY()))));
+//
+//          ControladorItemAgenda.setTiempoDuracion(itemAgenda,
+//                                                   fecha,
+//                                                   numeroMes,
+//                                                   numeroDia,
+//                                                  ControladorAgenda.calcularHoras((int)(punto2.getY()-punto.getY())),
+//                                                  ControladorAgenda.calcularMinutos((int)(punto2.getY()-punto.getY())));
+//          
+//
+//          //itemAgenda.setActividad(null);
+//          agenda.getItemsAgenda().add(itemAgenda);
+////-------------------------------------------------------------------
+//          PanelActividad panelActividad=new PanelActividad(false,itemAgenda, panelContenedorTareas,usuario);
+//          panelActividad.setTiempoDuracion(tiempoTarea);
+//          panelActividad.setBackground(Color.white);
+//          panelContenedorTareas.add(panelActividad);
+//          panelContenedorTareas.repaint();
+//          PanelAgenda.guardar=true;
+//          
+//          punto=null;
+//          contador=0;
+//        }
     }//GEN-LAST:event_panelContenedorTareasMouseClicked
 
     private void panelContenedorTareasMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelContenedorTareasMouseMoved
         // TODO add your handling code here:
-        Graphics2D g= (Graphics2D) panelContenedorTareas.getGraphics();
-        g.setColor(Color.red);
-        punto2=evt.getPoint();
-        if(punto!=null){
-            panelContenedorTareas.repaint();
-            tiempoTarea=calcularTiempoTarea();
-            g.drawString(tiempoTarea,
-                            (int)punto2.getX(),
-                            (int)punto2.getY());
-        }
+//        Graphics2D g= (Graphics2D) panelContenedorTareas.getGraphics();
+//        g.setColor(Color.red);
+//        punto2=evt.getPoint();
+//        if(punto!=null){
+//            panelContenedorTareas.repaint();
+//            tiempoTarea=calcularTiempoTarea();
+//            g.drawString(tiempoTarea,
+//                            (int)punto2.getX(),
+//                            (int)punto2.getY());
+//        }
     }//GEN-LAST:event_panelContenedorTareasMouseMoved
 
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
@@ -386,8 +393,9 @@ public class PanelDiaHoras extends javax.swing.JPanel {
         if(calendario.getInstance().getTime().getTime()>=calendarioActual.getTime().getTime()){
             generar=true;
         }else{
-            generar=false;
             JOptionPane.showMessageDialog(new JFrame(), "Error no se puede generar actividades para fechas pasadas");
+            generar=false;
+           
         }
        
         List<DiaFeriado> dias=ControladorDiasFeriados.searchDiaFeriado(nombreDia, Fecha.getNombreMes(numeroMes), numeroDia, agenda.getId());

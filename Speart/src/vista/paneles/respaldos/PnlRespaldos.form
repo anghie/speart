@@ -138,6 +138,7 @@
                       <Image iconType="3" name="/vista/imagenes/respaldo.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="CARGAR"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Carga el respaldo guardado "/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCargarRespActionPerformed"/>

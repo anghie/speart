@@ -79,14 +79,20 @@ public class DialogTest extends javax.swing.JDialog {
         getContentPane().add(scrollTest);
         scrollTest.setBounds(20, 17, 1000, 510);
 
+        btnCalificar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnCalificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Select.png"))); // NOI18N
         btnCalificar.setText("Calificar");
+        btnCalificar.setToolTipText("Presione calificar para mostrar los resultados del Test seleccionado");
         btnCalificar.setPreferredSize(new java.awt.Dimension(100, 35));
         getContentPane().add(btnCalificar);
-        btnCalificar.setBounds(420, 540, 100, 40);
+        btnCalificar.setBounds(400, 540, 120, 40);
 
+        btnCancelar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/salir_1.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
+        btnCancelar.setToolTipText("");
         getContentPane().add(btnCancelar);
-        btnCancelar.setBounds(530, 540, 90, 40);
+        btnCancelar.setBounds(530, 540, 120, 40);
 
         setSize(new java.awt.Dimension(1045, 617));
         setLocationRelativeTo(null);

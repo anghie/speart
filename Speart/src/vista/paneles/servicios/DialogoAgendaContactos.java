@@ -163,7 +163,7 @@ public class DialogoAgendaContactos extends javax.swing.JDialog {
         txtCelular.setBounds(580, 350, 90, 30);
 
         lblDireccion.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        lblDireccion.setText("   Direccion:");
+        lblDireccion.setText("   Dirección:");
         pnlAgendaContactos.add(lblDireccion);
         lblDireccion.setBounds(20, 380, 80, 30);
         pnlAgendaContactos.add(txtDireccion);
@@ -196,8 +196,8 @@ public class DialogoAgendaContactos extends javax.swing.JDialog {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 790, 550);
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-808)/2, (screenSize.height-585)/2, 808, 585);
+        setSize(new java.awt.Dimension(808, 585));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed

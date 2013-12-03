@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import modelo.evaluacion.ResultadoConocimientos;
 import modelo.pregunta.Pregunta;
 import modelo.pregunta.Respuesta;
-import vista.paneles.evaluacion.DialogResultTest;
+//import vista.paneles.evaluacion.DialogResultTest;
 import vista.paneles.evaluacion.PnlTextoResult;
 
 /**
@@ -18,22 +18,22 @@ import vista.paneles.evaluacion.PnlTextoResult;
  */
 public class ControladorTestResult {
 
-    private final DialogResultTest ft;
+//    private final DialogResultTest ft;
     private ArrayList<JPanel> panelesPregRpta;
     private ArrayList<Pregunta> preguntas;
     private ArrayList<Respuesta> respuestas;
     private ArrayList<ResultadoConocimientos> resultadoPreguntas;
     private int n=0;
 
-    public ControladorTestResult(DialogResultTest ft) {
-        this.ft = ft;
-    }
-
-    public void llenaPaneles() {
-        for (int i = 0; i < panelesPregRpta.size(); i++) {
-            ft.getPnlTestResult().add(panelesPregRpta.get(i));
-        }
-    }
+////    public ControladorTestResult(DialogResultTest ft) {
+//        this.ft = ft;
+//    }
+//
+//    public void llenaPaneles() {
+//        for (int i = 0; i < panelesPregRpta.size(); i++) {
+//            ft.getPnlTestResult().add(panelesPregRpta.get(i));
+//        }
+//    }
 //tengo array de preguntas de acuerdo a la seccion
 //tengo array de respuestas
 

@@ -104,6 +104,7 @@ public class PnlRespaldos extends javax.swing.JPanel {
         btnCargarResp.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnCargarResp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/respaldo.png"))); // NOI18N
         btnCargarResp.setText("CARGAR");
+        btnCargarResp.setToolTipText("Carga el respaldo guardado ");
         btnCargarResp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCargarRespActionPerformed(evt);

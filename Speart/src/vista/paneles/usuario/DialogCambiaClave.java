@@ -56,21 +56,30 @@ public class DialogCambiaClave extends javax.swing.JDialog {
         jPanel1 = new  ImagenJPanel ("cambioclave.jpg");
         jPanel1.setLayout(null);
 
+        lblClaveInterior1.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         lblClaveInterior1.setText(" Clave anterior:");
         jPanel1.add(lblClaveInterior1);
         lblClaveInterior1.setBounds(20, 30, 120, 30);
+
+        txtClaveAnterior1.setToolTipText("Digitar su clave anterior");
         jPanel1.add(txtClaveAnterior1);
         txtClaveAnterior1.setBounds(140, 30, 220, 30);
 
+        lblClaveNueva1.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         lblClaveNueva1.setText(" Clave nueva:");
         jPanel1.add(lblClaveNueva1);
         lblClaveNueva1.setBounds(30, 70, 110, 30);
+
+        txtClaveNueva1.setToolTipText("DIgitar su clave nueva");
         jPanel1.add(txtClaveNueva1);
         txtClaveNueva1.setBounds(140, 70, 220, 30);
 
+        lblConfirmClave1.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         lblConfirmClave1.setText("Confirme clave:");
         jPanel1.add(lblConfirmClave1);
         lblConfirmClave1.setBounds(20, 110, 140, 30);
+
+        txtComfirClave1.setToolTipText("Confirme su clave nueva");
         jPanel1.add(txtComfirClave1);
         txtComfirClave1.setBounds(140, 110, 220, 30);
 
@@ -88,8 +97,8 @@ public class DialogCambiaClave extends javax.swing.JDialog {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 470, 230);
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-490)/2, (screenSize.height-266)/2, 490, 266);
+        setSize(new java.awt.Dimension(490, 266));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCambiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiar1ActionPerformed

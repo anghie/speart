@@ -157,7 +157,6 @@ public class PanelAgenda extends ImagenJPanel {
         jLabel4 = new javax.swing.JLabel();
         spHoraFinal = new javax.swing.JSpinner();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         spMinutosFinal = new javax.swing.JSpinner();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -274,8 +273,10 @@ public class PanelAgenda extends ImagenJPanel {
             }
         });
 
+        btGuardarAgenda.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btGuardarAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/Save.png"))); // NOI18N
         btGuardarAgenda.setText("Guardar");
+        btGuardarAgenda.setToolTipText("Guardar la información de las actividades ingresadas en la Agenda");
         btGuardarAgenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btGuardarAgendaActionPerformed(evt);
@@ -284,8 +285,10 @@ public class PanelAgenda extends ImagenJPanel {
 
         panelAddActividad.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
+        lblHoraInicio.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         lblHoraInicio.setText("Inicia:");
 
+        lblHpraTermina.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         lblHpraTermina.setText("Termina:");
 
         spHoraInicio.setModel(new javax.swing.SpinnerNumberModel(8, 0, 23, 1));
@@ -302,14 +305,13 @@ public class PanelAgenda extends ImagenJPanel {
 
         jLabel5.setText("H");
 
-        jLabel6.setText(":");
-
         spMinutosFinal.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
 
         jLabel7.setText("min");
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/bell.png"))); // NOI18N
 
+        chbRecordar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         chbRecordar.setText("Recordar");
         chbRecordar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         chbRecordar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -321,10 +323,12 @@ public class PanelAgenda extends ImagenJPanel {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel1.setText("Actividad:");
 
+        btnAddActividad.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnAddActividad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/list-add.png"))); // NOI18N
-        btnAddActividad.setText("Agregsr");
+        btnAddActividad.setText("Agregar");
         btnAddActividad.setToolTipText("Agregar actividad");
         btnAddActividad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -334,8 +338,10 @@ public class PanelAgenda extends ImagenJPanel {
 
         jLabel9.setText(":");
 
+        jLabel10.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel10.setText("Proceso:");
 
+        lblProceso.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         lblProceso.setText("Proceso");
 
         javax.swing.GroupLayout panelAddActividadLayout = new javax.swing.GroupLayout(panelAddActividad);
@@ -360,21 +366,16 @@ public class PanelAgenda extends ImagenJPanel {
                                     .addComponent(cmbServidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(panelAddActividadLayout.createSequentialGroup()
                                 .addComponent(lblHpraTermina)
-                                .addGroup(panelAddActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelAddActividadLayout.createSequentialGroup()
-                                        .addGap(143, 143, 143)
-                                        .addComponent(jLabel6))
-                                    .addGroup(panelAddActividadLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(spHoraFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(spMinutosFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel7))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(spHoraFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(spMinutosFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel7))
                             .addGroup(panelAddActividadLayout.createSequentialGroup()
                                 .addComponent(lblHoraInicio)
                                 .addGap(27, 27, 27)
@@ -410,33 +411,31 @@ public class PanelAgenda extends ImagenJPanel {
                         .addComponent(jLabel10))
                     .addComponent(lblProceso))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelAddActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelAddActividadLayout.createSequentialGroup()
-                        .addGroup(panelAddActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblHoraInicio)
-                            .addComponent(spHoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spMinutosInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelAddActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblHpraTermina)
-                            .addComponent(spHoraFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spMinutosFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addGap(19, 19, 19)
-                        .addGroup(panelAddActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel8)
-                            .addGroup(panelAddActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(chbRecordar)
-                                .addComponent(btnAddActividad))))
-                    .addComponent(jLabel6))
+                .addGroup(panelAddActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblHoraInicio)
+                    .addComponent(spHoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spMinutosInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addGroup(panelAddActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblHpraTermina)
+                    .addComponent(spHoraFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spMinutosFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(19, 19, 19)
+                .addGroup(panelAddActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel8)
+                    .addGroup(panelAddActividadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(chbRecordar)
+                        .addComponent(btnAddActividad)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btnFeriado.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnFeriado.setText("Feriado");
         btnFeriado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -475,7 +474,7 @@ public class PanelAgenda extends ImagenJPanel {
                     .addComponent(btnFeriado))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(dateChooserPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panelAddActividad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btGuardarAgenda)
@@ -753,7 +752,6 @@ public void loadPanel(JScrollPane panelScroll, JPanel panel){
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

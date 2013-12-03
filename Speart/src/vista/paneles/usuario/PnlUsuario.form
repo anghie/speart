@@ -11,7 +11,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,127,0,0,3,-61"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,118,0,0,3,-11"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -50,13 +50,14 @@
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Berlin Sans FB" size="14" style="0"/>
+                  <Font name="Berlin Sans FB" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt; Este m&#xf3;dulo permite realizar el proceso de&lt;br&gt; ingreso de usuarios, o servidores  aqu&#xed; el&lt;br&gt; Administrador podr&#xe1; realizar las siguientes tareas: &lt;br&gt;&#xa;Ingresar, actualizar o eliminar datos de los servidores, &lt;br&gt;adem&#xe1;s le permitir&#xe1; agregar los&lt;br&gt; conocimientos,   destrezas y quejas a los&lt;br&gt;. servidores para el proceso de evaluaci&#xf3;n. &lt;br&gt;&#xa;Le permitir&#xe1; al administrador  Deshabilitar el&lt;br&gt; o los usuarios o servidores cuando estos ya no&lt;br&gt; trabajen para esta instituci&#xf3;n &lt;br&gt;&#xa;Tambi&#xe9;n  al momento de deshabilitar &lt;br&gt; un usuario o servidor el administrador&lt;br&gt;  podr&#xe1; agregar sus actividades a&lt;br&gt; otro usuario &lt;/html&gt;&#xa;"/>
+                <Property name="horizontalAlignment" type="int" value="11"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt; Este m&#xf3;dulo permite realizar el proceso de&lt;br&gt; ingreso de usuarios o servidores  aqu&#xed; el&lt;br&gt; Administrador podr&#xe1; realizar las siguientes tareas: &lt;br&gt;&#xa;Ingresar, actualizar o eliminar datos de los servidores, &lt;br&gt;adem&#xe1;s le permitir&#xe1; agregar los&lt;br&gt; conocimientos,   destrezas y quejas a los&lt;br&gt; servidores para el proceso de evaluaci&#xf3;n. &lt;br&gt;&#xa;Le permitir&#xe1; al administrador  Deshabilitar el&lt;br&gt; o los usuarios o servidores cuando estos ya no&lt;br&gt; trabajen para esta instituci&#xf3;n &lt;br&gt;&#xa;Tambi&#xe9;n  al momento de deshabilitar &lt;br&gt; un usuario o servidor el administrador&lt;br&gt;  podr&#xe1; agregar sus actividades a&lt;br&gt; otro usuario &lt;/html&gt;&#xa;"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="140" width="220" height="350"/>
+                  <AbsoluteConstraints x="670" y="110" width="280" height="340"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -69,7 +70,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="320" y="10" width="540" height="590"/>
+                  <AbsoluteConstraints x="10" y="10" width="660" height="590"/>
                 </Constraint>
               </Constraints>
 
@@ -122,7 +123,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="10" y="360" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="10" y="360" width="650" height="-1"/>
                     </Constraint>
                   </Constraints>
 
@@ -135,11 +136,11 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Berlin Sans FB" size="14" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Confirmacion:"/>
+                        <Property name="text" type="java.lang.String" value="Confirmaci&#xf3;n:"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="110" y="110" width="100" height="30"/>
+                          <AbsoluteConstraints x="10" y="110" width="100" height="30"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -152,7 +153,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="130" y="40" width="70" height="30"/>
+                          <AbsoluteConstraints x="30" y="50" width="70" height="30"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -165,7 +166,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="130" y="75" width="80" height="30"/>
+                          <AbsoluteConstraints x="30" y="80" width="80" height="30"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -175,7 +176,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="210" y="40" width="170" height="30"/>
+                          <AbsoluteConstraints x="90" y="50" width="170" height="30"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -185,7 +186,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="210" y="110" width="170" height="30"/>
+                          <AbsoluteConstraints x="90" y="110" width="170" height="30"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -195,7 +196,100 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="210" y="75" width="170" height="30"/>
+                          <AbsoluteConstraints x="90" y="80" width="170" height="30"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel4">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Berlin Sans FB" size="14" style="0"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Elija pregunta de seguridad:"/>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="280" y="80" width="175" height="-1"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Component class="org.jdesktop.swingx.JXDatePicker" name="dateDesde">
+                      <Properties>
+                        <Property name="toolTipText" type="java.lang.String" value=""/>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="450" y="50" width="190" height="20"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel5">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Berlin Sans FB" size="14" style="0"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Ingrese la fecha de nacimineto"/>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="270" y="50" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="jComboBox1">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="8">
+                            <StringItem index="0" value="Seleccione una"/>
+                            <StringItem index="1" value="Lugar de nacimiento de la madre"/>
+                            <StringItem index="2" value="Mejor amigo de la infancia"/>
+                            <StringItem index="3" value="Nombre de la primera mascota"/>
+                            <StringItem index="4" value="Profesor favorito"/>
+                            <StringItem index="5" value="Personaje historico favorito"/>
+                            <StringItem index="6" value="Ocupaci&#xf3;n del abuelo"/>
+                            <StringItem index="7" value=" "/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="450" y="80" width="190" height="-1"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel6">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Berlin Sans FB" size="14" style="0"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Responda la pregunta"/>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="280" y="110" width="130" height="-1"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="jTextField2">
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="420" y="110" width="220" height="-1"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel7">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Berlin Sans FB" size="12" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="cc" green="0" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Si pierdes la contrase&#xf1;a, &#xbf;c&#xf3;mo podemos ayudarte a restablecerla? "/>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="280" y="30" width="350" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -223,7 +317,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="10" y="180" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="60" y="180" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
 
@@ -400,7 +494,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="10" y="0" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="60" y="0" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
 
@@ -504,11 +598,11 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Berlin Sans FB" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;Seleccione siempre de esta tabla&lt;br&gt; al Servidor el cual se podra modificar&lt;br&gt; su informaci&#xf3;n personal, podra ser&lt;br&gt; deshabilitado y para agregar Conocimientos,&lt;br&gt; Destrezas y quejas para el proceso de evaluaci&#xf3;n &lt;/html&gt; n&lt;/html&gt; "/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;Seleccione siempre de esta tabla&lt;br&gt; al Servidor el cual se podra modificar&lt;br&gt; su informaci&#xf3;n personal, podra ser&lt;br&gt; deshabilitado y para agregar Conocimientos,&lt;br&gt; Destrezas y Quejas para el proceso de evaluaci&#xf3;n &lt;/html&gt; n&lt;/html&gt; "/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="160" width="120" height="200"/>
+                  <AbsoluteConstraints x="10" y="270" width="150" height="200"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -521,7 +615,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="118" y="5" width="770" height="-1"/>
+                  <AbsoluteConstraints x="170" y="10" width="810" height="-1"/>
                 </Constraint>
               </Constraints>
 
@@ -610,7 +704,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="10" y="230" width="750" height="60"/>
+                      <AbsoluteConstraints x="10" y="230" width="790" height="60"/>
                     </Constraint>
                   </Constraints>
 
@@ -698,17 +792,23 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="550" y="10" width="-1" height="40"/>
+                          <AbsoluteConstraints x="550" y="10" width="110" height="40"/>
                         </Constraint>
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnReporteUsuario">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Berlin Sans FB" size="12" style="0"/>
+                        </Property>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/vista/imagenes/imprimir.png"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Reporte"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="650" y="10" width="90" height="40"/>
+                          <AbsoluteConstraints x="663" y="10" width="-1" height="40"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -740,7 +840,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Berlin Sans FB" size="14" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Profesion:"/>
+                        <Property name="text" type="java.lang.String" value="Profesi&#xf3;n:"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -912,7 +1012,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Berlin Sans FB" size="14" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Cedula:"/>
+                        <Property name="text" type="java.lang.String" value="C&#xe9;dula:"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
