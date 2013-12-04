@@ -85,7 +85,7 @@ public class ControladorCompTecn {
         } else if (index == 3) {
             a = 2;
         } else if (index == 4) {
-            a = 1;
+            a = 0;
         }
         return (a * ControladorEvaluacion.facCompTec) / 5;
     }
