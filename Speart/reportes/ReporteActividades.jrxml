@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteActividades" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteActividades" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5d5fd9f0-84f0-4dbb-af40-744ee8ac6843">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="61"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="prm_agenda" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -23,123 +23,123 @@
 	<title>
 		<band height="182" splitType="Stretch">
 			<staticText>
-				<reportElement x="172" y="11" width="264" height="20"/>
+				<reportElement uuid="3f1e4210-053d-46fd-bd78-7aa7d1079d29" x="172" y="11" width="264" height="20"/>
 				<textElement/>
 				<text><![CDATA[INSTITUTO ECUATORIANO DE SEGURIDAD SOCIAL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="173" y="41" width="283" height="20"/>
+				<reportElement uuid="ecda9128-8a3e-4274-a68b-a7bba80031ad" x="173" y="41" width="283" height="20"/>
 				<textElement/>
 				<text><![CDATA[DEPARTAMENTO DE RIESGOS DEL TRABAJO DE LOJA]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="240" y="72" width="166" height="20"/>
+				<reportElement uuid="932e7857-9909-48bc-817c-bbb5685f1076" x="240" y="72" width="166" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="173" y="72" width="56" height="20"/>
+				<reportElement uuid="6d3456d5-d9fd-4175-bbc1-53cdda084527" x="173" y="72" width="56" height="20"/>
 				<textElement/>
 				<text><![CDATA[FECHA:]]></text>
 			</staticText>
 			<image>
-				<reportElement x="2" y="11" width="171" height="169"/>
+				<reportElement uuid="05e76763-e103-4b43-a1d6-1344d696ebd4" x="2" y="11" width="171" height="169"/>
 				<imageExpression><![CDATA[".\\reportes\\LOGO.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="172" y="106" width="85" height="20"/>
+				<reportElement uuid="d7b1221e-503c-4913-91d8-4e3776fed3df" x="172" y="106" width="85" height="20"/>
 				<textElement/>
 				<text><![CDATA[MES]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="270" y="106" width="136" height="20"/>
+				<reportElement uuid="4903a175-e2a9-482c-8a9c-7159aec1779c" x="270" y="106" width="136" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$P{prm_desde}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="7" splitType="Stretch"/>
+		<band height="11" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
 		<band height="25" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="79" height="20"/>
+				<reportElement uuid="59bca195-3406-4cf2-9c1a-23b76deb7990" x="0" y="0" width="79" height="20"/>
 				<textElement/>
 				<text><![CDATA[DIA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="79" y="0" width="79" height="20"/>
+				<reportElement uuid="e09495a8-df9f-4dfa-8c4a-6620d91ec826" x="79" y="0" width="79" height="20"/>
 				<textElement/>
 				<text><![CDATA[NUMERO DIA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="158" y="0" width="79" height="20"/>
+				<reportElement uuid="4d778019-6f3a-4207-bb1a-9c91a7075648" x="158" y="0" width="79" height="20"/>
 				<textElement/>
 				<text><![CDATA[MES]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="237" y="0" width="79" height="20"/>
+				<reportElement uuid="56e4f93c-faed-443d-ab48-b5ef917f706f" x="237" y="0" width="79" height="20"/>
 				<textElement/>
 				<text><![CDATA[HORA INICIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="316" y="0" width="79" height="20"/>
+				<reportElement uuid="b638e2ad-8835-4ef7-981c-5d0b9754bf45" x="316" y="0" width="79" height="20"/>
 				<textElement/>
 				<text><![CDATA[HORA FIN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="395" y="0" width="79" height="20"/>
+				<reportElement uuid="daaf7d35-4441-4c09-abfe-1cab655f3750" x="395" y="0" width="79" height="20"/>
 				<textElement/>
 				<text><![CDATA[TIEMPO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="474" y="0" width="79" height="20"/>
+				<reportElement uuid="5b2b5ab0-aa38-4fb7-8cda-ab3872d35af4" x="474" y="0" width="79" height="20"/>
 				<textElement/>
 				<text><![CDATA[ACTIVIDAD]]></text>
 			</staticText>
 			<rectangle radius="10">
-				<reportElement mode="Transparent" x="0" y="0" width="555" height="20"/>
+				<reportElement uuid="7cea5dad-2b7a-4488-94c0-eb4b3e8cd196" mode="Transparent" x="0" y="0" width="555" height="20"/>
 			</rectangle>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="46" splitType="Stretch">
 			<rectangle>
-				<reportElement x="0" y="0" width="555" height="42" backcolor="#CCCCCC"/>
+				<reportElement uuid="38fa7af3-2238-491e-a850-ba9183179e1d" x="0" y="0" width="555" height="42" backcolor="#CCCCCC"/>
 			</rectangle>
 			<textField>
-				<reportElement x="0" y="0" width="79" height="42"/>
+				<reportElement uuid="cc05fa43-7800-4623-987f-4dbe140053e2" x="0" y="0" width="79" height="42"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{DIA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="79" y="0" width="79" height="42"/>
+				<reportElement uuid="e98bb907-7281-4b75-adf3-38a35af75912" x="79" y="0" width="79" height="42"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{NUMERO DIA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="158" y="0" width="79" height="42"/>
+				<reportElement uuid="83ab618b-f66a-4fe8-a047-e2310954d598" x="158" y="0" width="79" height="42"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{MES}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="237" y="0" width="79" height="42"/>
+				<reportElement uuid="ebc0bd40-a971-4ce6-bcf4-e5725ef93915" x="237" y="0" width="79" height="42"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{HORA INICIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="316" y="0" width="79" height="42"/>
+				<reportElement uuid="4edb6a99-376e-42d1-a4b3-5d44ec586704" x="316" y="0" width="79" height="42"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{HORA FIN}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="395" y="0" width="79" height="42"/>
+				<reportElement uuid="d498ffa0-0ad3-419d-b9fb-e49ae8579888" x="395" y="0" width="79" height="42"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{TIEMPO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="474" y="0" width="79" height="42"/>
+				<reportElement uuid="92270d85-689a-4acb-9e50-2a78f3d90564" x="474" y="0" width="79" height="42"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{ACTIVIDAD}]]></textFieldExpression>
 			</textField>
@@ -151,12 +151,12 @@
 	<pageFooter>
 		<band height="54" splitType="Stretch">
 			<staticText>
-				<reportElement x="257" y="24" width="50" height="20"/>
+				<reportElement uuid="b6e0d4f1-c899-40fd-aa16-fe2cc9e155b3" x="257" y="24" width="50" height="20"/>
 				<textElement/>
 				<text><![CDATA[FIRMA]]></text>
 			</staticText>
 			<line>
-				<reportElement x="229" y="23" width="100" height="1"/>
+				<reportElement uuid="e8f8becd-e0e8-46cb-9885-68f5f39e47f7" x="229" y="23" width="100" height="1"/>
 			</line>
 		</band>
 	</pageFooter>

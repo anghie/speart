@@ -697,7 +697,7 @@
                         <Component class="javax.swing.JLabel" name="jLabel11">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Berlin Sans FB" size="12" style="0"/>
+                              <Font name="Berlin Sans FB" size="14" style="0"/>
                             </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="Nivel de Conocimiento"/>
@@ -716,10 +716,10 @@
                         <Component class="javax.swing.JLabel" name="jLabel12">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Berlin Sans FB" size="12" style="0"/>
+                              <Font name="Berlin Sans FB" size="14" style="0"/>
                             </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" value="CONOCIMIENTOS"/>
+                            <Property name="text" type="java.lang.String" value="Conocimientos"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -735,17 +735,20 @@
                         <Component class="javax.swing.JLabel" name="jLabel13">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Berlin Sans FB" size="12" style="0"/>
+                              <Font name="Berlin Sans FB" size="14" style="0"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Total Conocimientos:"/>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="560" y="350" width="180" height="-1"/>
+                              <AbsoluteConstraints x="590" y="350" width="120" height="-1"/>
                             </Constraint>
                           </Constraints>
                         </Component>
                         <Component class="javax.swing.JTextField" name="txtTotalConocimientos">
+                          <Properties>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
+                          </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                               <AbsoluteConstraints x="720" y="340" width="200" height="30"/>
@@ -826,6 +829,7 @@
                         <Component class="javax.swing.JTextField" name="txtFactorConoc">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -836,6 +840,7 @@
                         <Component class="javax.swing.JTextField" name="txtNroConocimientos">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -888,7 +893,7 @@
                               <Font name="Berlin Sans FB" size="14" style="0"/>
                             </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" value="DESTREZAS"/>
+                            <Property name="text" type="java.lang.String" value="Destrezas"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -972,6 +977,9 @@
                           </Constraints>
                         </Component>
                         <Component class="javax.swing.JTextField" name="txtTotalCompTec">
+                          <Properties>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
+                          </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                               <AbsoluteConstraints x="720" y="330" width="200" height="30"/>
@@ -1000,7 +1008,7 @@
                             <Component class="javax.swing.JLabel" name="jLabel33">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Berlin Sans FB" size="12" style="0"/>
+                                  <Font name="Berlin Sans FB" size="18" style="0"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="COMPETENCIAS T&#xc9;CNICAS DEL PUESTO"/>
                               </Properties>
@@ -1052,6 +1060,7 @@
                         <Component class="javax.swing.JTextField" name="txtNroCompetTecnic">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1075,6 +1084,7 @@
                         <Component class="javax.swing.JTextField" name="txtFactorCompTec">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1111,10 +1121,10 @@
                         <Component class="javax.swing.JLabel" name="jLabel18">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="DejaVu Sans" size="11" style="1"/>
+                              <Font name="Berlin Sans FB" size="14" style="0"/>
                             </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" value="DESTREZAS"/>
+                            <Property name="text" type="java.lang.String" value="Destrezas"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -1130,7 +1140,7 @@
                         <Component class="javax.swing.JLabel" name="jLabel20">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="DejaVu Sans" size="11" style="1"/>
+                              <Font name="Berlin Sans FB" size="14" style="0"/>
                             </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="Relevancia"/>
@@ -1149,7 +1159,7 @@
                         <Component class="javax.swing.JLabel" name="jLabel21">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="DejaVu Sans" size="11" style="1"/>
+                              <Font name="Berlin Sans FB" size="14" style="0"/>
                             </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="Comportamiento Observable"/>
@@ -1168,7 +1178,7 @@
                         <Component class="javax.swing.JLabel" name="jLabel22">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="DejaVu Sans" size="11" style="1"/>
+                              <Font name="Berlin Sans FB" size="14" style="0"/>
                             </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="&lt;html&gt;Frecuencia de&lt;br&gt;     Aplicacion&lt;/html&gt;"/>
@@ -1186,6 +1196,9 @@
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel23">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Berlin Sans FB" size="14" style="0"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Total Competencias Universales:"/>
                           </Properties>
                           <Constraints>
@@ -1195,6 +1208,9 @@
                           </Constraints>
                         </Component>
                         <Component class="javax.swing.JTextField" name="txtTotalCompUniv">
+                          <Properties>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
+                          </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                               <AbsoluteConstraints x="720" y="330" width="200" height="30"/>
@@ -1223,7 +1239,7 @@
                             <Component class="javax.swing.JLabel" name="jLabel34">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="DejaVu Sans" size="12" style="1"/>
+                                  <Font name="Berlin Sans FB" size="18" style="0"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="COMPETENCIAS UNIVERSALES"/>
                               </Properties>
@@ -1261,6 +1277,9 @@
                         </Container>
                         <Component class="javax.swing.JLabel" name="lblCompetUniv">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Berlin Sans FB" size="12" style="0"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="# Competencias: "/>
                           </Properties>
                           <Constraints>
@@ -1272,6 +1291,7 @@
                         <Component class="javax.swing.JTextField" name="txtNroCompetUniv">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1281,6 +1301,9 @@
                         </Component>
                         <Component class="javax.swing.JLabel" name="lblFactorUniv">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Berlin Sans FB" size="12" style="0"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="# Factor: "/>
                           </Properties>
                           <Constraints>
@@ -1292,6 +1315,7 @@
                         <Component class="javax.swing.JTextField" name="txtFactorUniv">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1331,7 +1355,7 @@
                               <Font name="Berlin Sans FB" size="14" style="0"/>
                             </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" value="DESCRIPCION"/>
+                            <Property name="text" type="java.lang.String" value="Descripci&#xf3;n"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -1350,7 +1374,7 @@
                               <Font name="Berlin Sans FB" size="14" style="0"/>
                             </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" value="RELEVANCIA"/>
+                            <Property name="text" type="java.lang.String" value="Relevancia"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -1369,7 +1393,7 @@
                               <Font name="Berlin Sans FB" size="14" style="0"/>
                             </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" value="COMPORTAMIENTO OBSERVABLE"/>
+                            <Property name="text" type="java.lang.String" value="Comportamiento Observable"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -1415,6 +1439,9 @@
                           </Constraints>
                         </Component>
                         <Component class="javax.swing.JTextField" name="txtTotalTrabEquip">
+                          <Properties>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
+                          </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                               <AbsoluteConstraints x="720" y="330" width="200" height="30"/>
@@ -1495,6 +1522,7 @@
                         <Component class="javax.swing.JTextField" name="txtFactorTrab">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1550,7 +1578,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Berlin Sans FB" size="18" style="0"/>
                                 </Property>
-                                <Property name="horizontalAlignment" type="int" value="0"/>
+                                <Property name="horizontalAlignment" type="int" value="2"/>
                                 <Property name="text" type="java.lang.String" value="QUEJAS DEL CIUDADANO"/>
                               </Properties>
                               <Constraints>
@@ -1567,7 +1595,7 @@
                               <Font name="Berlin Sans FB" size="14" style="0"/>
                             </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" value="DESCRIPCI&#xd3;N"/>
+                            <Property name="text" type="java.lang.String" value="Descripci&#xf3;n"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -1586,7 +1614,7 @@
                               <Font name="Berlin Sans FB" size="14" style="0"/>
                             </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" value="&lt;html&gt;NRO. DE&lt;br&gt;FORMULARIO&lt;/html&gt;"/>
+                            <Property name="text" type="java.lang.String" value="&lt;html&gt;Nro. de&lt;br&gt;formulario&lt;/html&gt;"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -1605,7 +1633,7 @@
                               <Font name="Berlin Sans FB" size="14" style="0"/>
                             </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" value="&lt;html&gt;NOMBRE DE LA PERSONA&lt;br&gt;QUE REALIZA LA QUEJA&lt;/html&gt;"/>
+                            <Property name="text" type="java.lang.String" value="&lt;html&gt;Nombre de la persona&lt;br&gt;que realiza la queja&lt;/html&gt;"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -1624,7 +1652,7 @@
                               <Font name="Berlin Sans FB" size="14" style="0"/>
                             </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" value="&lt;html&gt;APLICA DESCUENTO A&lt;br&gt;LA EVALUACI&#xd3;N&lt;br&gt;DE DESEMPE&#xd1;O&lt;/html&gt;"/>
+                            <Property name="text" type="java.lang.String" value="&lt;html&gt;Aplica descuento a&lt;br&gt;la evluaci&#xf3;n&lt;br&gt;de desempe&#xf1;o&lt;/html&gt;"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -1643,7 +1671,7 @@
                               <Font name="Berlin Sans FB" size="14" style="0"/>
                             </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" value="&lt;html&gt;% DE&lt;br&gt;REDUCCI&#xd3;N&lt;/html&gt;"/>
+                            <Property name="text" type="java.lang.String" value="&lt;html&gt;% de&lt;br&gt;reducci&#xf3;n&lt;/html&gt;"/>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
@@ -1683,6 +1711,7 @@
                         <Component class="javax.swing.JTextField" name="txtTotalQuejas">
                           <Properties>
                             <Property name="editable" type="boolean" value="false"/>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

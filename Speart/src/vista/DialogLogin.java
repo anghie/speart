@@ -51,7 +51,7 @@ public class DialogLogin extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         jLabel5.setText("jLabel5");
 
@@ -75,7 +75,7 @@ public class DialogLogin extends javax.swing.JDialog {
             }
         });
         getContentPane().add(btnCancelar);
-        btnCancelar.setBounds(110, 180, 90, 30);
+        btnCancelar.setBounds(130, 180, 90, 30);
 
         btnAceptar.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnAceptar.setText("Aceptar");
@@ -85,7 +85,7 @@ public class DialogLogin extends javax.swing.JDialog {
             }
         });
         getContentPane().add(btnAceptar);
-        btnAceptar.setBounds(20, 180, 90, 30);
+        btnAceptar.setBounds(40, 180, 90, 30);
         getContentPane().add(txtUsuario);
         txtUsuario.setBounds(110, 110, 180, 25);
 
@@ -109,25 +109,25 @@ public class DialogLogin extends javax.swing.JDialog {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(20, 100, 30, 30);
 
-        jLabel4.setText("<html>NUNCA: entregue sus datos personales,<br>usuario, clave de acceso<br> por cualquier medio ya sea correo <br>electronico, mensajes de celular, <br>mensajeria instantanea, teléfono, pagina web u otro,<br> el usuario y las claves son secretas>");
+        jLabel4.setText("<html>NUNCA: entregue sus datos personales,<br>usuario, clave de acceso<br>\npor cualquier medio ya sea correo <br>elefctronico, mensajes de celular, <br>mensajeria instanatnea,\nteelefono, pagina web u otro,<br> el usuario y las claves son secretas>");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(310, 100, 270, 120);
+        jLabel4.setBounds(390, 100, 240, 100);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/clave.jpg"))); // NOI18N
         getContentPane().add(jLabel6);
         jLabel6.setBounds(360, 0, 150, 90);
 
-        jButton1.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
-        jButton1.setText("Resetear clave");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        jButton2.setText("Resetear clave");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(200, 180, 110, 30);
+        getContentPane().add(jButton2);
+        jButton2.setBounds(220, 180, 110, 30);
 
-        setSize(new java.awt.Dimension(579, 223));
+        setSize(new java.awt.Dimension(635, 226));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -138,7 +138,7 @@ public class DialogLogin extends javax.swing.JDialog {
             String c = String.valueOf(txtClave.getPassword());
             if (ControladorPrincipal.datosCorrectos(u, c)) {
                 this.dispose();
-                JOptionPane.showMessageDialog(null, "Acceso Correcto");
+//                JOptionPane.showMessageDialog(null, "Acceso Correcto");
                 if (ControladorPrincipal.tipoUs.equals(Constantes.JEFE)) {
                     ControladorPermisos.permisoAdministrador();
                 } else if (ControladorPrincipal.tipoUs.equals(Constantes.SERVIDOR)) {
@@ -178,10 +178,15 @@ public class DialogLogin extends javax.swing.JDialog {
          new Reset(this, true).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        new Reset(this, true).setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

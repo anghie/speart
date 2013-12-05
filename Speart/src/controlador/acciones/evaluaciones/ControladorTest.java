@@ -153,18 +153,18 @@ public class ControladorTest {
         //creacion del contender para el panel del jframe
         Container c = frame.getContentPane();
 
-        int r = JOptionPane.showConfirmDialog(null, "¿Usted esta de acuerdo en calificar  su Test \n si considera que si no puede regresar a revisarlo?", "Calificar", JOptionPane.YES_NO_OPTION);
+        int r = JOptionPane.showConfirmDialog(null, "¿Advertencia: Usted está de acuerdo en calificar  su Test, \n si la  respuesta es afirmativa, no le será posible  revisarlo?", "Calificar", JOptionPane.YES_NO_OPTION);
         if (r == JOptionPane.YES_OPTION) {
             resultadoPreguntas = new ArrayList<>();
             //auxprint = new ArrayList<>();
             int n = 0, aux = -1;
             double valPreg;
             double valResp = 0;
-            if (hayDeseleccionados()) {
-                valPreg = 0;
-            } else {
+//            if (hayDeseleccionados()) {
+//                valPreg = 0;
+//            } else {
                 valPreg = ControladorEvaluacion.facConoc / ft.getPreguntas().size();//Calculando valor de cada pregunta
-            }
+//            }
 
             for (JPanel p : panelesPregRpta) {
                 if (p instanceof PnlRespuesta) {

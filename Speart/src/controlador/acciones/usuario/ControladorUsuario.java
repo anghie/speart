@@ -131,7 +131,7 @@ public class ControladorUsuario {
                 Mensaje.clavesNoCoinciden();
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Cedula incorrecta", "La cédula ingresada es incorrecta", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Cédula incorrecta", "La cédula ingresada es incorrecta", JOptionPane.ERROR_MESSAGE);
             pu.getTxtCedula().setBorder(new LineBorder(Color.red));
         }
     }

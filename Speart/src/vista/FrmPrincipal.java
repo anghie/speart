@@ -134,7 +134,7 @@ public class FrmPrincipal extends JFrame {
         //Poniendo imagen y logo
         pnlImagen = new ImagenJPanel("zzz.jpg");
         pnlImagen.setLayout(new BorderLayout());
-        JLabel lblTitulo = new JLabel("<html><br>BIENVENIDOS AL SPEIESS</html>", SwingConstants.CENTER);
+        JLabel lblTitulo = new JLabel("<html><br>BIENVENIDOS AL SPEART</html>", SwingConstants.CENTER);
         lblTitulo.setFont(new Font("Dialog", Font.BOLD, 15));
         //  JLabel lblLogo = new JLabel(new ImageIcon(cl.getResource("vista/imagenes/logo-iess.png")));
         JLabel lblCopyright = new JLabel("Copyright 2013 - Todos los derechos reservados", SwingConstants.CENTER);
@@ -184,6 +184,7 @@ public class FrmPrincipal extends JFrame {
         miCierraSesion = new JMenuItem();
         creaMenuItem(getMiCierraSesion(), mimenuSesion, "Cierra Sesion", "Cierra la sección actual", "logout.png");
         getMiCierraSesion().addActionListener(esc);
+        miCierraSesion.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.ALT_MASK));
 
         //MenuItem Cambia Clave
         miCambiaClave = new JMenuItem();

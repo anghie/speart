@@ -96,7 +96,7 @@ public class ControladorTrabajoEquipo {
 
     public void modeloTablaTrabEquipo() {
         DefaultTableModel dtm = new DefaultTableModel();
-        dtm.addColumn("Descripcion");
+        dtm.addColumn("Descripción");
         dtm.addColumn("Alta");
         dtm.addColumn("Media");
         dtm.addColumn("Baja");

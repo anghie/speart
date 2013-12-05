@@ -27,6 +27,13 @@ public class Usuario extends Persona implements Serializable {
     private List<Contacto> contactos;
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Meta> metas;
+    
+    //Campos q agregue con relacion
+    private String email;
+//     @OneToOne(cascade = CascadeType.ALL)
+    private int idpreguntarecuperar;
+    
+    
 
     public Usuario() {
         recordatorios = new ArrayList<>();
@@ -86,5 +93,38 @@ public class Usuario extends Persona implements Serializable {
      */
     public void setEvaluacionActivada(boolean evaluacionActivada) {
         this.evaluacionActivada = evaluacionActivada;
+    }
+
+    /**
+     * @return the email
+     */
+  
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @return the idpreguntarecuperar
+     */
+    public int getIdpreguntarecuperar() {
+        return idpreguntarecuperar;
+    }
+
+    /**
+     * @param idpreguntarecuperar the idpreguntarecuperar to set
+     */
+    public void setIdpreguntarecuperar(int idpreguntarecuperar) {
+        this.idpreguntarecuperar = idpreguntarecuperar;
     }
 }
