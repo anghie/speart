@@ -147,41 +147,45 @@ public class ControladorTest {
     public void califica() {
 
         //creacion del jframe para la presentacion de las respuestas
-        final JFrame frame = new JFrame("Panel de Respuestas");     
+        final JFrame frame = new JFrame("Panel de Respuestas");
         //asignacion de la imagen de fondo
-        Panel pa = new Panel("/vista/imagenes/quejas.jpg");        
+        Panel pa = new Panel("/vista/imagenes/quejas.jpg");
         //creacion del contender para el panel del jframe
         Container c = frame.getContentPane();
-
-
-
 
         int r = JOptionPane.showConfirmDialog(null, "¿Usted esta de acuerdo en calificar  su Test \n si considera que si no puede regresar a revisarlo?", "Calificar", JOptionPane.YES_NO_OPTION);
         if (r == JOptionPane.YES_OPTION) {
             resultadoPreguntas = new ArrayList<>();
             //auxprint = new ArrayList<>();
             int n = 0, aux = -1;
-            double valPreg = ControladorEvaluacion.facConoc / ft.getPreguntas().size();//Calculando valor de cada pregunta
+            double valPreg;
             double valResp = 0;
+            if (hayDeseleccionados()) {
+                valPreg = 0;
+            } else {
+                valPreg = ControladorEvaluacion.facConoc / ft.getPreguntas().size();//Calculando valor de cada pregunta
+            }
+
             for (JPanel p : panelesPregRpta) {
                 if (p instanceof PnlRespuesta) {
                     PnlRespuesta pr = (PnlRespuesta) p;
                     int idPreg = respuestasCompletas.get(n).getPregunta().getIdPregunta();
-                    String nompreg = respuestasCompletas.get(n).getPregunta().getPreg();
+//                    String nompreg = respuestasCompletas.get(n).getPregunta().getPreg();
                     int idResp = respuestasCompletas.get(n).getIdRespuesta();
-                    String nomresp = respuestasCompletas.get(n).getRpta();
+//                    String nomresp = respuestasCompletas.get(n).getRpta();
                     if (idPreg != aux) {
                         valResp = valRpta(idPreg, valPreg);
                         aux = idPreg;
                     }
                     //si lo escogido por el usuario es correcto
-                    if ((respuestasCompletas.get(n).isEstadoRpta() && pr.getChbPregunta().isSelected())
+                    if ((respuestasCompletas.get(n).isEstadoRpta() && pr.getChbPregunta().isSelected())//si rpta guradada = true y rpta usuario = true
                             || (!respuestasCompletas.get(n).isEstadoRpta() && !pr.getChbPregunta().isSelected())) {
+                        System.out.println("BD: " + respuestasCompletas.get(n).isEstadoRpta() + " RPTA: " + pr.getChbPregunta().isSelected());
                         resultadoPreguntas.add(new ResultadoConocimientos(idPreg, idResp, true, valResp));
-                        
+
                     } else {//si lo escogido por el usuario es falso
+                        System.out.println("BD: " + respuestasCompletas.get(n).isEstadoRpta() + " RPTA: " + pr.getChbPregunta().isSelected());
                         resultadoPreguntas.add(new ResultadoConocimientos(idPreg, idResp, false, 0));
-                        
                     }
                     n++;
                 }
@@ -194,12 +198,11 @@ public class ControladorTest {
             //asignacion de los valores para que el layout se acople al numero de elementos a presentarse
             pa.setLayout(new GridLayout(numeropre * 2, 1));
 
-
             for (ResultadoConocimientos rc : resultadoPreguntas) {
                 total += rc.getValor();
-                System.out.print("Pregunta: " + rc.getIdPreg() + " ");
-                System.out.print("Respuesta: " + rc.getIdResp() + " ");
-                System.out.print("Valor: " + rc.getValor() + " ");//lo q contesto el usuario
+//                System.out.print("Pregunta: " + rc.getIdPreg() + " ");
+//                System.out.print("Respuesta: " + rc.getIdResp() + " ");
+//                System.out.print("Valor: " + rc.getValor() + " ");//lo q contesto el usuario
                 System.out.print("Resultado: " + rc.isRptaCorrecta() + "\n");
 
             }
@@ -227,7 +230,8 @@ public class ControladorTest {
                     //consulta del atributo de la pregunta
                     ArrayList<Respuesta> lisres = (ArrayList<Respuesta>) OperacionesBD.buscarTodos("Respuesta", "Pregunta_idPregunta", String.valueOf(rc.getIdPreg()));
                     for (int i = 0; i < lisres.size(); i++) {
-                        if (lisres.get(i).isEstadoRpta() == true) {
+//                        if (lisres.get(i).isEstadoRpta() == true) {
+                        if (rc.isRptaCorrecta()) {
                             //asignacion de la imagen al label
                             String path = "/vista/imagenes/button_more.png";
                             URL url = this.getClass().getResource(path);
@@ -235,6 +239,7 @@ public class ControladorTest {
                             JLabel label = new JLabel("some text");
                             label.setIcon(icon);
                             label.setText(lisres.get(i).getRpta());
+//                            label.setText(lisres.get(i).getRpta());
                             pa.add(label);
                         } else {
                             //asignacion de la imagen al label
@@ -244,9 +249,11 @@ public class ControladorTest {
                             JLabel label = new JLabel("some text");
                             label.setIcon(icon);
                             label.setText(lisres.get(i).getRpta());
+//                        label.setText(lisres.get(i).getRpta());
                             pa.add(label);
                         }
                     }
+
                     idaux = rc.getIdPreg();
                 }
             }
@@ -259,13 +266,11 @@ public class ControladorTest {
             JButton btnSalir = new JButton("Salir");
             btnSalir.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    frame.dispose();                    
+                    frame.dispose();
                 }
             });
             pa.add(btnSalir);
             frame.setVisible(true);
-
-
 
             total = OperacionesVarias.redondeaDosCifras(total);//este es el total por seccion
 //        double total=;
@@ -278,23 +283,20 @@ public class ControladorTest {
                 rc.setResultadoFinalConocimiento(rfc);
                 rfc.addResultadoConocimiento(rc);
             }
-            System.out.println(rptaTexto(total));
+//            System.out.println(rptaTexto(total));
 //        if (OperacionesBD.guardar(rfc)) {
 //            Mensaje.datosGuardados();
             ControladorEvaluacion.txRptaConocIndiv.setText(rfc.getTotal() + " - " + rptaTexto(total));
+            double p = 0;
             ControladorEvaluacion.totConoc += rfc.getTotal();
-            double p = calculaPorcentaje(ControladorEvaluacion.totConoc);
+            p = calculaPorcentaje(ControladorEvaluacion.totConoc);
             double res = OperacionesVarias.redondeaDosCifras((p * ControladorEvaluacion.facConoc) / 100);
             ControladorEvaluacion.txtTotalConoc.setText(res + "%");
             ControladorEvaluacion.btnEvaluarCon.setEnabled(false);
             ControladorEvaluacion.totConoc = res;
 
-
-
             ft.dispose();
             // aqui va
-
-
 
         }
 
@@ -311,7 +313,7 @@ public class ControladorTest {
                 c++;
             }
         }
-        System.out.println("valPreg: " + valPreg + " c:" + c);
+//        System.out.println("valPreg: " + valPreg + " c:" + c);
         v = valPreg / c;
         return v;
     }
@@ -327,8 +329,25 @@ public class ControladorTest {
     }
 
     private double calculaPorcentaje(double totalObt) {
-        double factor = ControladorEvaluacion.facConoc * ControladorEvaluacion.secciones.size();//factor asignado por el estado
-        double porcen = (totalObt * 100) / factor;
+        System.out.println("Total obtenido: " + totalObt);
+        double factor = 0, porcen = 0;
+        factor = ControladorEvaluacion.facConoc * ControladorEvaluacion.secciones.size();//factor asignado por el estado
+        porcen = (totalObt * 100) / factor;
+
         return OperacionesVarias.redondeaDosCifras(porcen);
+    }
+
+    private boolean hayDeseleccionados() {
+        int cont = 0, rs = 0;
+        for (JPanel p : panelesPregRpta) {
+            if (p instanceof PnlRespuesta) {
+                rs++;
+                PnlRespuesta pr = (PnlRespuesta) p;
+                if (!pr.getChbPregunta().isSelected()) {
+                    cont++;
+                }
+            }
+        }
+        return cont == rs;
     }
 }
