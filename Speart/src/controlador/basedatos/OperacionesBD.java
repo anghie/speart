@@ -146,8 +146,7 @@ public class OperacionesBD {
     }
 
     public static List listar(String nombreEntidad) {
-         
-        entidad.getTransaction().begin();
+         entidad.getTransaction().begin();
         try {
             lista = entidad.createQuery("Select a from " + nombreEntidad + " a ").getResultList();
             entidad.getTransaction().commit();

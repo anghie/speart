@@ -21,6 +21,14 @@ import javax.persistence.OneToOne;
 public class Pregunta_Recuperar implements Serializable {
     @Id
      private int idpreguntarecuperar;
+
+    public Pregunta_Recuperar() {
+    }
+
+    public Pregunta_Recuperar(int idpreguntarecuperar, String pregunta) {
+        this.idpreguntarecuperar = idpreguntarecuperar;
+        this.pregunta = pregunta;
+    }
 //     @OneToOne(cascade = CascadeType.ALL)
     private String pregunta;
 
@@ -30,5 +38,13 @@ public class Pregunta_Recuperar implements Serializable {
 
     public void setIdpreguntarecuperar(int idpreguntarecuperar) {
         this.idpreguntarecuperar = idpreguntarecuperar;
+    }
+
+    public String getPregunta() {
+        return pregunta;
+    }
+
+    public void setPregunta(String pregunta) {
+        this.pregunta = pregunta;
     }
 }

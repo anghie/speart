@@ -1806,9 +1806,6 @@
                         <Property name="text" type="java.lang.String" value="Resultados"/>
                         <Property name="toolTipText" type="java.lang.String" value="Resultados de la calificaci&#xf3;n obtenida en cada indicador"/>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnResultadosActionPerformed"/>
-                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

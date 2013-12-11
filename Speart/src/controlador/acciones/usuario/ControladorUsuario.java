@@ -35,6 +35,7 @@ public class ControladorUsuario {
     private final PnlUsuario pu;
     private Usuario usuario;
     private Rol rol;
+    private Respuesta_Usuario preg_userrec;
     public static ArrayList<Usuario> usuarios;
     public static ArrayList<Rol> roles;
     private AlgoritmoAES aes;
@@ -49,8 +50,7 @@ public class ControladorUsuario {
     /**
      * Método para verificar si existen campos vacios
      *
-     * @return true Si hay campos vacios
-     *         false Si no hay campos Vacios
+     * @return true Si hay campos vacios false Si no hay campos Vacios
      *
      */
     public boolean verificaVacios() {
@@ -104,6 +104,8 @@ public class ControladorUsuario {
         pu.getTxtHExt().setText("");
         pu.getTxtHLab().setText("");
         pu.getTxtRem().setText("");
+        pu.getTxtEmail().setText("");
+        pu.getTxtRespuestapregunta().setText("");
     }
 
     /**
@@ -120,11 +122,37 @@ public class ControladorUsuario {
                 rol = new Rol();
                 setRol();
                 usuario.setRol(rol);
+
+
                 if (OperacionesBD.guardar(usuario)) {
-                    Mensaje.datosGuardados();
-                    limpiaCampos();
-                } else {
-                    Mensaje.datosNoGuardados();
+                    //useraux = (Usuario) OperacionesBD.buscar("Usuario", "email", pu.getTxtEmail().getText());
+                    //Pregunta pr = (Pregunta) OperacionesBD.buscar("Pregunta", "idPregunta", String.valueOf(rc.getIdPreg()));
+                    Usuario useraux = (Usuario) OperacionesBD.buscar("Usuario", "email", pu.getTxtEmail().getText());
+                    preg_userrec = new Respuesta_Usuario();
+
+                    String tipopr = String.valueOf(pu.getCbPreguntaseguridad().getSelectedItem());
+                    Pregunta_Recuperar idpreg = (Pregunta_Recuperar) OperacionesBD.buscar("Pregunta_Recuperar", "pregunta", tipopr);
+                    ArrayList<Respuesta_Usuario> numelem = (ArrayList<Respuesta_Usuario>) OperacionesBD.listar("Usuario");
+
+
+                    preg_userrec.setIdpersona(useraux.getIdPersona());
+
+                    preg_userrec.setIdpreguntarecuperar(idpreg.getIdpreguntarecuperar());
+                    //
+                    preg_userrec.setIdrespuestarecuperar(numelem.size() + 1);
+
+                    preg_userrec.setRespuesta(pu.getTxtRespuestapregunta().getText());
+
+
+                    //Resuser();
+
+                    if (OperacionesBD.guardar(preg_userrec)) {
+                        Mensaje.datosGuardados();
+                        limpiaCampos();
+                    } else {
+                        Mensaje.datosNoGuardados();
+                    }
+
                 }
 
             } else {
@@ -136,6 +164,22 @@ public class ControladorUsuario {
         }
     }
 
+    private void Resuser() {
+
+        String tipopr = String.valueOf(pu.getCbPreguntaseguridad().getSelectedItem());
+        Pregunta_Recuperar idpreg = (Pregunta_Recuperar) OperacionesBD.buscar("Pregunta_Recuperar", "pregunta", tipopr);
+        ArrayList<Respuesta_Usuario> numelem = (ArrayList<Respuesta_Usuario>) OperacionesBD.listar("Usuario");
+
+
+        //preg_userrec.setIdpersona(useraux.getIdPersona());
+
+        preg_userrec.setIdpreguntarecuperar(idpreg.getIdpreguntarecuperar());
+        //
+        preg_userrec.setIdrespuestarecuperar(numelem.size() + 1);
+
+        preg_userrec.setRespuesta(pu.getTxtRespuestapregunta().getText());
+    }
+
     private void setUsuario() {
         usuario.setCedula(pu.getTxtCedula().getText());
         usuario.setNombre(pu.getTxtNombres().getText());
@@ -144,6 +188,11 @@ public class ControladorUsuario {
         usuario.setHabilitado(true);
         usuario.setEvaluacionActivada(false);
         usuario.setLogin(pu.getTxtUsuario().getText());
+        usuario.setEmail(pu.getTxtEmail().getText());
+        String tipopre = String.valueOf(pu.getCbPreguntaseguridad().getSelectedItem());
+        Pregunta_Recuperar idpre = (Pregunta_Recuperar) OperacionesBD.buscar("Pregunta_Recuperar", "pregunta", tipopre);
+        usuario.setIdpreguntarecuperar(idpre.getIdpreguntarecuperar());
+
         String str = OperacionesVarias.generaAleatoria(16);
         aes = new AlgoritmoAES(str.getBytes());
         usuario.setClave(aes.encriptar(String.valueOf(pu.getTxtClave().getPassword())) + str);
@@ -216,8 +265,8 @@ public class ControladorUsuario {
     /**
      * Verifica si una fila está seleccionada en la tabla
      *
-     * @return true si hay una fila seleccionada
-     *         false si no hay una fila seleccionada
+     * @return true si hay una fila seleccionada false si no hay una fila
+     * seleccionada
      */
     public boolean isRowSelected() {
         return pu.getTblUsuarios().getSelectedRow() != -1;
@@ -259,15 +308,14 @@ public class ControladorUsuario {
 
     }
 
-
     public void getUsuario() {
         pu.getTxtCedulaModif().setText(usuario.getCedula());
         pu.getTxtApelModif().setText(usuario.getApellidos());
         pu.getTxtNomModif().setText(usuario.getNombre());
         pu.getTxtProfModif().setText(usuario.getProfesion());
+        pu.getTxtEmailModif().setText(usuario.getEmail());
     }
 
-   
     public void getRol() {
         pu.getTxtCargoModif().setText(rol.getCargo());
         pu.getTxtHExtModif().setText(String.valueOf(rol.gethExt()));
@@ -278,8 +326,7 @@ public class ControladorUsuario {
     /**
      * Método para verificar si existen campos vacios
      *
-     * @return true Si hay campos vacios
-     *         false Si no hay campos Vacios
+     * @return true Si hay campos vacios false Si no hay campos Vacios
      *
      */
     public boolean verificaVaciosModif() {
@@ -307,6 +354,7 @@ public class ControladorUsuario {
         pu.getTxtHExtModif().setText("");
         pu.getTxtHLabModif().setText("");
         pu.getTxtRemModif().setText("");
+        pu.getTxtEmailModif().setText("");
     }
 
     /**
@@ -318,6 +366,8 @@ public class ControladorUsuario {
             usuario.setNombre(pu.getTxtNomModif().getText());
             usuario.setApellidos(pu.getTxtApelModif().getText());
             usuario.setProfesion(pu.getTxtProfModif().getText());
+            usuario.setEmail(pu.getTxtEmailModif().getText());
+                    
             rol.setCargo(pu.getTxtCargoModif().getText());
             rol.sethExt(Integer.parseInt(pu.getTxtHExtModif().getText()));
             rol.sethLab(Integer.parseInt(pu.getTxtHLabModif().getText()));
@@ -435,11 +485,11 @@ public class ControladorUsuario {
         }
     }
 
-    public void imprimeUsuarios(){
-        ArrayList<UsuarioRol> ur= new ArrayList<>();
-        for(Usuario u : usuarios){
-            UsuarioRol us = new UsuarioRol(u.getCedula(), u.getApellidos()+" "
-                    +u.getNombre(), u.getRol().getTipo(), u.getProfesion());
+    public void imprimeUsuarios() {
+        ArrayList<UsuarioRol> ur = new ArrayList<>();
+        for (Usuario u : usuarios) {
+            UsuarioRol us = new UsuarioRol(u.getCedula(), u.getApellidos() + " "
+                    + u.getNombre(), u.getRol().getTipo(), u.getProfesion());
             ur.add(us);
         }
         try {

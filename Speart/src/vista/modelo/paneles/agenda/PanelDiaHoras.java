@@ -382,20 +382,21 @@ public class PanelDiaHoras extends javax.swing.JPanel {
         boolean generar=true;
         if(panelContenedorTareas.getComponentCount()>0){
            int opcion= JOptionPane.showConfirmDialog(new JFrame(), "Ya existen actividades para este dia desea generar más");
-           if(opcion==1){
+           if(opcion==JOptionPane.OK_OPTION){
                generar=true;
            }else{
                generar=false;
+               return;
            }
         }
         
         Calendar calendarioActual=Calendar.getInstance();
-        if(calendario.getInstance().getTime().getTime()>=calendarioActual.getTime().getTime()){
+       if((calendario.getInstance().getTime().getTime()>=calendarioActual.getTime().getTime())){
             generar=true;
         }else{
             JOptionPane.showMessageDialog(new JFrame(), "Error no se puede generar actividades para fechas pasadas");
             generar=false;
-           
+            return;
         }
        
         List<DiaFeriado> dias=ControladorDiasFeriados.searchDiaFeriado(nombreDia, Fecha.getNombreMes(numeroMes), numeroDia, agenda.getId());
@@ -406,6 +407,7 @@ public class PanelDiaHoras extends javax.swing.JPanel {
         }else{
             JOptionPane.showMessageDialog(new JFrame(), "No se puede generar actividades para este día ya que ha sido ingresado como feriado");
             generar=false;
+            return;
         }
          
         if(generar){

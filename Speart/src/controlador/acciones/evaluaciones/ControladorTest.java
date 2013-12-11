@@ -160,11 +160,11 @@ public class ControladorTest {
             int n = 0, aux = -1;
             double valPreg;
             double valResp = 0;
-//            if (hayDeseleccionados()) {
-//                valPreg = 0;
-//            } else {
+            if (hayDeseleccionados()) {
+                valPreg = 0;
+            } else {
                 valPreg = ControladorEvaluacion.facConoc / ft.getPreguntas().size();//Calculando valor de cada pregunta
-//            }
+            }
 
             for (JPanel p : panelesPregRpta) {
                 if (p instanceof PnlRespuesta) {

@@ -20,14 +20,27 @@ public class DialogoFechaEvaluacion extends javax.swing.JDialog {
     /**
      * Creates new form DialogoFechaEvaluacion
      */
-    private DialogoFechaEvaluacion() {        
+//    private DialogoFechaEvaluacion() {        
+////        initComponents();
+////        setModal(true);
+//          super(parent, modal);
+//        initComponents();
+//    }
+      private DialogoFechaEvaluacion(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
-        setModal(true);
     }
-
-    public synchronized static DialogoFechaEvaluacion getInstance() {
+//
+//    public synchronized static DialogoFechaEvaluacion getInstance() {
+//        if (dfe == null) {
+//            dfe = new DialogoFechaEvaluacion();            
+//        }
+//        return dfe;
+//    }
+     public synchronized static DialogoFechaEvaluacion getInstance(java.awt.Frame parent, boolean modal) {
         if (dfe == null) {
-            dfe = new DialogoFechaEvaluacion();            
+            dfe = new DialogoFechaEvaluacion(parent, modal);
+            dfe.setVisible(true);
         }
         return dfe;
     }

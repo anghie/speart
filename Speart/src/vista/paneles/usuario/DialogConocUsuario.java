@@ -209,8 +209,9 @@ public class DialogConocUsuario extends javax.swing.JDialog {
                 int opc = JOptionPane.showConfirmDialog(null, "¿Desea Guardar los datos?", "Guardar", JOptionPane.YES_NO_OPTION);
                 if (opc == JOptionPane.YES_OPTION) {
                     ccu.guardaConocUsuario();
+                    dispose();
                 }
-                dispose();
+//                dispose();
             }
         }
     }

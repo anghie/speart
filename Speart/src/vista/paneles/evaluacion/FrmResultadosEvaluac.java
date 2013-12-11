@@ -4,13 +4,27 @@
  */
 package vista.paneles.evaluacion;
 
+import controlador.acciones.operaciones.ControladorCompetenciasTecnicas;
 import controlador.basedatos.OperacionesBD;
 import controlador.experto.BaseConocimiento;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelo.evaluacion.Efectos;
 import modelo.evaluacion.Evaluacion;
+import net.sf.jasperreports.engine.JREmptyDataSource;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import vista.FrmPrincipal;
 import vista.modelo.Mensaje;
 import vista.modelo.OperacionesVarias;
@@ -20,14 +34,18 @@ import vista.modelo.OperacionesVarias;
  * @author jenny
  */
 public class FrmResultadosEvaluac extends javax.swing.JDialog {
-    
+
     private static FrmResultadosEvaluac fre = null;
     private final ClassLoader cload = FrmResultadosEvaluac.class.getClassLoader();//para hacer referencia a archivos dentro del programa
     private final String dirArchivo = cload.getResource("controlador/experto/evaluacion.pl").getPath();
     private final Evaluacion eval;
-    private final double totalEvaluacion=0;
-    String result="";
+    private final double totalEvaluacion = 0;
+    String result = "";
     Efectos efecto;
+    String ef = "";
+
+    
+
     /**
      * Creates new form FrmResultadosEvaluac
      */
@@ -54,12 +72,12 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         eval.setTotalEval(totl);
         eval.setFechaEvaluacion(Calendar.getInstance());
         eval.setUsuarioEval(FrmPrincipal.userLogueado);
-        String ef = poneEfecto();
-        if(ef!=null){
-            lblEfecto.setText(lblEfecto.getText()+" "+ef);
+        ef = poneEfecto();
+        if (ef != null) {
+            lblEfecto.setText(lblEfecto.getText() + " " + ef);
         }
     }
-    
+
     public synchronized static FrmResultadosEvaluac getInstance(double tIndic, double tConoc, double tCT, double tCU, double tT, double totQ, double totl) {
         if (fre == null) {
             fre = new FrmResultadosEvaluac(tIndic, tConoc, tCT, tCU, tT, totQ, totl);
@@ -353,11 +371,11 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-    }//GEN-LAST:event_btnImprimirActionPerformed
-
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         dispose();        // TODO add your handling code here:
+       
+
+
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnGuardaResEvaluacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaResEvaluacionActionPerformed
@@ -367,11 +385,43 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
             if (OperacionesBD.modificar(FrmPrincipal.userLogueado)) {
                 Mensaje.datosGuardados();
                 FrmPrincipal.estaEvalActiva = false;
+
             }
         } else {
             Mensaje.datosNoGuardados();
         }
     }//GEN-LAST:event_btnGuardaResEvaluacionActionPerformed
+
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+        // TODO add your handling code here:
+
+        try {
+            Map<String, Object> p = new HashMap<>();
+            p.put("igp", eval.getIgp());
+            p.put("conoc", eval.getConoc());
+            p.put("cotec", eval.getCct());
+            p.put("couniv", eval.getCcu());
+            p.put("trab", eval.getTil());
+            p.put("qu", eval.getEvalciud());
+            p.put("total", OperacionesVarias.redondeaDosCifras(eval.getTotalEval()));
+            p.put("fe", eval.getUsuarioEval().getNombre());
+            p.put("efecto", ef);
+            p.put("desem", result);
+            p.put("fecha", OperacionesVarias.fechaString(eval.getFechaEvaluacion().getTime()));
+//            System.out.println(getClass().getResource("/controlador/reportes/reporteval.jasper"));
+            String arc = this.getClass().getResource("/controlador/reportes/reporteval.jrxml").getPath();
+            JasperReport jr = JasperCompileManager.compileReport(arc);
+//            JasperReport reporte = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/controlador/reportes/reporteval.jasper"));
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jr, p, new JREmptyDataSource());
+            JasperViewer vista = new JasperViewer(jasperPrint, false);
+            if (!vista.isActive()) {
+                vista.setVisible(true);
+            }
+        } catch (JRException ex) {
+            Logger.getLogger(ControladorCompetenciasTecnicas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnImprimirActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnGuardaResEvaluacion;
@@ -413,15 +463,16 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
         }
         return null;
     }
-    private void listarEfectos(){
+
+    private void listarEfectos() {
         efecto = new Efectos();
         ArrayList<Efectos> ef = (ArrayList<Efectos>) OperacionesBD.listar("Efectos");
-        for(Efectos e: ef){
-            efecto=e;
+        for (Efectos e : ef) {
+            efecto = e;
         }
     }
-    
-    private String poneEfecto(){        
+
+    private String poneEfecto() {
         switch (result) {
             case "'Excelente'":
             case "'Muy Bueno'":

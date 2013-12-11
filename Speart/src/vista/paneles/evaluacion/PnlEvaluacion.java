@@ -1032,11 +1032,6 @@ public class PnlEvaluacion extends javax.swing.JPanel {
         btnResultados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/business.png"))); // NOI18N
         btnResultados.setText("Resultados");
         btnResultados.setToolTipText("Resultados de la calificación obtenida en cada indicador");
-        btnResultados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResultadosActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout pnlAbajoLayout = new javax.swing.GroupLayout(pnlAbajo);
         pnlAbajo.setLayout(pnlAbajoLayout);
@@ -1521,7 +1516,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
                 PeriodoEvaluacion pe = new PeriodoEvaluacion(inicio, fin);
                 if (OperacionesBD.guardar(pe)) {
                     actualizaTblPeriodos();
-                    JOptionPane.showMessageDialog(null, "Periodo asignado correctamente");
+                    JOptionPane.showMessageDialog(null, "Periodo asignado correctamente. \n Recuerde: ACTIVAR LA EVALUACIÓN para los servidores correspondientes");
                 } else {
                     JOptionPane.showMessageDialog(null, "Hubo un error al asignar el periodo");
                 }
@@ -1743,10 +1738,6 @@ public class PnlEvaluacion extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Error al realizar la operación");
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
-
-    private void btnResultadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultadosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnResultadosActionPerformed
 
     private void txtCONKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCONKeyReleased
         suma();
@@ -2250,6 +2241,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
                 ce.anteriorPanel();
             } else if (e.getSource() == getBtnResultados()) {
                 ce.resultadosFinales();
+                btnAnterior.setEnabled(false);
             } //            else if (e.getSource() == cbServidores) {
             //                ce.llenaServidorEscogido();
             //            } 

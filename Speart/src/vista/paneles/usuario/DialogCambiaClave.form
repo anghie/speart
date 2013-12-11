@@ -53,7 +53,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="txtClaveAnterior1">
+        <Component class="javax.swing.JPasswordField" name="txtClaveAnterior">
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="Digitar su clave anterior"/>
           </Properties>
@@ -76,7 +76,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="txtClaveNueva1">
+        <Component class="javax.swing.JPasswordField" name="txtClaveNueva">
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="DIgitar su clave nueva"/>
           </Properties>
@@ -99,7 +99,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="txtComfirClave1">
+        <Component class="javax.swing.JPasswordField" name="txtComfirClave">
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="Confirme su clave nueva"/>
           </Properties>
@@ -122,7 +122,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="150" y="160" width="110" height="40"/>
+              <AbsoluteConstraints x="150" y="160" width="120" height="40"/>
             </Constraint>
           </Constraints>
         </Component>

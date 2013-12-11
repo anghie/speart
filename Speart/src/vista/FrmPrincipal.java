@@ -17,6 +17,7 @@ import vista.paneles.respaldos.PnlRespaldos;
 import vista.paneles.servicios.DialogoAgendaContactos;
 import vista.paneles.servicios.DialogoCalendarioRecor;
 import vista.paneles.usuario.DialogCambiaClave;
+import vista.paneles.usuario.DialogoFechaEvaluacion;
 import vista.paneles.usuario.PnlUsuario;
 
 
@@ -345,9 +346,9 @@ public class FrmPrincipal extends JFrame {
         btn.setIcon(new ImageIcon(cl.getResource("vista/imagenes/" + nombreIcono)));
         btn.setFocusable(false);
         btn.setHorizontalTextPosition(SwingConstants.CENTER);
-        btn.setMaximumSize(new Dimension(80, 80));
-        btn.setMinimumSize(new Dimension(80, 80));
-        btn.setPreferredSize(new Dimension(80, 80));
+        btn.setMaximumSize(new Dimension(100, 80));
+        btn.setMinimumSize(new Dimension(100, 80));
+        btn.setPreferredSize(new Dimension(100, 80));
         btn.setVerticalTextPosition(SwingConstants.BOTTOM);
         btn.setFont(new Font("Comic Sans MS", Font.ITALIC, 15));
         tbOeste.add(btn);
@@ -509,10 +510,10 @@ public class FrmPrincipal extends JFrame {
             //                cp.escogeUsuario();
             //            }
             else if (evt.getSource() == miCambiaClave) {
-                DialogCambiaClave dcc = DialogCambiaClave.getInstance();
-                if (!dcc.isActive()) {
-                    dcc.setVisible(true);
-                }
+                DialogCambiaClave.getInstance(null, true);
+//                if (!dcc.isActive()) {
+//                    dcc.setVisible(true);
+//                }
             } //            else if (evt.getSource() == miFechaEval) {
             //                DialogoFechaEvaluacion dfe = DialogoFechaEvaluacion.getInstance();
             //                if (!dfe.isActive()) {
@@ -531,13 +532,14 @@ public class FrmPrincipal extends JFrame {
             //                    de.setVisible(true);
             //                }
             //            } 
-            else if (evt.getSource() == miMeta) {
-                DialogoMeta dialogo = DialogoMeta.getInstance(userLogueado);
-                if (!dialogo.isActive()) {
-                    dialogo.setLocationRelativeTo(null);
-                    dialogo.setVisible(true);
-                }
-            } else if (evt.getSource() == miAgenda) {
+//            else if (evt.getSource() == miMeta) {
+//                DialogoMeta dialogo = DialogoMeta.getInstance(userLogueado);
+//                if (!dialogo.isActive()) {
+//                    dialogo.setLocationRelativeTo(null);
+//                    dialogo.setVisible(true);
+//                }
+//            } 
+            else if (evt.getSource() == miAgenda) {
                 DialogoAgendaContactos dac = DialogoAgendaContactos.getInstance();
                 if (!dac.isActive()) {
                     dac.setVisible(true);

@@ -19,14 +19,18 @@ public class DialogCambiaClave extends javax.swing.JDialog {
     /**
      * Creates new form DialogCambiaClave
      */
-    private DialogCambiaClave() {        
+//    private DialogCambiaClave() {        
+//        initComponents();
+//        setModal(true);
+//    }
+     private DialogCambiaClave(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
-        setModal(true);
     }
     
-    public synchronized static DialogCambiaClave getInstance() {
+   public synchronized static DialogCambiaClave getInstance(java.awt.Frame parent, boolean modal) {
         if (dcc == null) {
-            dcc = new DialogCambiaClave();
+            dcc = new DialogCambiaClave(parent, modal);
             dcc.setVisible(true);
         }
         return dcc;
@@ -43,11 +47,11 @@ public class DialogCambiaClave extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         lblClaveInterior1 = new javax.swing.JLabel();
-        txtClaveAnterior1 = new javax.swing.JPasswordField();
+        txtClaveAnterior = new javax.swing.JPasswordField();
         lblClaveNueva1 = new javax.swing.JLabel();
-        txtClaveNueva1 = new javax.swing.JPasswordField();
+        txtClaveNueva = new javax.swing.JPasswordField();
         lblConfirmClave1 = new javax.swing.JLabel();
-        txtComfirClave1 = new javax.swing.JPasswordField();
+        txtComfirClave = new javax.swing.JPasswordField();
         btnCambiar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -61,27 +65,27 @@ public class DialogCambiaClave extends javax.swing.JDialog {
         jPanel1.add(lblClaveInterior1);
         lblClaveInterior1.setBounds(20, 30, 120, 30);
 
-        txtClaveAnterior1.setToolTipText("Digitar su clave anterior");
-        jPanel1.add(txtClaveAnterior1);
-        txtClaveAnterior1.setBounds(140, 30, 220, 30);
+        txtClaveAnterior.setToolTipText("Digitar su clave anterior");
+        jPanel1.add(txtClaveAnterior);
+        txtClaveAnterior.setBounds(140, 30, 220, 30);
 
         lblClaveNueva1.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         lblClaveNueva1.setText(" Clave nueva:");
         jPanel1.add(lblClaveNueva1);
         lblClaveNueva1.setBounds(30, 70, 110, 30);
 
-        txtClaveNueva1.setToolTipText("DIgitar su clave nueva");
-        jPanel1.add(txtClaveNueva1);
-        txtClaveNueva1.setBounds(140, 70, 220, 30);
+        txtClaveNueva.setToolTipText("DIgitar su clave nueva");
+        jPanel1.add(txtClaveNueva);
+        txtClaveNueva.setBounds(140, 70, 220, 30);
 
         lblConfirmClave1.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         lblConfirmClave1.setText("Confirme clave:");
         jPanel1.add(lblConfirmClave1);
         lblConfirmClave1.setBounds(20, 110, 140, 30);
 
-        txtComfirClave1.setToolTipText("Confirme su clave nueva");
-        jPanel1.add(txtComfirClave1);
-        txtComfirClave1.setBounds(140, 110, 220, 30);
+        txtComfirClave.setToolTipText("Confirme su clave nueva");
+        jPanel1.add(txtComfirClave);
+        txtComfirClave.setBounds(140, 110, 220, 30);
 
         btnCambiar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/imagenes/kword.png"))); // NOI18N
         btnCambiar1.setText("Cambiar");
@@ -92,7 +96,7 @@ public class DialogCambiaClave extends javax.swing.JDialog {
             }
         });
         jPanel1.add(btnCambiar1);
-        btnCambiar1.setBounds(150, 160, 110, 40);
+        btnCambiar1.setBounds(150, 160, 120, 40);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 470, 230);
@@ -103,6 +107,16 @@ public class DialogCambiaClave extends javax.swing.JDialog {
 
     private void btnCambiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiar1ActionPerformed
         // TODO add your handling code here:
+        if (ControladorPrincipal.verificaClave(String.valueOf(txtClaveAnterior.getPassword()))) {
+            if (String.valueOf(txtClaveNueva.getPassword()).equals(String.valueOf(txtComfirClave.getPassword()))) {
+                ControladorPrincipal.cambiaClave(String.valueOf(txtClaveNueva.getPassword()));
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Claves no coinciden");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Clave anterior no es valida");
+        }
     }//GEN-LAST:event_btnCambiar1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -111,8 +125,8 @@ public class DialogCambiaClave extends javax.swing.JDialog {
     private javax.swing.JLabel lblClaveInterior1;
     private javax.swing.JLabel lblClaveNueva1;
     private javax.swing.JLabel lblConfirmClave1;
-    private javax.swing.JPasswordField txtClaveAnterior1;
-    private javax.swing.JPasswordField txtClaveNueva1;
-    private javax.swing.JPasswordField txtComfirClave1;
+    private javax.swing.JPasswordField txtClaveAnterior;
+    private javax.swing.JPasswordField txtClaveNueva;
+    private javax.swing.JPasswordField txtComfirClave;
     // End of variables declaration//GEN-END:variables
 }

@@ -56,11 +56,6 @@ public class DialogoUsuarios extends javax.swing.JDialog {
         jLabel1.setText("Servidor:");
 
         cmbServidor.setModel(modeloCmbUsuarios);
-        cmbServidor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbServidorActionPerformed(evt);
-            }
-        });
 
         buttonGroup1.add(rbtIndividual);
         rbtIndividual.setSelected(true);
@@ -112,11 +107,6 @@ public class DialogoUsuarios extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cmbServidorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbServidorActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_cmbServidorActionPerformed
 
     private void btnVerAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAgendaActionPerformed
         // TODO add your handling code here:

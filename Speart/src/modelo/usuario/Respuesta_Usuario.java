@@ -21,8 +21,24 @@ public class Respuesta_Usuario {
 //   @OneToOne(cascade = CascadeType.ALL)
     private int idrespuestarecuperar;
     private int idpreguntarecuperar; 
-    private int idusuario;
+    private int idpersona;
     private String respuesta;
+
+    public int getIdrespuestarecuperar() {
+        return idrespuestarecuperar;
+    }
+
+    public void setIdrespuestarecuperar(int idrespuestarecuperar) {
+        this.idrespuestarecuperar = idrespuestarecuperar;
+    }
+
+    public int getIdpersona() {
+        return idpersona;
+    }
+
+    public void setIdpersona(int idpersona) {
+        this.idpersona = idpersona;
+    }
 
     public int getId() {
         return idrespuestarecuperar;
@@ -42,16 +58,7 @@ public class Respuesta_Usuario {
     /**
      * @return the idusuario
      */
-    public int getIdusuario() {
-        return idusuario;
-    }
-
-    /**
-     * @param idusuario the idusuario to set
-     */
-    public void setIdusuario(int idusuario) {
-        this.idusuario = idusuario;
-    }
+   
 
     /**
      * @return the respuesta
