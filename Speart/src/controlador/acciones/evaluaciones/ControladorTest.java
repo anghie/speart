@@ -287,9 +287,8 @@ public class ControladorTest {
 //        if (OperacionesBD.guardar(rfc)) {
 //            Mensaje.datosGuardados();
             ControladorEvaluacion.txRptaConocIndiv.setText(rfc.getTotal() + " - " + rptaTexto(total));
-            double p = 0;
             ControladorEvaluacion.totConoc += rfc.getTotal();
-            p = calculaPorcentaje(ControladorEvaluacion.totConoc);
+            double p = calculaPorcentaje(ControladorEvaluacion.totConoc);
             double res = OperacionesVarias.redondeaDosCifras((p * ControladorEvaluacion.facConoc) / 100);
             ControladorEvaluacion.txtTotalConoc.setText(res + "%");
             ControladorEvaluacion.btnEvaluarCon.setEnabled(false);

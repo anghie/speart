@@ -115,48 +115,26 @@ public class ControladorUsuario {
     public void guardaUsuario() {
         if (verificaCedula(pu.getTxtCedula().getText())) {
             String clave = String.valueOf(pu.getTxtClave().getPassword());
-            String confirm = String.valueOf(pu.getTxtConfirm().getPassword());
-            if (clave.equals(confirm)) {
-                usuario = new Usuario();
-                setUsuario();
-                rol = new Rol();
-                setRol();
-                usuario.setRol(rol);
-
-
-                if (OperacionesBD.guardar(usuario)) {
-                    //useraux = (Usuario) OperacionesBD.buscar("Usuario", "email", pu.getTxtEmail().getText());
-                    //Pregunta pr = (Pregunta) OperacionesBD.buscar("Pregunta", "idPregunta", String.valueOf(rc.getIdPreg()));
-                    Usuario useraux = (Usuario) OperacionesBD.buscar("Usuario", "email", pu.getTxtEmail().getText());
-                    preg_userrec = new Respuesta_Usuario();
-
-                    String tipopr = String.valueOf(pu.getCbPreguntaseguridad().getSelectedItem());
-                    Pregunta_Recuperar idpreg = (Pregunta_Recuperar) OperacionesBD.buscar("Pregunta_Recuperar", "pregunta", tipopr);
-                    ArrayList<Respuesta_Usuario> numelem = (ArrayList<Respuesta_Usuario>) OperacionesBD.listar("Usuario");
-
-
-                    preg_userrec.setIdpersona(useraux.getIdPersona());
-
-                    preg_userrec.setIdpreguntarecuperar(idpreg.getIdpreguntarecuperar());
-                    //
-                    preg_userrec.setIdrespuestarecuperar(numelem.size() + 1);
-
-                    preg_userrec.setRespuesta(pu.getTxtRespuestapregunta().getText());
-
-
-                    //Resuser();
-
-                    if (OperacionesBD.guardar(preg_userrec)) {
+            if (clave.length() > 6) {
+                String confirm = String.valueOf(pu.getTxtConfirm().getPassword());
+                if (clave.equals(confirm)) {
+                    usuario = new Usuario();
+                    setUsuario();
+                    rol = new Rol();
+                    setRol();
+                    usuario.setRol(rol);
+                    if (OperacionesBD.guardar(usuario)) {
                         Mensaje.datosGuardados();
                         limpiaCampos();
                     } else {
                         Mensaje.datosNoGuardados();
                     }
 
+                } else {
+                    Mensaje.clavesNoCoinciden();
                 }
-
-            } else {
-                Mensaje.clavesNoCoinciden();
+            }else{
+                JOptionPane.showMessageDialog(null, "La clave debe contener al menos 6 caracteres");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Cédula incorrecta", "La cédula ingresada es incorrecta", JOptionPane.ERROR_MESSAGE);
