@@ -29,6 +29,7 @@ public class Usuario extends Persona implements Serializable {
     private List<Meta> metas;
     
     //Campos q agregue con relacion
+    @Column(unique = true)
     private String email;
 //     @OneToOne(cascade = CascadeType.ALL)
     private int idpreguntarecuperar;

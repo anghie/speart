@@ -123,24 +123,75 @@ public class ControladorUsuario {
                     rol = new Rol();
                     setRol();
                     usuario.setRol(rol);
+
                     if (OperacionesBD.guardar(usuario)) {
-                        Mensaje.datosGuardados();
-                        limpiaCampos();
-                    } else {
-                        Mensaje.datosNoGuardados();
+                    //useraux = (Usuario) OperacionesBD.buscar("Usuario", "email", pu.getTxtEmail().getText());
+                        //Pregunta pr = (Pregunta) OperacionesBD.buscar("Pregunta", "idPregunta", String.valueOf(rc.getIdPreg()));
+                        Usuario useraux = (Usuario) OperacionesBD.buscar("Usuario", "email", pu.getTxtEmail().getText());
+                        preg_userrec = new Respuesta_Usuario();
+
+                        String tipopr = String.valueOf(pu.getCbPreguntaseguridad().getSelectedItem());
+                        Pregunta_Recuperar idpreg = (Pregunta_Recuperar) OperacionesBD.buscar("Pregunta_Recuperar", "pregunta", tipopr);
+                        ArrayList<Respuesta_Usuario> numelem = (ArrayList<Respuesta_Usuario>) OperacionesBD.listar("Usuario");
+
+                        preg_userrec.setIdpersona(useraux.getIdPersona());
+
+                        preg_userrec.setIdpreguntarecuperar(idpreg.getIdpreguntarecuperar());
+                        //
+                        preg_userrec.setIdrespuestarecuperar(numelem.size() + 1);
+
+                        preg_userrec.setRespuesta(pu.getTxtRespuestapregunta().getText());
+
+                    //Resuser();
+                        if (OperacionesBD.guardar(preg_userrec)) {
+                            Mensaje.datosGuardados();
+                            limpiaCampos();
+                        } else {
+                            Mensaje.datosNoGuardados();
+                        }
+
                     }
 
                 } else {
                     Mensaje.clavesNoCoinciden();
                 }
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "La clave debe contener al menos 6 caracteres");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Cédula incorrecta", "La cédula ingresada es incorrecta", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "CÃ©dula incorrecta", "La cÃ©dula ingresada es incorrecta", JOptionPane.ERROR_MESSAGE);
             pu.getTxtCedula().setBorder(new LineBorder(Color.red));
         }
     }
+//  public void guardaUsuario() {
+//        if (verificaCedula(pu.getTxtCedula().getText())) {
+//            String clave = String.valueOf(pu.getTxtClave().getPassword());
+//            if (clave.length() > 6) {
+//                String confirm = String.valueOf(pu.getTxtConfirm().getPassword());
+//                if (clave.equals(confirm)) {
+//                    usuario = new Usuario();
+//                    setUsuario();
+//                    rol = new Rol();
+//                    setRol();
+//                    usuario.setRol(rol);
+//                    if (OperacionesBD.guardar(usuario)) {
+//                        Mensaje.datosGuardados();
+//                        limpiaCampos();
+//                    } else {
+//                        Mensaje.datosNoGuardados();
+//                    }
+//
+//                } else {
+//                    Mensaje.clavesNoCoinciden();
+//                }
+//            }else{
+//                JOptionPane.showMessageDialog(null, "La clave debe contener al menos 6 caracteres");
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Cédula incorrecta", "La cédula ingresada es incorrecta", JOptionPane.ERROR_MESSAGE);
+//            pu.getTxtCedula().setBorder(new LineBorder(Color.red));
+//        }
+//    }
 
     private void Resuser() {
 
@@ -148,9 +199,7 @@ public class ControladorUsuario {
         Pregunta_Recuperar idpreg = (Pregunta_Recuperar) OperacionesBD.buscar("Pregunta_Recuperar", "pregunta", tipopr);
         ArrayList<Respuesta_Usuario> numelem = (ArrayList<Respuesta_Usuario>) OperacionesBD.listar("Usuario");
 
-
         //preg_userrec.setIdpersona(useraux.getIdPersona());
-
         preg_userrec.setIdpreguntarecuperar(idpreg.getIdpreguntarecuperar());
         //
         preg_userrec.setIdrespuestarecuperar(numelem.size() + 1);
@@ -345,7 +394,7 @@ public class ControladorUsuario {
             usuario.setApellidos(pu.getTxtApelModif().getText());
             usuario.setProfesion(pu.getTxtProfModif().getText());
             usuario.setEmail(pu.getTxtEmailModif().getText());
-                    
+
             rol.setCargo(pu.getTxtCargoModif().getText());
             rol.sethExt(Integer.parseInt(pu.getTxtHExtModif().getText()));
             rol.sethLab(Integer.parseInt(pu.getTxtHLabModif().getText()));
@@ -419,8 +468,12 @@ public class ControladorUsuario {
 
     public void abreDialogConocUsuario() {
         if (isRowSelected()) {
-            rol = usuarios.get(pu.getTblUsuarios().getSelectedRow()).getRol();
-            new DialogConocUsuario(null, true, rol).setVisible(true);
+            if (usuarios.get(pu.getTblUsuarios().getSelectedRow()).getRol().getTipo().equals("Jefe RRHH")) {
+                JOptionPane.showMessageDialog(null, "No se puede agregar conocimientos porque no tiene evaluación activa");
+            } else {
+                rol = usuarios.get(pu.getTblUsuarios().getSelectedRow()).getRol();
+                new DialogConocUsuario(null, true, rol).setVisible(true);
+            }
         } else {
             Mensaje.filaNoSeleccionada();
         }
@@ -428,8 +481,12 @@ public class ControladorUsuario {
 
     public void abreDialogCompetTecnica() {
         if (isRowSelected()) {
-            rol = usuarios.get(pu.getTblUsuarios().getSelectedRow()).getRol();
-            new DialogCompetTecnica(null, true, rol).setVisible(true);
+            if (usuarios.get(pu.getTblUsuarios().getSelectedRow()).getRol().getTipo().equals("Jefe RRHH")) {
+                JOptionPane.showMessageDialog(null, "No se puede agregar destrezas porque no tiene evaluación activa");
+            } else {
+                rol = usuarios.get(pu.getTblUsuarios().getSelectedRow()).getRol();
+                new DialogCompetTecnica(null, true, rol).setVisible(true);
+            }
         } else {
             Mensaje.filaNoSeleccionada();
         }
@@ -456,8 +513,12 @@ public class ControladorUsuario {
 
     public void abreDialogQuejas() {
         if (isRowSelected()) {
-            rol = usuarios.get(pu.getTblUsuarios().getSelectedRow()).getRol();
-            new DialogQuejas(null, true, rol).setVisible(true);
+            if (usuarios.get(pu.getTblUsuarios().getSelectedRow()).getRol().getTipo().equals("Jefe RRHH")) {
+                JOptionPane.showMessageDialog(null, "No se puede agregar quejas porque no tiene evaluación activa");
+            } else {
+                rol = usuarios.get(pu.getTblUsuarios().getSelectedRow()).getRol();
+                new DialogQuejas(null, true, rol).setVisible(true);
+            }
         } else {
             Mensaje.filaNoSeleccionada();
         }

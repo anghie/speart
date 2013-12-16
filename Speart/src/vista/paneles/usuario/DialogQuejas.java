@@ -105,7 +105,7 @@ public class DialogQuejas extends javax.swing.JDialog {
         chbNo.setBounds(570, 250, 60, 25);
 
         chbSi.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        chbSi.setText("Si");
+        chbSi.setText("Sí");
         chbSi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chbSiActionPerformed(evt);

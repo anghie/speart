@@ -9,6 +9,7 @@ import controlador.basedatos.OperacionesBD;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.operaciones.CompetenciaUniversal;
 import net.sf.jasperreports.engine.JRException;
@@ -73,6 +74,7 @@ public class ControladorCompetenciasUniversales {
     }
 
     public void guardaCompetenciaUniversal() {
+         if (!OperacionesBD.existe("CompetenciaUniversal", "nombreDestrezaUniv", po.getTxtDestreza().getText())) {
         cu = new CompetenciaUniversal();
         setCompetenciaUniversal();
         if (OperacionesBD.guardar(cu)) {
@@ -82,6 +84,9 @@ public class ControladorCompetenciasUniversales {
             poneEnablesUniv(false);
         } else {
             Mensaje.datosNoGuardados();
+        }
+          }else {
+            JOptionPane.showMessageDialog(null, "La competencia ingresada ya existe");
         }
     }
 

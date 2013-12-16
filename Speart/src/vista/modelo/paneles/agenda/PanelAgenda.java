@@ -545,7 +545,7 @@ public class PanelAgenda extends ImagenJPanel {
             ControladorAgenda.updateAgenda();
             guardar = false;
         } else {
-            JOptionPane.showMessageDialog(panelSemana, "No se han agrgado nuevas actividades ni se han hecho modificaciones");
+            JOptionPane.showMessageDialog(panelSemana, "No se han agregado nuevas actividades ni se han hecho modificaciones");
         }
     }//GEN-LAST:event_btGuardarAgendaActionPerformed
 
@@ -586,7 +586,14 @@ public class PanelAgenda extends ImagenJPanel {
         Calendar calendario = dateChooserPanel1.getSelectedDate();
         Calendar calendarioActual = Calendar.getInstance();
 //        if (calendario.getInstance().getTime().getTime() >= calendarioActual.getTime().getTime()) {
-        if(!(calendario.getInstance().getTime().getTime()>=calendarioActual.getTime().getTime())){
+//        if(!(calendario.getInstance().getTime().getTime()>=calendarioActual.getTime().getTime())){
+//            JOptionPane.showMessageDialog(new JFrame(), "Error no se puede agregar actividades para fechas pasadas");
+//            return;
+//        }
+        if(!(calendario.getTime().getYear()>=calendarioActual.getTime().getYear() &&
+             calendario.getTime().getMonth()>=calendarioActual.getTime().getMonth() &&
+             calendario.getTime().getDay()>=calendarioActual.getTime().getDay()
+             )){
             JOptionPane.showMessageDialog(new JFrame(), "Error no se puede agregar actividades para fechas pasadas");
             return;
         }

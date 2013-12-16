@@ -9,6 +9,7 @@ import controlador.basedatos.OperacionesBD;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.operaciones.TrabajoEquipo;
 import net.sf.jasperreports.engine.JRException;
@@ -73,6 +74,7 @@ public class ControladorTrabajoEquipo {
     }
 
     public void guardaTrabEquipo() {
+        if (!OperacionesBD.existe("TrabajoEquipo", "descripcionTrabEquipo", po.getTxtDestreza().getText())) {
         te = new TrabajoEquipo();
         setTrabajoEquipo();
         if (OperacionesBD.guardar(te)) {
@@ -82,6 +84,9 @@ public class ControladorTrabajoEquipo {
             poneEnablesTrabEquip(false);
         } else {
             Mensaje.datosNoGuardados();
+        }
+         }else {
+            JOptionPane.showMessageDialog(null, "La destreza ingresada ya existe");
         }
     }
 

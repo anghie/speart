@@ -391,7 +391,16 @@ public class PanelDiaHoras extends javax.swing.JPanel {
         }
         
         Calendar calendarioActual=Calendar.getInstance();
-       if((calendario.getInstance().getTime().getTime()>=calendarioActual.getTime().getTime())){
+//       if((calendario.getInstance().getTime().getTime()>=calendarioActual.getTime().getTime())){
+//            generar=true;
+//        }else{
+//            JOptionPane.showMessageDialog(new JFrame(), "Error no se puede generar actividades para fechas pasadas");
+//            generar=false;
+//            return;
+//        }
+        if(calendario.getTime().getYear()>=calendarioActual.getTime().getYear() &&
+           calendario.getTime().getMonth()>=calendarioActual.getTime().getMonth() &&
+           calendario.getTime().getDay()>=calendarioActual.getTime().getDay()){
             generar=true;
         }else{
             JOptionPane.showMessageDialog(new JFrame(), "Error no se puede generar actividades para fechas pasadas");

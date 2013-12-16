@@ -7,7 +7,6 @@ package vista.paneles.usuario;
 import controlador.acciones.usuario.ControladorUsuario;
 import controlador.basedatos.OperacionesBD;
 import java.awt.Component;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -43,11 +42,13 @@ public final class PnlUsuario extends javax.swing.JPanel {
         poneEventos();
         poneHabilitados(false);
 
+
         ArrayList<Pregunta_Recuperar> lisp = (ArrayList<Pregunta_Recuperar>) OperacionesBD.listar("Pregunta_Recuperar");
         for (int i = 0; i < lisp.size(); i++) {
             cbPreguntaseguridad.addItem(lisp.get(i).getPregunta());
 
         }
+
 
     }
 
@@ -60,7 +61,7 @@ public final class PnlUsuario extends javax.swing.JPanel {
         txtRem.addKeyListener(evh);
         txtNombres.addKeyListener(evh);
         txtProfesion.addKeyListener(evh);
-//        getTxtRespuestapregunta().addKeyListener(evh);
+        getTxtRespuestapregunta().addKeyListener(evh);
         btnGuardarUsuario.addActionListener(evh);
         tblUsuarios.addMouseListener(evh);
         tabbedUsuario.addChangeListener(evh);
@@ -188,7 +189,7 @@ public final class PnlUsuario extends javax.swing.JPanel {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel2.setText("<html> Este módulo permite realizar el proceso de<br> ingreso de usuarios o servidores  aquí el<br> Administrador podrá realizar las siguientes tareas: <br>\nIngresar, actualizar o eliminar datos de los servidores, <br>además le permitirá agregar los<br> conocimientos,   destrezas y quejas a los<br> servidores para el proceso de evaluación. <br>\nLe permitirá al administrador  Deshabilitar el<br> o los usuarios o servidores cuando estos ya no<br> trabajen para esta institución <br>\nTambién  al momento de deshabilitar <br> un usuario o servidor el administrador<br>  podrá agregar sus actividades a<br> otro usuario </html>\n");
         pnlCreaUsuario.add(jLabel2);
-        jLabel2.setBounds(720, 20, 280, 340);
+        jLabel2.setBounds(730, 110, 280, 340);
 
         pnlDatos.setOpaque(false);
         pnlDatos.setPreferredSize(new java.awt.Dimension(540, 600));
@@ -228,16 +229,18 @@ public final class PnlUsuario extends javax.swing.JPanel {
         txtUsuario.setBounds(90, 50, 170, 30);
 
         txtConfirm.setToolTipText("Ingrese nuevamente la confirmaicón de su clave");
+        txtConfirm.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtConfirmCaretUpdate(evt);
+            }
+        });
         pnlDatosAcceso.add(txtConfirm);
         txtConfirm.setBounds(90, 110, 170, 30);
 
         txtClave.setToolTipText("Ingrese la clave que usuara para iniciar sesión");
-        txtClave.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtClaveKeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtClaveKeyTyped(evt);
+        txtClave.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtClaveCaretUpdate(evt);
             }
         });
         pnlDatosAcceso.add(txtClave);
@@ -249,15 +252,20 @@ public final class PnlUsuario extends javax.swing.JPanel {
         jLabel4.setBounds(270, 80, 170, 16);
 
         cbPreguntaseguridad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione una opción" }));
+        cbPreguntaseguridad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPreguntaseguridadActionPerformed(evt);
+            }
+        });
         pnlDatosAcceso.add(cbPreguntaseguridad);
-        cbPreguntaseguridad.setBounds(450, 80, 180, 20);
+        cbPreguntaseguridad.setBounds(450, 80, 240, 20);
 
         jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel6.setText("Responda la pregunta");
         pnlDatosAcceso.add(jLabel6);
         jLabel6.setBounds(310, 110, 130, 20);
         pnlDatosAcceso.add(txtRespuestapregunta);
-        txtRespuestapregunta.setBounds(450, 110, 180, 20);
+        txtRespuestapregunta.setBounds(450, 100, 240, 30);
 
         jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 204));
@@ -270,10 +278,10 @@ public final class PnlUsuario extends javax.swing.JPanel {
         pnlDatosAcceso.add(jLabel8);
         jLabel8.setBounds(340, 50, 100, 20);
         pnlDatosAcceso.add(txtEmail);
-        txtEmail.setBounds(450, 50, 180, 20);
+        txtEmail.setBounds(450, 50, 240, 30);
 
         pnlDatos.add(pnlDatosAcceso);
-        pnlDatosAcceso.setBounds(10, 360, 650, 170);
+        pnlDatosAcceso.setBounds(10, 360, 710, 170);
 
         pnlDatosEmpleo.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 255), 2), "Datos de Empleo", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB", 0, 18), new java.awt.Color(0, 0, 102))); // NOI18N
         pnlDatosEmpleo.setOpaque(false);
@@ -293,7 +301,7 @@ public final class PnlUsuario extends javax.swing.JPanel {
         lblCargo.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblCargo.setText(" Cargo:");
         pnlDatosEmpleo.add(lblCargo);
-        lblCargo.setBounds(20, 40, 80, 30);
+        lblCargo.setBounds(30, 40, 80, 30);
 
         lblHLab.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         lblHLab.setText("Horas Lab:");
@@ -330,13 +338,13 @@ public final class PnlUsuario extends javax.swing.JPanel {
         pnlDatosEmpleo.add(txtHExt);
         txtHExt.setBounds(270, 75, 60, 30);
 
-        cbRol.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione una opción", "Servidor", "Jefe", "Jefe RRHH" }));
+        cbRol.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione una opción", "Jefe", "Servidor", "Jefe RRHH" }));
         cbRol.setToolTipText("Ingrese el rol  que ejerce en esta  Área");
         pnlDatosEmpleo.add(cbRol);
         cbRol.setBounds(100, 110, 170, 30);
 
         pnlDatos.add(pnlDatosEmpleo);
-        pnlDatosEmpleo.setBounds(50, 180, 530, 170);
+        pnlDatosEmpleo.setBounds(60, 180, 520, 170);
 
         pnlDatosPers.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 255), 2), "Datos personales", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Berlin Sans FB", 0, 18), new java.awt.Color(0, 0, 102))); // NOI18N
         pnlDatosPers.setOpaque(false);
@@ -374,7 +382,7 @@ public final class PnlUsuario extends javax.swing.JPanel {
         pnlDatosPers.setBounds(60, 0, 520, 170);
 
         pnlCreaUsuario.add(pnlDatos);
-        pnlDatos.setBounds(100, 10, 660, 590);
+        pnlDatos.setBounds(100, 20, 770, 590);
 
         tabbedUsuario.addTab("CREAR USUARIO", pnlCreaUsuario);
 
@@ -545,21 +553,39 @@ public final class PnlUsuario extends javax.swing.JPanel {
         add(tabbedUsuario, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtClaveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtClaveKeyTyped
+    private void cbPreguntaseguridadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPreguntaseguridadActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_txtClaveKeyTyped
+    }//GEN-LAST:event_cbPreguntaseguridadActionPerformed
 
-    private void txtClaveKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtClaveKeyPressed
+    private void txtClaveCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtClaveCaretUpdate
         // TODO add your handling code here:
-        if (txtClave.getText().length() > 6) {
-            evt.consume();
-            Toolkit.getDefaultToolkit().beep();
-        } else {
-            JOptionPane.showMessageDialog(null, "la clave ingresada debe ser mayor a 6 caracteres");
+    }//GEN-LAST:event_txtClaveCaretUpdate
+
+    private void txtConfirmCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtConfirmCaretUpdate
+        // TODO add your handling code here:
+        char[] cadena = txtClave.getPassword();
+        String aux = "";
+        int c = 0;
+        for (int i = 0; i < cadena.length; i++) {
+            if (String.valueOf(cadena[i]).equals(" ")) {
+                c++;
+            } else {
+                aux = aux + String.valueOf(cadena[i]);
+            }
         }
-    }//GEN-LAST:event_txtClaveKeyPressed
+        if (c > 0) {
+            JOptionPane.showMessageDialog(null, "La clave no puede tener espacios");
+            this.txtClave.setText("");
+            this.txtConfirm.setText("");
+//        } else {
+////            if (aux.length() < 6) {
+////                JOptionPane.showMessageDialog(null, "La clave no puede tener menos de 6 caracteres");
+//                this.txtClave.setText("");
+//                this.txtConfirm.setText("");
+//            }
+        }
 
+    }//GEN-LAST:event_txtConfirmCaretUpdate
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnConocimientos;
@@ -916,7 +942,6 @@ public final class PnlUsuario extends javax.swing.JPanel {
                     }
                 } else {
                     Mensaje.camposVacios();
-
                 }
             } else if (evt.getSource() == btnConocimientos) {
                 cu.abreDialogConocUsuario();
