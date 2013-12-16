@@ -6,14 +6,10 @@
 package vista.paneles.evaluacion;
 
 import controlador.acciones.evaluaciones.ControladorTest;
-import java.awt.Graphics;
-import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 import modelo.pregunta.Pregunta;
-import vista.modelo.ImagenJPanel;
 
 /**
  *

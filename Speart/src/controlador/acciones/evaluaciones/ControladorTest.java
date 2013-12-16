@@ -6,26 +6,20 @@ package controlador.acciones.evaluaciones;
 
 import controlador.basedatos.OperacionesBD;
 import controlador.experto.BaseConocimiento;
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.ArrayList;
-import javassist.tools.framedump;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import modelo.evaluacion.ResultadoConocimientos;
 import modelo.evaluacion.ResultadoFinalConocimiento;
@@ -145,14 +139,6 @@ public class ControladorTest {
 //        }
 //    }
     public void califica() {
-
-        //creacion del jframe para la presentacion de las respuestas
-        final JFrame frame = new JFrame("Panel de Respuestas");
-        //asignacion de la imagen de fondo
-        Panel pa = new Panel("/vista/imagenes/quejas.jpg");
-        //creacion del contender para el panel del jframe
-        Container c = frame.getContentPane();
-
         int r = JOptionPane.showConfirmDialog(null, "¿Advertencia: Usted está de acuerdo en calificar  su Test, \n si la  respuesta es afirmativa, no le será posible  revisarlo?", "Calificar", JOptionPane.YES_NO_OPTION);
         if (r == JOptionPane.YES_OPTION) {
             resultadoPreguntas = new ArrayList<>();
@@ -191,12 +177,6 @@ public class ControladorTest {
                 }
             }
             double total = 0;
-            // asignamos un tamaño para el panel
-            pa.setSize(800, 600);
-            //calculo del numero de elementos que contendra el panel
-            int numeropre = resultadoPreguntas.size();
-            //asignacion de los valores para que el layout se acople al numero de elementos a presentarse
-            pa.setLayout(new GridLayout(numeropre * 2, 1));
 
             for (ResultadoConocimientos rc : resultadoPreguntas) {
                 total += rc.getValor();
@@ -206,71 +186,6 @@ public class ControladorTest {
                 System.out.print("Resultado: " + rc.isRptaCorrecta() + "\n");
 
             }
-            //Titulo 
-            JLabel title = new JLabel("Preguntas del Servidor");
-            Font fon = new Font("Verdana", Font.BOLD, 17);
-            title.setFont(fon);
-            title.setForeground(Color.RED);
-            pa.add(title);
-            int idaux = 0;
-            //creacion del ciclo para la presentacion de las respuestas de la evaluacion
-            for (ResultadoConocimientos rc : resultadoPreguntas) {
-                // aqui se presenta los valores                
-                if (idaux == rc.getIdPreg()) {
-                } else {
-                    idaux = 0;
-                }
-                if (idaux == 0) {
-                    Pregunta pr = (Pregunta) OperacionesBD.buscar("Pregunta", "idPregunta", String.valueOf(rc.getIdPreg()));
-                    JLabel jl = new JLabel(pr.getPreg());
-                    Font font = new Font("Arial", Font.BOLD, 12);
-                    jl.setFont(font);
-                    jl.setForeground(Color.BLACK);
-                    pa.add(jl);
-                    //consulta del atributo de la pregunta
-                    ArrayList<Respuesta> lisres = (ArrayList<Respuesta>) OperacionesBD.buscarTodos("Respuesta", "Pregunta_idPregunta", String.valueOf(rc.getIdPreg()));
-                    for (int i = 0; i < lisres.size(); i++) {
-//                        if (lisres.get(i).isEstadoRpta() == true) {
-                        if (rc.isRptaCorrecta()) {
-                            //asignacion de la imagen al label
-                            String path = "/vista/imagenes/button_more.png";
-                            URL url = this.getClass().getResource(path);
-                            ImageIcon icon = new ImageIcon(url);
-                            JLabel label = new JLabel("some text");
-                            label.setIcon(icon);
-                            label.setText(lisres.get(i).getRpta());
-//                            label.setText(lisres.get(i).getRpta());
-                            pa.add(label);
-                        } else {
-                            //asignacion de la imagen al label
-                            String path = "/vista/imagenes/button_cancel.png";
-                            URL url = this.getClass().getResource(path);
-                            ImageIcon icon = new ImageIcon(url);
-                            JLabel label = new JLabel("some text");
-                            label.setIcon(icon);
-                            label.setText(lisres.get(i).getRpta());
-//                        label.setText(lisres.get(i).getRpta());
-                            pa.add(label);
-                        }
-                    }
-
-                    idaux = rc.getIdPreg();
-                }
-            }
-            //creacion del scrooll para el panel
-            JScrollPane jsp = new JScrollPane(pa);
-            c.add(jsp);
-            frame.setSize(800, 600);
-            frame.setLocationRelativeTo(null);
-            //button para cerrar el frame
-            JButton btnSalir = new JButton("Salir");
-            btnSalir.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    frame.dispose();
-                }
-            });
-            pa.add(btnSalir);
-            frame.setVisible(true);
 
             total = OperacionesVarias.redondeaDosCifras(total);//este es el total por seccion
 //        double total=;
@@ -287,7 +202,7 @@ public class ControladorTest {
 //        if (OperacionesBD.guardar(rfc)) {
 //            Mensaje.datosGuardados();
             ControladorEvaluacion.txRptaConocIndiv.setText(rfc.getTotal() + " - " + rptaTexto(total));
-            ControladorEvaluacion.totConoc += rfc.getTotal();
+            ControladorEvaluacion.totConoc += rfc.getTotal();     
             double p = calculaPorcentaje(ControladorEvaluacion.totConoc);
             double res = OperacionesVarias.redondeaDosCifras((p * ControladorEvaluacion.facConoc) / 100);
             ControladorEvaluacion.txtTotalConoc.setText(res + "%");
@@ -302,6 +217,87 @@ public class ControladorTest {
 //        } else {
 //            Mensaje.datosNoGuardados();
 //        }
+        presentaResultados();
+    }
+
+    public void presentaResultados() {
+        //creacion del jframe para la presentacion de las respuestas
+        final JFrame frame = new JFrame("Panel de Respuestas");
+        //asignacion de la imagen de fondo
+        Panel pa = new Panel("/vista/imagenes/quejas.jpg");
+        //creacion del contender para el panel del jframe
+        Container c = frame.getContentPane();
+        // asignamos un tamaño para el panel
+        pa.setSize(800, 600);
+        //calculo del numero de elementos que contendra el panel
+        int numeropre = resultadoPreguntas.size();
+        //asignacion de los valores para que el layout se acople al numero de elementos a presentarse
+        pa.setLayout(new GridLayout(numeropre * 2, 1));
+        //Titulo 
+        JLabel title = new JLabel("Preguntas del Servidor");
+        Font fon = new Font("Verdana", Font.BOLD, 17);
+        title.setFont(fon);
+        title.setForeground(Color.RED);
+        pa.add(title);
+        int idaux = 0;
+        //creacion del ciclo para la presentacion de las respuestas de la evaluacion
+        for (ResultadoConocimientos rc : resultadoPreguntas) {
+            // aqui se presenta los valores                
+            if (idaux == rc.getIdPreg()) {
+            } else {
+                idaux = 0;
+            }
+            if (idaux == 0) {
+                Pregunta pr = (Pregunta) OperacionesBD.buscar("Pregunta", "idPregunta", String.valueOf(rc.getIdPreg()));
+                JLabel jl = new JLabel(pr.getPreg());
+                Font font = new Font("Arial", Font.BOLD, 12);
+                jl.setFont(font);
+                jl.setForeground(Color.BLACK);
+                pa.add(jl);
+                //consulta del atributo de la pregunta
+                ArrayList<Respuesta> lisres = (ArrayList<Respuesta>) OperacionesBD.buscarTodos("Respuesta", "Pregunta_idPregunta", String.valueOf(rc.getIdPreg()));
+                for (int i = 0; i < lisres.size(); i++) {
+//                        if (lisres.get(i).isEstadoRpta() == true) {
+                    if (rc.isRptaCorrecta()) {
+                        //asignacion de la imagen al label
+                        String path = "/vista/imagenes/button_more.png";
+                        URL url = this.getClass().getResource(path);
+                        ImageIcon icon = new ImageIcon(url);
+                        JLabel label = new JLabel("some text");
+                        label.setIcon(icon);
+                        label.setText(lisres.get(i).getRpta());
+//                            label.setText(lisres.get(i).getRpta());
+                        pa.add(label);
+                    } else {
+                        //asignacion de la imagen al label
+                        String path = "/vista/imagenes/button_cancel.png";
+                        URL url = this.getClass().getResource(path);
+                        ImageIcon icon = new ImageIcon(url);
+                        JLabel label = new JLabel("some text");
+                        label.setIcon(icon);
+                        label.setText(lisres.get(i).getRpta());
+//                        label.setText(lisres.get(i).getRpta());
+                        pa.add(label);
+                    }
+                }
+
+                idaux = rc.getIdPreg();
+            }
+        }
+        //creacion del scrooll para el panel
+        JScrollPane jsp = new JScrollPane(pa);
+        c.add(jsp);
+        frame.setSize(800, 600);
+        frame.setLocationRelativeTo(null);
+        //button para cerrar el frame
+        JButton btnSalir = new JButton("Salir");
+        btnSalir.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+            }
+        });
+        pa.add(btnSalir);
+        frame.setVisible(true);
     }
 
     //Calcula el valor que vale cada respuesta correspondiente a una pregunta determinada
