@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteval" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="751ded63-aa3b-4c11-8da7-99cccce54615">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="120"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="igp" class="java.lang.String"/>
 	<parameter name="conoc" class="java.lang.String"/>
 	<parameter name="cotec" class="java.lang.String"/>
@@ -33,7 +33,7 @@ FROM
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="152" splitType="Stretch">
+		<band height="154" splitType="Stretch">
 			<staticText>
 				<reportElement uuid="2a91ecc8-e098-4333-94b7-0cbe3517dc3d" x="0" y="133" width="237" height="19"/>
 				<textElement>

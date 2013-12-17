@@ -53,7 +53,7 @@ public class ControladorPreguntas {
     public void guardaSeccion() {
         String s = JOptionPane.showInputDialog(null, "Ingrese el nombre de la nueva seccion: ", "Nueva Seccion", JOptionPane.INFORMATION_MESSAGE);
         try {
-            if (!OperacionesBD.existe("seccion", "nombreSeccion", s)) {
+            if (!OperacionesBD.existe("Seccion", "nombreSeccion", s)) {
                 if (!s.isEmpty()|| !s.equals("")) {
                     seccion = new Seccion();
                     seccion.setNombreSeccion(s);
@@ -111,7 +111,7 @@ public class ControladorPreguntas {
 
 
     public void guardaPregunta() {
-//        if (!OperacionesBD.existe("pregunta", "preg", po.getTxtNuevaPregunt().getText())) {
+        if (!OperacionesBD.existe("Pregunta", "preg", po.getTxtNuevaPregunt().getText())) {
         pregunta = new Pregunta();
         setPregunta();
         respuestas = new ArrayList<>();
@@ -123,9 +123,9 @@ public class ControladorPreguntas {
         } else {
             Mensaje.datosNoGuardados();
         }
-//          }else {
-//            JOptionPane.showMessageDialog(null, "La pregunta  ya existe");
-//        }
+          }else {
+            JOptionPane.showMessageDialog(null, "La pregunta  ya existe");
+        }
     }
 
     public void cancelaPregunta() {

@@ -689,6 +689,7 @@ public class PanelAgenda extends ImagenJPanel {
         modeloTablaInforme.setFechaInicio(fDesde);
         modeloTablaInforme.setFechFin(fHasta);
         //item.getActividad().getRol().getUsuario().equals(usuario)
+        tablaInforme.removeAll();
         modeloTablaInforme.setMetas(new LinkedList<Meta>(ControladorMeta.searchMetas(fDesde,
                 fHasta,
                 usuario.getLogin()
