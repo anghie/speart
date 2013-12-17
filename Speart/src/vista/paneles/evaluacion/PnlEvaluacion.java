@@ -610,7 +610,7 @@ public class PnlEvaluacion extends javax.swing.JPanel {
 
         btnIr.setText("Ir");
         pnlIndicGestionPuesto.add(btnIr);
-        btnIr.setBounds(850, 10, 20, 23);
+        btnIr.setBounds(850, 10, 41, 23);
 
         pnlMedio.add(pnlIndicGestionPuesto, "pnlIndicGestionPuesto");
 

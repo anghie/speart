@@ -74,7 +74,7 @@ public class ControladorTrabajoEquipo {
     }
 
     public void guardaTrabEquipo() {
-        if (!OperacionesBD.existe("TrabajoEquipo", "descripcionTrabEquipo", po.getTxtDestreza().getText())) {
+        if (!OperacionesBD.existe("TrabajoEquipo", "descripcionTrabEquipo", po.getTxtDescripcionTrabEq().getText())) {
         te = new TrabajoEquipo();
         setTrabajoEquipo();
         if (OperacionesBD.guardar(te)) {

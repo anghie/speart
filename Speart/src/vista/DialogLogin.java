@@ -267,10 +267,7 @@ public class DialogLogin extends javax.swing.JDialog {
                         aes = new AlgoritmoAES(str.getBytes());
                         user.setClave(aes.encriptar(newclave) + str);
                         OperacionesBD.modificar(user);
-//                        String body="<html>Estimado Usuario, usted a pedido un cambio de clave por perdida<br>"                                
-//                                + "El sistema le genero la siguiente clave: <b>"+ newclave+"</b><br>"
-//                                + "Por favor le sugerimos que la clave proporcionada la cambie, muchas gracias</html>";
-                        
+                       
                         String body = "Estimado Usuario, usted a pedido un cambio de clave por perdida\n"
                                 + "El sistema le genero la siguiente clave: " + newclave+"\n"
                                 + "Por favor le sugerimos que la clave proporcionada la cambie, muchas gracias";
@@ -287,10 +284,6 @@ public class DialogLogin extends javax.swing.JDialog {
             } else {
                 JOptionPane.showMessageDialog(null, "Su email " + email + " no esta registrado en nuestro sistema ");
             }
-
-
-
-
 
         } else {
             JOptionPane.showMessageDialog(null, "Su email " + email + " no tiene el formato correcto");
@@ -314,7 +307,7 @@ public class DialogLogin extends javax.swing.JDialog {
 
         return contrasena;
     }//
-    //GEN-LAST:event_jButton1ActionPerformed
+//GEN-LAST:event_jButton1ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;

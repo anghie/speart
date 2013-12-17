@@ -49,20 +49,29 @@ public class ControladorPreguntas {
             }
         }
     }
-
+//
     public void guardaSeccion() {
-        String s = JOptionPane.showInputDialog("Ingrese el nombre de la nueva seccion: ");
-        if (!s.isEmpty()) {
-            seccion = new Seccion();
-            seccion.setNombreSeccion(s);
-            seccion.setParaEvaluacion(false);
-            if (OperacionesBD.guardar(seccion)) {
-                Mensaje.datosGuardados();
-                poneCbSeccion();
+        String s = JOptionPane.showInputDialog(null, "Ingrese el nombre de la nueva seccion: ", "Nueva Seccion", JOptionPane.INFORMATION_MESSAGE);
+        try {
+            if (!OperacionesBD.existe("seccion", "nombreSeccion", s)) {
+                if (!s.isEmpty()|| !s.equals("")) {
+                    seccion = new Seccion();
+                    seccion.setNombreSeccion(s);
+                    seccion.setParaEvaluacion(false);
+                    if (OperacionesBD.guardar(seccion)) {
+                        Mensaje.datosGuardados();
+                        poneCbSeccion();
+                    } else {
+                        Mensaje.datosNoGuardados();
+                    }
+                }
             } else {
-                Mensaje.datosNoGuardados();
+                JOptionPane.showMessageDialog(null, "El nombre de la seccion ingresada ya existe");
             }
+        } catch (NullPointerException e) {
+
         }
+
     }
 
     public void editaSeccion() {
@@ -100,22 +109,9 @@ public class ControladorPreguntas {
         po.getPnlRespuestas().updateUI();
     }
 
-//    public void guardaPregunta() {
-//        pregunta = new Pregunta();
-//        setPregunta();
-//        if (OperacionesBD.guardar(pregunta)) {
-//            respuestas = new ArrayList<>();
-//            setRpta();
-//            btnPresionado = false;
-//            if (guardaRespuesta()) {
-//                Mensaje.datosGuardados();
-//                limpiaCampos();
-//            }
-//        } else {
-//            Mensaje.datosNoGuardados();
-//        }
-//    }
+
     public void guardaPregunta() {
+//        if (!OperacionesBD.existe("pregunta", "preg", po.getTxtNuevaPregunt().getText())) {
         pregunta = new Pregunta();
         setPregunta();
         respuestas = new ArrayList<>();
@@ -127,9 +123,12 @@ public class ControladorPreguntas {
         } else {
             Mensaje.datosNoGuardados();
         }
+//          }else {
+//            JOptionPane.showMessageDialog(null, "La pregunta  ya existe");
+//        }
     }
-    
-    public void cancelaPregunta(){
+
+    public void cancelaPregunta() {
         limpiaCampos();
     }
 

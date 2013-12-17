@@ -129,7 +129,7 @@ public class PnlProcesos extends javax.swing.JPanel {
         lblNombre.setBounds(80, 30, 90, 30);
 
         cbTipo.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
-        cbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ADMINISTRATIVA", "TECNICA", "PROFESIONAL", "DIRECCION", "DE SERVICIO" }));
+        cbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SELECCIONE UNA OPCIÓN", "ADMINISTRATIVA", "TECNICA", "PROFESIONAL", "DIRECCION", "DE SERVICIO" }));
         cbTipo.setToolTipText("Seleccione el tipo de actividad q ha ingresado");
         pnlAddActiv.add(cbTipo);
         cbTipo.setBounds(440, 140, 190, 30);

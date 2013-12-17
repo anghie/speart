@@ -100,6 +100,7 @@ public class ControladorProceso {
 //        pp.getSpTiempoMin().setValue(0);
 //        pp.getSpVolumen().setValue(0);
         pp.getTxtDescripcion().setText("");
+        pp.getCbTipo().setSelectedIndex(0);
 
     }
 

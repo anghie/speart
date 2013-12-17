@@ -105,6 +105,8 @@ public class ControladorUsuario {
         pu.getTxtHExt().setText("");
         pu.getTxtHLab().setText("");
         pu.getTxtRem().setText("");
+        pu.getCbRol().setSelectedIndex(0);
+        pu.getCbPreguntaseguridad().setSelectedIndex(0);
         pu.getTxtEmail().setText("");
         pu.getTxtRespuestapregunta().setText("");
     }

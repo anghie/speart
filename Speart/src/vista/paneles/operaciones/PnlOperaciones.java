@@ -8,6 +8,7 @@ import controlador.acciones.operaciones.ControladorCompetenciasTecnicas;
 import controlador.acciones.operaciones.ControladorCompetenciasUniversales;
 import controlador.acciones.operaciones.ControladorPreguntas;
 import controlador.acciones.operaciones.ControladorTrabajoEquipo;
+import controlador.basedatos.OperacionesBD;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -1067,11 +1068,14 @@ public class PnlOperaciones extends javax.swing.JPanel {
             //**********************************************
             if (e.getSource() == btnNuevaSeccion) {
                 cp.guardaSeccion();
+              
             } else if (e.getSource() == btnAplicar) {
                 ControladorPreguntas.btnPresionado = true;
                 int val = Integer.parseInt(String.valueOf(getSpNroPreg().getValue()));
                 cp.ponePosibleRptas(val);
+                 
             } else if (e.getSource() == btnGuardarPregunta) {
+                
                 if (cbSeccion.getSelectedIndex() != -1) {
                     if (!getTxtNuevaPregunt().getText().isEmpty()) {
                         JTextField t = new JTextField();
@@ -1082,6 +1086,9 @@ public class PnlOperaciones extends javax.swing.JPanel {
                                     int i = JOptionPane.showConfirmDialog(null, "¿Desea guardar la pregunta?", "Guardar", JOptionPane.YES_NO_OPTION);
                                     if (i == JOptionPane.YES_OPTION) {
                                         cp.guardaPregunta();
+                                         if (OperacionesBD.existe("pregunta", "preg", txtNuevaPregunt.getText())) { 
+                    JOptionPane.showMessageDialog(null, "La pregunta  ya existe");
+                } 
                                     }
                                 } else {
                                     JOptionPane.showMessageDialog(null, "Debe seleccionar una opcion para la respuesta");
@@ -1096,6 +1103,8 @@ public class PnlOperaciones extends javax.swing.JPanel {
                     } else {
                         getTxtNuevaPregunt().setBorder(new EtchedBorder(Color.red, Color.pink));
                         JOptionPane.showMessageDialog(null, "Debe ingresar la pregunta");
+                                                                    
+                        
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "No hay seccion seleccionada");

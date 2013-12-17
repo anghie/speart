@@ -74,7 +74,7 @@ public class ControladorCompetenciasUniversales {
     }
 
     public void guardaCompetenciaUniversal() {
-         if (!OperacionesBD.existe("CompetenciaUniversal", "nombreDestrezaUniv", po.getTxtDestreza().getText())) {
+         if (!OperacionesBD.existe("CompetenciaUniversal", "nombreDestrezaUniv", po.getTxtDestrezaCompUniv().getText())) {
         cu = new CompetenciaUniversal();
         setCompetenciaUniversal();
         if (OperacionesBD.guardar(cu)) {

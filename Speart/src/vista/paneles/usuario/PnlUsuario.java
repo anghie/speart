@@ -897,18 +897,30 @@ public final class PnlUsuario extends javax.swing.JPanel {
             if (evt.getSource() == btnGuardarUsuario) {
 
                 if (validateEmail(txtEmail.getText())) {
-                    if (cbPreguntaseguridad.getSelectedItem().toString().equals("Seleccione una opción")) {
-                        JOptionPane.showMessageDialog(null, "Usted no ha seleccionado ninguna pregunta");
+
+                    //OperacionesBD.existe("Usuario", "email", txtEmail.getText());
+                    if (OperacionesBD.existe("Usuario", "email", txtEmail.getText())) {
+                        JOptionPane.showMessageDialog(null, "Email ingresado ya existe, ingrese otro");
+                        txtEmail.setText("");
                     } else {
-                        if (!cu.verificaVacios()) {
-                            int n = JOptionPane.showConfirmDialog(null, "¿Desea guardar los datos?", "Guardar", JOptionPane.YES_NO_OPTION);
-                            if (n == JOptionPane.YES_OPTION) {
-                                cu.guardaUsuario();
-                            }
+                        if (cbPreguntaseguridad.getSelectedItem().toString().equals("Seleccione una opción")) {
+                            JOptionPane.showMessageDialog(null, "Usted no ha seleccionado ninguna pregunta");
                         } else {
-                            Mensaje.camposVacios();
+                            if (!cu.verificaVacios()) {
+                                int n = JOptionPane.showConfirmDialog(null, "¿Desea guardar los datos?", "Guardar", JOptionPane.YES_NO_OPTION);
+                                if (n == JOptionPane.YES_OPTION) {
+                                    cu.guardaUsuario();
+                                }
+                            } else {
+                                Mensaje.camposVacios();
+                            }
                         }
+
                     }
+
+
+
+
                 } else {
                     JOptionPane.showMessageDialog(null, "Formto de Email invalido");
                     txtEmail.setText("");
