@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportfinal" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3b2ae84d-2671-4706-8c1a-686017ec016a">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="4"/>
+	<property name="ireport.y" value="0"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -11,7 +11,7 @@
 			<staticText>
 				<reportElement uuid="fa53781f-46fa-46c8-93b4-a803627eb97a" x="248" y="10" width="500" height="40"/>
 				<textElement>
-					<font fontName="Berlin Sans FB" size="24"/>
+					<font fontName="Arial" size="24"/>
 				</textElement>
 				<text><![CDATA[INSTITUTO ECUATORIANO DE SEGURIDAD SOCIAL]]></text>
 			</staticText>
@@ -22,7 +22,7 @@
 			<staticText>
 				<reportElement uuid="5ce90a5e-7404-423a-ad31-d5a1ee583c59" x="219" y="50" width="562" height="37"/>
 				<textElement>
-					<font fontName="Berlin Sans FB" size="24"/>
+					<font fontName="Arial" size="24"/>
 				</textElement>
 				<text><![CDATA[DEPARTAMENTO DE RIESGOS DEL TRABAJO DE LOJA]]></text>
 			</staticText>
@@ -33,7 +33,7 @@
 			<staticText>
 				<reportElement uuid="a0f04bbb-0c05-4315-9851-ba52899c8203" x="10" y="174" width="157" height="20"/>
 				<textElement>
-					<font fontName="Berlin Sans FB" size="14"/>
+					<font fontName="Arial" size="14"/>
 				</textElement>
 				<text><![CDATA[Período de Evaluación:
 ]]></text>
@@ -48,14 +48,14 @@
 			<staticText>
 				<reportElement uuid="caa4992f-7d66-4140-ab04-f955f60db7a5" x="10" y="194" width="157" height="20"/>
 				<textElement>
-					<font fontName="Berlin Sans FB" size="14"/>
+					<font fontName="Arial" size="14"/>
 				</textElement>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="b4754b3c-daff-44ef-a414-4f631bb70ec3" x="10" y="233" width="505" height="20" forecolor="#009933"/>
 				<textElement>
-					<font fontName="Berlin Sans FB" size="14" isBold="true" isStrikeThrough="false"/>
+					<font fontName="Arial" size="14" isBold="true" isStrikeThrough="false"/>
 				</textElement>
 				<text><![CDATA[ANÁLISIS DE RESULTADOS DE LA EVALUACIÓN DEL DESEMPEÑO]]></text>
 			</staticText>
@@ -72,63 +72,63 @@
 			<staticText>
 				<reportElement uuid="4f5efad6-3b2e-484a-9922-8f83ca0b9eec" x="10" y="19" width="120" height="20"/>
 				<textElement>
-					<font fontName="Berlin Sans FB" size="12" isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[APELLIDOS]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="76b765a4-a907-42cb-83ab-a86b05ecab17" x="130" y="19" width="118" height="20"/>
 				<textElement textAlignment="Justified">
-					<font fontName="Berlin Sans FB" size="12" isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[NOMBRES]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="c0b0fe98-17bb-416f-ab54-9a4235b17d0c" x="248" y="19" width="104" height="20"/>
 				<textElement textAlignment="Justified">
-					<font fontName="Berlin Sans FB" size="12" isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[PUESTO]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="5f2b9370-5123-4faa-99d4-298bf40c464b" x="352" y="19" width="67" height="20"/>
 				<textElement textAlignment="Justified">
-					<font fontName="Berlin Sans FB" size="12" isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[CIUDAD]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="7ebdbd4e-06d9-456c-930c-4fab0ef5e68a" x="419" y="19" width="120" height="20"/>
 				<textElement textAlignment="Justified">
-					<font fontName="Berlin Sans FB" size="12" isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[CALIFICACIÓN JEFE]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="ce9d88aa-0151-47e5-8672-5d01c5fc0abc" x="539" y="0" width="120" height="20"/>
 				<textElement textAlignment="Justified">
-					<font fontName="Berlin Sans FB" size="12" isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[CALIFICACIÓN DEL]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="c6de9b8f-b9a4-43e0-9f4e-4a3969ffe6ad" x="539" y="19" width="120" height="20"/>
 				<textElement textAlignment="Justified">
-					<font fontName="Berlin Sans FB" size="12" isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[CIUDADANO]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="0c3ef721-db64-4b0f-986f-a22ebf34ada6" x="661" y="0" width="87" height="20"/>
 				<textElement textAlignment="Justified">
-					<font fontName="Berlin Sans FB" size="12" isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[CALIFICACIÓN ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="206ba3c8-051f-45f7-8a29-5fa0939a27d9" x="661" y="19" width="87" height="20"/>
 				<textElement textAlignment="Justified">
-					<font fontName="Berlin Sans FB" size="12" isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[TOTAL]]></text>
 			</staticText>

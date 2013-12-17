@@ -412,6 +412,7 @@ public class PnlOperaciones extends javax.swing.JPanel {
 
             }
         ));
+        tblCompetencias.setEnabled(false);
         jScrollPane6.setViewportView(tblCompetencias);
 
         pnlCompTecPuesto.add(jScrollPane6);
