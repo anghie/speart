@@ -31,6 +31,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import vista.DialogLogin;
+import vista.DialogoImprimeAnalisisEval;
 
 import vista.modelo.OperacionesVarias;
 
@@ -190,7 +191,8 @@ public class ControladorPrincipal {
         garbage.gc();
 //        System.out.println("Memoria despues de pasar garbage: " + garbage.freeMemory());
     }
-     public void ponLaAyuda() {
+
+    public void ponLaAyuda() {
 
         try {
             URL hsURL = getClass().getResource("/ayuda/principal.hs");
@@ -244,7 +246,6 @@ public class ControladorPrincipal {
 ////        }
 //        
 //    }
-
     public static void listarFechasEval() {
         fechaeval = (ArrayList<PeriodoEvaluacion>) OperacionesBD.listar("PeriodoEvaluacion");
         if (fechaeval.isEmpty() || fechaeval == null) {
@@ -273,4 +274,12 @@ public class ControladorPrincipal {
         }
         return entre;
     }
+
+    public void reporteAnalisisRes() {
+        DialogoImprimeAnalisisEval di = DialogoImprimeAnalisisEval.getInstance(frm, clavemal);
+        if (!di.isActive()) {
+            di.setVisible(true);
+        }
+    }
+
 }

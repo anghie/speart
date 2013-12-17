@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import modelo.agenda.Meta;
@@ -339,5 +338,5 @@ public class ControladorEvaluacion {
         double resFin = (totCompTec + totCompUniv + totConoc + totIndic + totTrabEquip) - totQuejas;
         FrmResultadosEvaluac.getInstance(totIndic, totConoc, totCompTec, totCompUniv, totTrabEquip, totQuejas, resFin + aplica).setVisible(true);
     }
-
+    
 }

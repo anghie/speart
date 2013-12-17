@@ -19,7 +19,6 @@ import vista.paneles.servicios.DialogoCalendarioRecor;
 import vista.paneles.usuario.DialogCambiaClave;
 import vista.paneles.usuario.PnlUsuario;
 
-
 public class FrmPrincipal extends JFrame {
 
     private JMenuBar barraMenu;
@@ -64,9 +63,8 @@ public class FrmPrincipal extends JFrame {
     private JMenu menuReportes;
     private JMenuItem miReporteEvaluaciones;
     private JMenuItem miReporteUsuarios;
+    private JMenuItem miReporteAnalisisRes;
     private static FrmPrincipal fp = null;
-   
-
 
     private FrmPrincipal() {
         cl = FrmPrincipal.class.getClassLoader();
@@ -102,7 +100,6 @@ public class FrmPrincipal extends JFrame {
         ControladorPermisos.permisoInvitado();
         ponePermisos();
     }
-    
 
     public void ponePermisos() {
         btnEvaluacion.setVisible(ControladorPermisos.evaluaciones);
@@ -227,6 +224,11 @@ public class FrmPrincipal extends JFrame {
         miGeneraAgenda = new JMenuItem();
         creaMenuItem(miGeneraAgenda, menuServicios, "Genera Agenda", "Generador de agendas", "agendaTelefonica.png");
         miAgenda.addActionListener(esc);
+
+        //Item Reporte Analisis de Resultados
+        miReporteAnalisisRes = new JMenuItem();
+        creaMenuItem(miReporteAnalisisRes, menuServicios, "Generar Reporte Analisis Resultados", "Reporte Analisis Resultados", "null.png");
+        miReporteAnalisisRes.addActionListener(esc);
 
         //Item Reportes
         miReporteEvaluaciones = new JMenuItem();
@@ -423,6 +425,7 @@ public class FrmPrincipal extends JFrame {
     public JButton getBtnProcesos() {
         return btnProcesos;
     }
+
     public JMenuItem getmiAyuda() {
         return miAyuda;
     }
@@ -532,13 +535,13 @@ public class FrmPrincipal extends JFrame {
             //                    de.setVisible(true);
             //                }
             //            } 
-//            else if (evt.getSource() == miMeta) {
-//                DialogoMeta dialogo = DialogoMeta.getInstance(userLogueado);
-//                if (!dialogo.isActive()) {
-//                    dialogo.setLocationRelativeTo(null);
-//                    dialogo.setVisible(true);
-//                }
-//            } 
+            //            else if (evt.getSource() == miMeta) {
+            //                DialogoMeta dialogo = DialogoMeta.getInstance(userLogueado);
+            //                if (!dialogo.isActive()) {
+            //                    dialogo.setLocationRelativeTo(null);
+            //                    dialogo.setVisible(true);
+            //                }
+            //            } 
             else if (evt.getSource() == miAgenda) {
                 DialogoAgendaContactos dac = DialogoAgendaContactos.getInstance();
                 if (!dac.isActive()) {
@@ -554,6 +557,8 @@ public class FrmPrincipal extends JFrame {
             } else if (evt.getSource() == miAyuda) {
                 cp.ponLaAyuda();
 //                new Ayuda (null);
+            } else if (evt.getSource() == miReporteAnalisisRes) {
+                cp.reporteAnalisisRes();
             }
         }
     }

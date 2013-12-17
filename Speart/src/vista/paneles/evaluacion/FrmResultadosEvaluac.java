@@ -7,7 +7,6 @@ package vista.paneles.evaluacion;
 import controlador.acciones.operaciones.ControladorCompetenciasTecnicas;
 import controlador.basedatos.OperacionesBD;
 import controlador.experto.BaseConocimiento;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -23,7 +22,6 @@ import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import vista.FrmPrincipal;
 import vista.modelo.Mensaje;
@@ -373,9 +371,6 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         dispose();        // TODO add your handling code here:
-       
-
-
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnGuardaResEvaluacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaResEvaluacionActionPerformed
@@ -486,4 +481,5 @@ public class FrmResultadosEvaluac extends javax.swing.JDialog {
                 return null;
         }
     }
+    
 }

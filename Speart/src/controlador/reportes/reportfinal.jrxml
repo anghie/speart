@@ -9,29 +9,25 @@
 	<title>
 		<band height="257" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="fa53781f-46fa-46c8-93b4-a803627eb97a" x="248" y="10" width="500" height="40"/>
+				<reportElement x="248" y="10" width="500" height="40" uuid="fa53781f-46fa-46c8-93b4-a803627eb97a"/>
 				<textElement>
 					<font fontName="Arial" size="24"/>
 				</textElement>
 				<text><![CDATA[INSTITUTO ECUATORIANO DE SEGURIDAD SOCIAL]]></text>
 			</staticText>
-			<image>
-				<reportElement uuid="7cb9374e-c7e5-471f-9129-4c9a4e492d9c" x="10" y="10" width="184" height="128"/>
-				<imageExpression><![CDATA["D:\\Documents\\NetBeansProjects\\Speart\\src\\controlador\\reportes\\LOGO.png"]]></imageExpression>
-			</image>
 			<staticText>
-				<reportElement uuid="5ce90a5e-7404-423a-ad31-d5a1ee583c59" x="219" y="50" width="562" height="37"/>
+				<reportElement x="219" y="50" width="562" height="37" uuid="5ce90a5e-7404-423a-ad31-d5a1ee583c59"/>
 				<textElement>
 					<font fontName="Arial" size="24"/>
 				</textElement>
 				<text><![CDATA[DEPARTAMENTO DE RIESGOS DEL TRABAJO DE LOJA]]></text>
 			</staticText>
 			<image>
-				<reportElement uuid="03c1242b-68dc-4fed-b4ac-9286ee8f4243" x="502" y="100" width="300" height="64"/>
+				<reportElement x="502" y="100" width="300" height="64" uuid="03c1242b-68dc-4fed-b4ac-9286ee8f4243"/>
 				<imageExpression><![CDATA["leaf_banner_violet.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement uuid="a0f04bbb-0c05-4315-9851-ba52899c8203" x="10" y="174" width="157" height="20"/>
+				<reportElement x="10" y="174" width="157" height="20" uuid="a0f04bbb-0c05-4315-9851-ba52899c8203"/>
 				<textElement>
 					<font fontName="Arial" size="14"/>
 				</textElement>
@@ -39,26 +35,30 @@
 ]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement uuid="68c6f127-acb1-43c7-8e53-0ac5424314de" style="Column header" x="167" y="194" width="197" height="20"/>
+				<reportElement style="Column header" x="167" y="194" width="197" height="20" uuid="68c6f127-acb1-43c7-8e53-0ac5424314de"/>
 				<textElement>
 					<font size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="caa4992f-7d66-4140-ab04-f955f60db7a5" x="10" y="194" width="157" height="20"/>
+				<reportElement x="10" y="194" width="157" height="20" uuid="caa4992f-7d66-4140-ab04-f955f60db7a5"/>
 				<textElement>
 					<font fontName="Arial" size="14"/>
 				</textElement>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="b4754b3c-daff-44ef-a414-4f631bb70ec3" x="10" y="233" width="505" height="20" forecolor="#009933"/>
+				<reportElement x="10" y="233" width="505" height="20" forecolor="#009933" uuid="b4754b3c-daff-44ef-a414-4f631bb70ec3"/>
 				<textElement>
 					<font fontName="Arial" size="14" isBold="true" isStrikeThrough="false"/>
 				</textElement>
 				<text><![CDATA[ANÁLISIS DE RESULTADOS DE LA EVALUACIÓN DEL DESEMPEÑO]]></text>
 			</staticText>
+			<image>
+				<reportElement x="10" y="50" width="209" height="124" uuid="6b8a267a-a467-4e28-ae5e-5918146c09ae"/>
+				<imageExpression><![CDATA["LOGO.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
@@ -67,66 +67,66 @@
 	<columnHeader>
 		<band height="39" splitType="Stretch">
 			<rectangle radius="10">
-				<reportElement uuid="ea52b3ef-ac00-4f0d-9b33-8fae00efc4ec" x="10" y="0" width="792" height="39"/>
+				<reportElement x="10" y="0" width="792" height="39" uuid="ea52b3ef-ac00-4f0d-9b33-8fae00efc4ec"/>
 			</rectangle>
 			<staticText>
-				<reportElement uuid="4f5efad6-3b2e-484a-9922-8f83ca0b9eec" x="10" y="19" width="120" height="20"/>
+				<reportElement x="10" y="19" width="120" height="20" uuid="4f5efad6-3b2e-484a-9922-8f83ca0b9eec"/>
 				<textElement>
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[APELLIDOS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="76b765a4-a907-42cb-83ab-a86b05ecab17" x="130" y="19" width="118" height="20"/>
+				<reportElement x="130" y="19" width="118" height="20" uuid="76b765a4-a907-42cb-83ab-a86b05ecab17"/>
 				<textElement textAlignment="Justified">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[NOMBRES]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="c0b0fe98-17bb-416f-ab54-9a4235b17d0c" x="248" y="19" width="104" height="20"/>
+				<reportElement x="248" y="19" width="104" height="20" uuid="c0b0fe98-17bb-416f-ab54-9a4235b17d0c"/>
 				<textElement textAlignment="Justified">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[PUESTO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="5f2b9370-5123-4faa-99d4-298bf40c464b" x="352" y="19" width="67" height="20"/>
+				<reportElement x="352" y="19" width="67" height="20" uuid="5f2b9370-5123-4faa-99d4-298bf40c464b"/>
 				<textElement textAlignment="Justified">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[CIUDAD]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="7ebdbd4e-06d9-456c-930c-4fab0ef5e68a" x="419" y="19" width="120" height="20"/>
+				<reportElement x="419" y="19" width="120" height="20" uuid="7ebdbd4e-06d9-456c-930c-4fab0ef5e68a"/>
 				<textElement textAlignment="Justified">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[CALIFICACIÓN JEFE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="ce9d88aa-0151-47e5-8672-5d01c5fc0abc" x="539" y="0" width="120" height="20"/>
+				<reportElement x="539" y="0" width="120" height="20" uuid="ce9d88aa-0151-47e5-8672-5d01c5fc0abc"/>
 				<textElement textAlignment="Justified">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[CALIFICACIÓN DEL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="c6de9b8f-b9a4-43e0-9f4e-4a3969ffe6ad" x="539" y="19" width="120" height="20"/>
+				<reportElement x="539" y="19" width="120" height="20" uuid="c6de9b8f-b9a4-43e0-9f4e-4a3969ffe6ad"/>
 				<textElement textAlignment="Justified">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[CIUDADANO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="0c3ef721-db64-4b0f-986f-a22ebf34ada6" x="661" y="0" width="87" height="20"/>
+				<reportElement x="661" y="0" width="87" height="20" uuid="0c3ef721-db64-4b0f-986f-a22ebf34ada6"/>
 				<textElement textAlignment="Justified">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[CALIFICACIÓN ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="206ba3c8-051f-45f7-8a29-5fa0939a27d9" x="661" y="19" width="87" height="20"/>
+				<reportElement x="661" y="19" width="87" height="20" uuid="206ba3c8-051f-45f7-8a29-5fa0939a27d9"/>
 				<textElement textAlignment="Justified">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
