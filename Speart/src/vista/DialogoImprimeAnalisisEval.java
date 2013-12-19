@@ -138,8 +138,9 @@ private static DialogoImprimeAnalisisEval dia = null;
             evals = new ArrayList<>();
             ArrayList<Evaluacion> evaluaciones = (ArrayList<Evaluacion>) OperacionesBD.listar("Evaluacion");
             for (Evaluacion e : evaluaciones) {
-                if (e.getFechaEvaluacion().getTime().after(desde)
-                        && e.getFechaEvaluacion().getTime().before(hasta)) {
+                if ((e.getFechaEvaluacion().getTime().after(desde)
+                        && e.getFechaEvaluacion().getTime().before(hasta))
+                        ||e.getFechaEvaluacion().getTime().equals(desde)) {
                     evals.add(e);
                 }
             }
