@@ -6,6 +6,7 @@
 package vista;
 
 import controlador.basedatos.OperacionesBD;
+import controlador.reportes.EvaluacionResultados;
 import java.awt.Frame;
 import java.util.ArrayList;
 import java.util.Date;
@@ -128,6 +129,7 @@ private static DialogoImprimeAnalisisEval dia = null;
     private javax.swing.JTable tblRepAnalisis;
     // End of variables declaration//GEN-END:variables
     private ArrayList<Evaluacion> evals;
+    private ArrayList<EvaluacionResultados> evres;
 
     private void listarEvaluaciones() {
         if (dpDesde.getDate() != null && dpHasta.getDate() != null) {
@@ -141,6 +143,18 @@ private static DialogoImprimeAnalisisEval dia = null;
                     evals.add(e);
                 }
             }
+            evres = new ArrayList<>();
+            for(Evaluacion e: evals){
+                EvaluacionResultados er = new EvaluacionResultados();
+                er.setApellidos(e.getUsuarioEval().getApellidos());
+                er.setNombres(e.getUsuarioEval().getNombre());
+                er.setCedula(e.getUsuarioEval().getCedula());
+                er.setPuesto(e.getUsuarioEval().getRol().getCargo());
+                er.setCalifJefe(String.valueOf(e.getTotalEval()-e.getEvalciud()));
+                er.setCalifCiud(String.valueOf(e.getEvalciud()));
+                er.setCalifTotal(String.valueOf(e.getTotalEval()));
+                evres.add(er);
+            }
         }else{
             JOptionPane.showMessageDialog(null, "Ingrese las fechas de las que quiere la evaluacion");
         }
@@ -151,9 +165,20 @@ private static DialogoImprimeAnalisisEval dia = null;
         dtm.addColumn("Apellidos");
         dtm.addColumn("Nombres");
         dtm.addColumn("Puesto");
-        dtm.addColumn("Calificacion");
+        dtm.addColumn("Calificacion Jefe");
         dtm.addColumn("Calificacion Ciud");
         dtm.addColumn("Calificacion Total");
+                
+        for(EvaluacionResultados er : evres){
+            Object[] r = new Object[6];
+            r[0]= er.getApellidos();
+            r[1]= er.getNombres();
+            r[2]= er.getPuesto();
+            r[3]= er.getCalifJefe();
+            r[4]= er.getCalifCiud();
+            r[5]= er.getCalifTotal();
+            dtm.addRow(r);
+        }
         tblRepAnalisis.setModel(dtm);
     }
     
