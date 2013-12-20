@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE map
+PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN"
+"http://java.sun.com/products/javahelp/map_2_0.dtd">
+<map version="1.0">
+
+    
+    <mapID target="indice" url="manuales/index.html" />   
+    <mapID target="introduccion" url="manuales/Manual de usuario.html"/>
+    <mapID target="privilegios"/>
+    <mapID target="ingresousuario" url="manuales/Agregar usuario.html"/>
+    <mapID target="modificarusuario" url="manuales/Modificar usuarios.html" />
+    <mapID target="deshabilitarusuario" url="manuales/deshabilitar usuario.html"/>
+    <mapID target="agregarconocimientos" url="manuales/agregarconocimientos.html"/>
+    <mapID target="agregardestrezas" url="manuales/agregardestreza.html"/>          
+    <mapID target="quejas" url="manuales/agregarquejas.html"/>
+                      
+    <mapID   target="nuevoproceso" url="manuales/ingresarproceso.html"/>
+    <mapID   target="editarproceso" url="manuales/editarproceso.html"/>
+    <mapID   target="editaractividad" url="manuales/editaractividad.html"/>
+    <mapID   target="eliminaractividad" url="manuales/eliminaractividad.html"/>
+    <mapID   target="buscaractividad" url="manuales/buscaractividad.html"/>
+    <mapID   target="agregarseccion" url="manuales/nueva seccion.html"/>
+    <mapID target="editarseccion" url="manuales/editar seccion.html"/>
+    <mapID  target="eliminarpregunta" url="manuales/eliminar pregunta.html"/>
+    <mapID  target="nuevacompetenciatecnica" url="manuales/nuevacomptecnica.html"/>
+    <mapID  target="editarcompetenciatecnica" url="manuales/editarcomptecnica.html"/>
+    
+    <mapID  target="eliminarcomptecnica" url="manuales/eliminarcomptecnica.html"/>
+    <mapID        target="nuevacompuniversal" url="manuales/nuevacompuni.html"/>
+    <mapID       target="editarcompuniversal" url="manuales/editarcompuniv.html"/>
+    <mapID       target="eliminarcompuniversal" url="manuales/eliminarcompuniv.html"/>
+    <mapID       target="nuevacomptrabajo" url="manuales/nuevotrabajo.html"/>
+    <mapID    target="editarcomptrabajo" url="manuales/editartrabajo.html"/>
+    <mapID      target="eliminarcomptrabajo" url="manuales/eliminartrabajo.html"/>
+   
+    </map>
+

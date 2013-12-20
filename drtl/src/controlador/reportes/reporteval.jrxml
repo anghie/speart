@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteval" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="751ded63-aa3b-4c11-8da7-99cccce54615">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="igp" class="java.lang.String"/>
+	<parameter name="conoc" class="java.lang.String"/>
+	<parameter name="cotec" class="java.lang.String"/>
+	<parameter name="couniv" class="java.lang.String"/>
+	<parameter name="trab" class="java.lang.String"/>
+	<parameter name="qu" class="java.lang.String"/>
+	<parameter name="total" class="java.lang.String"/>
+	<parameter name="fe" class="java.lang.String"/>
+	<parameter name="fecha" class="java.lang.String"/>
+	<parameter name="efecto" class="java.lang.String"/>
+	<parameter name="desem" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     evaluacion.`idEvaluacion` AS evaluacion_idEvaluacion,
+     evaluacion.`cct` AS evaluacion_cct,
+     evaluacion.`ccu` AS evaluacion_ccu,
+     evaluacion.`conoc` AS evaluacion_conoc,
+     evaluacion.`evalciud` AS evaluacion_evalciud,
+     evaluacion.`fechaEvaluacion` AS evaluacion_fechaEvaluacion,
+     evaluacion.`igp` AS evaluacion_igp,
+     evaluacion.`til` AS evaluacion_til,
+     evaluacion.`totalEval` AS evaluacion_totalEval,
+     evaluacion.`usuarioEval_idpersona` AS evaluacion_usuarioEval_idpersona
+FROM
+     `evaluacion` evaluacion]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="154" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="2a91ecc8-e098-4333-94b7-0cbe3517dc3d" x="0" y="133" width="237" height="19"/>
+				<textElement>
+					<font fontName="Berlin Sans FB" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RESULTADOS DE LA EVALUACIÓN ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2f75cfa7-638b-420d-8518-cd0c82ddbb97" x="244" y="5" width="525" height="40"/>
+				<textElement>
+					<font fontName="Berlin Sans FB" size="24"/>
+				</textElement>
+				<text><![CDATA[INSTITUTO ECUATORIANO DE SEGURIDAD SOCIAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="338b283a-e6aa-402c-828c-03b8072460fe" x="215" y="45" width="587" height="37"/>
+				<textElement>
+					<font fontName="Berlin Sans FB" size="24"/>
+				</textElement>
+				<text><![CDATA[DEPARTAMENTO DE RIESGOS DEL TRABAJO DE LOJA]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="b5294ddd-73ba-4a41-b234-4c180d20d909" x="6" y="5" width="209" height="128"/>
+				<imageExpression><![CDATA["D:\\Documents\\NetBeansProjects\\Speart\\src\\controlador\\reportes\\LOGO.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="6" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="48" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement uuid="fe18a4ec-a8db-4146-a1d8-4ce707a9615f" x="0" y="0" width="802" height="48"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="66cfb416-f18f-48bf-a61e-7d227bff9ae7" x="0" y="13" width="420" height="35"/>
+				<textElement>
+					<font fontName="Berlin Sans FB" size="14" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[FACTORES DE EVALUACIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bd558be0-af8a-4c00-a33b-7c76c1e4a533" x="420" y="13" width="326" height="35"/>
+				<textElement>
+					<font fontName="Berlin Sans FB" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CALIFICACIÓN ALCANZADA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="259" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="d901e562-dc7f-48ab-b892-a3c0c25a735e" x="6" y="0" width="414" height="19"/>
+				<textElement>
+					<font fontName="Berlin Sans FB" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Indicadores de Gestión del Puesto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="45917069-7a84-4cb4-b71e-27151396081b" x="6" y="19" width="414" height="19"/>
+				<textElement>
+					<font fontName="Berlin Sans FB" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Conocimientos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a52fa80d-b94a-47ec-9c08-a6b10ee86b78" x="6" y="38" width="414" height="19"/>
+				<textElement>
+					<font fontName="Berlin Sans FB" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ Competencias Tecnicas de Puesto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="be541782-32d0-4a5f-a6d5-b0494c9af03a" x="6" y="57" width="414" height="19"/>
+				<textElement>
+					<font fontName="Berlin Sans FB" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Competencias Universales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="968f3197-1f8d-41db-9f6a-fca2c51a6150" x="6" y="76" width="414" height="19"/>
+				<textElement>
+					<font fontName="Berlin Sans FB" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Trabajo en Equipo, Iniciativa y Liderazgo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="973cd921-2d8b-478c-8ab5-114b3f353c55" x="6" y="95" width="414" height="19"/>
+				<textElement>
+					<font fontName="Berlin Sans FB" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Evaluación del ciudadano (-)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5b40149b-b174-4811-ac53-a6ca24558736" x="6" y="132" width="740" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Berlin Sans FB" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[		TOTAL EVALUACIÓN DEL DESEMPEÑO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6e6c0644-7d6d-4458-9870-4b4154fce551" x="6" y="151" width="740" height="19"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Berlin Sans FB" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[		DESEMPEÑO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e620f2e1-6c4d-46bd-9561-2dc1ff49d642" x="6" y="170" width="740" height="19"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Berlin Sans FB" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[		EFECTO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb676b73-9a9d-4384-ba05-de2648ad0065" x="6" y="189" width="740" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Berlin Sans FB" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[		FUNCIONARIO EVALUADOR:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c1bd2c6b-8611-47ad-a3e6-4d3d8d5c7494" x="6" y="208" width="158" height="19"/>
+				<textElement>
+					<font fontName="Berlin Sans FB" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Fecha (dd/mm/aaaa):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e1dc5f43-efd3-4606-95e5-51f88c422eaa" x="6" y="227" width="740" height="19"/>
+				<textElement>
+					<font fontName="Berlin Sans FB" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[CERTIFICO: Que he evaluado al (a la) servidor (a) acorde al procedimiento de la norma de Evaluación de Desempeño.]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="7cb6a46a-1fdc-4b9b-b882-a97d451f94c8" x="425" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{igp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="aa336be3-a09c-4a1d-a00c-5fee79c59a1e" x="425" y="20" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{conoc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d19cb66d-107b-49af-8eef-1a11d985ce44" x="425" y="40" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{cotec}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d3b81239-7ae2-44af-a118-8c8e2aab8da9" x="425" y="60" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{couniv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cf6a84af-74e8-40d6-b96f-523c3c5b60e2" x="425" y="80" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{trab}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b7f6015c-70ff-4361-9550-a23c789dcf44" x="425" y="100" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{qu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e20fc7ac-4ef4-437a-93db-27cea7d53ea9" x="560" y="132" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3a1b678a-5225-4cb7-8efa-80d32d204a00" x="525" y="188" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{fe}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="02e49e7f-0387-4841-b7bc-33c99e991306" x="164" y="208" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c512b948-df28-4516-9b28-56a9d5d0a368" x="145" y="169" width="601" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{efecto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="bf2a60f4-5960-45ae-924e-d6d0dc3f6e2a" x="181" y="152" width="565" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{desem}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="87" splitType="Stretch">
+			<line>
+				<reportElement uuid="8ddceecc-d742-4a16-b694-18536b1fd18e" x="284" y="15" width="276" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="27f68cc6-8898-4416-8654-09414c5fcc09" mode="Opaque" x="336" y="36" width="163" height="18" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement>
+					<font fontName="Berlin Sans FB" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Evaluador o Jefe Inmediato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f8247361-2855-485a-9e0c-8e17bfee1478" x="391" y="16" width="65" height="20"/>
+				<textElement>
+					<font fontName="Berlin Sans FB" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[FIRMA]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

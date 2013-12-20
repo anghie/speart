@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteInforme" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="75701394-f5fa-41e0-909c-eb656170989b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="prm_fecha_desde" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="prm_fecha_hasta" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select fecha, mes, indicador,valor,nombreActividad,nombre,apellidos
+from meta,persona,actividad
+where meta.actividad_idActividad=idActividad
+and meta.usuario_idPersona=persona.idPersona]]>
+	</queryString>
+	
+	<field name="Proceso" class="java.lang.String"/>
+	<field name="Indicador" class="java.lang.String"/>
+	<field name="Descripcion" class="java.lang.String"/>
+	<field name="Meta" class="java.lang.String"/>
+	<field name="Total" class="java.lang.String"/>
+	<field name="Actividad" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="186" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="5fac8dad-8612-4a1c-9e8a-f21d081287f1" x="180" y="140" width="85" height="20"/>
+				<textElement/>
+				<text><![CDATA[FECHA HASTA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d8226345-3b94-451d-8f11-c055a9024fcd" x="180" y="105" width="85" height="20"/>
+				<textElement/>
+				<text><![CDATA[FECHA DESDE:]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="b7a379dc-0df7-415a-9577-dc065a70f206" x="10" y="10" width="171" height="169"/>
+				<imageExpression><![CDATA[".\\reportes\\LOGO.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="dfb4bac3-228c-432e-be7a-0e1ee2848c09" x="180" y="10" width="264" height="20"/>
+				<textElement/>
+				<text><![CDATA[INSTITUTO ECUATORIANO DE SEGURIDAD SOCIAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="618e2e40-9b1d-429c-b039-1db3acf9877c" x="181" y="40" width="283" height="20"/>
+				<textElement/>
+				<text><![CDATA[DEPARTAMENTO DE RIESGOS DEL TRABAJO DE LOJA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="75a27fcb-eb66-47cf-8453-41b2dbec7bde" x="181" y="71" width="56" height="20"/>
+				<textElement/>
+				<text><![CDATA[FECHA:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="bf35364e-cf37-457d-b880-d6a6afdc9420" x="248" y="71" width="166" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="349a2d54-f417-4afb-acd8-9bf090c0f01a" x="286" y="105" width="124" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{prm_fecha_desde}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5b52658e-e026-43ea-a5ee-87fac0875efe" x="286" y="140" width="124" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{prm_fecha_hasta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="23" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="171353a4-24d6-4235-ae62-eb2785567805" x="91" y="0" width="89" height="20"/>
+				<textElement/>
+				<text><![CDATA[Proceso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b1c716af-1caf-4a1d-8052-af14c89f34dd" x="186" y="0" width="79" height="20"/>
+				<textElement/>
+				<text><![CDATA[Actividad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c2d02c5a-1149-4144-9cf3-8cc4f670a2e7" x="275" y="0" width="79" height="20"/>
+				<textElement/>
+				<text><![CDATA[Descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="22ea0da3-ef8e-4e77-a0cc-029e0d6e8188" x="364" y="0" width="50" height="20"/>
+				<textElement/>
+				<text><![CDATA[Indicador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="42a6fdd0-2f25-43ad-8219-40cefdfbec21" x="425" y="0" width="52" height="20"/>
+				<textElement/>
+				<text><![CDATA[Meta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c91feabf-6bab-437f-9546-28f6bfc1a916" x="489" y="0" width="66" height="20"/>
+				<textElement/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement uuid="964f55d8-c808-4e66-a31d-26df3d2086ab" mode="Transparent" x="0" y="0" width="539" height="27"/>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<textField>
+				<reportElement uuid="b9278ddd-064e-4626-a76d-66c9c6280081" x="91" y="14" width="89" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Proceso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="058239a7-f241-456b-8b9c-c030c270ea3d" x="186" y="14" width="79" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Actividad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2d51cfc8-c3c5-4e9c-932c-4593d9e44935" x="275" y="14" width="79" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9d2fbe09-06b4-458e-a092-6540b36e5329" x="364" y="14" width="50" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Indicador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="437ba10e-98a3-46cf-9639-314028ab109d" x="425" y="14" width="52" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Meta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dca20be6-8b18-4cb4-b779-9173019130f5" x="489" y="14" width="66" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Total}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="e598b9ea-b817-447c-9155-67bf3d44f80d" x="3" y="32" width="552" height="1"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="8" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="ea0f242b-637c-41b0-9419-7cf2dd856e3d" x="265" y="26" width="50" height="20"/>
+				<textElement/>
+				<text><![CDATA[FIRMA]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="fa52e97d-0ea9-439e-8797-2adbf2ec99e1" x="237" y="25" width="100" height="1"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
